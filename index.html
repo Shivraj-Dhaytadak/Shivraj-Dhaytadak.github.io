@@ -1,387 +1,693 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Shivraj Dhaytadak -Persoal Website</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivraj Dhaytadak | AI Strategy & Agentic Architecture Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white antialiased">
 
-<body>
+    <script>
+        const portfolioData = {
+            profile: {
+                name: "SHIVRAJ DHAYTADAK",
+                role: "AI Strategy Consultant",
+                subRole: "Associate Business Consultant @ Allianz Services India",
+                location: "Pune, IN",
+                email: "shivraj.25d@gmail.com",
+                phone: "",
+                github: "https://github.com/Shivraj-Dhaytadak",
+                linkedin: "https://www.linkedin.com/in/shivraj-dhaytadak7" // Update dynamically
+            },
+            companies: [
+                {
+                    id: "allianz",
+                    name: "Allianz Services",
+                    type: "Insurance GCC / Captive",
+                    targetRole: "AI Strategy Consultant",
+                    duration: "Jan 2026 - Present",
+                    mappedProject: "bluey_ai_lodgement"
+                },
+                {
+                    id: "yashtechnologies",
+                    name: "Yash Technologies",
+                    type: "Consultancy",
+                    targetRole: "Data Scientist (Gen AI)",
+                    duration: "May 2025 - Jan 2026",
+                    mappedProject: "project_FlowIQ"
+                },
+                {
+                    id: "persistentsystems",
+                    name: "Persistent Systems",
+                    type: "IT Products & Services",
+                    targetRole: "Senior Software Engineer (Gen AI)",
+                    duration: "Aug 2022 - May 2025",
+                    mappedProject: "sasva"
+                }
+            ],
+            projects: {
+                bluey_ai_lodgement: {
+                    name: "Project Bluey-AI Lodgement",
+                    impact: "Production architecture serving automated insurance lodgement pipelines. Built as an enterprise-grade agentic workflow optimized for high-throughput messaging structures and deterministic business constraints.",
+                    stack: ["LangGraph", "Azure Function App", "Blob Storage", "Managed Kafka", "Service Bus" ,"Event Hubs", "Pydantic", "Application Insights", "Foundry GPT-5.4 mini"],
+                    tabs: {
+                        orchestration: {
+                            title: "Multi-Agent Orchestration Flow",
+                            description: "Visualizes state validation, parallel valuation, tool selection, and routing within the LangGraph Multi-Agent loop.",
+                            visualType: "flow-allianz",
+                            specTitle: "LangGraph State Machine & Multi-Agent Topologies",
+                            code: `from typing import Annotated, Sequence, Dict, Any\nfrom typing_extensions import TypedDict\nfrom pydantic import BaseModel, Field\nfrom langgraph.graph import StateGraph, START, END\n\n# Enterprise State Definition matching production blueprint specs\nclass AgenticGraphState(TypedDict):\n    claim_id: str\n    payload_standardized: bool\n    validation_passed: bool\n    coverage_matched: bool\n    fraud_metrics: Dict[str, Any]\n    weather_risk_score: float\n    payment_reserve_exposure: float\n    routing_history: list[str]\n\n# Dynamic Two-Tier Supervisor Prompt Router Implementation\ndef supervisor_guardrail_node(state: AgenticGraphState):\n    """Evaluates inbound parameters using Pydantic Validation Schemes"""\n    if not state.get("validation_passed"):\n        return {"next": "Guardrails"}\n    if not state.get("coverage_matched"):\n        return {"next": "Coverage"}\n    return {"next": "Triage"}`,
+                            bullets: [
+                                "Designed and implemented a declarative JSON Workflow system covering 19 claim journeys.",
+                                "Enables a 100k+ Claims per year workflow to be routed and processed without any code changes per claim type.",
+                                "New Claim journeys can be on-boarded with just a single JSON file, reducing time to ship from multiple weeks to just one day.",
+                                "Implemented a Two-tier prompt architecture that lets every claim type have custom rules alongside a Generalized rule per agent.",
+                                "Eliminated prompt duplication while ensuring each claim variant gets a highly domain-tuned agent response."
+                            ],
+                            tradeoffs: "Utilizing a centralized Orchestrator pattern introduces a slight processing hop overhead, but provides bulletproof transaction tracing and isolation boundaries for highly audited corporate workflows.",
+                            bottlenecks: "Addressed LLM non-determinism by injecting custom runtime validation layers directly into every individual micro-agent interface boundary."
+                        },
+                        vector: {
+                            title: "Data Ingestion & Event Fabric",
+                            description: "Asynchronous stream architecture handling incoming event telemetry, raw payloads, and persistent storage routing.",
+                            visualType: "vector-allianz",
+                            specTitle: "Managed Event Fabrics & Document Parsers",
+                            code: `# Ingestion Layer Processing - Managed Kafka & Azure Event Hubs Stream\nasync def process_kafka_stream_payload(event: KafkaEvent) -> StandardizedPayload:\n    raw_bytes = event.value()\n    parsed_json = external_parser_service(raw_bytes)\n    \n    # Map incoming telemetry straight to Azure Function Activity 1 Processing\n    standardized = StandardizedPayload(\n        claim_id=parsed_json['id'],\n        metadata=parsed_json['meta'],\n        timestamp=parsed_json['ts']\n    )\n    return standardized`,
+                            bullets: [
+                                "Architected an end-to-end data integration system stream parsing from Managed Kafka and Event Hubs into Activity 1 Ingestion Layers.",
+                                "Enforces payload standardization upstream prior to pushing execution parameters down into long-running Azure Durable Function App states.",
+                                "Integrates seamlessly with PDS caching storage strategies leveraging high-density cloud blobs for persistent downstream retrieval.",
+                                "Leverages Docling and structure extraction algorithms to process complex semi-structured document payloads."
+                            ],
+                            tradeoffs: "Upfront schema enforcement at the Kafka pipeline edge drops malformed claims early, decreasing downstream computing waste while requiring strict contract management.",
+                            bottlenecks: "Implemented asynchronous retry queues inside Azure Function apps to protect against downstream model gateway rate constraints."
+                        },
+                        guardrails: {
+                            title: "Production Guardrails & Eval",
+                            description: "Programmatic constraints, Pydantic type-safety validation schemas, and deep metrics visibility.",
+                            visualType: "guardrails-allianz",
+                            specTitle: "Pydantic Schemas & Telemetry Tracking",
+                            code: `from pydantic import BaseModel, Field, field_validator\n\nclass OperationalClaimsSchema(BaseModel):\n    claim_id: str\n    reserve_amount: float = Field(..., description="Exposure threshold check")\n    risk_index: str\n\n    @field_validator("reserve_amount")\n    @classmethod\n    def validate_exposure_caps(cls, value: float) -> float:\n        if value < 0:\n            raise ValueError("Exposure calculations must yield absolute values")\n        return value`,
+                            bullets: [
+                                "Implemented comprehensive Pydantic Schemas to handle Output validations and LangGraph state profiles.",
+                                "Pydantic validations are included in each agent node at runtime with custom validators, eliminating type issues caused by LLMs' non-deterministic behavior.",
+                                "Tracks critical production metrics: ingestion throughput, agent latency, model inference duration, coverage cache hit rate, and distributed traces.",
+                                "Provides comprehensive visibility into agent execution pathways using centralized Azure Application Insights logging."
+                            ],
+                            tradeoffs: "Comprehensive run-time validation parsing layer adds a few milliseconds to single node execution intervals but preserves system type safety profiles fully.",
+                            bottlenecks: "Enabled distributed transaction trace tracking across long-lived asynchronous processes to allow developers to rapidly address system latency patterns."
+                        }
+                    }
+                },
+                project_FlowIQ: {
+                    name: "Project FlowIQ: Text-to-SQL Graph Matrix",
+                    impact: "High-performance enterprise analytics interface translating natural language expressions into structured operational queries securely.",
+                    stack: ["FastAPI", "LangGraph", "CrewAI", "Gemini 2.5", "SQLAlchemy", "PostgreSQL", "Azure SQL"],
+                    tabs: {
+                        orchestration: {
+                            title: "Natural Language SQL Generation Flow",
+                            description: "Text-to-SQL graph execution workflow designed with deep hybrid session state engines.",
+                            visualType: "",
+                            specTitle: "Dynamic Context Retention & Prompt Framing",
+                            code: `# Text-to-SQL Engine Orchestration Layout\nasync def translate_natural_query(prompt: str, session_id: str):\n    context = await memory_framework.get_session_context(session_id)\n    generated_sql = await multi_agent_crew.execute_generation_pass(prompt, context)\n    return verify_and_clean_sql(generated_sql)`,
+                            bullets: [
+                                "Engineered a high-performance FastAPI endpoint integrating a Text-to-SQL graph, enabling seamless natural language query translation to structured SQL, accelerating data retrieval by 40%.",
+                                "Architected a custom hybrid memory framework (short-term & long-term) for chat sessions, enhancing contextual retention and summarization, boosting query accuracy by 35% and improving SQL success rate scores by 25%.",
+                                "Achieved 80% reduction in manual SQL effort and 35% higher response precision, streamlining analytics workflows and decision-making.",
+                                "Built a Multi-agent workflow using Crew AI & Google Gemini 2.5 models to support code generation and review across multiple programming languages."
+                            ],
+                            tradeoffs: "Short-term loop state management tracks structural schema updates perfectly but updates memory cache profiles with elevated frequency layouts.",
+                            bottlenecks: "Sharded database metadata catalogs into memory spaces to isolate schema lookup lockups entirely during execution tasks."
+                        }
+                    }
+                },
+                sasva: {
+                    name: "Project SASVA: Codebase Knowledge Graph & RAG Core",
+                    impact: "Context-aware developer acceleration layer processing source code patterns via optimized semantic indexes.",
+                    stack: ["FastAPI", "LangChain", "Transformers", "VLLM", "Docker", "Git", "AWS Bedrock", "SageMaker"],
+                    tabs: {
+                        orchestration: {
+                            title: "Codebase RAG Optimization Pipelines",
+                            description: "Dense chunk alignment matrices mapping structural repositories to context window parameters.",
+                            visualType: "vector-allianz",
+                            specTitle: "Similarity Matrix Layouts & Inference Speedups",
+                            code: `# Codebase RAG Chunk Vector Synchronization Pass\ndef synchronize_repository_embeddings(repo_path: str):\n    nodes = parse_source_tree_to_chunks(repo_path)\n    embeddings = local_vllm_service.encode_batch(nodes.contents)\n    vector_store.upsert(points=build_points(nodes.ids, embeddings))`,
+                            bullets: [
+                                "Implemented high-performance model-serving endpoints using FastAPI, reducing response latency by 50% & securing reliable delivery for AI/ML applications.",
+                                "Created and executed automation scripts to replace repetitive tasks, enhancing precision in data retrieval by 35% and boosting productivity by 25% for product development initiatives.",
+                                "Developed an intelligent RAG chatbot to interact directly with the enterprise codebase, enabling highly efficient code documentation and retrieval mapping.",
+                                "Enhanced LLM inference with RAG by leveraging document chunking, embedding optimization, and similarity search, improving response relevancy by 40%.",
+                                "Optimized RAG workflow by fine-tuning embeddings and retrieval strategies, reducing latency by 30% and enhancing overall answer relevance."
+                            ],
+                            tradeoffs: "Upfront recursive file hierarchy traversal yields precise relational mapping parameters but increments bulk file synchronization task timelines slightly.",
+                            bottlenecks: "Enabled tree sharding boundaries inside git change listener monitors to strictly limit continuous embedding recalculations to changed modules."
+                        }
+                    }
+                }
+            },
+            careerDashboard: {
+                skills: {
+                    "Core Tech Stack": ["Python", "SQL (Postgres, MySQL)", "NoSQL (MongoDB)", "Pydantic", "Pandas", "NumPy", "Scikit-Learn"],
+                    "Agentic Systems": ["LangGraph", "LangChain", "CrewAI", "A2A", "Model Context Protocol (MCP)", "Pytest", "Ollama", "VLLM"],
+                    "Cloud Platforms": ["AWS (Bedrock, SageMaker, EC2, Lambda, S3)", "Azure ( AI Foundry , Azure Function App , Blob Storage)"],
+                    "Deep Learning & MLOps": ["PyTorch", "Transformers", "Hugging Face", "Data Curation Frameworks", "Docker", "CI/CD Jenkins", "GitHub Actions"]
+                },
+                moats: [
+                    "Declarative JSON Workflow Systems (19 Claim Journeys Managed Directly)",
+                    "Two-Tier LLM Prompt Architectures (Custom Rules + Generalized Rules)",
+                    "Runtime Node Validation (LangGraph State Synchronized with Pydantic)",
+                    "Advanced System Tracing (Ingestion Throughput, Latency, and Distributed Traces)"
+                ],
+                baselines: [
+                    "Azure AI Foundry & AWS Bedrock Tool Integration",
+                    "Asynchronous Stream Processing (Kafka / Event Hubs)",
+                    "Relational Database Layouts (PostgreSQL, Azure SQL, MySQL)",
+                    "Containerized Deployments (Docker)"
+                ],
+                // gaps: [
+                //     "Multi-Region Autonomous Model Failure Replications",
+                //     "Dynamic Sub-Graph State Machine Serialization Layers",
+                //     "Enterprise Cross-Tenant Identity Security Topologies"
+                // ]
+            }
+        };
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+        // App States
+        let selectedCompanyId = "allianz";
+        let activeProjectKey = "bluey_ai_lodgement";
+        let activeArchTab = "orchestration";
+        let isExpandedViewActive = false;
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
+        function setAppState(companyId, tabId = null) {
+            selectedCompanyId = companyId;
+            const company = portfolioData.companies.find(c => c.id === companyId);
+            activeProjectKey = company.mappedProject;
+            
+            const projectTabs = Object.keys(portfolioData.projects[activeProjectKey].tabs);
+            activeArchTab = tabId || projectTabs[0];
+            
+            renderApp();
+        }
 
-      <div class="profile">
-        <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Shivraj Dhaytadak</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://twitter.com/Shivadhayatadak" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://facebook.com/shiva.dhayatadak/" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/marvelous.reels/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="https://www.linkedin.com/in/shivraj-dhaytadak-105b92201/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        function setArchTab(tabId) {
+            activeArchTab = tabId;
+            renderApp();
+        }
+
+        function toggleExpandedCanvas(state) {
+            isExpandedViewActive = state;
+            renderApp();
+        }
+    </script>
+
+    <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-50 px-4 lg:px-8 py-4">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+            <div class="flex-1">
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 anonymity-pulse animate-pulse"></span>
+                    <h1 id="prof-name" class="text-xl font-bold code-font tracking-tight text-white"></h1>
+                    <span id="prof-role" class="px-2 py-0.5 bg-slate-800 text-slate-400 border border-slate-700 rounded text-[10px] uppercase font-semibold tracking-wider"></span>
+                </div>
+                <p id="prof-meta" class="text-xs text-slate-400 mt-1"></p>
+                <div class="flex gap-4 mt-2 text-xs text-indigo-400">
+                    <a id="link-github" href="#" target="_blank" class="hover:underline flex items-center gap-1"><i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub</a>
+                    <a id="link-linkedin" href="#" target="_blank" class="hover:underline flex items-center gap-1"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-auto bg-slate-950/60 border border-slate-800 p-3 rounded-lg grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <div class="text-[10px] uppercase font-bold text-slate-500 mb-1 flex items-center gap-1">
+                        <i data-lucide="award" class="w-3 h-3 text-amber-400"></i> Earned Distinctions
+                    </div>
+                    <ul class="space-y-1 text-slate-300 font-medium text-[11px]">
+                        <li>Allianz Services &bull; <span class="text-amber-400">Best Performer Q1 2026</span></li>
+                        <li>Yash Technologies &bull; <span class="text-indigo-400">Valuable Asset Award</span></li>
+                        <li>Persistent Systems &bull; <span class="text-blue-400">High Five & Bravo Awards</span></li>
+                    </ul>
+                </div>
+                <div class="border-t md:border-t-0 md:border-l border-slate-800 pt-2 md:pt-0 md:pl-4">
+                    <div class="text-[10px] uppercase font-bold text-slate-500 mb-1 flex items-center gap-1">
+                        <i data-lucide="verified" class="w-3 h-3 text-emerald-400"></i> Certifications
+                    </div>
+                    <ul class="space-y-1 text-slate-300 font-medium text-[11px]">
+                        <li class="flex items-center gap-1"><span class="h-1 w-1 rounded-full bg-slate-400"></span> Azure Certified AI Fundamentals</li>
+                        <li class="flex items-center gap-1"><span class="h-1 w-1 rounded-full bg-slate-400"></span> AWS Cloud Practitioner</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
+    </header>
 
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span> Projects </span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
+    <section class="bg-slate-900/30 border-b border-slate-900/60 px-4 lg:px-8 py-3">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-3 items-start md:items-center text-xs">
+            <span class="text-slate-500 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap block pt-1">Expert Domains:</span>
+            <div id="skills-matrix-bar" class="flex flex-wrap gap-2 w-full">
+                </div>
+        </div>
+    </section>
+
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
+        
+        <aside class="lg:col-span-1 flex flex-col gap-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                        <i data-lucide="briefcase" class="w-4 h-4 text-indigo-400"></i> Work Experience 
+                    </h2>
+                    <span class="text-[10px] text-slate-500 font-mono">3.5Y YOE</span>
+                </div>
+                
+                <div id="company-selector-container" class="flex flex-col gap-2.5">
+                    </div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-5 flex-1">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 mb-3">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Production Insights
+                    </h2>
+                    <div id="moats-container" class="flex flex-col gap-2">
+                        </div>
+                </div>
+
+                <hr class="border-slate-800">
+
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 mb-3">
+                        <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i> Technical Baselines
+                    </h2>
+                    <div id="baselines-container" class="flex flex-wrap gap-1.5">
+                        </div>
+                </div>
+
+
+            </div>
+        </aside>
+
+        <section class="lg:col-span-3 flex flex-col gap-6">
+            
+            <div id="context-banner" class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-l-4 border-l-indigo-500">
+                </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="p-2 bg-indigo-950 text-indigo-400 rounded">
+                        <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Enterprise Reference Architecture Blueprints</h4>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Initialize a structural diagnostics overlay matching production blueprint parameters.</p>
+                    </div>
+                </div>
+                <button onclick="toggleExpandedCanvas(true)" class="w-full sm:w-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-lg transition-all shadow-sm shadow-indigo-900/50 flex items-center justify-center gap-2 code-font">
+                    EXPLORATE_BLUEPRINT://RUN
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 xl:grid-cols-12 bg-slate-900 border border-slate-800 rounded-xl overflow-hidden min-h-[650px]">
+                
+                <div class="xl:col-span-4 p-5 border-b xl:border-b-0 xl:border-r border-slate-800 bg-slate-900/50 flex flex-col justify-between gap-6">
+                    <div class="flex flex-col gap-4">
+                        <div>
+                            <span class="text-[10px] font-bold tracking-widest text-indigo-400 uppercase code-font">ARCHITECTURAL BOUNDARY</span>
+                            <h3 id="scope-project-name" class="text-base font-bold text-white mt-1 leading-snug"></h3>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase code-font block mb-2">ENGINEERING SPECS & DELIVERABLES</span>
+                            <ul id="bullet-points-container" class="text-xs text-slate-300 list-none flex flex-col gap-2.5">
+                                </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase code-font block mb-2">VERIFIED PLATFORM RUNTIME STACK</span>
+                        <div id="scope-project-stack" class="flex flex-wrap gap-1.5">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="xl:col-span-4 p-5 border-b xl:border-b-0 xl:border-r border-slate-800 flex flex-col gap-4">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Architecture Pipeline Layers</h4>
+                    </div>
+
+                    <div id="arch-tabs-container" class="flex flex-col gap-2.5 mt-1">
+                        </div>
+
+                    <div class="flex-1 min-h-[240px] bg-slate-950 border border-slate-850 rounded-lg p-4 flex flex-col justify-center items-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                        <div id="layer-canvas-visualization" class="w-full h-full flex flex-col justify-center items-center text-center p-1 z-10">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="xl:col-span-4 bg-slate-950/70 flex flex-col h-full">
+                    <div class="p-4 border-b border-slate-800 bg-slate-950 flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="binary" class="w-4 h-4 text-indigo-400"></i>
+                            <h4 id="spec-header-title" class="text-xs font-bold code-font text-slate-200"></h4>
+                        </div>
+                        <span class="text-[10px] bg-indigo-950 text-indigo-400 px-2 py-0.5 rounded border border-indigo-900 font-semibold code-font">VERIFIED</span>
+                    </div>
+
+                    <div class="p-4 border-b border-slate-850 bg-slate-950 overflow-x-auto max-h-[280px] flex-1">
+                        <pre class="text-[11px] code-font text-indigo-300 leading-relaxed"><code id="spec-code-block"></code></pre>
+                    </div>
+
+                    <div class="p-4 bg-slate-900/60 border-t border-slate-800 flex flex-col gap-3">
+                        <div class="flex gap-2.5 items-start">
+                            <div class="p-1 rounded bg-amber-950 border border-amber-900/50 mt-0.5">
+                                <i data-lucide="scale" class="w-3.5 h-3.5 text-amber-400"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-[11px] font-bold text-slate-300 uppercase tracking-wide">System Boundary Trade-Offs</h5>
+                                <p id="spec-tradeoffs" class="text-xs text-slate-400 mt-0.5 leading-relaxed"></p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2.5 items-start">
+                            <div class="p-1 rounded bg-rose-950 border border-rose-900/50 mt-0.5">
+                                <i data-lucide="zap-off" class="w-3.5 h-3.5 text-rose-400"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-[11px] font-bold text-slate-300 uppercase tracking-wide">Bottleneck Interventions</h5>
+                                <p id="spec-bottlenecks" class="text-xs text-slate-400 mt-0.5 leading-relaxed"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <div id="blueprint-expansion-overlay" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md p-4 md:p-8 flex-col justify-center items-center hidden">
+        <div class="max-w-6xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row h-[90vh]">
+            <div class="flex-1 bg-slate-950 p-6 flex flex-col justify-center items-center relative overflow-y-auto border-b lg:border-b-0 lg:border-r border-slate-800">
+                <img src="ProjectBluey.png" alt="Project Bluey-AI Lodgement Production Blueprint" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-slate-500 text-xs font-mono border border-dashed border-slate-800 p-8 rounded\'><i data-lucide=\'image-off\' class=\'w-8 h-8 mx-auto mb-2 text-slate-600\'></i> Blueprint Frame Available:<br><span class=\'text-indigo-400 font-bold\'>Project Bluey.png</span></div>'; lucide.createIcons();">
+                <span class="absolute bottom-3 left-3 bg-slate-950 border border-slate-800 px-2 py-1 rounded text-[10px] code-font text-slate-400">Blueprint Registry: Azure-Durable-LangGraph-Pipeline</span>
+            </div>
+            <div class="w-full lg:w-[380px] p-6 bg-slate-900 flex flex-col justify-between overflow-y-auto">
+                <div class="flex flex-col gap-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-[9px] font-bold tracking-widest text-indigo-400 uppercase code-font">PRODUCTION BLUEPRINT ANALYSIS</span>
+                            <h3 class="text-base font-bold text-white mt-0.5">Project Bluey-AI Lodgement Topology</h3>
+                        </div>
+                        <button onclick="toggleExpandedCanvas(false)" class="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-all cursor-pointer">
+                            <i data-lucide="x" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-3.5 rounded-xl border border-slate-850">
+                        An Event Driven Multi-Agent Insurance Claims processing system built with Langgraph , Langchain and Azure OpenAI (Now Azure Foundry ) at core it with Dual Emit Observability
+                        with Dynatrace as Business Solution & Azure Application Insights as Core Agentic Observability Layer with Traces and Azure Foundry Evalutations all it running on Azure Durable Functions App orchestrating Multiple Activities including Input validations , Agent pipeline , Output Validations.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="flex gap-2 items-start text-xs text-slate-400">
+                            <i data-lucide="workflow" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                            <span><strong class="text-slate-200">Orchestration :</strong> Azure Durable Functions App orchestrating Multiple Activities including Input validations , Agent pipeline , Output Validations.</span>
+                        </div>
+                        <div class="flex gap-2 items-start text-xs text-slate-400">
+                            <i data-lucide="cpu" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                            <span><strong class="text-slate-200">Inference Core:</strong> Federated micro-agent array driven under unified Foundry GPT-5.4 mini inference backends.</span>
+                        </div>
+                        <div class="flex gap-2 items-start text-xs text-slate-400">
+                            <i data-lucide="bot" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                            <span><strong class="text-slate-200">Agentic Core:</strong> Robust Agentic Solution built with Langgraph with 19 different Claim types & effectively orchestrating 145+ agents across 19 Claim types</span>
+                        </div>
+                        <div class="flex gap-2 items-start text-xs text-slate-400">
+                            <i data-lucide="database" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                            <span><strong class="text-slate-200">PDS Layer:</strong> Hot caching arrays optimized via dedicated Blob Storage backing structures to shield redundant policy disclosures.</span>
+                        </div>
+                        <div class="flex gap-2 items-start text-xs text-slate-400">
+                            <i data-lucide="activity" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span><strong class="text-slate-200">Observability Array:</strong> Distributed Application Insights traces measuring pipeline ingestion metrics, agent latency, and schema hit-rate factors.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-slate-800 mt-6 text-[10px] text-slate-500 code-font text-center">
+                    System Architecture Standard 2026
+                </div>
+            </div>
+        </div>
     </div>
-  </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Shivraj Dhaytadak</h1>
-      <p>I'm A <span class="typed" data-typed-items="Designer, Developer, Editor "></span></p>
-    </div>
-  </section><!-- End Hero -->
+    <script>
+        function initializeStaticProfile() {
+            const p = portfolioData.profile;
+            document.getElementById("prof-name").innerText = p.name;
+            document.getElementById("prof-role").innerText = p.role;
+            document.getElementById("prof-meta").innerHTML = `${p.subRole} &bull; ${p.location} &bull; ${p.email} &bull; ${p.phone}`;
+            document.getElementById("link-github").href = p.github;
+            document.getElementById("link-linkedin").href = p.linkedin;
 
-  <main id="main">
+            // Render Tech Stack Bar Segment
+            const barContainer = document.getElementById("skills-matrix-bar");
+            let count = 0;
+            Object.entries(portfolioData.careerDashboard.skills).forEach(([category, list]) => {
+                list.slice(0, 3).forEach(skill => {
+                    if (count < 10) {
+                        const pill = document.createElement("span");
+                        pill.className = "px-2 py-0.5 bg-slate-900 border border-slate-800 text-slate-300 text-[11px] rounded font-medium";
+                        pill.innerText = skill;
+                        barContainer.appendChild(pill);
+                        count++;
+                    }
+                });
+            });
+        }
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+        function renderApp() {
+            // Expanded Canvas View Logic
+            const overlayModal = document.getElementById("blueprint-expansion-overlay");
+            if (isExpandedViewActive) {
+                overlayModal.classList.remove("hidden");
+                overlayModal.classList.add("flex");
+            } else {
+                overlayModal.classList.remove("flex");
+                overlayModal.classList.add("hidden");
+            }
 
-        <div class="section-title">
-          <h2>About</h2>
-          <p><em>Dedicated and Enthusiast about New Technology Emerging in Computer Science both in Software and Hardware <br> Currently Doing My UG Degree From PES Modern college Of Engineering,Pune.<br> Looking Forward for Upcoming Opportunity .
-            <br>Good Performer in Hard situation .<br> upright in Learning in New Things.
-           </em></p>
-        </div>
+            // Company Timeline Selection Matrix Mapping Engine
+            const companyContainer = document.getElementById("company-selector-container");
+            companyContainer.innerHTML = "";
+            
+            portfolioData.companies.forEach(company => {
+                const isSelected = company.id === selectedCompanyId;
+                const button = document.createElement("button");
+                button.className = `w-full text-left p-3 rounded-lg border transition-all duration-200 flex flex-col gap-0.5 cursor-pointer ${
+                    isSelected 
+                    ? "bg-indigo-950/40 border-indigo-500/80 shadow-lg shadow-indigo-950/20" 
+                    : "bg-slate-950/40 border-slate-800 hover:border-slate-700"
+                }`;
+                button.onclick = () => setAppState(company.id);
 
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Python &amp; Web Developer.</h3>
-            <p class="fst-italic">
+                button.innerHTML = `
+                    <div class="flex justify-between items-center w-full">
+                        <span class="text-xs font-bold tracking-wide ${isSelected ? 'text-white' : 'text-slate-300'}">${company.name}</span>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-400"></i>
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono">${company.type}</span>
+                    <div class="mt-1 flex items-center justify-between text-[10px] text-slate-500 code-font w-full">
+                        <span class="truncate text-indigo-300 font-medium">${company.targetRole}</span>
+                        <span class="text-[9px] text-slate-500 whitespace-nowrap">${company.duration}</span>
+                    </div>
+                `;
+                companyContainer.appendChild(button);
+            });
 
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>6 July 2000</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>ShivrajDhaytdak.github.io</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 79 72 47 6081</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Pune , Maharashtra</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>21</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Bachelor</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>Dhaytadaks007@gmail.com</span></li>
-                </ul>
-              </div>
-            </div>
-            <p>
+            // Production Defenses & Moats Dashboard
+            document.getElementById("moats-container").innerHTML = portfolioData.careerDashboard.moats.map(moat => `
+                <div class="flex gap-2 items-start text-xs text-slate-300 bg-slate-950/50 p-2 rounded border border-emerald-950/40">
+                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                    <span>${moat}</span>
+                </div>
+            `).join('');
 
-            </p>
-          </div>
-        </div>
+            document.getElementById("baselines-container").innerHTML = portfolioData.careerDashboard.baselines.map(base => `
+                <span class="text-[10px] code-font bg-slate-950 text-slate-400 border border-slate-800 px-2 py-1 rounded">
+                    ${base}
+                </span>
+            `).join('');
 
-      </div>
-    </section><!-- End About Section -->
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container">
+            // Context Highlight Banner Alignment Sync
+            const selectedCompany = portfolioData.companies.find(c => c.id === selectedCompanyId);
+            const contextBanner = document.getElementById("context-banner");
+            
+            let bannerMetaText = "";
+            if (selectedCompanyId === "allianz") {
+                bannerMetaText = "Project Bluey-AI Lodgement &mdash; Declarative JSON Engine handling 19 Claim Variant Journeys reducing lifecycle processing down to minutes.";
+            } else if (selectedCompanyId === "yashtechnologies") {
+                bannerMetaText = "Project FlowIQ &mdash; Text-to-SQL Graph Pipeline optimizing operational database query translations with short & long-term memory frameworks.";
+            } else {
+                bannerMetaText = "Project SASVA &mdash; Codebase analytics repository deploying custom chunk structures and token parsing arrays natively for LLM optimization.";
+            }
 
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p><em>I have been learning with hands on approach.<br> I like to get my hands dirty as in practical experience I also keep learning new things as I progress.<br> Currently I am learning Machine learning and AI Still new to Me.<br> </em></p>
-        </div>
+            contextBanner.innerHTML = `
+                <div>
+                    <div class="text-[11px] text-indigo-400 font-bold tracking-widest uppercase code-font">Active Portfolio Context Alignment</div>
+                    <h3 class="text-lg font-bold text-white mt-0.5">${selectedCompany.name} &mdash; ${selectedCompany.targetRole}</h3>
+                </div>
+                <div class="flex items-center gap-2 bg-emerald-950/30 border border-emerald-900/60 px-4 py-2 rounded-lg max-w-xl">
+                    <div class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></div>
+                    <span class="text-xs text-emerald-300 font-medium">${bannerMetaText}</span>
+                </div>
+            `;
 
-        <div class="row skills-content">
+            // Core Deliverable Bullet Content Management Sync
+            const project = portfolioData.projects[activeProjectKey];
+            document.getElementById("scope-project-name").innerText = project.name;
+            
+            const activeTabContent = project.tabs[activeArchTab] || Object.values(project.tabs)[0];
+            document.getElementById("bullet-points-container").innerHTML = activeTabContent.bullets.map(bullet => `
+                <li class="flex gap-2 items-start">
+                    <i data-lucide="arrow-right-circle" class="w-3.5 h-3.5 text-indigo-400 shrink-0 mt-0.5"></i>
+                    <span>${bullet}</span>
+                </li>
+            `).join('');
 
-          <div class="col-lg-6" data-aos="fade-up">
+            document.getElementById("scope-project-stack").innerHTML = project.stack.map(tech => `
+                <span class="text-[10px] code-font bg-indigo-950/60 text-indigo-300 border border-indigo-900/50 px-2 py-0.5 rounded font-semibold">
+                    ${tech}
+                </span>
+            `).join('');
 
-            <div class="progress">
-              <span class="skill">HTML <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            // Multi-Tab Pipeline Interaction Layout Setup
+            const tabsContainer = document.getElementById("arch-tabs-container");
+            tabsContainer.innerHTML = "";
 
-            <div class="progress">
-              <span class="skill">CSS <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            Object.keys(project.tabs).forEach(tabKey => {
+                const tabData = project.tabs[tabKey];
+                const isActive = tabKey === activeArchTab;
+                
+                const tabButton = document.createElement("button");
+                tabButton.className = `w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer ${
+                    isActive
+                    ? "bg-slate-950 border-slate-700 text-white"
+                    : "bg-slate-900/40 border-slate-800/60 text-slate-400 hover:bg-slate-900/80"
+                }`;
+                tabButton.onclick = () => setArchTab(tabKey);
 
-            <div class="progress">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            <div class="progress">
-              <span class="skill">MySQL <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-          </div>
+                let layerIcon = "cpu";
+                if(tabKey === "vector") layerIcon = "git-fork";
+                if(tabKey === "guardrails") layerIcon = "activity";
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                tabButton.innerHTML = `
+                    <div class="p-1.5 rounded ${isActive ? 'bg-indigo-950 text-indigo-400' : 'bg-slate-950 text-slate-500'}">
+                        <i data-lucide="${layerIcon}" class="w-4 h-4"></i>
+                    </div>
+                    <div class="overflow-hidden">
+                        <div class="text-xs font-bold leading-tight ${isActive ? 'text-indigo-300' : 'text-slate-300'}">${tabData.title}</div>
+                        <p class="text-[10px] text-slate-500 mt-0.5 leading-snug truncate">${tabData.description}</p>
+                    </div>
+                `;
+                tabsContainer.appendChild(tabButton);
+            });
 
-            <div class="progress">
-              <span class="skill">PHP <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            // Geometric Dynamic SVG Matrix Engine Update Call
+            document.getElementById("layer-canvas-visualization").innerHTML = generateStructuralVisual(activeTabContent.visualType);
 
-            <div class="progress">
-              <span class="skill">Python <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            // Code Specifications Terminal Update Trigger
+            document.getElementById("spec-header-title").innerText = activeTabContent.specTitle;
+            document.getElementById("spec-code-block").textContent = activeTabContent.code;
+            document.getElementById("spec-tradeoffs").innerText = activeTabContent.tradeoffs;
+            document.getElementById("spec-bottlenecks").innerText = activeTabContent.bottlenecks;
 
-            <div class="progress">
-              <span class="skill">C++<i class="val">60%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            // Re-render Lucide SVG nodes vector instances
+            lucide.createIcons();
+        }
 
-            <div class="progress">
-              <span class="skill">Photoshop <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+        // Custom Architectural UI Micro-Engine
+        function generateStructuralVisual(type) {
+            if (type === "flow-allianz") {
+                return `
+                    <div class="flex flex-col items-center gap-2 w-full text-slate-400">
+                        <span class="text-[9px] font-bold code-font text-indigo-400 mb-1">[LANGGRAPH INTERNALS]</span>
+                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[9px] text-center font-bold text-slate-200">Guardrails Node (Validate)</div>
+                        <div class="w-full grid grid-cols-2 gap-1.5">
+                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center">Weather Feed</div>
+                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center">Coverage Cache</div>
+                        </div>
+                        <div class="w-full grid grid-cols-3 gap-1">
+                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center">Fraud Node</div>
+                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center">Reserve Est.</div>
+                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center">Triage Node</div>
+                        </div>
+                        <div class="w-full bg-indigo-950/40 border border-indigo-900 rounded p-1 text-[8px] code-font text-indigo-300 text-center">
+                            Inference Backing: Foundry GPT-5.4 mini
+                        </div>
+                    </div>
+                `;
+            } else if (type === "vector-allianz") {
+                return `
+                    <div class="w-full flex flex-col gap-1.5 text-slate-400">
+                        <span class="text-[9px] font-bold code-font text-blue-400 text-center">[INGESTION FABRIC]</span>
+                        <div class="grid grid-cols-2 gap-1 bg-slate-900 border border-slate-800 p-1.5 rounded">
+                            <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded">Managed Kafka</div>
+                            <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded">Event Hubs</div>
+                        </div>
+                        <div class="text-[9px] text-slate-600 text-center font-bold">&darr; Stream Inbound Pipeline &darr;</div>
+                        <div class="bg-slate-900 border border-slate-700 p-1.5 rounded-lg text-center text-[9px] text-slate-200">
+                            Azure Durable Functions Orchestrator
+                            <div class="text-[8px] text-slate-400 mt-1">Kafka Ingestion &rarr; LangGraph Activity &rarr; Persistence</div>
+                        </div>
+                    </div>
+                `;
+            } else if (type === "guardrails-allianz") {
+                return `
+                    <div class="w-full flex flex-col items-center gap-1.5 text-slate-400">
+                        <span class="text-[9px] font-bold code-font text-emerald-400">[OBSERVABILITY METRICS]</span>
+                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-2 text-left flex flex-col gap-1">
+                            <div class="flex items-center gap-1 text-[8px] font-bold text-slate-300">
+                                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span> App Insights Telemetry
+                            </div>
+                            <div class="grid grid-cols-2 gap-1 text-[7px] font-mono text-slate-400 mt-1">
+                                <div>&bull; Ingestion Rate</div>
+                                <div>&bull; Agent Latency</div>
+                                <div>&bull; Model Duration</div>
+                                <div>&bull; Cache Hit Ratio</div>
+                            </div>
+                        </div>
+                        <div class="w-full bg-emerald-950/20 border border-emerald-900 rounded p-1 text-[8px] text-center text-emerald-400 font-bold">
+                            Runtime Output Invariants Verified
+                        </div>
+                    </div>
+                `;
+            }
+            return "";
+        }
 
-
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Skills Section -->
-
-    <!-- ======= Resume Section ======= -->
-    <section id="resume" class="resume">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Resume</h2>
-          <p><em>Currently Pursing My Bachelor Degree in Computer Engineering <br>  Seeking For Opportunities in IT sector In Web and also in ML <br></em></p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up">
-            <h3 class="resume-title">Summary</h3>
-            <div class="resume-item pb-0">
-              <h4>Shivraj Dhaytdak</h4>
-              <p><em>Dedicated and Hardworking for task in hand <br> Good Performer in Hard situation <br> upright in Learning in New Things </em></p>
-              <ul>
-                <li>Pune, Maharashtra</li>
-                <li>+91 79 72 47 6081</li>
-                <li>Dhaytadaks007@gmail.com</li>
-              </ul>
-            </div>
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-               <h4>Bachelor of Engineering </h4>
-              <h5>2018-2022</h5>
-              <p><em>PES Modern college Of Engineering,Pune-05</em></p>
-              <p>Currently in Final Year with 8.07 CGPA</p>
-            </div>
-            <div class="resume-item">
-              <h4>12th (HSC)</h4>
-              <h5>2017-2018</h5>
-              <p><em>Shri Tilok Jain Vidyalaya ,Pathardi</em></p>
-              <p><em>Scored 64.77%</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>SSC</h4>
-              <h5>2015-2016</h5>
-              <p><em>Renuka Vidyalaya Mohate, Mohate</em></p>
-              <p><em>Scored 84.60% </em></p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Courses & Achievements</h3>
-            <div class="resume-item">
-              <h4>Python Data Structure by Cousera</h4>
-              <h5>2020</h5>
-              <p><em>From University Of Michigan</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>HTML, JavaScript, & Bootstrap – Certification</h4>
-              <h5>2021</h5>
-              <p><em>From Udemy</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Practical Web design and development</h4>
-              <h5>2021</h5>
-              <p><em>by Udemy</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Python programming from basic to advance</h4>
-              <h5>2021</h5>
-              <p><em>by Udemy</em></p>
-            </div>
-            <div class="resume-item">
-              <h4>Responsive web Design </h4>
-              <h5>2021</h5>
-              <p><em>by FREECODECAMP</em></p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Projects</h2>
-          <p><em>In Last 3 year I have learned web development and also got certification on web Develpment <br> made Folloeing Projects As a Side Work</em></p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Web </li>
-              <li data-filter=".filter-card">Bot</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/Projects/contactform.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/Projects/contactform.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="contactformdetails.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/Projects/Inventory.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/Projects/Inventory.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="Inventory.html" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/Projects/TGCXBot.jpg" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/Projects/TGCXBot.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="https://replit.com/@ShivrajDhaytada/cryptoXBot#main.py" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p>Get in Touch via following form and other contact details provided</p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p> 4 , Mohate ,Pathardi , Ahmednagar-414102</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>Dhaytadaks007@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+91 79 72 47 60 81</p>
-              </div>
-            </div>
-          </div>
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Shivraj Dhaytdak</span></strong>
-      </div>
-      <div class="credits">
-        Designed by <a href="https://github.com/Shivraj-Dhaytadak">Shivraj Dhaytdak</a>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short" style="font-size: 10px">Go</i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+        window.onload = () => {
+            initializeStaticProfile();
+            renderApp();
+        };
+    </script>
 </body>
-
 </html>
