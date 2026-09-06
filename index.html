@@ -28,6 +28,46 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #334155;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.93);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .animate-slide-left {
+            animation: slideInLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        .animate-pop {
+            animation: popIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white antialiased">
@@ -51,7 +91,40 @@
                     type: "Insurance GCC / Captive",
                     targetRole: "AI Strategy Consultant",
                     duration: "Jan 2026 - Present",
-                    mappedProject: "bluey_ai_lodgement"
+                    mappedProject: "bluey_ai_lodgement",
+                    metrics: [
+                        { label: "Enterprise Scale", value: "100k+", sub: "Claims/Yr Pipeline", icon: "zap", color: "amber" },
+                        { label: "Agent Topology", value: "145+", sub: "Micro-Agents In Prod", icon: "bot", color: "indigo" },
+                        { label: "Declarative Speed", value: "1 Day", sub: "New Journey Onboarding", icon: "sparkles", color: "emerald" },
+                        { label: "Claim Variants", value: "19", sub: "Automated Workflows", icon: "workflow", color: "blue" },
+                        { label: "GCC Distinction", value: "Q1 2026", sub: "Best Performer Award", icon: "award", color: "purple" }
+                    ],
+                    moats: [
+                        "Declarative JSON Workflow Systems (19 Claim Journeys Managed Directly)",
+                        "Two-Tier LLM Prompt Architectures (Custom Rules + Generalized Rules)",
+                        "Runtime Node Validation (LangGraph State Synchronized with Pydantic)",
+                        "Advanced System Tracing (Ingestion Throughput, Latency, and Schema Hit-Rate)"
+                    ],
+                    baselines: [
+                        "Azure AI Foundry (GPT-5.4 mini)",
+                        "Managed Kafka & Event Hubs",
+                        "Azure Durable Function Apps",
+                        "Blob Storage Hot Caching"
+                    ],
+                    blueprint: {
+                        title: "Project Bluey-AI Lodgement Topology",
+                        image: "ProjectBluey.png",
+                        interactiveUrl: "workflow.html",
+                        registry: "Azure-Durable-LangGraph-Pipeline",
+                        overview: "An Event Driven Multi-Agent Insurance Claims processing system built with Langgraph, Langchain, and Azure OpenAI (Azure AI Foundry) at its core, with Dual-Emit Observability via Dynatrace & Azure Application Insights.",
+                        specs: [
+                            { icon: "workflow", label: "Orchestration", desc: "Azure Durable Functions App orchestrating input validations, multi-agent pipeline, and output gates." },
+                            { icon: "cpu", label: "Inference Core", desc: "Federated micro-agent array driven under unified Foundry GPT-5.4 mini backends." },
+                            { icon: "bot", label: "Agentic Core", desc: "Robust LangGraph topology orchestrating 145+ specialized micro-agents across 19 claim types." },
+                            { icon: "database", label: "PDS Layer", desc: "Hot caching arrays optimized via dedicated Blob Storage structures to shield redundant disclosures." },
+                            { icon: "activity", label: "Observability", desc: "Distributed Application Insights traces measuring pipeline throughput, latency, and schema hit-rates." }
+                        ]
+                    }
                 },
                 {
                     id: "yashtechnologies",
@@ -59,7 +132,38 @@
                     type: "Consultancy",
                     targetRole: "Data Scientist (Gen AI)",
                     duration: "May 2025 - Jan 2026",
-                    mappedProject: "project_FlowIQ"
+                    mappedProject: "project_FlowIQ",
+                    metrics: [
+                        { label: "SQL Automation", value: "80%", sub: "Manual Effort Cut", icon: "sparkles", color: "emerald" },
+                        { label: "Precision Lift", value: "+35%", sub: "Response Accuracy", icon: "target", color: "indigo" },
+                        { label: "Query Speed", value: "40%", sub: "Faster Retrieval", icon: "gauge", color: "blue" },
+                        { label: "Success Rate", value: "+25%", sub: "SQL Schema Success", icon: "database", color: "amber" },
+                        { label: "Distinction", value: "Valuable Asset", sub: "Corporate Honor", icon: "award", color: "purple" }
+                    ],
+                    moats: [
+                        "Hybrid Session Memory Matrix (Short-Term & Long-Term Schema Recall)",
+                        "Dynamic Database Schema Sharding (Zero Schema-Lookup Lockups)",
+                        "Multi-Agent CrewAI Code Review & Automated SQL Cleansing Chains",
+                        "80% Reduction in Manual Analytics Development Effort"
+                    ],
+                    baselines: [
+                        "FastAPI Async Engine",
+                        "Google Gemini 2.5 Inference",
+                        "PostgreSQL & Azure SQL",
+                        "SQLAlchemy ORM Matrix"
+                    ],
+                    blueprint: {
+                        title: "Project FlowIQ Text-to-SQL Graph Matrix",
+                        image: "",
+                        registry: "FastAPI-CrewAI-Gemini-Memory-Pipeline",
+                        overview: "A high-performance Text-to-SQL Graph Matrix combining short & long-term session memory engines to autonomously translate natural language questions into certified operational queries.",
+                        specs: [
+                            { icon: "workflow", label: "API Gateway", desc: "FastAPI high-throughput asynchronous router handling natural language queries with sub-second response times." },
+                            { icon: "cpu", label: "Multi-Agent Crew", desc: "CrewAI agent team paired with Google Gemini 2.5 for schema resolution, query synthesis, and cross-dialect verification." },
+                            { icon: "database", label: "Memory Framework", desc: "Custom hybrid short-term chat context buffer and persistent schema definition repository boosting accuracy by 35%." },
+                            { icon: "shield-check", label: "SQL Guardrails", desc: "Deterministic AST parser verifying syntactic and access-control boundaries before execution." }
+                        ]
+                    }
                 },
                 {
                     id: "persistentsystems",
@@ -67,7 +171,38 @@
                     type: "IT Products & Services",
                     targetRole: "Senior Software Engineer (Gen AI)",
                     duration: "Aug 2022 - May 2025",
-                    mappedProject: "sasva"
+                    mappedProject: "sasva",
+                    metrics: [
+                        { label: "Serving Latency", value: "-50%", sub: "Model Endpoint Speedup", icon: "gauge", color: "blue" },
+                        { label: "RAG Relevance", value: "+40%", sub: "Response Relevancy", icon: "cpu", color: "indigo" },
+                        { label: "Productivity", value: "+25%", sub: "Dev Output Accelerated", icon: "zap", color: "amber" },
+                        { label: "Precision", value: "+35%", sub: "Data Extraction Gain", icon: "target", color: "emerald" },
+                        { label: "Distinction", value: "Bravo/Five", sub: "High Five & Bravo Honors", icon: "award", color: "purple" }
+                    ],
+                    moats: [
+                        "AST Codebase Hierarchy Traversal & Dense Chunk Alignment",
+                        "Git Change Listener Tree Sharding (Limits Continuous Re-Embedding)",
+                        "High-Throughput Model Serving Endpoints (-50% Latency Reduction)",
+                        "Optimized Embedding Fine-Tuning & Multi-Vector Caching"
+                    ],
+                    baselines: [
+                        "AWS Bedrock & SageMaker",
+                        "vLLM Distributed Serving",
+                        "LangChain Framework",
+                        "Docker Containerization & CI/CD"
+                    ],
+                    blueprint: {
+                        title: "Project SASVA Codebase Knowledge Graph & RAG Core",
+                        image: "",
+                        registry: "AWS-Bedrock-vLLM-Codebase-RAG",
+                        overview: "An enterprise semantic acceleration layer indexing complex multi-repo source code patterns into dense structural vector representations, providing real-time developer context and code navigation.",
+                        specs: [
+                            { icon: "workflow", label: "Serving Layer", desc: "High-performance model-serving endpoints using FastAPI and vLLM reducing response latency by 50%." },
+                            { icon: "cpu", label: "Embedding Engine", desc: "Fine-tuned local vLLM embedding service batching source-tree AST chunks into high-density vector coordinates." },
+                            { icon: "database", label: "Semantic Index", desc: "Persistent vector store synchronizing with git change listener hooks to avoid redundant recalculations." },
+                            { icon: "activity", label: "RAG Orchestration", desc: "LangChain contextual retriever feeding optimized source snippets to AWS Bedrock foundation models." }
+                        ]
+                    }
                 }
             ],
             projects: {
@@ -132,7 +267,7 @@
                         orchestration: {
                             title: "Natural Language SQL Generation Flow",
                             description: "Text-to-SQL graph execution workflow designed with deep hybrid session state engines.",
-                            visualType: "",
+                            visualType: "flow-sql",
                             specTitle: "Dynamic Context Retention & Prompt Framing",
                             code: `# Text-to-SQL Engine Orchestration Layout\nasync def translate_natural_query(prompt: str, session_id: str):\n    context = await memory_framework.get_session_context(session_id)\n    generated_sql = await multi_agent_crew.execute_generation_pass(prompt, context)\n    return verify_and_clean_sql(generated_sql)`,
                             bullets: [
@@ -154,7 +289,7 @@
                         orchestration: {
                             title: "Codebase RAG Optimization Pipelines",
                             description: "Dense chunk alignment matrices mapping structural repositories to context window parameters.",
-                            visualType: "vector-allianz",
+                            visualType: "vector-rag",
                             specTitle: "Similarity Matrix Layouts & Inference Speedups",
                             code: `# Codebase RAG Chunk Vector Synchronization Pass\ndef synchronize_repository_embeddings(repo_path: str):\n    nodes = parse_source_tree_to_chunks(repo_path)\n    embeddings = local_vllm_service.encode_batch(nodes.contents)\n    vector_store.upsert(points=build_points(nodes.ids, embeddings))`,
                             bullets: [
@@ -202,6 +337,7 @@
         let activeProjectKey = "bluey_ai_lodgement";
         let activeArchTab = "orchestration";
         let isExpandedViewActive = false;
+        let blueprintViewMode = "interactive"; // 'interactive' or 'static'
 
         function setAppState(companyId, tabId = null) {
             selectedCompanyId = companyId;
@@ -212,6 +348,21 @@
             activeArchTab = tabId || projectTabs[0];
             
             renderApp();
+            triggerTelemetryAnimation();
+        }
+
+        function triggerTelemetryAnimation() {
+            const targets = [
+                document.getElementById("metrics-strip-container"),
+                document.getElementById("context-banner"),
+                document.getElementById("project-workspace-container")
+            ];
+            targets.forEach(el => {
+                if (!el) return;
+                el.classList.remove("animate-fade-in");
+                void el.offsetWidth;
+                el.classList.add("animate-fade-in");
+            });
         }
 
         function setArchTab(tabId) {
@@ -221,6 +372,11 @@
 
         function toggleExpandedCanvas(state) {
             isExpandedViewActive = state;
+            renderApp();
+        }
+
+        function setBlueprintMode(mode) {
+            blueprintViewMode = mode;
             renderApp();
         }
     </script>
@@ -234,9 +390,15 @@
                     <span id="prof-role" class="px-2 py-0.5 bg-slate-800 text-slate-400 border border-slate-700 rounded text-[10px] uppercase font-semibold tracking-wider"></span>
                 </div>
                 <p id="prof-meta" class="text-xs text-slate-400 mt-1"></p>
-                <div class="flex gap-4 mt-2 text-xs text-indigo-400">
-                    <a id="link-github" href="#" target="_blank" class="hover:underline flex items-center gap-1"><i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub</a>
-                    <a id="link-linkedin" href="#" target="_blank" class="hover:underline flex items-center gap-1"><i data-lucide="linkedin" class="w-3.5 h-3.5"></i> LinkedIn</a>
+                <div class="mt-2 flex items-center gap-1.5 text-xs">
+                    <span class="text-indigo-400/80 font-mono text-[11px]">&gt;</span>
+                    <span id="hero-typing" class="text-indigo-300 font-mono text-xs font-semibold"></span>
+                    <span class="animate-pulse text-indigo-400 font-bold font-mono">_</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2 mt-3 text-xs">
+                    <a id="link-github" href="#" target="_blank" class="px-2.5 py-1 bg-slate-800/90 hover:bg-slate-700 text-slate-200 rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-all text-[11px] font-medium"><i data-lucide="github" class="w-3.5 h-3.5 text-slate-300"></i> GitHub</a>
+                    <a id="link-linkedin" href="#" target="_blank" class="px-2.5 py-1 bg-indigo-950/60 hover:bg-indigo-900/70 text-indigo-200 rounded-md border border-indigo-800/70 flex items-center gap-1.5 transition-all text-[11px] font-medium"><i data-lucide="linkedin" class="w-3.5 h-3.5 text-indigo-400"></i> LinkedIn</a>
+                    <a id="link-email" href="#" class="px-2.5 py-1 bg-slate-800/90 hover:bg-slate-700 text-slate-200 rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-all text-[11px] font-medium"><i data-lucide="mail" class="w-3.5 h-3.5 text-rose-400"></i> Email</a>
                 </div>
             </div>
 
@@ -263,6 +425,12 @@
             </div>
         </div>
     </header>
+
+    <!-- STRATEGIC IMPACT METRICS STRIP -->
+    <section class="border-b border-slate-800/80 bg-slate-950/90 px-4 lg:px-8 py-3.5">
+        <div id="metrics-strip-container" class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        </div>
+    </section>
 
     <section class="bg-slate-900/30 border-b border-slate-900/60 px-4 lg:px-8 py-3">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-3 items-start md:items-center text-xs">
@@ -310,7 +478,7 @@
             </div>
         </aside>
 
-        <section class="lg:col-span-3 flex flex-col gap-6">
+        <section id="project-workspace-container" class="lg:col-span-3 flex flex-col gap-6">
             
             <div id="context-banner" class="bg-slate-900 border border-slate-800 rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-l-4 border-l-indigo-500">
                 </div>
@@ -325,9 +493,15 @@
                         <p class="text-[11px] text-slate-400 mt-0.5">Initialize a structural diagnostics overlay matching production blueprint parameters.</p>
                     </div>
                 </div>
-                <button onclick="toggleExpandedCanvas(true)" class="w-full sm:w-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-lg transition-all shadow-sm shadow-indigo-900/50 flex items-center justify-center gap-2 code-font">
-                    EXPLORATE_BLUEPRINT://RUN
-                </button>
+                <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+                    <a href="workflow.html" target="_blank" class="w-full sm:w-auto px-3.5 py-2 bg-emerald-950/70 hover:bg-emerald-900/80 text-emerald-300 border border-emerald-500/40 hover:border-emerald-400 font-semibold text-xs rounded-lg transition-all flex items-center justify-center gap-2 code-font shadow-sm shadow-emerald-950/50">
+                        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        LIVE_SIMULATOR://RUN
+                    </a>
+                    <button onclick="toggleExpandedCanvas(true)" class="w-full sm:w-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs rounded-lg transition-all shadow-sm shadow-indigo-900/50 flex items-center justify-center gap-2 code-font cursor-pointer">
+                        EXPLORATE_BLUEPRINT://RUN
+                    </button>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 xl:grid-cols-12 bg-slate-900 border border-slate-800 rounded-xl overflow-hidden min-h-[650px]">
@@ -408,51 +582,35 @@
         </section>
     </main>
 
-    <div id="blueprint-expansion-overlay" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md p-4 md:p-8 flex-col justify-center items-center hidden">
-        <div class="max-w-6xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row h-[90vh]">
-            <div class="flex-1 bg-slate-950 p-6 flex flex-col justify-center items-center relative overflow-y-auto border-b lg:border-b-0 lg:border-r border-slate-800">
-                <img src="ProjectBluey.png" alt="Project Bluey-AI Lodgement Production Blueprint" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'text-slate-500 text-xs font-mono border border-dashed border-slate-800 p-8 rounded\'><i data-lucide=\'image-off\' class=\'w-8 h-8 mx-auto mb-2 text-slate-600\'></i> Blueprint Frame Available:<br><span class=\'text-indigo-400 font-bold\'>Project Bluey.png</span></div>'; lucide.createIcons();">
-                <span class="absolute bottom-3 left-3 bg-slate-950 border border-slate-800 px-2 py-1 rounded text-[10px] code-font text-slate-400">Blueprint Registry: Azure-Durable-LangGraph-Pipeline</span>
+    <div id="blueprint-expansion-overlay" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md p-3 md:p-6 flex-col justify-center items-center hidden">
+        <div class="max-w-7xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row h-[92vh]">
+            <div class="flex-1 bg-slate-950 flex flex-col relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800">
+                <div id="blueprint-media-header" class="px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 flex flex-wrap justify-between items-center gap-3">
+                    <div id="blueprint-view-toggles" class="flex items-center gap-1.5 text-xs code-font">
+                    </div>
+                    <div id="blueprint-external-link" class="flex items-center gap-2">
+                    </div>
+                </div>
+                <div id="blueprint-media" class="flex-1 p-2 md:p-3 flex flex-col justify-center items-center relative overflow-hidden">
+                </div>
             </div>
             <div class="w-full lg:w-[380px] p-6 bg-slate-900 flex flex-col justify-between overflow-y-auto">
                 <div class="flex flex-col gap-4">
                     <div class="flex justify-between items-start">
                         <div>
                             <span class="text-[9px] font-bold tracking-widest text-indigo-400 uppercase code-font">PRODUCTION BLUEPRINT ANALYSIS</span>
-                            <h3 class="text-base font-bold text-white mt-0.5">Project Bluey-AI Lodgement Topology</h3>
+                            <h3 id="blueprint-title" class="text-base font-bold text-white mt-0.5"></h3>
                         </div>
                         <button onclick="toggleExpandedCanvas(false)" class="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-all cursor-pointer">
                             <i data-lucide="x" class="w-4 h-4"></i>
                         </button>
                     </div>
-                    <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-3.5 rounded-xl border border-slate-850">
-                        An Event Driven Multi-Agent Insurance Claims processing system built with Langgraph , Langchain and Azure OpenAI (Now Azure Foundry ) at core it with Dual Emit Observability
-                        with Dynatrace as Business Solution & Azure Application Insights as Core Agentic Observability Layer with Traces and Azure Foundry Evalutations all it running on Azure Durable Functions App orchestrating Multiple Activities including Input validations , Agent pipeline , Output Validations.
+                    <p id="blueprint-desc" class="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-3.5 rounded-xl border border-slate-850">
                     </p>
-                    <div class="space-y-3">
-                        <div class="flex gap-2 items-start text-xs text-slate-400">
-                            <i data-lucide="workflow" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
-                            <span><strong class="text-slate-200">Orchestration :</strong> Azure Durable Functions App orchestrating Multiple Activities including Input validations , Agent pipeline , Output Validations.</span>
-                        </div>
-                        <div class="flex gap-2 items-start text-xs text-slate-400">
-                            <i data-lucide="cpu" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
-                            <span><strong class="text-slate-200">Inference Core:</strong> Federated micro-agent array driven under unified Foundry GPT-5.4 mini inference backends.</span>
-                        </div>
-                        <div class="flex gap-2 items-start text-xs text-slate-400">
-                            <i data-lucide="bot" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
-                            <span><strong class="text-slate-200">Agentic Core:</strong> Robust Agentic Solution built with Langgraph with 19 different Claim types & effectively orchestrating 145+ agents across 19 Claim types</span>
-                        </div>
-                        <div class="flex gap-2 items-start text-xs text-slate-400">
-                            <i data-lucide="database" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
-                            <span><strong class="text-slate-200">PDS Layer:</strong> Hot caching arrays optimized via dedicated Blob Storage backing structures to shield redundant policy disclosures.</span>
-                        </div>
-                        <div class="flex gap-2 items-start text-xs text-slate-400">
-                            <i data-lucide="activity" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span><strong class="text-slate-200">Observability Array:</strong> Distributed Application Insights traces measuring pipeline ingestion metrics, agent latency, and schema hit-rate factors.</span>
-                        </div>
+                    <div id="blueprint-specs" class="space-y-3">
                     </div>
                 </div>
-                <div class="pt-4 border-t border-slate-800 mt-6 text-[10px] text-slate-500 code-font text-center">
+                <div id="blueprint-registry" class="pt-4 border-t border-slate-800 mt-6 text-[10px] text-slate-500 code-font text-center">
                     System Architecture Standard 2026
                 </div>
             </div>
@@ -464,9 +622,13 @@
             const p = portfolioData.profile;
             document.getElementById("prof-name").innerText = p.name;
             document.getElementById("prof-role").innerText = p.role;
-            document.getElementById("prof-meta").innerHTML = `${p.subRole} &bull; ${p.location} &bull; ${p.email} &bull; ${p.phone}`;
+            const metaParts = [p.subRole, p.location, p.email, p.phone].filter(Boolean);
+            document.getElementById("prof-meta").innerHTML = metaParts.join(" &bull; ");
             document.getElementById("link-github").href = p.github;
             document.getElementById("link-linkedin").href = p.linkedin;
+            if (document.getElementById("link-email")) {
+                document.getElementById("link-email").href = `mailto:${p.email}`;
+            }
 
             // Render Tech Stack Bar Segment
             const barContainer = document.getElementById("skills-matrix-bar");
@@ -495,6 +657,8 @@
                 overlayModal.classList.add("hidden");
             }
 
+            const selectedCompany = portfolioData.companies.find(c => c.id === selectedCompanyId);
+
             // Company Timeline Selection Matrix Mapping Engine
             const companyContainer = document.getElementById("company-selector-container");
             companyContainer.innerHTML = "";
@@ -502,20 +666,24 @@
             portfolioData.companies.forEach(company => {
                 const isSelected = company.id === selectedCompanyId;
                 const button = document.createElement("button");
-                button.className = `w-full text-left p-3 rounded-lg border transition-all duration-200 flex flex-col gap-0.5 cursor-pointer ${
+                button.className = `w-full text-left p-3 rounded-lg border transition-all duration-200 flex flex-col gap-0.5 cursor-pointer relative overflow-hidden ${
                     isSelected 
-                    ? "bg-indigo-950/40 border-indigo-500/80 shadow-lg shadow-indigo-950/20" 
-                    : "bg-slate-950/40 border-slate-800 hover:border-slate-700"
+                    ? "bg-indigo-950/50 border-indigo-500 shadow-lg shadow-indigo-950/40 ring-1 ring-indigo-500/50" 
+                    : "bg-slate-950/40 border-slate-800 hover:border-slate-700 hover:bg-slate-900/50"
                 }`;
                 button.onclick = () => setAppState(company.id);
 
                 button.innerHTML = `
-                    <div class="flex justify-between items-center w-full">
-                        <span class="text-xs font-bold tracking-wide ${isSelected ? 'text-white' : 'text-slate-300'}">${company.name}</span>
-                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-indigo-400"></i>
+                    ${isSelected ? '<div class="absolute left-0 top-0 bottom-0 w-1 bg-indigo-500"></div>' : ''}
+                    <div class="flex justify-between items-center w-full pl-1">
+                        <div class="flex items-center gap-2">
+                            ${isSelected ? '<span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>' : '<span class="h-1.5 w-1.5 rounded-full bg-slate-600"></span>'}
+                            <span class="text-xs font-bold tracking-wide ${isSelected ? 'text-white' : 'text-slate-300'}">${company.name}</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-3.5 h-3.5 ${isSelected ? 'text-indigo-400 translate-x-0.5 transition-transform' : 'text-slate-600'}"></i>
                     </div>
-                    <span class="text-[10px] text-slate-400 font-mono">${company.type}</span>
-                    <div class="mt-1 flex items-center justify-between text-[10px] text-slate-500 code-font w-full">
+                    <span class="text-[10px] text-slate-400 font-mono pl-3">${company.type}</span>
+                    <div class="mt-1 flex items-center justify-between text-[10px] text-slate-500 code-font w-full pl-3">
                         <span class="truncate text-indigo-300 font-medium">${company.targetRole}</span>
                         <span class="text-[9px] text-slate-500 whitespace-nowrap">${company.duration}</span>
                     </div>
@@ -523,24 +691,53 @@
                 companyContainer.appendChild(button);
             });
 
-            // Production Defenses & Moats Dashboard
-            document.getElementById("moats-container").innerHTML = portfolioData.careerDashboard.moats.map(moat => `
-                <div class="flex gap-2 items-start text-xs text-slate-300 bg-slate-950/50 p-2 rounded border border-emerald-950/40">
+            // Dynamic Strategic Impact Metrics Strip (Animated Load per Company)
+            const metricsContainer = document.getElementById("metrics-strip-container");
+            if (metricsContainer && selectedCompany.metrics) {
+                const colorClasses = {
+                    amber: { text: "text-amber-300", icon: "text-amber-400" },
+                    indigo: { text: "text-indigo-300", icon: "text-indigo-400" },
+                    emerald: { text: "text-emerald-300", icon: "text-emerald-400" },
+                    blue: { text: "text-blue-300", icon: "text-blue-400" },
+                    purple: { text: "text-purple-300", icon: "text-purple-400" }
+                };
+                metricsContainer.innerHTML = selectedCompany.metrics.map((m, idx) => {
+                    const colors = colorClasses[m.color] || { text: "text-white", icon: "text-indigo-400" };
+                    const isLast = idx === selectedCompany.metrics.length - 1;
+                    return `
+                        <div class="bg-slate-900/60 border border-slate-800/90 rounded-lg p-3 flex flex-col justify-between hover:border-slate-700 transition-colors animate-fade-in ${isLast ? 'col-span-2 sm:col-span-1' : ''}" style="animation-delay: ${idx * 60}ms">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">${m.label}</span>
+                                <i data-lucide="${m.icon}" class="w-3.5 h-3.5 ${colors.icon}"></i>
+                            </div>
+                            <div class="mt-1">
+                                <span class="text-xl font-bold code-font ${colors.text} animate-pop inline-block">${m.value}</span>
+                                <span class="text-[10px] text-slate-400 block leading-tight mt-0.5">${m.sub}</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Production Defenses & Moats Dashboard (Company-Specific with Staggered Slide-In)
+            const moatsList = selectedCompany.moats || portfolioData.careerDashboard.moats;
+            document.getElementById("moats-container").innerHTML = moatsList.map((moat, idx) => `
+                <div class="flex gap-2 items-start text-xs text-slate-300 bg-slate-950/50 p-2 rounded border border-emerald-950/40 animate-slide-left" style="animation-delay: ${idx * 50}ms">
                     <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
                     <span>${moat}</span>
                 </div>
             `).join('');
 
-            document.getElementById("baselines-container").innerHTML = portfolioData.careerDashboard.baselines.map(base => `
-                <span class="text-[10px] code-font bg-slate-950 text-slate-400 border border-slate-800 px-2 py-1 rounded">
+            // Technical Baselines (Company-Specific with Pop)
+            const baselinesList = selectedCompany.baselines || portfolioData.careerDashboard.baselines;
+            document.getElementById("baselines-container").innerHTML = baselinesList.map((base, idx) => `
+                <span class="text-[10px] code-font bg-slate-950 text-slate-400 border border-slate-800 px-2 py-1 rounded animate-pop" style="animation-delay: ${idx * 40}ms">
                     ${base}
                 </span>
             `).join('');
 
             // Context Highlight Banner Alignment Sync
-            const selectedCompany = portfolioData.companies.find(c => c.id === selectedCompanyId);
             const contextBanner = document.getElementById("context-banner");
-            
             let bannerMetaText = "";
             if (selectedCompanyId === "allianz") {
                 bannerMetaText = "Project Bluey-AI Lodgement &mdash; Declarative JSON Engine handling 19 Claim Variant Journeys reducing lifecycle processing down to minutes.";
@@ -551,13 +748,16 @@
             }
 
             contextBanner.innerHTML = `
-                <div>
-                    <div class="text-[11px] text-indigo-400 font-bold tracking-widest uppercase code-font">Active Portfolio Context Alignment</div>
+                <div class="animate-fade-in">
+                    <div class="text-[11px] text-indigo-400 font-bold tracking-widest uppercase code-font flex items-center gap-2">
+                        <span class="h-1.5 w-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                        Active System Architecture Alignment
+                    </div>
                     <h3 class="text-lg font-bold text-white mt-0.5">${selectedCompany.name} &mdash; ${selectedCompany.targetRole}</h3>
                 </div>
-                <div class="flex items-center gap-2 bg-emerald-950/30 border border-emerald-900/60 px-4 py-2 rounded-lg max-w-xl">
+                <div class="flex items-center gap-2.5 bg-emerald-950/30 border border-emerald-900/60 px-4 py-2.5 rounded-lg max-w-xl animate-pop">
                     <div class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></div>
-                    <span class="text-xs text-emerald-300 font-medium">${bannerMetaText}</span>
+                    <span class="text-xs text-emerald-300 font-medium leading-relaxed">${bannerMetaText}</span>
                 </div>
             `;
 
@@ -566,15 +766,15 @@
             document.getElementById("scope-project-name").innerText = project.name;
             
             const activeTabContent = project.tabs[activeArchTab] || Object.values(project.tabs)[0];
-            document.getElementById("bullet-points-container").innerHTML = activeTabContent.bullets.map(bullet => `
-                <li class="flex gap-2 items-start">
+            document.getElementById("bullet-points-container").innerHTML = activeTabContent.bullets.map((bullet, idx) => `
+                <li class="flex gap-2 items-start animate-fade-in" style="animation-delay: ${idx * 45}ms">
                     <i data-lucide="arrow-right-circle" class="w-3.5 h-3.5 text-indigo-400 shrink-0 mt-0.5"></i>
                     <span>${bullet}</span>
                 </li>
             `).join('');
 
-            document.getElementById("scope-project-stack").innerHTML = project.stack.map(tech => `
-                <span class="text-[10px] code-font bg-indigo-950/60 text-indigo-300 border border-indigo-900/50 px-2 py-0.5 rounded font-semibold">
+            document.getElementById("scope-project-stack").innerHTML = project.stack.map((tech, idx) => `
+                <span class="text-[10px] code-font bg-indigo-950/60 text-indigo-300 border border-indigo-900/50 px-2 py-0.5 rounded font-semibold animate-pop" style="animation-delay: ${idx * 30}ms">
                     ${tech}
                 </span>
             `).join('');
@@ -616,9 +816,114 @@
 
             // Code Specifications Terminal Update Trigger
             document.getElementById("spec-header-title").innerText = activeTabContent.specTitle;
-            document.getElementById("spec-code-block").textContent = activeTabContent.code;
+            const codeBlock = document.getElementById("spec-code-block");
+            codeBlock.textContent = activeTabContent.code;
+            codeBlock.classList.remove("animate-fade-in");
+            void codeBlock.offsetWidth;
+            codeBlock.classList.add("animate-fade-in");
             document.getElementById("spec-tradeoffs").innerText = activeTabContent.tradeoffs;
             document.getElementById("spec-bottlenecks").innerText = activeTabContent.bottlenecks;
+
+            // Dynamic Blueprint Modal Updates
+            if (selectedCompany.blueprint) {
+                const bp = selectedCompany.blueprint;
+                const titleEl = document.getElementById("blueprint-title");
+                const descEl = document.getElementById("blueprint-desc");
+                const regEl = document.getElementById("blueprint-registry");
+                const mediaEl = document.getElementById("blueprint-media");
+                const specsEl = document.getElementById("blueprint-specs");
+                const togglesEl = document.getElementById("blueprint-view-toggles");
+                const extLinkEl = document.getElementById("blueprint-external-link");
+
+                if (titleEl) titleEl.innerText = bp.title;
+                if (descEl) descEl.innerText = bp.overview;
+                if (regEl) regEl.innerText = `Blueprint Registry: ${bp.registry}`;
+
+                // Header toggles & action link
+                if (togglesEl) {
+                    if (bp.interactiveUrl) {
+                        const isInteractive = blueprintViewMode === "interactive";
+                        togglesEl.innerHTML = `
+                            <button onclick="setBlueprintMode('interactive')" class="px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                                isInteractive 
+                                ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-900/50' 
+                                : 'bg-slate-800 text-slate-400 hover:text-white'
+                            }">
+                                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                LIVE ANIMATED RUNTIME
+                            </button>
+                            <button onclick="setBlueprintMode('static')" class="px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                                !isInteractive 
+                                ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-900/50' 
+                                : 'bg-slate-800 text-slate-400 hover:text-white'
+                            }">
+                                <i data-lucide="image" class="w-3.5 h-3.5"></i>
+                                STATIC SCHEMATIC
+                            </button>
+                        `;
+                    } else {
+                        togglesEl.innerHTML = `
+                            <span class="px-2.5 py-0.5 bg-indigo-950 text-indigo-300 border border-indigo-900/60 rounded text-[10px] font-bold code-font">
+                                [ARCHITECTURAL SPECIFICATION]
+                            </span>
+                        `;
+                    }
+                }
+
+                if (extLinkEl) {
+                    if (bp.interactiveUrl) {
+                        extLinkEl.innerHTML = `
+                            <a href="${bp.interactiveUrl}" target="_blank" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded text-xs font-medium flex items-center gap-1.5 transition-colors code-font">
+                                <span>Open Fullscreen Studio</span>
+                                <i data-lucide="external-link" class="w-3.5 h-3.5 text-indigo-400"></i>
+                            </a>
+                        `;
+                    } else {
+                        extLinkEl.innerHTML = '';
+                    }
+                }
+                
+                if (mediaEl) {
+                    if (bp.interactiveUrl && blueprintViewMode === "interactive") {
+                        mediaEl.innerHTML = `
+                            <div class="w-full h-full min-h-[560px] rounded-xl overflow-hidden border border-slate-800/80 bg-slate-950 flex flex-col">
+                                <iframe src="${bp.interactiveUrl}?embed=true" class="w-full h-full flex-1 border-0" title="${bp.title}"></iframe>
+                            </div>
+                        `;
+                    } else if (bp.image) {
+                        mediaEl.innerHTML = `
+                            <div class="w-full h-full flex flex-col justify-center items-center p-4 relative">
+                                <img src="${bp.image}" alt="${bp.title}" class="max-w-full max-h-[72vh] object-contain rounded-lg shadow-2xl" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'text-slate-500 text-xs font-mono border border-dashed border-slate-800 p-8 rounded\\'><i data-lucide=\\'image-off\\' class=\\'w-8 h-8 mx-auto mb-2 text-slate-600\\'></i> Blueprint Frame Available:<br><span class=\\'text-indigo-400 font-bold\\'>${bp.image}</span></div>'; lucide.createIcons();">
+                                <span class="absolute bottom-3 left-3 bg-slate-950/90 border border-slate-800 px-2 py-1 rounded text-[10px] code-font text-slate-400">${bp.registry}</span>
+                            </div>
+                        `;
+                    } else {
+                        mediaEl.innerHTML = `
+                            <div class="w-full h-full flex flex-col justify-center items-center p-8 text-center bg-slate-950 animate-fade-in">
+                                <div class="p-4 bg-indigo-950/40 border border-indigo-800/80 rounded-2xl mb-4 shadow-lg shadow-indigo-950/50 animate-pop">
+                                    <i data-lucide="cpu" class="w-12 h-12 text-indigo-400 animate-pulse"></i>
+                                </div>
+                                <span class="text-[10px] uppercase font-bold tracking-widest text-indigo-400 code-font mb-1">[ARCHITECTURAL BLUEPRINT RUNTIME]</span>
+                                <h4 class="text-base font-bold text-white mb-2 code-font">${bp.title}</h4>
+                                <p class="text-xs text-slate-400 max-w-lg leading-relaxed">${bp.overview}</p>
+                                <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs code-font text-emerald-400">
+                                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Active Model Registry: ${bp.registry}
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+
+                if (specsEl && bp.specs) {
+                    specsEl.innerHTML = bp.specs.map(spec => `
+                        <div class="flex gap-2 items-start text-xs text-slate-400">
+                            <i data-lucide="${spec.icon}" class="w-4 h-4 text-indigo-400 shrink-0 mt-0.5"></i>
+                            <span><strong class="text-slate-200">${spec.label}:</strong> ${spec.desc}</span>
+                        </div>
+                    `).join('');
+                }
+            }
 
             // Re-render Lucide SVG nodes vector instances
             lucide.createIcons();
@@ -642,6 +947,41 @@
                         </div>
                         <div class="w-full bg-indigo-950/40 border border-indigo-900 rounded p-1 text-[8px] code-font text-indigo-300 text-center">
                             Inference Backing: Foundry GPT-5.4 mini
+                        </div>
+                    </div>
+                `;
+            } else if (type === "flow-sql") {
+                return `
+                    <div class="flex flex-col items-center gap-2 w-full text-slate-400">
+                        <span class="text-[9px] font-bold code-font text-emerald-400 mb-1">[TEXT-TO-SQL GRAPH MATRIX]</span>
+                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[9px] text-center font-bold text-slate-200">Natural Language Query (FastAPI)</div>
+                        <div class="w-full grid grid-cols-2 gap-1.5">
+                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center">Short-Term Context</div>
+                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center">Long-Term Schema Memory</div>
+                        </div>
+                        <div class="w-full grid grid-cols-2 gap-1">
+                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center">CrewAI Execution Node</div>
+                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center">SQL Clean & Verification</div>
+                        </div>
+                        <div class="w-full bg-emerald-950/30 border border-emerald-900 rounded p-1 text-[8px] code-font text-emerald-300 text-center">
+                            Inference Backing: Google Gemini 2.5
+                        </div>
+                    </div>
+                `;
+            } else if (type === "vector-rag") {
+                return `
+                    <div class="flex flex-col items-center gap-2 w-full text-slate-400">
+                        <span class="text-[9px] font-bold code-font text-blue-400 mb-1">[CODEBASE KNOWLEDGE RAG]</span>
+                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[9px] text-center font-bold text-slate-200">Repository AST Chunk Parser</div>
+                        <div class="w-full grid grid-cols-2 gap-1.5">
+                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center">vLLM Batch Embeddings</div>
+                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center">Vector Store Upsert</div>
+                        </div>
+                        <div class="w-full bg-slate-900 border border-slate-800 p-1 rounded text-[8px] text-center font-medium">
+                            Similarity Retrieval & Chunk Caching
+                        </div>
+                        <div class="w-full bg-blue-950/30 border border-blue-900 rounded p-1 text-[8px] code-font text-blue-300 text-center">
+                            Serving Layer: FastAPI + AWS Bedrock
                         </div>
                     </div>
                 `;
@@ -684,9 +1024,45 @@
             return "";
         }
 
+        // Lightweight Hero Typing Subtitle Loop
+        const typingPhrases = [
+            "Enterprise Multi-Agent Architectures (LangGraph & CrewAI)",
+            "Declarative JSON Workflow Engines (145+ Agents)",
+            "Deterministic LLM Pipelines & Runtime Pydantic Guards",
+            "Cloud-Native GenAI Solutions (Azure AI Foundry & AWS Bedrock)"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeLoop() {
+            const el = document.getElementById("hero-typing");
+            if (!el) return;
+            const current = typingPhrases[phraseIndex];
+            if (isDeleting) {
+                el.innerText = current.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                el.innerText = current.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 25 : 55;
+            if (!isDeleting && charIndex === current.length) {
+                speed = 2200;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % typingPhrases.length;
+                speed = 350;
+            }
+            setTimeout(typeLoop, speed);
+        }
+
         window.onload = () => {
             initializeStaticProfile();
             renderApp();
+            typeLoop();
         };
     </script>
 </body>

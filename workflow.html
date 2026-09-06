@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Bluey-AI Lodgement | Interactive Animated Architecture</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        /* Flowing Packet Animations */
+        @keyframes flowDash {
+            to {
+                stroke-dashoffset: -40;
+            }
+        }
+        .animate-flow-fast {
+            stroke-dasharray: 6, 6;
+            animation: flowDash 0.8s linear infinite;
+        }
+        .animate-flow-normal {
+            stroke-dasharray: 6, 6;
+            animation: flowDash 1.4s linear infinite;
+        }
+        .animate-flow-slow {
+            stroke-dasharray: 6, 6;
+            animation: flowDash 2.2s linear infinite;
+        }
+
+        /* Node Pulse Animations */
+        @keyframes nodeGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.8));
+            }
+        }
+        .glow-node {
+            animation: nodeGlow 3s ease-in-out infinite;
+        }
+
+        /* Interactive Node States */
+        .diagram-node {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .diagram-node:hover rect {
+            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.8));
+            stroke-width: 2.5;
+        }
+        .diagram-node.active rect {
+            stroke-width: 3;
+            filter: drop-shadow(0 0 14px rgba(129, 140, 248, 1));
+        }
+
+        /* Scanline & Pulse Effects */
+        .telemetry-feed::-webkit-scrollbar {
+            width: 4px;
+        }
+        .telemetry-feed::-webkit-scrollbar-track {
+            background: #090d16;
+        }
+        .telemetry-feed::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- TOP CONTROL NAVIGATION BAR -->
+    <header class="border-b border-slate-800 bg-slate-900/70 backdrop-blur sticky top-0 z-40 px-4 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+            <a id="nav-back-btn" href="index.html" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Portfolio
+            </a>
+            <div id="nav-divider" class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+            <div>
+                <div class="flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <h1 class="text-sm font-bold text-white code-font tracking-tight">Project Bluey-AI Lodgement</h1>
+                    <span class="px-2 py-0.5 bg-indigo-950/80 text-indigo-300 border border-indigo-800/80 rounded text-[10px] code-font font-bold">ANIMATED RUNTIME</span>
+                </div>
+                <p class="text-[11px] text-slate-400 mt-0.5">Enterprise Multi-Agent Event-Driven Topology with Dual-Emit Observability</p>
+            </div>
+        </div>
+
+        <!-- SIMULATION CONTROLS -->
+        <div class="flex items-center gap-2.5">
+            <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs code-font">
+                <button id="btn-play" onclick="toggleSimulation()" class="px-2.5 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-semibold flex items-center gap-1 transition-all">
+                    <i id="play-icon" data-lucide="pause" class="w-3.5 h-3.5"></i>
+                    <span id="play-text">LIVE</span>
+                </button>
+                <div class="h-3.5 w-px bg-slate-800 mx-0.5"></div>
+                <button onclick="setSpeed(0.5)" id="speed-05" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors">0.5x</button>
+                <button onclick="setSpeed(1.0)" id="speed-10" class="px-2 py-1 rounded bg-slate-800 text-indigo-300 font-bold transition-colors">1.0x</button>
+                <button onclick="setSpeed(2.0)" id="speed-20" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors">2.0x</button>
+            </div>
+
+            <button onclick="toggleThemeView()" id="btn-theme" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition-colors code-font">
+                <i data-lucide="palette" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span id="theme-text">Eraser Schematic</span>
+            </button>
+
+            <button onclick="toggleLogDrawer()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition-colors code-font">
+                <i data-lucide="terminal" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span id="log-count" class="px-1.5 py-0.2 bg-emerald-950 text-emerald-300 text-[10px] rounded">Live Logs</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN INTERACTIVE WORKSPACE -->
+    <main class="flex-1 max-w-[1600px] w-full mx-auto p-4 lg:p-6 grid grid-cols-1 xl:grid-cols-12 gap-6 relative">
+        
+        <!-- DIAGRAM CANVAS CONTAINER (SVG WORKFLOW) -->
+        <div class="xl:col-span-9 bg-slate-900/60 border border-slate-800 rounded-2xl p-3 lg:p-5 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+            <div class="flex justify-between items-center mb-2 px-2 text-xs">
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Topology Model:</span>
+                    <span class="text-[11px] font-bold text-indigo-300 code-font">Azure-Durable-LangGraph-Pipeline</span>
+                </div>
+                <div class="flex items-center gap-4 text-[11px] text-slate-400 code-font">
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-amber-400"></span> Ingestion</span>
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-sky-400"></span> Orchestration</span>
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-indigo-400"></span> Multi-Agent Loop</span>
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-rose-400"></span> Telemetry</span>
+                </div>
+            </div>
+
+            <!-- THE INTERACTIVE VECTOR SVG WORKFLOW -->
+            <div id="svg-canvas-wrapper" class="w-full flex-1 flex justify-center items-center overflow-x-auto min-h-[640px] bg-slate-950/80 rounded-xl border border-slate-850 p-2 relative">
+                <svg id="architecture-svg" viewBox="0 0 1420 850" class="w-full h-auto max-w-[1380px] select-none" xmlns="http://www.w3.org/2000/svg">
+                    
+                    <defs>
+                        <!-- Glow Filters -->
+                        <filter id="glow-amber" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <filter id="glow-blue" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <filter id="glow-indigo" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        <filter id="glow-rose" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+
+                        <!-- Marker Arrows -->
+                        <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 1 L 8 5 L 0 9 z" fill="#F59E0B" />
+                        </marker>
+                        <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 1 L 8 5 L 0 9 z" fill="#38BDF8" />
+                        </marker>
+                        <marker id="arrow-indigo" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 1 L 8 5 L 0 9 z" fill="#818CF8" />
+                        </marker>
+                        <marker id="arrow-emerald" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 1 L 8 5 L 0 9 z" fill="#10B981" />
+                        </marker>
+                        <marker id="arrow-rose" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 1 L 8 5 L 0 9 z" fill="#F43F5E" />
+                        </marker>
+                        <marker id="arrow-slate" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                            <path d="M 0 1 L 8 5 L 0 9 z" fill="#64748B" />
+                        </marker>
+                    </defs>
+
+                    <!-- BACKGROUND GRID ACCENTS -->
+                    <g opacity="0.08">
+                        <pattern id="grid-pattern" width="24" height="24" patternUnits="userSpaceOnUse">
+                            <rect width="24" height="24" fill="none" />
+                            <circle cx="12" cy="12" r="1" fill="#818CF8" />
+                        </pattern>
+                        <rect width="1420" height="850" fill="url(#grid-pattern)" />
+                    </g>
+
+                    <!-- ==================== 1. INGESTION LAYER CLUSTER ==================== -->
+                    <g id="cluster-ingestion" class="cluster-group">
+                        <rect x="25" y="115" width="165" height="365" rx="10" fill="#1C1917" fill-opacity="0.4" stroke="#D97706" stroke-width="1.5" stroke-dasharray="0" />
+                        <rect x="25" y="115" width="165" height="30" rx="10" fill="#D97706" fill-opacity="0.15" />
+                        <text x="40" y="135" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">⑂ Ingestion Layer</text>
+
+                        <!-- Managed Kafka Node -->
+                        <g id="node-kafka" class="diagram-node" onclick="inspectNode('kafka')">
+                            <rect x="42" y="175" width="130" height="110" rx="8" fill="#0F172A" stroke="#78350F" stroke-width="1.5" />
+                            <!-- Kafka Icon -->
+                            <circle cx="107" cy="210" r="12" fill="#D97706" fill-opacity="0.2" stroke="#F59E0B" stroke-width="1.5" />
+                            <circle cx="98" cy="225" r="7" fill="#F59E0B" />
+                            <circle cx="116" cy="225" r="7" fill="#F59E0B" />
+                            <line x1="107" y1="210" x2="98" y2="225" stroke="#F59E0B" stroke-width="1.5" />
+                            <line x1="107" y1="210" x2="116" y2="225" stroke="#F59E0B" stroke-width="1.5" />
+                            <text x="107" y="260" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Managed Kafka</text>
+                            <text x="107" y="274" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">Claims Inbound</text>
+                        </g>
+
+                        <!-- Event Hubs Node -->
+                        <g id="node-eventhubs" class="diagram-node" onclick="inspectNode('eventhubs')">
+                            <rect x="42" y="325" width="130" height="110" rx="8" fill="#0F172A" stroke="#78350F" stroke-width="1.5" />
+                            <!-- Event Hubs Icon -->
+                            <rect x="95" y="348" width="24" height="24" rx="4" fill="#0284C7" fill-opacity="0.2" stroke="#38BDF8" stroke-width="1.5" />
+                            <circle cx="107" cy="360" r="4" fill="#38BDF8" />
+                            <text x="107" y="405" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Event Hubs</text>
+                            <text x="107" y="419" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">Telemetry Stream</text>
+                        </g>
+                    </g>
+
+
+                    <!-- ==================== 2. AZURE DURABLE FUNCTIONS ORCHESTRATOR ==================== -->
+                    <g id="cluster-durable" class="cluster-group">
+                        <rect x="260" y="65" width="225" height="520" rx="10" fill="#0C4A6E" fill-opacity="0.15" stroke="#0284C7" stroke-width="1.5" />
+                        <rect x="260" y="65" width="225" height="30" rx="10" fill="#0284C7" fill-opacity="0.15" />
+                        <text x="275" y="85" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">⚡ Azure Durable Functions Orchestrator</text>
+
+                        <!-- Durable Bolt Graphic -->
+                        <g id="node-durable-orchestrator" class="diagram-node" onclick="inspectNode('orchestrator')">
+                            <polygon points="372,110 357,140 373,140 365,168 385,134 371,134" fill="#F59E0B" stroke="#FBBF24" stroke-width="1.5" />
+                            <text x="372" y="188" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">Durable Orchestrator</text>
+                            <text x="372" y="202" text-anchor="middle" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="9">Deterministic State Machine</text>
+                        </g>
+
+                        <!-- Activity 1 Node -->
+                        <g id="node-activity-1" class="diagram-node" onclick="inspectNode('activity1')">
+                            <rect x="282" y="230" width="180" height="68" rx="8" fill="#0F172A" stroke="#0369A1" stroke-width="1.5" />
+                            <text x="372" y="252" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">Activity 1</text>
+                            <text x="372" y="268" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Kafka Ingestion</text>
+                            <text x="372" y="283" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">standardize payloads</text>
+                        </g>
+
+                        <!-- Activity 2 Node -->
+                        <g id="node-activity-2" class="diagram-node" onclick="inspectNode('activity2')">
+                            <rect x="282" y="340" width="180" height="68" rx="8" fill="#0F172A" stroke="#0369A1" stroke-width="1.5" />
+                            <text x="372" y="362" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">Activity 2</text>
+                            <text x="372" y="378" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">LangGraph Workflow</text>
+                            <text x="372" y="393" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">multi-agent inference</text>
+                        </g>
+
+                        <!-- Activity 3 Node -->
+                        <g id="node-activity-3" class="diagram-node" onclick="inspectNode('activity3')">
+                            <rect x="282" y="450" width="180" height="68" rx="8" fill="#0F172A" stroke="#0369A1" stroke-width="1.5" />
+                            <text x="372" y="472" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">Activity 3</text>
+                            <text x="372" y="488" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Output & Persistence</text>
+                            <text x="372" y="503" text-anchor="middle" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">persist + telemetry</text>
+                        </g>
+                    </g>
+
+
+                    <!-- ==================== 3. LANGGRAPH MULTI-AGENT WORKFLOW ==================== -->
+                    <g id="cluster-langgraph" class="cluster-group">
+                        <rect x="540" y="55" width="455" height="535" rx="10" fill="#2E1065" fill-opacity="0.25" stroke="#6D28D9" stroke-width="1.5" />
+                        <rect x="540" y="55" width="455" height="30" rx="10" fill="#6D28D9" fill-opacity="0.2" />
+                        <text x="555" y="75" fill="#A78BFA" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">⑂ LangGraph Multi-Agent Workflow</text>
+
+                        <!-- ROW 1 AGENTS -->
+                        <!-- Guardrails Node -->
+                        <g id="node-guardrails" class="diagram-node" onclick="inspectNode('guardrails')">
+                            <rect x="555" y="130" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="617" y="156" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">🛡️ Guardrails</text>
+                            <text x="617" y="172" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">validate + safety</text>
+                        </g>
+
+                        <!-- Weather Node -->
+                        <g id="node-weather" class="diagram-node" onclick="inspectNode('weather')">
+                            <rect x="705" y="130" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="767" y="156" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">🌧️ Weather</text>
+                            <text x="767" y="172" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">forecast + risk</text>
+                        </g>
+
+                        <!-- Coverage Node -->
+                        <g id="node-coverage" class="diagram-node" onclick="inspectNode('coverage')">
+                            <rect x="855" y="130" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="917" y="156" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">📄 Coverage</text>
+                            <text x="917" y="172" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">PDS lookup</text>
+                        </g>
+
+                        <!-- ROW 2 AGENTS -->
+                        <!-- Fraud Node -->
+                        <g id="node-fraud" class="diagram-node" onclick="inspectNode('fraud')">
+                            <rect x="555" y="235" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="617" y="261" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">🔍 Fraud</text>
+                            <text x="617" y="277" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">suspicious patterns</text>
+                        </g>
+
+                        <!-- Payment Reserve Node -->
+                        <g id="node-reserve" class="diagram-node" onclick="inspectNode('reserve')">
+                            <rect x="705" y="235" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="767" y="261" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">🧮 Payment Reserve</text>
+                            <text x="767" y="277" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">loss exposure</text>
+                        </g>
+
+                        <!-- Triage Node -->
+                        <g id="node-triage" class="diagram-node" onclick="inspectNode('triage')">
+                            <rect x="855" y="235" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="917" y="261" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">🚦 Triage</text>
+                            <text x="917" y="277" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">priority + route</text>
+                        </g>
+
+                        <!-- ROW 3 AGENTS -->
+                        <!-- Strategy Node -->
+                        <g id="node-strategy" class="diagram-node" onclick="inspectNode('strategy')">
+                            <rect x="555" y="340" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="617" y="366" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">🧭 Strategy</text>
+                            <text x="617" y="382" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">next steps</text>
+                        </g>
+
+                        <!-- Recovery Node (Dashed) -->
+                        <g id="node-recovery" class="diagram-node" onclick="inspectNode('recovery')">
+                            <rect x="705" y="340" width="125" height="65" rx="8" fill="#0F172A" stroke="#6D28D9" stroke-width="1.5" stroke-dasharray="4,3" />
+                            <text x="767" y="366" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">🔄 Recovery</text>
+                            <text x="767" y="382" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">optional workflows</text>
+                        </g>
+
+                        <!-- Auditor Node -->
+                        <g id="node-auditor" class="diagram-node" onclick="inspectNode('auditor')">
+                            <rect x="855" y="340" width="125" height="65" rx="8" fill="#0F172A" stroke="#4C1D95" stroke-width="1.5" />
+                            <text x="917" y="366" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">📋 Auditor</text>
+                            <text x="917" y="382" text-anchor="middle" fill="#94A3B8" font-family="'JetBrains Mono', monospace" font-size="9">compliance log</text>
+                        </g>
+                    </g>
+
+
+                    <!-- ==================== 4. WEATHER DATA TOOLS CLUSTER ==================== -->
+                    <g id="cluster-weather-tools" class="cluster-group">
+                        <rect x="1070" y="65" width="175" height="350" rx="10" fill="#082F49" fill-opacity="0.25" stroke="#0284C7" stroke-width="1.5" />
+                        <rect x="1070" y="65" width="175" height="30" rx="10" fill="#0284C7" fill-opacity="0.15" />
+                        <text x="1085" y="85" fill="#38BDF8" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">☁ Weather Data Tools</text>
+
+                        <!-- Tools Grid -->
+                        <g id="node-bom" class="diagram-node" onclick="inspectNode('bom')">
+                            <rect x="1085" y="115" width="65" height="60" rx="6" fill="#0F172A" stroke="#0369A1" stroke-width="1" />
+                            <text x="1117" y="142" text-anchor="middle" font-size="16">☀️</text>
+                            <text x="1117" y="162" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">BOM</text>
+                        </g>
+
+                        <g id="node-outage" class="diagram-node" onclick="inspectNode('outage')">
+                            <rect x="1165" y="115" width="65" height="60" rx="6" fill="#0F172A" stroke="#0369A1" stroke-width="1" />
+                            <text x="1197" y="142" text-anchor="middle" font-size="16">⚡</text>
+                            <text x="1197" y="162" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700">Outage OWL</text>
+                        </g>
+
+                        <g id="node-iceye" class="diagram-node" onclick="inspectNode('iceye')">
+                            <rect x="1085" y="195" width="65" height="60" rx="6" fill="#0F172A" stroke="#0369A1" stroke-width="1" />
+                            <text x="1117" y="222" text-anchor="middle" font-size="16">🛰️</text>
+                            <text x="1117" y="242" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">ICEYE</text>
+                        </g>
+
+                        <g id="node-weatherwatch" class="diagram-node" onclick="inspectNode('weatherwatch')">
+                            <rect x="1165" y="195" width="65" height="60" rx="6" fill="#0F172A" stroke="#0369A1" stroke-width="1" />
+                            <text x="1197" y="222" text-anchor="middle" font-size="16">🌧️</text>
+                            <text x="1197" y="242" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="700">WeatherWatch</text>
+                        </g>
+
+                        <!-- Other Feeds -->
+                        <g id="node-otherfeeds" class="diagram-node" onclick="inspectNode('otherfeeds')">
+                            <rect x="1085" y="275" width="145" height="65" rx="6" fill="#0F172A" stroke="#0369A1" stroke-width="1" />
+                            <text x="1157" y="304" text-anchor="middle" font-size="16">📡</text>
+                            <text x="1157" y="324" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">Other Feeds</text>
+                        </g>
+                    </g>
+
+
+                    <!-- ==================== 5. CACHE PDS BLOB STORAGE CLUSTER ==================== -->
+                    <g id="cluster-pds" class="cluster-group">
+                        <rect x="1025" y="475" width="220" height="200" rx="10" fill="#064E3B" fill-opacity="0.2" stroke="#059669" stroke-width="1.5" />
+                        <rect x="1025" y="475" width="220" height="30" rx="10" fill="#059669" fill-opacity="0.15" />
+                        <text x="1040" y="495" fill="#34D399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">🔒 Cache Policy Product Disclosure</text>
+
+                        <!-- Blob Storage Node -->
+                        <g id="node-blob" class="diagram-node" onclick="inspectNode('blob')">
+                            <rect x="1055" y="525" width="160" height="120" rx="8" fill="#0F172A" stroke="#047857" stroke-width="1.5" />
+                            <!-- Azure Storage Box Graphic -->
+                            <rect x="1120" y="545" width="30" height="26" rx="3" fill="#0284C7" stroke="#38BDF8" stroke-width="1.5" />
+                            <line x1="1120" y1="558" x2="1150" y2="558" stroke="#38BDF8" stroke-width="1" />
+                            <line x1="1135" y1="545" x2="1135" y2="571" stroke="#38BDF8" stroke-width="1" />
+                            <text x="1135" y="598" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Blob Storage</text>
+                            <text x="1135" y="616" text-anchor="middle" fill="#A7F3D0" font-family="'JetBrains Mono', monospace" font-size="9">PDS cache + artifacts</text>
+                        </g>
+                    </g>
+
+
+                    <!-- ==================== 6. AZURE FOUNDRY CLUSTER ==================== -->
+                    <g id="cluster-foundry" class="cluster-group">
+                        <rect x="740" y="645" width="220" height="120" rx="10" fill="#451A03" fill-opacity="0.3" stroke="#D97706" stroke-width="1.5" />
+                        <rect x="740" y="645" width="220" height="28" rx="10" fill="#D97706" fill-opacity="0.15" />
+                        <text x="755" y="664" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Azure Foundry</text>
+
+                        <g id="node-foundry" class="diagram-node" onclick="inspectNode('foundry')">
+                            <!-- AI Star Symbol -->
+                            <circle cx="850" cy="698" r="16" fill="#0284C7" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1.5" />
+                            <path d="M 850 686 L 853 695 L 862 698 L 853 701 L 850 710 L 847 701 L 838 698 L 847 695 Z" fill="#38BDF8" />
+                            <text x="850" y="736" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Foundry GPT-5.4 mini</text>
+                        </g>
+                    </g>
+
+
+                    <!-- ==================== 7. OBSERVABILITY CLUSTER ==================== -->
+                    <g id="cluster-observability" class="cluster-group">
+                        <rect x="140" y="645" width="560" height="190" rx="10" fill="#4C0519" fill-opacity="0.25" stroke="#E11D48" stroke-width="1.5" />
+                        <rect x="140" y="645" width="560" height="30" rx="10" fill="#E11D48" fill-opacity="0.15" />
+                        <text x="155" y="665" fill="#FDA4AF" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">📈 Observability</text>
+
+                        <!-- App Insights Node -->
+                        <g id="node-insights" class="diagram-node" onclick="inspectNode('insights')">
+                            <rect x="175" y="695" width="115" height="95" rx="8" fill="#0F172A" stroke="#BE123C" stroke-width="1.2" />
+                            <!-- Lightbulb / Insights Icon -->
+                            <circle cx="232" cy="728" r="14" fill="#A855F7" fill-opacity="0.25" stroke="#C084FC" stroke-width="1.5" />
+                            <text x="232" y="733" text-anchor="middle" font-size="14">💡</text>
+                            <text x="232" y="764" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">Application Insights</text>
+                        </g>
+
+                        <!-- Dynatrace Node -->
+                        <g id="node-dynatrace" class="diagram-node" onclick="inspectNode('dynatrace')">
+                            <rect x="310" y="695" width="115" height="95" rx="8" fill="#0F172A" stroke="#BE123C" stroke-width="1.2" />
+                            <!-- 3D Cube Icon -->
+                            <rect x="355" y="718" width="22" height="22" rx="4" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5" />
+                            <polygon points="355,718 366,710 387,710 377,718" fill="#38BDF8" fill-opacity="0.4" />
+                            <polygon points="377,718 387,710 387,732 377,740" fill="#38BDF8" fill-opacity="0.2" />
+                            <text x="367" y="764" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">Dynatrace</text>
+                        </g>
+
+                        <!-- Metric Bullets -->
+                        <g font-family="'JetBrains Mono', monospace" font-size="10" fill="#FDA4AF">
+                            <text x="455" y="715">• ingestion throughput</text>
+                            <text x="455" y="735">• agent latency</text>
+                            <text x="455" y="755">• model inference duration</text>
+                            <text x="455" y="775">• coverage cache hit rate</text>
+                            <text x="455" y="795">• distributed traces</text>
+                        </g>
+                    </g>
+
+
+                    <!-- ==================== CONNECTION PATHS & ANIMATED STREAMS ==================== -->
+                    
+                    <!-- 1. Stream: Ingestion -> Activity 1 -->
+                    <path id="path-stream" d="M 190 264 L 282 264" fill="none" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-amber)" />
+                    <text x="235" y="256" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" text-anchor="middle">stream</text>
+                    <!-- Animated Packet -->
+                    <circle r="4" fill="#FDE68A" filter="url(#glow-amber)">
+                        <animateMotion dur="1.8s" repeatCount="indefinite" path="M 190 264 L 282 264" />
+                    </circle>
+
+                    <!-- 2. Internal Durable Flow: Activity 1 -> Activity 2 -> Activity 3 -->
+                    <path d="M 372 298 L 372 340" fill="none" stroke="#0284C7" stroke-width="2" marker-end="url(#arrow-blue)" />
+                    <circle r="3.5" fill="#38BDF8" filter="url(#glow-blue)">
+                        <animateMotion dur="1.4s" repeatCount="indefinite" path="M 372 298 L 372 340" />
+                    </circle>
+
+                    <path d="M 372 408 L 372 450" fill="none" stroke="#0284C7" stroke-width="2" marker-end="url(#arrow-blue)" />
+                    <circle r="3.5" fill="#38BDF8" filter="url(#glow-blue)">
+                        <animateMotion dur="1.4s" repeatCount="indefinite" path="M 372 408 L 372 450" />
+                    </circle>
+
+                    <!-- 3. Invoke: Activity 2 -> Guardrails -->
+                    <path id="path-invoke" d="M 462 374 C 510 374, 510 162, 555 162" fill="none" stroke="#818CF8" stroke-width="2" marker-end="url(#arrow-indigo)" />
+                    <text x="495" y="280" fill="#C7D2FE" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" text-anchor="middle">invoke</text>
+                    <circle r="4.5" fill="#C7D2FE" filter="url(#glow-indigo)">
+                        <animateMotion dur="2.4s" repeatCount="indefinite" path="M 462 374 C 510 374, 510 162, 555 162" />
+                    </circle>
+
+                    <!-- 4. Guardrails -> Weather -->
+                    <path d="M 680 162 L 705 162" fill="none" stroke="#818CF8" stroke-width="1.8" marker-end="url(#arrow-indigo)" />
+                    <circle r="3" fill="#A5B4FC">
+                        <animateMotion dur="1.2s" repeatCount="indefinite" path="M 680 162 L 705 162" />
+                    </circle>
+
+                    <!-- 5. Weather -> Coverage -->
+                    <path d="M 830 162 L 855 162" fill="none" stroke="#818CF8" stroke-width="1.8" marker-end="url(#arrow-indigo)" />
+                    <circle r="3" fill="#A5B4FC">
+                        <animateMotion dur="1.2s" repeatCount="indefinite" path="M 830 162 L 855 162" />
+                    </circle>
+
+                    <!-- 6. Weather -> Weather Data Tools (Top Line) -->
+                    <path d="M 767 130 C 767 95, 1050 95, 1070 145" fill="none" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrow-blue)" />
+                    <circle r="3.5" fill="#38BDF8" filter="url(#glow-blue)">
+                        <animateMotion dur="2.5s" repeatCount="indefinite" path="M 767 130 C 767 95, 1050 95, 1070 145" />
+                    </circle>
+
+                    <!-- 7. Coverage -> Triage -->
+                    <path d="M 917 195 L 917 235" fill="none" stroke="#818CF8" stroke-width="1.8" marker-end="url(#arrow-indigo)" />
+                    <circle r="3" fill="#A5B4FC">
+                        <animateMotion dur="1.5s" repeatCount="indefinite" path="M 917 195 L 917 235" />
+                    </circle>
+
+                    <!-- 8. Coverage -> PDS Blob Storage (Dotted Line with --PDS--) -->
+                    <path id="path-pds" d="M 940 195 C 990 280, 1165 320, 1165 525" fill="none" stroke="#10B981" stroke-width="1.8" stroke-dasharray="6,4" marker-end="url(#arrow-emerald)" />
+                    <rect x="1005" y="440" width="45" height="18" rx="4" fill="#064E3B" />
+                    <text x="1027" y="453" fill="#6EE7B7" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">--PDS--</text>
+                    <circle r="4" fill="#6EE7B7">
+                        <animateMotion dur="3s" repeatCount="indefinite" path="M 940 195 C 990 280, 1165 320, 1165 525" />
+                    </circle>
+
+                    <!-- 9. Triage -> Payment Reserve -->
+                    <path d="M 855 267 L 830 267" fill="none" stroke="#818CF8" stroke-width="1.8" marker-end="url(#arrow-indigo)" />
+                    <circle r="3" fill="#A5B4FC">
+                        <animateMotion dur="1.2s" repeatCount="indefinite" path="M 855 267 L 830 267" />
+                    </circle>
+
+                    <!-- 10. Payment Reserve -> Fraud -->
+                    <path d="M 705 267 L 680 267" fill="none" stroke="#818CF8" stroke-width="1.8" marker-end="url(#arrow-indigo)" />
+                    <circle r="3" fill="#A5B4FC">
+                        <animateMotion dur="1.2s" repeatCount="indefinite" path="M 705 267 L 680 267" />
+                    </circle>
+
+                    <!-- 11. Strategy -> Recovery -->
+                    <path d="M 680 372 L 705 372" fill="none" stroke="#818CF8" stroke-width="1.8" marker-end="url(#arrow-indigo)" />
+                    <circle r="3" fill="#A5B4FC">
+                        <animateMotion dur="1.2s" repeatCount="indefinite" path="M 680 372 L 705 372" />
+                    </circle>
+
+                    <!-- 12. Recovery -> Auditor -->
+                    <path d="M 830 372 L 855 372" fill="none" stroke="#818CF8" stroke-width="1.8" marker-end="url(#arrow-indigo)" />
+                    <circle r="3" fill="#A5B4FC">
+                        <animateMotion dur="1.2s" repeatCount="indefinite" path="M 830 372 L 855 372" />
+                    </circle>
+
+                    <!-- 13. Azure Foundry -> LangGraph Inference Model -->
+                    <path d="M 850 645 L 850 590" fill="none" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-amber)" />
+                    <text x="895" y="625" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">shared inference model for all agents</text>
+                    <circle r="4" fill="#FDE68A" filter="url(#glow-amber)">
+                        <animateMotion dur="1.8s" repeatCount="indefinite" path="M 850 645 L 850 590" />
+                    </circle>
+
+                    <!-- 14. Telemetry: Durable Functions -> Observability (Dotted Red) -->
+                    <path d="M 372 585 C 372 615, 340 615, 340 645" fill="none" stroke="#F43F5E" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrow-rose)" />
+                    <text x="382" y="620" fill="#FDA4AF" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">telemetry</text>
+                    <circle r="3" fill="#FDA4AF" filter="url(#glow-rose)">
+                        <animateMotion dur="2.2s" repeatCount="indefinite" path="M 372 585 C 372 615, 340 615, 340 645" />
+                    </circle>
+
+                    <!-- 15. Agent Traces: LangGraph -> Observability (Dotted Red) -->
+                    <path d="M 820 590 C 820 625, 480 625, 480 645" fill="none" stroke="#F43F5E" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrow-rose)" />
+                    <text x="660" y="622" fill="#FDA4AF" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" text-anchor="middle">agent traces</text>
+                    <circle r="3" fill="#FDA4AF" filter="url(#glow-rose)">
+                        <animateMotion dur="2.8s" repeatCount="indefinite" path="M 820 590 C 820 625, 480 625, 480 645" />
+                    </circle>
+
+                </svg>
+            </div>
+        </div>
+
+        <!-- RIGHT DIAGNOSTICS & TELEMETRY INSPECTOR PANEL -->
+        <aside class="xl:col-span-3 flex flex-col gap-5">
+            
+            <!-- NODE INSPECTOR DRAWER -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-4 shadow-xl">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="cpu" class="w-4 h-4 text-indigo-400"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Topology Node Inspector</span>
+                    </div>
+                    <span id="inspect-status" class="text-[9px] bg-emerald-950 text-emerald-300 border border-emerald-800 px-2 py-0.5 rounded font-mono font-semibold">ONLINE</span>
+                </div>
+
+                <div>
+                    <span id="inspect-category" class="text-[9px] font-bold text-indigo-400 code-font uppercase tracking-widest">LANGGRAPH CLUSTER</span>
+                    <h3 id="inspect-title" class="text-base font-bold text-white mt-0.5">🛡️ Guardrails Node</h3>
+                    <p id="inspect-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">Pydantic validation layer enforcing input invariants, content safety boundaries, and schema integrity before downstream agents fire.</p>
+                </div>
+
+                <div class="space-y-2 text-xs">
+                    <div class="bg-slate-950/80 p-2.5 rounded-lg border border-slate-850">
+                        <span class="text-[10px] text-slate-500 uppercase font-bold code-font block mb-1">Execution Contract</span>
+                        <div id="inspect-contract" class="text-[11px] text-indigo-300 font-mono">AgenticGraphState -> PydanticScheme</div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
+                            <span class="text-[9px] text-slate-500 uppercase font-bold code-font block">Avg Latency</span>
+                            <span id="inspect-latency" class="font-bold text-slate-200 code-font">18ms</span>
+                        </div>
+                        <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
+                            <span class="text-[9px] text-slate-500 uppercase font-bold code-font block">Throughput</span>
+                            <span id="inspect-throughput" class="font-bold text-emerald-400 code-font">1.2k req/min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-800 pt-3">
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide block mb-1.5">Downstream Dependencies</span>
+                    <div id="inspect-deps" class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-[10px] code-font">Weather</span>
+                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-[10px] code-font">Foundry GPT-5.4 mini</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIVE STREAM EVENT BUS LOGS -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 flex flex-col gap-3 flex-1 min-h-[260px] shadow-xl">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-2.5">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-4 h-4 text-emerald-400"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Live Telemetry Bus</span>
+                    </div>
+                    <span class="text-[9px] text-slate-500 code-font">FIFO Buffer</span>
+                </div>
+
+                <div id="telemetry-log" class="telemetry-feed flex-1 overflow-y-auto max-h-[300px] flex flex-col gap-1.5 text-[11px] code-font text-slate-300 leading-snug pr-1">
+                    <!-- Dynamic logs inserted via JS -->
+                </div>
+            </div>
+
+        </aside>
+    </main>
+
+    <script>
+        // Node metadata dictionary matching ProjectBluey.png architecture
+        const nodeDatabase = {
+            kafka: {
+                category: "INGESTION LAYER",
+                title: "Managed Kafka Stream",
+                desc: "High-throughput asynchronous claims event stream ingesting raw insurance lodgements and broker webhook notifications.",
+                contract: "KafkaEvent<RawBytes> -> StandardizedPayload",
+                latency: "8ms",
+                throughput: "2.4k events/sec",
+                status: "STREAMING",
+                deps: ["Activity 1: Kafka Ingestion", "Event Hubs"]
+            },
+            eventhubs: {
+                category: "INGESTION LAYER",
+                title: "Azure Event Hubs",
+                desc: "Enterprise cloud telemetry ingestion buffer synchronizing device telemetry and external carrier claims.",
+                contract: "EventHubStream<ClaimPacket>",
+                latency: "12ms",
+                throughput: "1.8k events/sec",
+                status: "ONLINE",
+                deps: ["Activity 1: Kafka Ingestion"]
+            },
+            orchestrator: {
+                category: "AZURE DURABLE FUNCTIONS",
+                title: "Durable Function Orchestrator",
+                desc: "Deterministic serverless state coordinator maintaining transaction boundaries across activities and handling retry queues.",
+                contract: "DurableOrchestratorContext -> ActivityChain",
+                latency: "25ms",
+                throughput: "98.8% success",
+                status: "HEALTHY",
+                deps: ["Activity 1", "Activity 2", "Activity 3", "Application Insights"]
+            },
+            activity1: {
+                category: "DURABLE ACTIVITIES",
+                title: "Activity 1: Kafka Ingestion",
+                desc: "Validates incoming Kafka byte stream, parses schema invariants, and standardizes claim identifiers.",
+                contract: "StandardizedPayload(claim_id, meta, ts)",
+                latency: "14ms",
+                throughput: "100k+ claims/yr",
+                status: "ACTIVE",
+                deps: ["Activity 2: LangGraph Workflow", "Observability"]
+            },
+            activity2: {
+                category: "DURABLE ACTIVITIES",
+                title: "Activity 2: LangGraph Workflow",
+                desc: "Dispatches standardized payload into LangGraph Multi-Agent execution loop and coordinates tool responses.",
+                contract: "AgenticGraphState -> LangGraphLoop",
+                latency: "420ms",
+                throughput: "145+ Agents",
+                status: "INFERRING",
+                deps: ["Guardrails", "Foundry GPT-5.4 mini", "Observability"]
+            },
+            activity3: {
+                category: "DURABLE ACTIVITIES",
+                title: "Activity 3: Output & Persistence",
+                desc: "Commits finalized multi-agent arbitration decision to storage, generates audit certificates, and emits traces.",
+                contract: "ClaimDecisionPacket -> Storage & Traces",
+                latency: "35ms",
+                throughput: "100%",
+                status: "COMMITTING",
+                deps: ["Observability", "Dynatrace"]
+            },
+            guardrails: {
+                category: "LANGGRAPH AGENTS",
+                title: "🛡️ Guardrails Agent",
+                desc: "Pydantic validation layer enforcing input invariants, content safety boundaries, and schema integrity before downstream agents fire.",
+                contract: "AgenticGraphState -> PydanticScheme",
+                latency: "18ms",
+                throughput: "1.2k req/min",
+                status: "ONLINE",
+                deps: ["Weather", "Foundry GPT-5.4 mini"]
+            },
+            weather: {
+                category: "LANGGRAPH AGENTS",
+                title: "🌧️ Weather Analysis Agent",
+                desc: "Extracts claim incident coordinates and queries specialized meteorological tools (BOM, ICEYE) to verify weather damage severity.",
+                contract: "GeoCoordinates -> WeatherRiskScore(0..1)",
+                latency: "185ms",
+                throughput: "19 Journeys",
+                status: "ONLINE",
+                deps: ["Coverage", "Weather Data Tools (BOM, ICEYE)"]
+            },
+            coverage: {
+                category: "LANGGRAPH AGENTS",
+                title: "📄 Coverage Agent",
+                desc: "Matches policy schedule against incident metadata, querying hot PDS caching in Azure Blob Storage.",
+                contract: "PolicyNumber -> PDSLookupTable",
+                latency: "32ms",
+                throughput: "94% Cache Hit",
+                status: "ONLINE",
+                deps: ["Triage", "Blob Storage (PDS Cache)"]
+            },
+            fraud: {
+                category: "LANGGRAPH AGENTS",
+                title: "🔍 Fraud Detection Agent",
+                desc: "Runs multi-variable anomaly detection against previous lodgements and flagged claim risk matrices.",
+                contract: "ClaimContext -> FraudRiskScore",
+                latency: "65ms",
+                throughput: "Deterministic",
+                status: "ACTIVE",
+                deps: ["Payment Reserve", "Triage"]
+            },
+            reserve: {
+                category: "LANGGRAPH AGENTS",
+                title: "🧮 Payment Reserve Agent",
+                desc: "Calculates statutory loss exposure and initializes claim reserve balance thresholds with zero negative exposure.",
+                contract: "LossEstimate -> ReserveAmount(Validated)",
+                latency: "28ms",
+                throughput: "Real-time",
+                status: "ACTIVE",
+                deps: ["Triage", "Auditor"]
+            },
+            triage: {
+                category: "LANGGRAPH AGENTS",
+                title: "🚦 Triage & Routing Agent",
+                desc: "Two-tier prompt supervisor routing claim into Straight-Through Processing (STP) or human adjustor queues.",
+                contract: "TriageMatrix -> FastTrack / Adjustor",
+                latency: "45ms",
+                throughput: "92% STP Rate",
+                status: "ACTIVE",
+                deps: ["Strategy", "Auditor"]
+            },
+            strategy: {
+                category: "LANGGRAPH AGENTS",
+                title: "🧭 Strategy Agent",
+                desc: "Formulates next-best customer actions, contractor repair dispatch assignments, and settlement options.",
+                contract: "TriageOutcome -> ActionPlan",
+                latency: "50ms",
+                throughput: "High",
+                status: "ONLINE",
+                deps: ["Recovery", "Auditor"]
+            },
+            recovery: {
+                category: "LANGGRAPH AGENTS",
+                title: "🔄 Recovery Agent (Optional)",
+                desc: "Subrogation assessment determining third-party liability and recovery options for property damages.",
+                contract: "LiabilityMatrix -> RecoveryClaim",
+                latency: "40ms",
+                throughput: "Optional Branch",
+                status: "STANDBY",
+                deps: ["Auditor"]
+            },
+            auditor: {
+                category: "LANGGRAPH AGENTS",
+                title: "📋 Auditor Agent",
+                desc: "Generates immutable compliance event certificates and verifies all 19 claim journey regulatory constraints.",
+                contract: "AuditChain -> VerifiedLogEntry",
+                latency: "22ms",
+                throughput: "100% Audited",
+                status: "VERIFYING",
+                deps: ["Activity 3", "Observability"]
+            },
+            bom: {
+                category: "WEATHER DATA TOOLS",
+                title: "BOM (Bureau of Meteorology)",
+                desc: "Official Australian Government weather telemetry integration fetching storm radar and rainfall histories.",
+                contract: "StationId -> WeatherObservations",
+                latency: "110ms",
+                throughput: "Live API",
+                status: "CONNECTED",
+                deps: ["Weather Agent"]
+            },
+            outage: {
+                category: "WEATHER DATA TOOLS",
+                title: "Outage OWL Feed",
+                desc: "Utility electrical grid and transmission line disruption monitoring validating local power surges.",
+                contract: "GridZone -> OutageEvents",
+                latency: "95ms",
+                throughput: "Real-time",
+                status: "CONNECTED",
+                deps: ["Weather Agent"]
+            },
+            iceye: {
+                category: "WEATHER DATA TOOLS",
+                title: "ICEYE Satellite Radar",
+                desc: "Synthetic Aperture Radar (SAR) satellite imagery measuring flood inundation depths at building level.",
+                contract: "BoundingBox -> FloodDepthMatrix",
+                latency: "240ms",
+                throughput: "High-Res SAR",
+                status: "CONNECTED",
+                deps: ["Weather Agent"]
+            },
+            weatherwatch: {
+                category: "WEATHER DATA TOOLS",
+                title: "WeatherWatch Feed",
+                desc: "High-density hail and severe thunderstorm tracking providing localized storm trajectory vector points.",
+                contract: "HailIndex -> ImpactSeverity",
+                latency: "75ms",
+                throughput: "Live Stream",
+                status: "CONNECTED",
+                deps: ["Weather Agent"]
+            },
+            otherfeeds: {
+                category: "WEATHER DATA TOOLS",
+                title: "Auxiliary Environmental Feeds",
+                desc: "Emergency services incident registers, bushfire warning alerts, and geographic catastrophe event tags.",
+                contract: "CatCode -> EmergencyDeclarations",
+                latency: "80ms",
+                throughput: "Live Feed",
+                status: "CONNECTED",
+                deps: ["Weather Agent"]
+            },
+            blob: {
+                category: "STORAGE INFRASTRUCTURE",
+                title: "Azure Blob Storage (PDS Cache)",
+                desc: "Hot memory caching tier holding Policy Product Disclosure Statements (PDS) to shield model from redundant retrievals.",
+                contract: "PDS_Key -> DocumentCacheChunks",
+                latency: "15ms",
+                throughput: "50k ops/sec",
+                status: "HOT_CACHED",
+                deps: ["Coverage Agent"]
+            },
+            foundry: {
+                category: "INFERENCE INFRASTRUCTURE",
+                title: "Foundry GPT-5.4 mini",
+                desc: "Unified cloud LLM inference gateway serving all 145+ specialized micro-agents with deterministic tool-calling constraints.",
+                contract: "ChatCompletion(Tools, Pydantic) -> StructuredOutput",
+                latency: "280ms",
+                throughput: "145+ Agents Backed",
+                status: "OPTIMAL",
+                deps: ["LangGraph Multi-Agent Workflow"]
+            },
+            insights: {
+                category: "OBSERVABILITY",
+                title: "Azure Application Insights",
+                desc: "Distributed transaction tracing measuring pipeline ingestion throughput, agent latency, and model duration.",
+                contract: "DistributedTraceContext -> OpenTelemetry",
+                latency: "1ms",
+                throughput: "Dual Emit",
+                status: "EMITTING",
+                deps: ["Durable Functions", "LangGraph"]
+            },
+            dynatrace: {
+                category: "OBSERVABILITY",
+                title: "Dynatrace Business Observability",
+                desc: "Enterprise executive solution monitoring insurance claim journey SLA completion and transaction conversion metrics.",
+                contract: "OneAgent -> BusinessDashboards",
+                latency: "Real-time",
+                throughput: "Full GCC Suite",
+                status: "EMITTING",
+                deps: ["Durable Functions", "LangGraph"]
+            }
+        };
+
+        let isSimRunning = true;
+        let simSpeed = 1.0;
+        let isClassicTheme = false;
+
+        function inspectNode(nodeId) {
+            const data = nodeDatabase[nodeId];
+            if (!data) return;
+
+            // Update active styling
+            document.querySelectorAll(".diagram-node").forEach(node => node.classList.remove("active"));
+            const target = document.getElementById(`node-${nodeId}`);
+            if (target) target.classList.add("active");
+
+            // Update Inspector UI
+            document.getElementById("inspect-category").innerText = data.category;
+            document.getElementById("inspect-title").innerText = data.title;
+            document.getElementById("inspect-desc").innerText = data.desc;
+            document.getElementById("inspect-contract").innerText = data.contract;
+            document.getElementById("inspect-latency").innerText = data.latency;
+            document.getElementById("inspect-throughput").innerText = data.throughput;
+            document.getElementById("inspect-status").innerText = data.status;
+
+            const depsContainer = document.getElementById("inspect-deps");
+            depsContainer.innerHTML = data.deps.map(dep => `
+                <span class="px-2 py-0.5 bg-slate-950 text-indigo-300 border border-indigo-900/50 rounded text-[10px] code-font font-medium">${dep}</span>
+            `).join('');
+
+            addTelemetryLog(`[INSPECT_NODE] Queried telemetry profile for ${data.title}`);
+        }
+
+        // Telemetry Event Stream Simulator
+        const sampleLogs = [
+            "[KAFKA_STREAM] Ingested partition #4 claim_id: CLM-84920 (Motor Vehicle)",
+            "[DURABLE_ORCHESTRATOR] Initializing Activity 1 payload standardization",
+            "[ACTIVITY_1] Payload standardized. Output schema certified by Pydantic",
+            "[LANGGRAPH_INVOKE] Dispatching claim CLM-84920 to Guardrails node",
+            "[GUARDRAILS] Content safety check PASSED. Policy match verified",
+            "[WEATHER_AGENT] GeoPoint: -33.8688, 151.2093 -> Querying BOM radar API",
+            "[BOM_DATA_FEED] Rainfall intensity: 48mm/hr (Severe Storm Cluster)",
+            "[COVERAGE_AGENT] Querying PDS Cache in Azure Blob Storage",
+            "[BLOB_STORAGE] Cache HIT (pds_hash: 0x9f8b2a). Lookup latency: 14ms",
+            "[FRAUD_AGENT] Anomaly detection score: 0.04 (Low Risk Profile)",
+            "[PAYMENT_RESERVE] Validating exposure threshold. Reserve initialized: $3,250",
+            "[TRIAGE_SUPERVISOR] Routed to Straight-Through Processing (STP) channel",
+            "[FOUNDRY_INFERENCE] GPT-5.4 mini completed multi-tool reasoning in 240ms",
+            "[AUDITOR] Generated compliance certificate #AUD-99103. Invariants valid",
+            "[DURABLE_ORCHESTRATOR] Activity 3 committed state to persistent store",
+            "[APP_INSIGHTS] Dual-emit distributed trace dispatched to Dynatrace"
+        ];
+        let logIndex = 0;
+
+        function addTelemetryLog(msg = null) {
+            const container = document.getElementById("telemetry-log");
+            if (!container) return;
+
+            const message = msg || sampleLogs[logIndex % sampleLogs.length];
+            if (!msg) logIndex++;
+
+            const time = new Date().toISOString().substring(11, 19);
+            const p = document.createElement("div");
+            p.className = "flex items-start gap-1.5 py-0.5 border-b border-slate-900";
+            p.innerHTML = `<span class="text-slate-500 shrink-0 text-[10px]">${time}</span> <span class="${message.includes('INSPECT') ? 'text-indigo-400 font-bold' : message.includes('PASSED') || message.includes('HIT') ? 'text-emerald-400' : 'text-slate-300'}">${message}</span>`;
+            
+            container.appendChild(p);
+            container.scrollTop = container.scrollHeight;
+
+            // Keep buffer capped at 35 logs
+            if (container.children.length > 35) {
+                container.removeChild(container.children[0]);
+            }
+        }
+
+        // Continuous Telemetry Loop
+        let telemetryInterval = setInterval(() => {
+            if (isSimRunning) addTelemetryLog();
+        }, 2200);
+
+        function toggleSimulation() {
+            isSimRunning = !isSimRunning;
+            const btnText = document.getElementById("play-text");
+            const btnIcon = document.getElementById("play-icon");
+            const svg = document.getElementById("architecture-svg");
+
+            if (isSimRunning) {
+                btnText.innerText = "LIVE";
+                btnIcon.setAttribute("data-lucide", "pause");
+                svg.unpauseAnimations();
+            } else {
+                btnText.innerText = "PAUSED";
+                btnIcon.setAttribute("data-lucide", "play");
+                svg.pauseAnimations();
+            }
+            lucide.createIcons();
+        }
+
+        function setSpeed(factor) {
+            simSpeed = factor;
+            ["05", "10", "20"].forEach(id => {
+                const btn = document.getElementById(`speed-${id}`);
+                btn.className = "px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors";
+            });
+
+            const activeKey = factor === 0.5 ? "05" : factor === 1.0 ? "10" : "20";
+            document.getElementById(`speed-${activeKey}`).className = "px-2 py-1 rounded bg-slate-800 text-indigo-300 font-bold transition-colors";
+
+            // Restart interval with tuned speed
+            clearInterval(telemetryInterval);
+            telemetryInterval = setInterval(() => {
+                if (isSimRunning) addTelemetryLog();
+            }, 2200 / simSpeed);
+
+            // Re-adjust SVG animation durations
+            const circles = document.querySelectorAll("#architecture-svg animateMotion");
+            circles.forEach(anim => {
+                const baseDur = anim.dataset.baseDur || parseFloat(anim.getAttribute("dur"));
+                if (!anim.dataset.baseDur) anim.dataset.baseDur = baseDur;
+                anim.setAttribute("dur", `${baseDur / simSpeed}s`);
+            });
+        }
+
+        function toggleThemeView() {
+            isClassicTheme = !isClassicTheme;
+            const wrapper = document.getElementById("svg-canvas-wrapper");
+            const btnText = document.getElementById("theme-text");
+
+            if (isClassicTheme) {
+                wrapper.classList.remove("bg-slate-950/80");
+                wrapper.classList.add("bg-[#F8FAFC]");
+                btnText.innerText = "Cyber Dark";
+            } else {
+                wrapper.classList.remove("bg-[#F8FAFC]");
+                wrapper.classList.add("bg-slate-950/80");
+                btnText.innerText = "Eraser Schematic";
+            }
+        }
+
+        function toggleLogDrawer() {
+            const logBox = document.getElementById("telemetry-log").parentElement;
+            logBox.classList.toggle("hidden");
+        }
+
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('embed') === 'true') {
+                const backBtn = document.getElementById('nav-back-btn');
+                const navDivider = document.getElementById('nav-divider');
+                if (backBtn) backBtn.classList.add('hidden');
+                if (navDivider) navDivider.classList.add('hidden');
+            }
+
+            lucide.createIcons();
+            // Seed initial 5 logs
+            for (let i = 0; i < 5; i++) {
+                addTelemetryLog();
+            }
+        };
+    </script>
+</body>
+</html>
