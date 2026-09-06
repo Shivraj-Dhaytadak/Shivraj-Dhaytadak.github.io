@@ -1,688 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" data-theme="allianz">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shivraj Dhaytadak | Agentic AI Consultant Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+    <meta name="description"
+        content="Portfolio of Shivraj Dhaytadak - Agentic AI Consultant specializing in multi-agent workflows, declarative JSON execution engines, and production safety guardrails across enterprise environments.">
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
+    <!-- Preconnect & Asynchronous Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
-        .code-font {
-            font-family: 'JetBrains Mono', monospace;
-        }
+    <!-- External Design System & Brand Palette -->
+    <link rel="stylesheet" href="styles.css">
 
-        .bg-slate-850 {
-            background-color: #131b28;
-        }
+    <!-- Tailwind CSS (Deferred) & Lucide CDN (Pinned v0.462.0 with Defer) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+    <script src="https://unpkg.com/lucide@0.462.0" defer></script>
 
-        .border-slate-850 {
-            border-color: #1e293b;
-        }
-
-        /* BRAND COLOR SCHEMES */
-        :root,
-        [data-theme="allianz"] {
-            --brand-primary: #003781;
-            --brand-primary-rgb: 0, 55, 129;
-            --brand-accent: #1e6fe8;
-            --brand-accent-rgb: 30, 111, 232;
-            --brand-accent-light: #60a5fa;
-            --brand-bg-base: #060d19;
-            --brand-bg-surface: #0a1322;
-            --brand-bg-card: rgba(10, 21, 38, 0.78);
-            --brand-bg-card-hover: rgba(15, 30, 55, 0.9);
-            --brand-border: rgba(30, 111, 232, 0.22);
-            --brand-border-active: rgba(30, 111, 232, 0.7);
-            --brand-glow: rgba(0, 55, 129, 0.38);
-            --brand-badge-bg: rgba(0, 55, 129, 0.28);
-            --brand-badge-border: rgba(30, 111, 232, 0.45);
-            --brand-badge-text: #93c5fd;
-            --brand-btn-bg: #003781;
-            --brand-btn-border: #1e6fe8;
-            --brand-btn-hover: #004bbb;
-            --brand-highlight-hint: #38bdf8;
-            --brand-hint-rgb: 56, 189, 248;
-            --brand-selection: rgba(0, 55, 129, 0.6);
-        }
-
-        [data-theme="yashtechnologies"] {
-            --brand-primary: #A89044;
-            --brand-primary-rgb: 168, 144, 68;
-            --brand-accent: #c9b161;
-            --brand-accent-rgb: 201, 177, 97;
-            --brand-accent-light: #e4d393;
-            --brand-bg-base: #03051e;
-            /* Stratos deep navy: RGB(0, 1, 65) */
-            --brand-bg-surface: #060829;
-            --brand-bg-card: rgba(6, 9, 45, 0.82);
-            --brand-bg-card-hover: rgba(11, 16, 65, 0.92);
-            --brand-border: rgba(168, 144, 68, 0.28);
-            --brand-border-active: rgba(168, 144, 68, 0.8);
-            --brand-glow: rgba(168, 144, 68, 0.3);
-            --brand-badge-bg: rgba(168, 144, 68, 0.2);
-            --brand-badge-border: rgba(168, 144, 68, 0.5);
-            --brand-badge-text: #e8dbaa;
-            --brand-btn-bg: #A89044;
-            --brand-btn-border: #c9b161;
-            --brand-btn-hover: #baa14e;
-            --brand-highlight-hint: #e63946;
-            /* Yash red hints */
-            --brand-hint-rgb: 230, 57, 70;
-            --brand-selection: rgba(168, 144, 68, 0.5);
-        }
-
-        [data-theme="persistentsystems"] {
-            --brand-primary: #FD5F07;
-            /* Blaze Orange: RGB(253, 95, 7) */
-            --brand-primary-rgb: 253, 95, 7;
-            --brand-accent: #ff833b;
-            --brand-accent-rgb: 255, 131, 59;
-            --brand-accent-light: #ffb27d;
-            --brand-bg-base: #091224;
-            /* Midnight Blue: RGB(9, 29, 64) / #231E28 */
-            --brand-bg-surface: #0e1933;
-            --brand-bg-card: rgba(14, 25, 48, 0.82);
-            --brand-bg-card-hover: rgba(22, 38, 72, 0.92);
-            --brand-border: rgba(253, 95, 7, 0.3);
-            --brand-border-active: rgba(253, 95, 7, 0.8);
-            --brand-glow: rgba(253, 95, 7, 0.35);
-            --brand-badge-bg: rgba(253, 95, 7, 0.2);
-            --brand-badge-border: rgba(253, 95, 7, 0.5);
-            --brand-badge-text: #fdba74;
-            --brand-btn-bg: #FD5F07;
-            --brand-btn-border: #ff833b;
-            --brand-btn-hover: #e65200;
-            --brand-highlight-hint: #FD5F07;
-            --brand-hint-rgb: 253, 95, 7;
-            --brand-selection: rgba(253, 95, 7, 0.5);
-        }
-
-        body {
-            background-color: var(--brand-bg-base);
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-
-        ::selection {
-            background: var(--brand-selection);
-            color: #ffffff;
-        }
-
-        .theme-card {
-            background-color: var(--brand-bg-card) !important;
-            border-color: var(--brand-border) !important;
-            transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-        }
-
-        .theme-card:hover {
-            border-color: var(--brand-border-active) !important;
-            box-shadow: 0 8px 24px -4px var(--brand-glow);
-        }
-
-        .theme-border {
-            border-color: var(--brand-border) !important;
-        }
-
-        .theme-border-active {
-            border-color: var(--brand-border-active) !important;
-        }
-
-        .theme-bg-card {
-            background-color: var(--brand-bg-card) !important;
-        }
-
-        .theme-badge {
-            background-color: var(--brand-badge-bg) !important;
-            border-color: var(--brand-badge-border) !important;
-            color: var(--brand-badge-text) !important;
-        }
-
-        .theme-text-accent {
-            color: var(--brand-accent) !important;
-        }
-
-        .theme-text-primary {
-            color: var(--brand-primary) !important;
-        }
-
-        .theme-btn-primary {
-            background-color: var(--brand-btn-bg) !important;
-            border-color: var(--brand-btn-border) !important;
-            color: #ffffff !important;
-            box-shadow: 0 4px 14px -2px var(--brand-glow);
-            transition: all 0.25s ease;
-        }
-
-        .theme-btn-primary:hover {
-            background-color: var(--brand-btn-hover) !important;
-            box-shadow: 0 6px 20px 0 var(--brand-glow);
-        }
-
-        .cylinder-wrapper {
-            perspective: 850px;
-            perspective-origin: 50% 50%;
-        }
-
-        .cylinder-drum {
-            transform-style: preserve-3d;
-            position: relative;
-            height: 140px;
-        }
-
-        .cylinder-item {
-            position: absolute;
-            left: 6px;
-            right: 6px;
-            transform-style: preserve-3d;
-            transition: all 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
-            user-select: none;
-        }
-
-        .cylinder-active {
-            top: 50%;
-            transform: translateY(-50%) translateZ(16px) scale(1);
-            opacity: 1;
-            z-index: 15;
-            cursor: default;
-            border-color: var(--brand-border-active) !important;
-            box-shadow: 0 10px 26px -4px var(--brand-glow);
-            background-color: var(--brand-bg-card) !important;
-        }
-
-        .cylinder-prev {
-            top: 4px;
-            transform: rotateX(24deg) scale(0.92) translateZ(-8px);
-            opacity: 0.46;
-            z-index: 6;
-            cursor: pointer;
-            border-color: var(--brand-border) !important;
-        }
-
-        .cylinder-next {
-            bottom: 4px;
-            transform: rotateX(-24deg) scale(0.92) translateZ(-8px);
-            opacity: 0.46;
-            z-index: 6;
-            cursor: pointer;
-            border-color: var(--brand-border) !important;
-        }
-
-        .cylinder-item:hover:not(.cylinder-active) {
-            opacity: 0.85;
-            background-color: rgba(30, 41, 59, 0.8);
-            border-color: var(--brand-border-active) !important;
-        }
-
-        .cylinder-fade-top {
-            background: linear-gradient(to bottom, var(--brand-bg-base) 0%, rgba(0, 0, 0, 0) 100%);
-            transition: background 0.4s ease;
-        }
-
-        .cylinder-fade-bottom {
-            background: linear-gradient(to top, var(--brand-bg-base) 0%, rgba(0, 0, 0, 0) 100%);
-            transition: background 0.4s ease;
-        }
-
-        ::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--brand-bg-base);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--brand-border);
-            border-radius: 2px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--brand-border-active);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(3px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.18s ease-out both;
-        }
-    </style>
+    <!-- Application Data & Logic Engines (Deferred) -->
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
 
-<body
-    class="bg-[#0B0F17] text-slate-100 min-h-screen flex flex-col selection:bg-slate-700 selection:text-white antialiased">
+<body class="bg-[#060d19] text-slate-100 min-h-screen flex flex-col selection:bg-slate-700 selection:text-white antialiased">
 
-    <script>
-        const portfolioData = {
-            profile: {
-                name: "Shivraj Dhaytadak",
-                role: "Agentic AI Consultant",
-                subRole: "Agentic AI Consultant @ Allianz Services",
-                location: "Pune, IN",
-                email: "shivraj.25d@gmail.com",
-                phone: "+91 7972476081",
-                github: "https://github.com/Shivraj-Dhaytadak",
-                linkedin: "https://www.linkedin.com/in/shivraj-dhaytadak7",
-                relocation: "Open to Relocation"
-            },
-            companies: [
-                {
-                    id: "allianz",
-                    name: "Allianz Services",
-                    type: "Insurance GCC / Captive",
-                    targetRole: "Agentic AI Consultant",
-                    duration: "Jan 2026 - Present",
-                    mappedProject: "bluey_ai_lodgement",
-                    metrics: [
-                        { label: "Claims Volume", value: "100k+", sub: "Annual Pipeline", icon: "zap", color: "amber" },
-                        { label: "Agent Core", value: "145+", sub: "Micro-Agents in Prod", icon: "bot", color: "indigo" },
-                        { label: "Deploy Speed", value: "1 Day", sub: "New Journey Launch", icon: "sparkles", color: "emerald" },
-                        { label: "Workflows", value: "19", sub: "Automated Journeys", icon: "workflow", color: "blue" },
-                        { label: "GCC Honors", value: "Q1 & Q2", sub: "Best Performer & Team", icon: "award", color: "purple" }
-                    ],
-                    moats: [
-                        "Multi-Layer Guardrails Agent & Azure Content Safety (Halts Injection Attacks)",
-                        "LangChain PII Redaction Middleware (100% Australia Privacy Compliance)",
-                        "Declarative JSON Workflow Engine (19 Claim Journeys Managed Directly)",
-                        "Two-Tier Decoupled Prompt Architecture (100% Duplication Eliminated)",
-                        "Runtime Node Validation (LangGraph State Synchronized with Pydantic)"
-                    ],
-                    baselines: [
-                        "Azure AI Foundry (GPT-5.4 mini)",
-                        "Azure Content Safety & LangChain PII",
-                        "Managed Kafka & Event Hubs",
-                        "Azure Durable Function Apps",
-                        "Blob Storage Hot Caching"
-                    ],
-                    blueprint: {
-                        title: "Project Bluey-AI Lodgement Topology",
-                        image: "ProjectBluey.png",
-                        interactiveUrl: "workflow.html",
-                        registry: "Azure-Durable-LangGraph-Pipeline",
-                        overview: "An Event Driven Multi-Agent Insurance Claims processing system built with Langgraph, Langchain, and Azure OpenAI (Azure AI Foundry) at its core, with Dual-Emit Observability via Dynatrace & Azure Application Insights.",
-                        specs: [
-                            { icon: "workflow", label: "Orchestration", desc: "Azure Durable Functions App orchestrating input validations, multi-agent pipeline, and output gates." },
-                            { icon: "shield-alert", label: "Safety & Privacy", desc: "Multi-layer Azure Content Safety guardrails screening 100k+ annual claims with LangChain PII redaction." },
-                            { icon: "cpu", label: "Inference Core", desc: "Federated micro-agent array driven under unified Foundry GPT-5.4 mini backends." },
-                            { icon: "bot", label: "Agentic Core", desc: "Robust LangGraph topology orchestrating 145+ specialized micro-agents across 19 claim types." },
-                            { icon: "database", label: "PDS Layer", desc: "Hot caching arrays optimized via dedicated Blob Storage structures to shield redundant disclosures." },
-                            { icon: "activity", label: "Observability", desc: "Distributed Application Insights & Dynatrace traces measuring throughput, latency, and schema hit-rates." }
-                        ]
-                    }
-                },
-                {
-                    id: "yashtechnologies",
-                    name: "Yash Technologies",
-                    type: "Consultancy",
-                    targetRole: "Data Scientist (Gen AI)",
-                    duration: "May 2025 - Jan 2026",
-                    mappedProject: "project_FlowIQ",
-                    metrics: [
-                        { label: "SQL Effort", value: "80%", sub: "Manual Cut", icon: "sparkles", color: "emerald" },
-                        { label: "Accuracy Lift", value: "+35%", sub: "Query Precision", icon: "target", color: "indigo" },
-                        { label: "Query Speed", value: "40%", sub: "Faster Retrieval", icon: "gauge", color: "blue" },
-                        { label: "Schema Success", value: "+25%", sub: "Execution Rate", icon: "database", color: "amber" },
-                        { label: "Distinction", value: "Top Asset", sub: "Individual Honor", icon: "award", color: "purple" }
-                    ],
-                    moats: [
-                        "Hybrid Session Memory Matrix (Short-Term & Long-Term Schema Recall)",
-                        "Dynamic Database Schema Sharding (Zero Schema-Lookup Lockups)",
-                        "Multi-Agent CrewAI Code Generation & Cross-Dialect SQL Cleansing Chains",
-                        "80% Reduction in Manual Analytics Development Effort",
-                        "Deterministic AST Parsers for Zero Schema Leakage"
-                    ],
-                    baselines: [
-                        "FastAPI Async Engine",
-                        "Google Gemini 2.5 Models",
-                        "CrewAI Multi-Agent Framework",
-                        "PostgreSQL & Azure SQL",
-                        "SQLAlchemy ORM & AST Verification"
-                    ],
-                    blueprint: {
-                        title: "Project FlowIQ Text-to-SQL Graph Matrix",
-                        image: "",
-                        registry: "FastAPI-CrewAI-Gemini-Memory-Pipeline",
-                        overview: "A high-performance Text-to-SQL Graph Matrix combining short & long-term session memory engines to autonomously translate natural language questions into certified operational queries.",
-                        specs: [
-                            { icon: "workflow", label: "API Gateway", desc: "FastAPI high-throughput asynchronous router handling natural language queries with sub-second response times." },
-                            { icon: "cpu", label: "Multi-Agent Crew", desc: "CrewAI agent team paired with Google Gemini 2.5 for schema resolution, query synthesis, and cross-dialect verification." },
-                            { icon: "database", label: "Memory Framework", desc: "Custom hybrid short-term chat context buffer and persistent schema definition repository boosting accuracy by 35%." },
-                            { icon: "shield-check", label: "SQL Guardrails", desc: "Deterministic AST parser verifying syntactic and access-control boundaries before execution." }
-                        ]
-                    }
-                },
-                {
-                    id: "persistentsystems",
-                    name: "Persistent Systems",
-                    type: "IT Products & Services",
-                    targetRole: "Senior Software Engineer (Gen AI)",
-                    duration: "Aug 2022 - May 2025",
-                    mappedProject: "sasva",
-                    metrics: [
-                        { label: "Serving Latency", value: "-50%", sub: "vLLM & FastAPI", icon: "gauge", color: "blue" },
-                        { label: "RAG Relevance", value: "+40%", sub: "Context Relevancy", icon: "cpu", color: "indigo" },
-                        { label: "Dev Output", value: "+25%", sub: "Output Accelerated", icon: "zap", color: "amber" },
-                        { label: "Precision", value: "+35%", sub: "Extraction Gain", icon: "target", color: "emerald" },
-                        { label: "Recognition", value: "2x Awards", sub: "High Five & Bravo", icon: "award", color: "purple" }
-                    ],
-                    moats: [
-                        "Multi-Source LLM Data Curation Framework (40% Faster Dataset Integration)",
-                        "Internal RAG Codebase Assistant (-40% Onboarding Lookup Time)",
-                        "FastAPI & vLLM High-Throughput Serving (-50% Latency Reduction)",
-                        "AST Codebase Hierarchy Traversal & Multi-Vector Caching",
-                        "Fine-Tuned Embeddings & Retrieval Strategies (-30% Query Latency)"
-                    ],
-                    baselines: [
-                        "AWS Bedrock & SageMaker",
-                        "vLLM & FastAPI Distributed Serving",
-                        "TRL & LoRA/QLoRA Curation",
-                        "LangChain RAG Orchestration",
-                        "Docker Containerization & CI/CD"
-                    ],
-                    blueprint: {
-                        title: "Project SASVA Codebase Knowledge Graph & RAG Core",
-                        image: "",
-                        registry: "AWS-Bedrock-vLLM-Codebase-RAG",
-                        overview: "An enterprise semantic acceleration layer indexing complex multi-repo source code patterns into dense structural vector representations, providing real-time developer context and code navigation.",
-                        specs: [
-                            { icon: "workflow", label: "Serving Layer", desc: "High-performance model-serving endpoints using FastAPI and vLLM reducing response latency by 50%." },
-                            { icon: "cpu", label: "Embedding Engine", desc: "Fine-tuned local vLLM embedding service batching source-tree AST chunks into high-density vector coordinates." },
-                            { icon: "database", label: "Semantic Index", desc: "Persistent vector store synchronizing with git change listener hooks to avoid redundant recalculations." },
-                            { icon: "layers", label: "Curation Framework", desc: "Multi-source dataset aggregation and preprocessing pipeline accelerating LLM fine-tuning by 40%." },
-                            { icon: "activity", label: "RAG Orchestration", desc: "LangChain contextual retriever feeding optimized source snippets to AWS Bedrock foundation models." }
-                        ]
-                    }
-                }
-            ],
-            projects: {
-                bluey_ai_lodgement: {
-                    name: "Project Bluey-AI Lodgement",
-                    impact: "Production architecture serving automated insurance lodgement pipelines. Built as an enterprise-grade agentic workflow optimized for high-throughput messaging structures and deterministic business constraints.",
-                    stack: ["LangGraph", "Azure Function App", "Blob Storage", "Managed Kafka", "Service Bus", "Event Hubs", "Pydantic", "Application Insights", "Foundry GPT-5.4 mini", "Azure Content Safety"],
-                    tabs: {
-                        orchestration: {
-                            title: "Multi-Agent Orchestration Flow",
-                            description: "Visualizes state validation, parallel valuation, tool selection, and routing within the LangGraph Multi-Agent loop.",
-                            visualType: "flow-allianz",
-                            specTitle: "LangGraph State Machine & Multi-Agent Topologies",
-                            code: `from typing import Annotated, Sequence, Dict, Any\nfrom typing_extensions import TypedDict\nfrom pydantic import BaseModel, Field\nfrom langgraph.graph import StateGraph, START, END\n\n# Enterprise State Definition matching production blueprint specs\nclass AgenticGraphState(TypedDict):\n    claim_id: str\n    payload_standardized: bool\n    validation_passed: bool\n    coverage_matched: bool\n    fraud_metrics: Dict[str, Any]\n    weather_risk_score: float\n    payment_reserve_exposure: float\n    routing_history: list[str]\n\n# Dynamic Two-Tier Supervisor Prompt Router Implementation\ndef supervisor_guardrail_node(state: AgenticGraphState):\n    """Evaluates inbound parameters using Pydantic Validation Schemes"""\n    if not state.get("validation_passed"):\n        return {"next": "Guardrails"}\n    if not state.get("coverage_matched"):\n        return {"next": "Coverage"}\n    return {"next": "Triage"}`,
-                            bullets: [
-                                "Designed and implemented a declarative JSON Workflow system covering 19 claim journeys.",
-                                "Enables a 100k+ Claims per year workflow to be routed and processed without any code changes per claim type.",
-                                "New Claim journeys can be on-boarded with just a single JSON file, reducing time to ship from 3 weeks to just 1 day.",
-                                "Implemented a Two-tier prompt architecture that lets every claim type have custom rules alongside a Generalized rule per agent.",
-                                "Eliminated 100% of prompt duplication while cutting agent configuration latency for 19 distinct claim journeys."
-                            ],
-                            tradeoffs: "Utilizing a centralized Orchestrator pattern introduces a slight processing hop overhead, but provides bulletproof transaction tracing and isolation boundaries for highly audited corporate workflows.",
-                            bottlenecks: "Addressed LLM non-determinism by injecting custom runtime validation layers directly into every individual micro-agent interface boundary."
-                        },
-                        vector: {
-                            title: "Data Ingestion & Event Fabric",
-                            description: "Asynchronous stream architecture handling incoming event telemetry, raw payloads, and persistent storage routing.",
-                            visualType: "vector-allianz",
-                            specTitle: "Managed Event Fabrics & Stream Ingestion",
-                            code: `# Ingestion Layer Processing - Managed Kafka & Azure Event Hubs Stream\nasync def process_kafka_stream_payload(event: KafkaEvent) -> StandardizedPayload:\n    raw_bytes = event.value()\n    parsed_json = external_parser_service(raw_bytes)\n    \n    # Map incoming telemetry straight to Azure Function Activity 1 Processing\n    standardized = StandardizedPayload(\n        claim_id=parsed_json['id'],\n        metadata=parsed_json['meta'],\n        timestamp=parsed_json['ts']\n    )\n    return standardized`,
-                            bullets: [
-                                "Architected an end-to-end data integration system stream parsing from Managed Kafka and Event Hubs into Activity 1 Ingestion Layers.",
-                                "Enforces payload standardization upstream prior to pushing execution parameters down into long-running Azure Durable Function App states.",
-                                "Integrates seamlessly with PDS caching storage strategies leveraging high-density cloud blobs for persistent downstream retrieval.",
-                                "Shields downstream reasoning agents from malformed schemas through upfront contract validation at the event boundary."
-                            ],
-                            tradeoffs: "Upfront schema enforcement at the Kafka pipeline edge drops malformed claims early, decreasing downstream computing waste while requiring strict contract management.",
-                            bottlenecks: "Implemented asynchronous retry queues inside Azure Function apps to protect against downstream model gateway rate constraints."
-                        },
-                        guardrails: {
-                            title: "Production Guardrails & PII Redaction",
-                            description: "Azure Content Safety multi-layer screening, LangChain PII redaction middleware, and runtime Pydantic boundary guards.",
-                            visualType: "guardrails-allianz",
-                            specTitle: "Azure Content Safety, PII Redaction & Pydantic Validation",
-                            code: `from pydantic import BaseModel, Field\nfrom azure.ai.contentsafety import ContentSafetyClient\n\n# Multi-Layer Azure Content Safety & LangChain PII Redaction Middleware\nclass ClaimsSecurityGuardrail:\n    """Halts malicious payloads & anonymizes PII for 100k+ annual claims"""\n    def __init__(self, client: ContentSafetyClient):\n        self.safety_client = client\n\n    async def validate_and_redact(self, raw_payload: str) -> dict:\n        # Halt prompt injections & malicious payloads instantly\n        safety_eval = await self.safety_client.analyze_text_async(raw_payload)\n        if safety_eval.is_flagged:\n            return {"status": "HALTED", "reason": "Prompt Injection / Malicious Payload"}\n        \n        # Redact PII (100% compliance with Australian Corporate Privacy Standards)\n        sanitized_doc = langchain_pii_anonymizer.transform(raw_payload)\n        return {"status": "PASSED", "sanitized_payload": sanitized_doc}`,
-                            bullets: [
-                                "Engineered a multi-layer Guardrails agent using Azure Content Safety to screen 100k+ annual claims, instantly halting malicious payloads and eliminating prompt injection vulnerabilities.",
-                                "Engineered a LangChain-based PII redaction middleware integrated with Azure Content Safety, automated data anonymization prior to persistence, ensuring 100% compliance with Australian corporate privacy standards.",
-                                "Implemented comprehensive Pydantic classes to handle output validations and LangGraph state, with validations included in each agent node at runtime, eliminating downstream type issues caused by LLM non-determinism.",
-                                "Tracks critical production metrics: ingestion throughput, agent latency, model inference duration, coverage cache hit rate, and distributed Application Insights & Dynatrace traces."
-                            ],
-                            tradeoffs: "Comprehensive run-time validation and PII redaction adds a few milliseconds to single node execution intervals but guarantees full regulatory compliance and elimination of injection vulnerabilities.",
-                            bottlenecks: "Enabled distributed transaction trace tracking across long-lived asynchronous processes to allow developers to rapidly isolate latency anomalies."
-                        }
-                    }
-                },
-                project_FlowIQ: {
-                    name: "Project FlowIQ: Text-to-SQL Graph Matrix",
-                    impact: "High-performance enterprise analytics interface translating natural language expressions into structured operational queries securely.",
-                    stack: ["FastAPI", "LangGraph", "CrewAI", "Gemini 2.5", "SQLAlchemy", "PostgreSQL", "Azure SQL", "sqlglot"],
-                    tabs: {
-                        orchestration: {
-                            title: "Natural Language SQL Generation Flow",
-                            description: "Text-to-SQL graph execution workflow designed with deep hybrid session state engines.",
-                            visualType: "flow-sql",
-                            specTitle: "Dynamic Context Retention & High-Speed Retrieval",
-                            code: `# High-Performance FastAPI Text-to-SQL Graph Endpoint (+40% Retrieval Speedup)\n@app.post("/v1/query/sql")\nasync def translate_natural_query(query_req: QueryRequest):\n    # Custom Hybrid Memory: Short-Term Session Context + Long-Term Schema Recall\n    chat_context = await hybrid_memory.get_context(query_req.session_id)\n    \n    # Synthesize SQL query via Google Gemini 2.5\n    generated_query = await gemini_client.synthesize_query(\n        prompt=query_req.natural_prompt,\n        context=chat_context\n    )\n    return {"sql": generated_query, "latency_ms": 185}`,
-                            bullets: [
-                                "Engineered a high-performance FastAPI endpoint integrating a Text-to-SQL graph, enabling seamless natural language query translation to structured SQL, accelerating data retrieval by 40%.",
-                                "Architected a custom hybrid memory framework (short-term & long-term) for chat sessions, enhancing contextual retention and summarization, boosting query accuracy by 35% and improving SQL success rate scores by 25%.",
-                                "Achieved 80% reduction in manual SQL effort and 35% higher response precision, streamlining analytics workflows and decision-making.",
-                                "Sharded database metadata catalogs into memory spaces to isolate schema lookup lockups entirely during high-concurrency analytical queries."
-                            ],
-                            tradeoffs: "Short-term loop state management tracks structural schema updates perfectly but updates memory cache profiles with elevated frequency layouts.",
-                            bottlenecks: "Sharded database metadata catalogs into memory spaces to isolate schema lookup lockups entirely during execution tasks."
-                        },
-                        crew_review: {
-                            title: "Multi-Agent Code Review & Verification",
-                            description: "CrewAI agent team paired with Google Gemini 2.5 for schema resolution, query synthesis, and cross-dialect verification.",
-                            visualType: "flow-sql",
-                            specTitle: "CrewAI Multi-Agent Team & SQL Dialect Parser",
-                            code: `from crewai import Agent, Task, Crew\nimport sqlglot\n\n# Multi-Agent Workflow using CrewAI & Google Gemini 2.5\nsql_auditor = Agent(\n    role="Database Verification Specialist",\n    goal="Ensure SQL adheres strictly to target dialect (Postgres / Azure SQL)",\n    backstory="Enforces syntactic boundaries, prevents schema leaks, and tunes cost.",\n    llm="gemini/gemini-2.5-flash"\n)\n\ndef verify_and_clean_query(sql_text: str, target_dialect: str = "postgres") -> str:\n    """Deterministic AST parser checking access controls & eliminating malformed SQL"""\n    parsed = sqlglot.parse_one(sql_text, read=target_dialect)\n    return parsed.sql(target_dialect)`,
-                            bullets: [
-                                "Built a multi-agent workflow using CrewAI & Google Gemini 2.5 models to support code generation and review across multiple programming languages.",
-                                "Achieved 80% reduction in manual SQL effort and 35% higher response precision, streamlining analytics workflows and decision-making.",
-                                "Engineered deterministic AST verification rules ensuring zero schema leakage and cross-dialect query safety across PostgreSQL and Azure SQL.",
-                                "Dynamic database schema sharding into memory buffers prevents schema lookup lockups during high-concurrency execution."
-                            ],
-                            tradeoffs: "Multi-agent review pass adds an extra evaluation hop of ~120ms, but guarantees 100% syntactically valid and certified SQL queries.",
-                            bottlenecks: "Cached verified query plans in Redis short-term store to bypass LLM generation passes for recurring semantic patterns."
-                        }
-                    }
-                },
-                sasva: {
-                    name: "Project SASVA: Codebase Knowledge Graph & RAG Core",
-                    impact: "Context-aware developer acceleration layer processing source code patterns via optimized semantic indexes.",
-                    stack: ["FastAPI", "LangChain", "Transformers", "vLLM", "TRL", "Docker", "Git", "AWS Bedrock", "SageMaker"],
-                    tabs: {
-                        orchestration: {
-                            title: "Codebase Knowledge Graph & RAG Core",
-                            description: "Internal RAG codebase assistant leveraging LangChain, AST chunking, and similarity search for multi-repo exploration.",
-                            visualType: "vector-rag",
-                            specTitle: "LangChain Codebase RAG Assistant & Vector Search",
-                            code: `from langchain.text_splitter import Language, RecursiveCharacterTextSplitter\nfrom langchain_community.vectorstores import FAISS\n\n# Internal RAG Codebase Assistant with AST Chunking & Vector Search\ndef index_source_repository(repo_path: str):\n    code_splitter = RecursiveCharacterTextSplitter.from_language(\n        language=Language.PYTHON, chunk_size=750, chunk_overlap=80\n    )\n    ast_chunks = code_splitter.split_documents(scan_repository_source(repo_path))\n    # Fine-tuned embeddings & retrieval strategies reduce latency by 30%\n    vector_store = FAISS.from_documents(ast_chunks, fine_tuned_embeddings)\n    return vector_store`,
-                            bullets: [
-                                "Developed an internal RAG codebase assistant leveraging LangChain and vector embeddings, reducing developer onboarding documentation lookup time by 40% across engineering teams.",
-                                "Enhanced LLM inference with RAG by leveraging document chunking, embedding optimization, and similarity search, improving response relevancy by 40%.",
-                                "Optimized RAG workflow by fine-tuning embeddings and retrieval strategies, reducing latency by 30% and enhancing overall answer relevance.",
-                                "Created and executed automation scripts to replace repetitive tasks, enhancing precision in data retrieval by 35% and boosting productivity by 25% for product development initiatives."
-                            ],
-                            tradeoffs: "Upfront recursive AST traversal yields deep relational graph connections across multi-repo files but takes initial sync overhead.",
-                            bottlenecks: "Enabled tree sharding boundaries inside git change listener monitors to strictly limit continuous embedding recalculations to changed modules."
-                        },
-                        curation: {
-                            title: "LLM Data Curation & Model Serving",
-                            description: "Multi-source dataset aggregation framework for LLM fine-tuning and high-performance FastAPI model serving.",
-                            visualType: "curation-rag",
-                            specTitle: "vLLM Model-Serving & Fine-Tuning Curation Pipelines",
-                            code: `from fastapi import FastAPI\nimport vllm\n\n# High-Performance FastAPI Model-Serving Endpoints (-50% Latency Reduction)\napp = FastAPI(title="vLLM Serving Gateway")\nengine = vllm.AsyncLLMEngine.from_engine_args(\n    vllm.AsyncEngineArgs(model="meta-llama/Llama-3-8B-Instruct", tensor_parallel_size=1)\n)\n\n# Data Curation Framework for Fine-Tuning LLMs (LoRA/QLoRA)\ndef curate_finetuning_corpus(source_feeds: list[dict]) -> list[dict]:\n    """Aggregates multi-source datasets (+40% faster integration, +30% accuracy)"""\n    normalized = [standardize_dataset_schema(record) for record in source_feeds]\n    return deduplicate_and_filter_tokens(normalized)`,
-                            bullets: [
-                                "Architected a data curation framework to aggregate and process datasets from multiple sources, enabling 40% faster data integration to fine-tune LLMs, and improving processing accuracy by 30%.",
-                                "Implemented high-performance model-serving endpoints using FastAPI, reducing response latency by 50% & securing reliable delivery for AI/ML applications.",
-                                "Created and executed automation scripts to replace repetitive tasks, enhancing precision in data retrieval by 35% and boosting productivity by 25% for product development initiatives.",
-                                "Containerized model serving clusters using Docker, establishing reproducible CI/CD test gates on AWS Bedrock and SageMaker."
-                            ],
-                            tradeoffs: "Curating and cleaning multi-source datasets upfront requires strict schema normalization steps but increases model fine-tuning accuracy by 30%.",
-                            bottlenecks: "Deployed vLLM continuous batching to avoid GPU memory fragmentation under simultaneous high-concurrency requests."
-                        }
-                    }
-                }
-            },
-            careerDashboard: {
-                skills: {
-                    "Agentic AI & LLMs": ["LangChain", "LangGraph", "CrewAI", "MCP", "A2A", "RAG", "Context Engineering", "Guardrails", "LangFuse", "Prompt Engineering"],
-                    "Model Serving & ML": ["FastAPI", "vLLM", "PyTorch", "Hugging Face Transformers", "TRL (LoRA/QLoRA)", "Pydantic", "Scikit-Learn"],
-                    "Cloud & MLOps": ["Azure (AI Foundry, Function App, Blob, APIM, Cosmos DB)", "AWS (Bedrock, SageMaker, EC2, Lambda, S3, ECS, Fargate)", "Docker"],
-                    "Languages & Data": ["Python", "SQL (PostgreSQL, MySQL)", "NoSQL (MongoDB)"],
-                    "DevOps & Quality": ["Git", "GitHub Actions", "Jenkins", "Pytest", "Jira"]
-                },
-                moats: [
-                    "Multi-Layer Guardrails Agent & Azure Content Safety (Halts Injection Attacks)",
-                    "LangChain PII Redaction Middleware (100% Australia Privacy Compliance)",
-                    "Declarative JSON Workflow Systems (19 Claim Journeys Managed Directly)",
-                    "Two-Tier LLM Prompt Architectures (Custom Rules + Generalized Rules)",
-                    "Runtime Node Validation (LangGraph State Synchronized with Pydantic)"
-                ],
-                baselines: [
-                    "Azure AI Foundry & AWS Bedrock Tool Integration",
-                    "Asynchronous Stream Processing (Kafka / Event Hubs)",
-                    "High-Performance Model Serving (vLLM & FastAPI)",
-                    "Relational & Document Stores (PostgreSQL, Azure SQL, MongoDB)",
-                    "Containerized Deployments (Docker & CI/CD)"
-                ]
-            }
-        };
+    <!-- Accessible No-Script Resilient Fallback Banner -->
+    <noscript>
+        <div class="bg-amber-950/80 border-b border-amber-800 text-amber-200 px-4 py-2.5 text-center text-xs">
+            <strong>JavaScript is disabled.</strong> Showing complete static pre-rendered portfolio, enterprise metrics, and architecture specifications.
+        </div>
+    </noscript>
 
-        // App States
-        let selectedCompanyId = "allianz";
-        let activeProjectKey = "bluey_ai_lodgement";
-        let activeArchTab = "orchestration";
-        let isExpandedViewActive = false;
-        let blueprintViewMode = "interactive"; // 'interactive' or 'static'
-
-        function setAppState(companyId, tabId = null) {
-            selectedCompanyId = companyId;
-            document.documentElement.setAttribute('data-theme', companyId);
-            const company = portfolioData.companies.find(c => c.id === companyId);
-            activeProjectKey = company.mappedProject;
-
-            const projectTabs = Object.keys(portfolioData.projects[activeProjectKey].tabs);
-            activeArchTab = tabId || projectTabs[0];
-
-            renderApp();
-            triggerTelemetryAnimation();
-        }
-
-        function triggerTelemetryAnimation() {
-            const targets = [
-                document.getElementById("metrics-strip-container"),
-                document.getElementById("context-banner"),
-                document.getElementById("project-workspace-container")
-            ];
-            targets.forEach(el => {
-                if (!el) return;
-                el.classList.remove("animate-fade-in");
-                void el.offsetWidth;
-                el.classList.add("animate-fade-in");
-            });
-        }
-
-        function cycleCompany(direction) {
-            const total = portfolioData.companies.length;
-            const currentIndex = portfolioData.companies.findIndex(c => c.id === selectedCompanyId);
-            const nextIndex = (currentIndex + direction + total) % total;
-            setAppState(portfolioData.companies[nextIndex].id);
-        }
-
-        function setupCylinderInteractions() {
-            const cylinderCard = document.getElementById("experience-cylinder-card");
-            if (!cylinderCard) return;
-
-            // Mouse wheel rotation with smooth debounce
-            let wheelDebounce = false;
-            cylinderCard.addEventListener("wheel", (e) => {
-                e.preventDefault();
-                if (wheelDebounce) return;
-                wheelDebounce = true;
-                setTimeout(() => { wheelDebounce = false; }, 260);
-
-                if (e.deltaY > 12) {
-                    cycleCompany(1); // Scroll down -> next company
-                } else if (e.deltaY < -12) {
-                    cycleCompany(-1); // Scroll up -> previous company
-                }
-            }, { passive: false });
-
-            // Touch swipe listeners for mobile & tablet screens
-            let touchStartY = 0;
-            cylinderCard.addEventListener("touchstart", (e) => {
-                touchStartY = e.touches[0].clientY;
-            }, { passive: true });
-
-            cylinderCard.addEventListener("touchend", (e) => {
-                const touchEndY = e.changedTouches[0].clientY;
-                const delta = touchStartY - touchEndY;
-                if (Math.abs(delta) > 28) {
-                    if (delta > 0) {
-                        cycleCompany(1); // Swiped up -> next company
-                    } else {
-                        cycleCompany(-1); // Swiped down -> previous company
-                    }
-                }
-            }, { passive: true });
-
-            // Keyboard navigation when cylinder card is focused
-            cylinderCard.setAttribute("tabindex", "0");
-            cylinderCard.addEventListener("keydown", (e) => {
-                if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-                    e.preventDefault();
-                    cycleCompany(1);
-                } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-                    e.preventDefault();
-                    cycleCompany(-1);
-                }
-            });
-        }
-
-        function setArchTab(tabId) {
-            activeArchTab = tabId;
-            renderApp();
-        }
-
-        function toggleExpandedCanvas(state) {
-            isExpandedViewActive = state;
-            renderApp();
-        }
-
-        function setBlueprintMode(mode) {
-            blueprintViewMode = mode;
-            renderApp();
-        }
-    </script>
-
+    <!-- EXECUTIVE HEADER -->
     <header class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur sticky top-0 z-50 px-4 lg:px-8 py-4">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
             <div class="flex-1">
                 <div class="flex flex-wrap items-center gap-2.5">
                     <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                    <h1 id="prof-name" class="text-xl font-bold tracking-tight text-white"></h1>
+                    <h1 id="prof-name" class="text-xl font-bold tracking-tight text-white">Shivraj Dhaytadak</h1>
                     <span id="prof-role"
-                        class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-medium tracking-wide"></span>
+                        class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-medium tracking-wide">Agentic AI Consultant</span>
                 </div>
+
                 <!-- Clean Boxed Profile Meta & Executive Bio -->
                 <div class="mt-2.5 max-w-2xl bg-slate-900/50 border border-slate-800/80 rounded-xl p-3 shadow-sm">
-                    <p id="prof-meta" class="text-xs text-slate-400"></p>
+                    <p id="prof-meta" class="text-xs text-slate-400">
+                        Agentic AI Consultant @ Allianz Services &bull; Pune, IN &bull; Open to Relocation
+                    </p>
                     <p class="text-xs text-slate-300 mt-2 leading-relaxed border-t border-slate-800/60 pt-2">
                         Agentic AI Consultant with 4+ years of experience engineering high-throughput multi-agent
                         workflows, declarative JSON execution engines, and production safety guardrails across enterprise
@@ -690,33 +58,37 @@
                     </p>
                 </div>
 
-                <!-- Action Links with Always-Visible Inline SVG Icons -->
+                <!-- Action Links with High-Contrast Inline SVG Icons -->
                 <div class="flex flex-wrap items-center gap-2 mt-3 text-xs">
-                    <a id="link-github" href="#" target="_blank"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium">
-                        <svg class="w-3.5 h-3.5 fill-current text-slate-300 shrink-0" viewBox="0 0 24 24">
+                    <a id="link-github" href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
+                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
+                        aria-label="Visit Shivraj's GitHub profile">
+                        <svg class="w-3.5 h-3.5 fill-current text-slate-300 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                         </svg>
                         <span>GitHub</span>
                     </a>
-                    <a id="link-linkedin" href="#" target="_blank"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium">
-                        <svg class="w-3.5 h-3.5 fill-current text-slate-300 shrink-0" viewBox="0 0 24 24">
+                    <a id="link-linkedin" href="https://www.linkedin.com/in/shivraj-dhaytadak7" target="_blank" rel="noopener noreferrer"
+                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
+                        aria-label="Connect with Shivraj on LinkedIn">
+                        <svg class="w-3.5 h-3.5 fill-current text-slate-300 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                         </svg>
                         <span>LinkedIn</span>
                     </a>
-                    <a id="link-email" href="#"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium">
-                        <svg class="w-3.5 h-3.5 stroke-current text-slate-300 fill-none shrink-0" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <a id="link-email" href="mailto:shivraj.25d@gmail.com"
+                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
+                        aria-label="Send email to Shivraj Dhaytadak">
+                        <svg class="w-3.5 h-3.5 stroke-current text-slate-300 fill-none shrink-0" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <rect width="20" height="16" x="2" y="4" rx="2"/>
                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
                         </svg>
                         <span>Email</span>
                     </a>
                     <a id="link-phone" href="tel:+917972476081"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium">
-                        <svg class="w-3.5 h-3.5 stroke-current text-slate-300 fill-none shrink-0" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
+                        aria-label="Call Shivraj Dhaytadak">
+                        <svg class="w-3.5 h-3.5 stroke-current text-slate-300 fill-none shrink-0" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                         </svg>
                         <span id="link-phone-text">+91 7972476081</span>
@@ -724,38 +96,37 @@
                 </div>
             </div>
 
-            <div
-                class="w-full lg:w-auto bg-slate-900/40 border border-slate-800/90 p-4 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
+            <div class="w-full lg:w-auto bg-slate-900/40 border border-slate-800/90 p-4 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
                 <div>
-                    <div
-                        class="text-[11px] font-semibold text-slate-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
+                    <h2 class="text-xs font-semibold text-slate-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
                         <i data-lucide="award" class="w-3.5 h-3.5 text-slate-400"></i> Corporate Honors
-                    </div>
-                    <ul class="space-y-1.5 text-slate-300 text-[11px]">
-                        <li id="honor-allianz" class="transition-all rounded px-1.5 py-0.5"><span
-                                class="text-white font-medium">Allianz Services</span> &bull; Best Team (H1 '26) & Best
-                            Performer (Q1, Q2 '26)</li>
-                        <li id="honor-yashtechnologies" class="transition-all rounded px-1.5 py-0.5"><span
-                                class="text-white font-medium">Yash Technologies</span> &bull; Valuable Individual Asset
-                            Award</li>
-                        <li id="honor-persistentsystems" class="transition-all rounded px-1.5 py-0.5"><span
-                                class="text-white font-medium">Persistent Systems</span> &bull; High Five Award & Bravo
-                            Team Award</li>
+                    </h2>
+                    <ul class="space-y-1.5 text-slate-300 text-xs">
+                        <li id="honor-allianz" class="theme-badge font-semibold pl-2.5 py-1 rounded border transition-all text-xs">
+                            <span class="text-white font-medium">Allianz Services</span> &bull; Best Team (H1 '26) & Best Performer (Q1, Q2 '26)
+                        </li>
+                        <li id="honor-yashtechnologies" class="text-slate-400 pl-2.5 py-1 rounded border border-transparent transition-all text-xs">
+                            <span class="text-white font-medium">Yash Technologies</span> &bull; Valuable Individual Asset Award
+                        </li>
+                        <li id="honor-persistentsystems" class="text-slate-400 pl-2.5 py-1 rounded border border-transparent transition-all text-xs">
+                            <span class="text-white font-medium">Persistent Systems</span> &bull; High Five Award & Bravo Team Award
+                        </li>
                     </ul>
                 </div>
                 <div class="border-t md:border-t-0 md:border-l border-slate-800/80 pt-3 md:pt-0 md:pl-5">
-                    <div
-                        class="text-[11px] font-semibold text-slate-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
-                        <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-slate-400"></i> Education &
-                        Certifications
-                    </div>
-                    <ul class="space-y-1.5 text-slate-300 text-[11px]">
-                        <li><span class="text-white font-medium">B.E. Computer Engineering</span> &bull; <span
-                                class="text-slate-400">PES MCOE (2018–2022)</span></li>
-                        <li><span class="text-white font-medium">Azure AI Fundamentals</span> &bull; <span
-                                class="text-slate-400">Microsoft (Aug 2025)</span></li>
-                        <li><span class="text-white font-medium">AWS Cloud Practitioner</span> &bull; <span
-                                class="text-slate-400">AWS (2024–2027)</span></li>
+                    <h2 class="text-xs font-semibold text-slate-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
+                        <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-slate-400"></i> Education & Certifications
+                    </h2>
+                    <ul class="space-y-1.5 text-slate-300 text-xs">
+                        <li>
+                            <span class="text-white font-medium">B.E. Computer Engineering</span> &bull; <span class="text-slate-400">PES MCOE (2018–2022)</span>
+                        </li>
+                        <li>
+                            <span class="text-white font-medium">Azure AI Fundamentals</span> &bull; <span class="text-slate-400">Microsoft (Aug 2025)</span>
+                        </li>
+                        <li>
+                            <span class="text-white font-medium">AWS Cloud Practitioner</span> &bull; <span class="text-slate-400">AWS (2024–2027)</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -763,54 +134,109 @@
     </header>
 
     <!-- WORK EXPERIENCE CYLINDER & STRATEGIC IMPACT METRICS STRIP -->
-    <section class="border-b border-slate-800/80 bg-slate-950/90 px-4 lg:px-8 py-3.5">
+    <section class="border-b border-slate-800/80 bg-slate-950/90 px-4 lg:px-8 py-3.5" aria-label="Executive Experience and Strategic KPIs">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
 
             <!-- 3D Cylindrical Work Experience Drum (Scroll Box) -->
             <div id="experience-cylinder-card"
-                class="theme-card rounded-xl p-3 flex flex-col justify-between relative shadow-lg overflow-hidden focus:outline-none focus:ring-1 focus:ring-slate-600 h-full">
+                tabindex="0"
+                role="region"
+                aria-label="Work Experience 3D Carousel. Use arrow keys or scroll when focused to rotate."
+                class="theme-card rounded-xl p-3 flex flex-col justify-between relative shadow-lg overflow-hidden focus:outline-none focus-visible:ring-1 focus-visible:ring-slate-400 h-full">
                 <div class="flex items-center justify-between border-b border-slate-800/60 pb-2 mb-2">
                     <div class="flex items-center gap-2">
                         <div class="p-1 rounded bg-slate-800 border border-slate-700">
                             <i data-lucide="briefcase" class="w-3.5 h-3.5 theme-text-accent"></i>
                         </div>
                         <div class="flex items-center gap-1.5">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Work
-                                Experience</span>
-                            <span class="text-[10px] theme-badge font-mono font-bold px-1.5 py-0.2 rounded border">4+
-                                YOE</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Work Experience</span>
+                            <span class="text-[10px] theme-badge font-mono font-bold px-1.5 py-0.2 rounded border">4+ YOE</span>
                         </div>
                     </div>
 
-                    <!-- Vertical Scroll Prompt & Controls -->
+                    <!-- Vertical Scroll Prompt & Expanded 44px Accessible Controls -->
                     <div class="flex items-center gap-1.5">
                         <div class="flex items-center gap-1 text-[10px] theme-badge px-2 py-0.5 rounded-full"
-                            title="Scroll vertically or use arrows to rotate experience & KPIs">
+                            title="Scroll vertically or use arrows when focused to rotate experience & KPIs">
                             <i data-lucide="mouse" class="w-3 h-3 theme-text-accent animate-pulse"></i>
                             <span class="tracking-tight font-mono">Scroll ↕</span>
                         </div>
-                        <div class="flex items-center gap-0.5">
-                            <button onclick="cycleCompany(-1)"
-                                class="p-1 bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white rounded border border-slate-700/80 transition-colors cursor-pointer"
-                                title="Previous company (Scroll Up)">
-                                <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>
+                        <div class="flex items-center gap-1">
+                            <button data-cycle="-1"
+                                class="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white rounded border border-slate-700/80 transition-colors cursor-pointer"
+                                aria-label="Previous employer (Scroll Up)"
+                                title="Previous employer (Scroll Up)">
+                                <i data-lucide="chevron-up" class="w-4 h-4"></i>
                             </button>
-                            <button onclick="cycleCompany(1)"
-                                class="p-1 bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white rounded border border-slate-700/80 transition-colors cursor-pointer"
-                                title="Next company (Scroll Down)">
-                                <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                            <button data-cycle="1"
+                                class="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white rounded border border-slate-700/80 transition-colors cursor-pointer"
+                                aria-label="Next employer (Scroll Down)"
+                                title="Next employer (Scroll Down)">
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3D Cylindrical Drum Viewport (140px Height) -->
-                <div
-                    class="cylinder-wrapper relative h-[140px] overflow-hidden rounded-lg bg-slate-950/60 theme-border">
+                <!-- 3D Cylindrical Drum Viewport (Tokenized Height: --panel-h: 140px) -->
+                <div class="cylinder-wrapper relative panel-stage overflow-hidden rounded-lg bg-slate-950/60 theme-border">
                     <div class="pointer-events-none absolute top-0 inset-x-0 h-7 cylinder-fade-top z-20"></div>
                     <div class="pointer-events-none absolute bottom-0 inset-x-0 h-7 cylinder-fade-bottom z-20"></div>
 
                     <div id="cylinder-drum" class="cylinder-drum w-full h-full relative">
+                        <!-- Pre-populated Static Fallback: Allianz Active -->
+                        <div class="cylinder-item cylinder-active theme-card border rounded-lg p-2.5 flex items-center justify-between" title="Active: Allianz Services">
+                            <div class="flex items-center gap-2 overflow-hidden">
+                                <div class="w-1.5 h-7 rounded-full shrink-0" style="background-color: var(--brand-accent); box-shadow: 0 0 10px var(--brand-glow);"></div>
+                                <div class="truncate text-left">
+                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate leading-snug">Allianz Services</h3>
+                                    <div class="text-[11px] text-slate-400 truncate flex items-center gap-1.5 mt-0.5">
+                                        <span>Agentic AI Consultant</span>
+                                        <span class="opacity-40">&bull;</span>
+                                        <span class="font-mono text-[10px] theme-text-accent">Insurance GCC / Captive</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shrink-0 pl-2 text-right">
+                                <span class="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded border theme-badge whitespace-nowrap block">Jan 2026 - Present</span>
+                            </div>
+                        </div>
+
+                        <!-- Pre-populated Static Fallback: Yash Technologies Next -->
+                        <div class="cylinder-item cylinder-next theme-card border rounded-lg p-2.5 flex items-center justify-between" data-cycle="1" title="Click to rotate to Yash Technologies">
+                            <div class="flex items-center gap-2 overflow-hidden">
+                                <div class="w-1.5 h-7 rounded-full shrink-0" style="background-color: var(--brand-border);"></div>
+                                <div class="truncate text-left">
+                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate leading-snug">Yash Technologies</h3>
+                                    <div class="text-[11px] text-slate-400 truncate flex items-center gap-1.5 mt-0.5">
+                                        <span>Data Scientist (Gen AI)</span>
+                                        <span class="opacity-40">&bull;</span>
+                                        <span class="font-mono text-[10px] theme-text-accent">Consultancy</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shrink-0 pl-2 text-right">
+                                <span class="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded border theme-badge whitespace-nowrap block">May 2025 - Jan 2026</span>
+                            </div>
+                        </div>
+
+                        <!-- Pre-populated Static Fallback: Persistent Systems Prev -->
+                        <div class="cylinder-item cylinder-prev theme-card border rounded-lg p-2.5 flex items-center justify-between" data-cycle="-1" title="Click to rotate to Persistent Systems">
+                            <div class="flex items-center gap-2 overflow-hidden">
+                                <div class="w-1.5 h-7 rounded-full shrink-0" style="background-color: var(--brand-border);"></div>
+                                <div class="truncate text-left">
+                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate leading-snug">Persistent Systems</h3>
+                                    <div class="text-[11px] text-slate-400 truncate flex items-center gap-1.5 mt-0.5">
+                                        <span>Software Engineer (Gen AI & Search)</span>
+                                        <span class="opacity-40">&bull;</span>
+                                        <span class="font-mono text-[10px] theme-text-accent">Product Engineering / IT</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shrink-0 pl-2 text-right">
+                                <span class="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded border theme-badge whitespace-nowrap block">Aug 2022 - May 2025</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -826,13 +252,17 @@
                         <span class="text-[10px] text-slate-400">Rotates KPIs & Architecture</span>
                     </span>
                     <div id="cylinder-indicator-dots" class="flex items-center gap-1.5">
+                        <button data-company="allianz" class="w-2 h-2 rounded-full transition-all cursor-pointer scale-125" style="background-color: var(--brand-accent); box-shadow: 0 0 10px var(--brand-glow);" aria-label="Select Allianz Services" title="Allianz Services (Jan 2026 - Present)"></button>
+                        <button data-company="yashtechnologies" class="w-2 h-2 rounded-full transition-all cursor-pointer opacity-40 hover:opacity-80" style="background-color: var(--brand-border);" aria-label="Select Yash Technologies" title="Yash Technologies (May 2025 - Jan 2026)"></button>
+                        <button data-company="persistentsystems" class="w-2 h-2 rounded-full transition-all cursor-pointer opacity-40 hover:opacity-80" style="background-color: var(--brand-border);" aria-label="Select Persistent Systems" title="Persistent Systems (Aug 2022 - May 2025)"></button>
                     </div>
                 </div>
             </div>
 
             <!-- Strategic Impact KPIs Showcase (Identical Size & Container to Scroll Box) -->
             <div id="kpi-metric-box"
-                class="theme-card rounded-xl p-3 flex flex-col justify-between relative shadow-lg overflow-hidden focus:outline-none h-full">
+                tabindex="0"
+                class="theme-card rounded-xl p-3 flex flex-col justify-between relative shadow-lg overflow-hidden focus:outline-none focus-visible:ring-1 focus-visible:ring-slate-400 h-full">
                 <!-- Header: Matches Experience Header Height & Typography -->
                 <div class="flex items-center justify-between border-b border-slate-800/60 pb-2 mb-2">
                     <div class="flex items-center gap-2">
@@ -840,11 +270,9 @@
                             <i data-lucide="gauge" class="w-3.5 h-3.5 theme-text-accent"></i>
                         </div>
                         <div class="flex items-center gap-1.5">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Strategic Impact
-                                KPIs</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Strategic Impact KPIs</span>
                             <span id="kpi-box-company-badge"
-                                class="text-[10px] theme-badge font-mono font-bold px-1.5 py-0.2 rounded border">Allianz
-                                Services</span>
+                                class="text-[10px] theme-badge font-mono font-bold px-1.5 py-0.2 rounded border">Allianz Services</span>
                         </div>
                     </div>
 
@@ -858,11 +286,76 @@
                     </div>
                 </div>
 
-                <!-- Exact 140px Height Content Viewport matching 3D Drum -->
-                <div
-                    class="relative h-[140px] overflow-x-auto overflow-y-hidden rounded-lg bg-slate-950/60 p-1.5 theme-border flex items-center custom-scrollbar">
+                <!-- Exact Tokenized Height Content Viewport matching 3D Drum (--panel-h: 140px) -->
+                <div class="relative panel-stage overflow-x-auto overflow-y-hidden rounded-lg bg-slate-950/60 p-1.5 theme-border flex items-center">
                     <div id="metrics-strip-container"
+                        aria-live="polite"
                         class="grid grid-cols-5 gap-1.5 sm:gap-2 h-full w-full min-w-[460px]">
+                        <!-- Pre-populated Static Fallback: Allianz 5 KPIs -->
+                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Claims Volume: 100k+ — Annual Pipeline">
+                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#38bdf8]"></i>
+                            </div>
+                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
+                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#38bdf8] block leading-tight select-none">100k+</span>
+                            </div>
+                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
+                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Claims Volume</span>
+                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Annual Pipeline</span>
+                            </div>
+                        </div>
+
+                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Agent Core: 145+ — Micro-Agents in Prod">
+                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
+                                <i data-lucide="bot" class="w-3.5 h-3.5 text-[#60a5fa]"></i>
+                            </div>
+                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
+                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#60a5fa] block leading-tight select-none">145+</span>
+                            </div>
+                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
+                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Agent Core</span>
+                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Micro-Agents in Prod</span>
+                            </div>
+                        </div>
+
+                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Deploy Speed: 1 Day — New Journey Launch">
+                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#38bdf8]"></i>
+                            </div>
+                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
+                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#38bdf8] block leading-tight select-none">1 Day</span>
+                            </div>
+                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
+                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Deploy Speed</span>
+                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">New Journey Launch</span>
+                            </div>
+                        </div>
+
+                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Workflows: 19 — Automated Journeys">
+                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
+                                <i data-lucide="workflow" class="w-3.5 h-3.5 text-[#93c5fd]"></i>
+                            </div>
+                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
+                                <span class="text-lg sm:text-xl xl:text-2xl font-black tracking-tight text-[#93c5fd] block leading-tight select-none">19</span>
+                            </div>
+                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
+                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Workflows</span>
+                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Automated Journeys</span>
+                            </div>
+                        </div>
+
+                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="GCC Honors: Q1 & Q2 — Best Performer & Team">
+                            <div class="p-1 rounded-md border bg-[#003781]/55 border-blue-300/60 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
+                                <i data-lucide="award" class="w-3.5 h-3.5 text-[#93c5fd]"></i>
+                            </div>
+                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
+                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#dbeafe] block leading-tight select-none">Q1 &amp; Q2</span>
+                            </div>
+                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
+                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">GCC Honors</span>
+                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Best Performer &amp; Team</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -872,27 +365,38 @@
                         <i data-lucide="shield-check" class="w-3.5 h-3.5 theme-text-accent"></i>
                         <span class="text-[10px] text-slate-400">Production-Benchmarked Invariants</span>
                     </span>
-                    <span class="text-[10px] font-mono text-slate-400">
-                        5 Key Result Indicators
-                    </span>
+                    <span class="text-[10px] font-mono text-slate-400">5 Key Result Indicators</span>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section class="bg-slate-900/30 border-b border-slate-900/60 px-4 lg:px-8 py-3">
+    <!-- EXPERT DOMAINS BAR -->
+    <section class="bg-slate-900/30 border-b border-slate-900/60 px-4 lg:px-8 py-3" aria-label="Core Technical Skills">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-3 items-start md:items-center text-xs">
-            <span
-                class="text-slate-500 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap block pt-1">Expert
-                Domains:</span>
+            <span class="text-slate-500 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap block pt-1">
+                Expert Domains:
+            </span>
             <div id="skills-matrix-bar" class="flex flex-wrap gap-2 w-full">
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">LangGraph</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">LangChain</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">CrewAI</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Azure AI Foundry</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">OpenAI GPT-4o / GPT-5.4</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Azure Durable Functions</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Apache Kafka</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Python</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">FastAPI</span>
+                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Pydantic</span>
             </div>
         </div>
     </section>
 
+    <!-- MAIN DASHBOARD CONTENT -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
 
+        <!-- SIDEBAR: SCOPE CONTEXT, PRODUCTION INSIGHTS, BASELINES -->
         <aside class="lg:col-span-1 flex flex-col gap-6">
             <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-3">
                 <div class="flex items-center justify-between">
@@ -900,10 +404,19 @@
                         <i data-lucide="compass" class="w-4 h-4 text-sky-400"></i> Scope Context
                     </h2>
                     <span id="sidebar-role-badge"
-                        class="text-[10px] text-sky-400 font-mono font-medium bg-sky-950/60 px-2 py-0.5 rounded border border-sky-900/60"></span>
+                        class="text-xs font-mono font-medium theme-badge px-2 py-0.5 rounded">Jan 2026 - Present</span>
                 </div>
                 <div id="sidebar-scope-details"
                     class="text-xs text-slate-300 flex flex-col gap-1.5 bg-slate-950/40 p-3 rounded-lg border border-slate-850">
+                    <div class="font-bold text-white text-sm flex items-center justify-between">
+                        <span>Allianz Services</span>
+                        <span class="text-xs font-normal theme-text-accent font-mono">Insurance GCC / Captive</span>
+                    </div>
+                    <div class="text-xs text-slate-300 mt-0.5">Agentic AI Consultant</div>
+                    <div class="text-[11px] text-slate-400 mt-1 flex items-center gap-1 border-t theme-border pt-1.5">
+                        <i data-lucide="mouse" class="w-3 h-3 theme-text-accent"></i>
+                        <span>Use arrows or scroll cylinder at top to switch scope</span>
+                    </div>
                 </div>
             </div>
 
@@ -913,6 +426,26 @@
                         <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Production Insights
                     </h2>
                     <div id="moats-container" class="flex flex-col gap-2">
+                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
+                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">Multi-Layer Guardrails Agent &amp; Azure Content Safety (Halts Injection Attacks)</span>
+                        </div>
+                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
+                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">LangChain PII Redaction Middleware (100% Australia Privacy Compliance)</span>
+                        </div>
+                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
+                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">Declarative JSON Workflow Engine (19 Claim Journeys Managed Directly)</span>
+                        </div>
+                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
+                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">Two-Tier Decoupled Prompt Architecture (100% Duplication Eliminated)</span>
+                        </div>
+                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
+                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
+                            <span class="leading-relaxed">Runtime Node Validation (LangGraph State Synchronized with Pydantic)</span>
+                        </div>
                     </div>
                 </div>
 
@@ -923,30 +456,49 @@
                         <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i> Technical Baselines
                     </h2>
                     <div id="baselines-container" class="flex flex-wrap gap-1.5">
+                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Azure AI Foundry (GPT-5.4 mini)</span>
+                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Azure Content Safety &amp; LangChain PII</span>
+                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Managed Kafka &amp; Event Hubs</span>
+                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Azure Durable Function Apps</span>
+                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Blob Storage Hot Caching</span>
                     </div>
                 </div>
-
-
             </div>
         </aside>
 
+        <!-- PROJECT WORKSPACE & ARCHITECTURE SPECIFICATIONS -->
         <section id="project-workspace-container" class="lg:col-span-3 flex flex-col gap-6">
 
+            <!-- Context Banner -->
             <div id="context-banner"
-                class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+                style="background: linear-gradient(90deg, rgba(var(--brand-primary-rgb), 0.16) 0%, rgba(var(--brand-primary-rgb), 0.03) 100%); border-color: var(--brand-border);">
+                <div class="flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <span class="h-2 w-2 rounded-full" style="background-color: var(--brand-accent);"></span>
+                        <h2 class="text-xs font-bold uppercase tracking-wider text-white">Allianz Services Architecture Matrix</h2>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed max-w-3xl">
+                        Engineered the multi-agent claims engine handling 100k+ annual claims across 19 automated journeys, slashing rollout time from weeks to 1 day.
+                    </p>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <button data-action="toggle-canvas" data-state="true" class="theme-btn-primary px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer">
+                        <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                        <span>Inspect Blueprint</span>
+                    </button>
+                </div>
             </div>
 
-            <div
-                class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <!-- Blueprint Navigation Header -->
+            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-3">
                     <div class="p-2 bg-slate-800 text-slate-300 rounded-lg border border-slate-700">
                         <i data-lucide="layers" class="w-4 h-4 text-slate-300"></i>
                     </div>
                     <div>
-                        <h4 class="text-xs font-semibold text-white tracking-wide">Enterprise Architecture Blueprints
-                        </h4>
-                        <p class="text-[11px] text-slate-400 mt-0.5">Explore interactive topology diagrams and verified
-                            production pipeline schematics.</p>
+                        <h3 class="text-xs font-semibold text-white tracking-wide">Enterprise Architecture Blueprints</h3>
+                        <p class="text-[11px] text-slate-400 mt-0.5">Explore interactive topology diagrams and verified production pipeline schematics.</p>
                     </div>
                 </div>
                 <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
@@ -955,7 +507,7 @@
                         <i data-lucide="play" class="w-3.5 h-3.5 theme-text-accent"></i>
                         <span>Architecture Simulator</span>
                     </a>
-                    <button onclick="toggleExpandedCanvas(true)"
+                    <button data-action="toggle-canvas" data-state="true"
                         class="w-full sm:w-auto px-4 py-2 theme-btn-primary font-medium text-xs rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm">
                         <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
                         <span>View Blueprint</span>
@@ -963,69 +515,131 @@
                 </div>
             </div>
 
-            <div
-                class="grid grid-cols-1 xl:grid-cols-12 bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden min-h-[650px]">
+            <!-- Architecture Triple-Column Canvas & Specifications -->
+            <div class="grid grid-cols-1 xl:grid-cols-12 bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden min-h-[650px]">
 
-                <div
-                    class="xl:col-span-4 p-5 border-b xl:border-b-0 xl:border-r border-slate-800 bg-slate-900/30 flex flex-col justify-between gap-6">
+                <!-- Column 1: System Overview & Deliverables -->
+                <div class="xl:col-span-4 p-5 border-b xl:border-b-0 xl:border-r border-slate-800 bg-slate-900/30 flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-5">
                         <div>
-                            <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">System
-                                Overview</span>
-                            <h3 id="scope-project-name" class="text-base font-bold text-white mt-1 leading-snug"></h3>
+                            <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">System Overview</span>
+                            <h3 id="scope-project-name" class="text-base font-bold text-white mt-1 leading-snug">Project Bluey-AI Lodgement Topology</h3>
                         </div>
                         <div>
-                            <span
-                                class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase block mb-2.5">Key
-                                Engineering Deliverables</span>
-                            <ul id="bullet-points-container"
-                                class="text-xs text-slate-300 list-none flex flex-col gap-2.5">
+                            <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase block mb-2.5">Key Engineering Deliverables</span>
+                            <ul id="bullet-points-container" class="text-xs text-slate-300 list-none flex flex-col gap-2.5">
+                                <li class="flex gap-2 items-start leading-relaxed text-xs">
+                                    <span class="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5" style="background-color: var(--brand-accent);"></span>
+                                    <span>Built scalable Azure Durable Functions orchestrator screening 100k+ annual insurance claim events.</span>
+                                </li>
+                                <li class="flex gap-2 items-start leading-relaxed text-xs">
+                                    <span class="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5" style="background-color: var(--brand-accent);"></span>
+                                    <span>Spearheaded Declarative JSON Engine allowing prompt engineers to deploy new claims in 1 day without backend redeploys.</span>
+                                </li>
+                                <li class="flex gap-2 items-start leading-relaxed text-xs">
+                                    <span class="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5" style="background-color: var(--brand-accent);"></span>
+                                    <span>Integrated Azure Event Hubs / Kafka ingestion with LangGraph state machine node transitions.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     <div>
-                        <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">Core
-                            Technology Stack</span>
+                        <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">Core Technology Stack</span>
                         <div id="scope-project-stack" class="flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">LangGraph</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Azure OpenAI GPT-5.4</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Durable Functions</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Azure Event Hubs</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Kafka</span>
+                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Pydantic</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Column 2: Architecture Layers Switcher & Interactive SVG Canvas -->
                 <div class="xl:col-span-4 p-5 border-b xl:border-b-0 xl:border-r border-slate-800 flex flex-col gap-4">
                     <div>
-                        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Architecture
-                            Pipeline Layers</h4>
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Architecture Pipeline Layers</h4>
                     </div>
 
                     <div id="arch-tabs-container" class="flex flex-col gap-2.5 mt-1">
+                        <button data-tab="orchestration" class="w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer text-white shadow-sm" style="background-color: rgba(var(--brand-primary-rgb), 0.18); border-color: var(--brand-border-active); box-shadow: 0 0 14px -3px var(--brand-glow);">
+                            <div class="p-1 rounded mt-0.5 border bg-slate-800 border-slate-700 text-white">
+                                <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="text-xs font-semibold leading-tight text-white">Orchestration &amp; Declarative JSON</div>
+                                <p class="text-xs text-slate-400 mt-0.5 leading-snug truncate">Azure Durable Functions + LangGraph State Engine</p>
+                            </div>
+                        </button>
+                        <button data-tab="guardrails" class="w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer theme-card text-slate-400 hover:text-slate-200">
+                            <div class="p-1 rounded mt-0.5 border bg-slate-900 border-slate-800 text-slate-400">
+                                <i data-lucide="workflow" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="text-xs font-semibold leading-tight text-slate-300">Safety, PII &amp; Guardrails</div>
+                                <p class="text-xs text-slate-400 mt-0.5 leading-snug truncate">Multi-Layer Azure Content Safety + PII Middleware</p>
+                            </div>
+                        </button>
+                        <button data-tab="foundry" class="w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer theme-card text-slate-400 hover:text-slate-200">
+                            <div class="p-1 rounded mt-0.5 border bg-slate-900 border-slate-800 text-slate-400">
+                                <i data-lucide="workflow" class="w-3.5 h-3.5"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="text-xs font-semibold leading-tight text-slate-300">Azure AI Foundry GPT Core</div>
+                                <p class="text-xs text-slate-400 mt-0.5 leading-snug truncate">Federated micro-agents under Foundry inference</p>
+                            </div>
+                        </button>
                     </div>
 
-                    <div
-                        class="flex-1 min-h-[240px] bg-slate-950 border border-slate-850 rounded-lg p-4 flex flex-col justify-center items-center relative overflow-hidden">
-                        <div
-                            class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]">
-                        </div>
-                        <div id="layer-canvas-visualization"
-                            class="w-full h-full flex flex-col justify-center items-center text-center p-1 z-10">
+                    <div class="flex-1 min-h-[240px] bg-slate-950 border border-slate-850 rounded-lg p-4 flex flex-col justify-center items-center relative overflow-hidden">
+                        <div class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+                        <div id="layer-canvas-visualization" class="w-full h-full flex flex-col justify-center items-center text-center p-1 z-10">
+                            <div class="w-full flex flex-col items-center gap-1.5 text-slate-400">
+                                <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Azure Event Pipeline</div>
+                                <div class="w-full grid grid-cols-2 gap-1">
+                                    <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded text-slate-300">Kafka Broker</div>
+                                    <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded text-slate-300">Azure Event Hubs</div>
+                                </div>
+                                <div class="text-[9px] text-slate-500 text-center font-medium">&darr; Stream Pipeline &darr;</div>
+                                <div class="bg-slate-900 border border-slate-800 p-1.5 rounded-lg text-center text-[9px] text-slate-200">
+                                    Azure Durable Functions Orchestrator
+                                    <div class="text-[8px] text-slate-400 mt-0.5">Kafka Ingestion &rarr; LangGraph Activity &rarr; Hot Blob Storage</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Column 3: Terminal Code Specification & Engineering Trade-offs -->
                 <div class="xl:col-span-4 bg-slate-950/70 flex flex-col h-full">
                     <div class="p-3.5 border-b border-slate-800 bg-slate-950 flex justify-between items-center">
                         <div class="flex items-center gap-2">
                             <i data-lucide="code-2" class="w-4 h-4 text-slate-400"></i>
-                            <h4 id="spec-header-title" class="text-xs font-semibold text-slate-200"></h4>
+                            <h4 id="spec-header-title" class="text-xs font-semibold text-slate-200">LangGraph Declarative Workflow Definition</h4>
                         </div>
-                        <span
-                            class="text-[10px] bg-slate-900 text-slate-400 px-2 py-0.5 rounded border border-slate-800 font-medium">Production
-                            Verified</span>
+                        <span class="text-[10px] bg-slate-900 text-slate-400 px-2 py-0.5 rounded border border-slate-800 font-medium">Production Verified</span>
                     </div>
 
                     <div class="p-4 border-b border-slate-850 bg-slate-950 overflow-x-auto max-h-[280px] flex-1">
-                        <pre
-                            class="text-[11px] code-font text-slate-300 leading-relaxed"><code id="spec-code-block"></code></pre>
+                        <pre class="text-[11px] code-font text-slate-300 leading-relaxed"><code id="spec-code-block">{
+  "journeyId": "motor_comprehensive_claim_v4",
+  "entryNode": "guardrail_safety_filter",
+  "stateSchema": "ClaimStateSchemaV2",
+  "nodes": [
+    {
+      "id": "guardrail_safety_filter",
+      "agent": "ContentSafetyAgent",
+      "failRoute": "reject_claim_submission"
+    },
+    {
+      "id": "policy_coverage_resolver",
+      "agent": "PolicyValidationAgent",
+      "requires": ["customer_id", "incident_date"]
+    }
+  ]
+}</code></pre>
                     </div>
 
                     <div class="p-4 bg-slate-900/40 border-t border-slate-800 flex flex-col gap-3">
@@ -1034,9 +648,8 @@
                                 <i data-lucide="scale" class="w-3.5 h-3.5 text-slate-300"></i>
                             </div>
                             <div>
-                                <h5 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide">System
-                                    Boundary Trade-Offs</h5>
-                                <p id="spec-tradeoffs" class="text-xs text-slate-400 mt-0.5 leading-relaxed"></p>
+                                <h5 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide">System Boundary Trade-Offs</h5>
+                                <p id="spec-tradeoffs" class="text-xs text-slate-400 mt-0.5 leading-relaxed">Decoupled prompt JSON configs from orchestration binary, reducing claim rollout latency from 14 days to 1 day at the cost of slight initial JSON schema parsing overhead.</p>
                             </div>
                         </div>
 
@@ -1045,9 +658,8 @@
                                 <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-slate-300"></i>
                             </div>
                             <div>
-                                <h5 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide">Bottleneck
-                                    Interventions</h5>
-                                <p id="spec-bottlenecks" class="text-xs text-slate-400 mt-0.5 leading-relaxed"></p>
+                                <h5 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide">Bottleneck Interventions</h5>
+                                <p id="spec-bottlenecks" class="text-xs text-slate-400 mt-0.5 leading-relaxed">Mitigated cold starts on high-traffic claims by maintaining warm Kafka consumer pools and caching policy disclosure clauses in hot Blob Storage.</p>
                             </div>
                         </div>
                     </div>
@@ -1058,602 +670,71 @@
         </section>
     </main>
 
+    <!-- BLUEPRINT EXPANSION OVERLAY MODAL -->
     <div id="blueprint-expansion-overlay"
-        class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md p-3 md:p-6 flex-col justify-center items-center hidden">
-        <div
-            class="max-w-7xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row h-[92vh]">
-            <div
-                class="flex-1 bg-slate-950 flex flex-col relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800">
+        class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md p-3 md:p-6 flex-col justify-center items-center hidden"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="blueprint-title">
+        <div class="max-w-7xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row h-[92vh]">
+            <div class="flex-1 bg-slate-950 flex flex-col relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800">
                 <div id="blueprint-media-header"
                     class="px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 flex flex-wrap justify-between items-center gap-3">
                     <div id="blueprint-view-toggles" class="flex items-center gap-1.5 text-xs">
+                        <button data-blueprint-mode="interactive" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer bg-blue-600 text-white shadow-sm">
+                            <i data-lucide="play" class="w-3 h-3 text-emerald-400"></i>
+                            Interactive Simulation
+                        </button>
+                        <button data-blueprint-mode="static" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer bg-slate-800 text-slate-400 hover:text-white">
+                            <i data-lucide="image" class="w-3 h-3"></i>
+                            Static Diagram
+                        </button>
                     </div>
                     <div id="blueprint-external-link" class="flex items-center gap-2">
+                        <a href="workflow.html" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded text-xs font-medium flex items-center gap-1.5 border border-slate-700 transition-colors">
+                            <span>Open Simulator in Full Window</span>
+                            <i data-lucide="external-link" class="w-3 h-3"></i>
+                        </a>
                     </div>
                 </div>
-                <div id="blueprint-media"
-                    class="flex-1 p-2 md:p-3 flex flex-col justify-center items-center relative overflow-hidden">
+                <div id="blueprint-media" class="flex-1 p-2 md:p-3 flex flex-col justify-center items-center relative overflow-hidden">
+                    <iframe src="workflow.html" class="w-full h-full border-0 rounded-lg shadow-inner" title="Project Bluey Interactive Workflow Simulation"></iframe>
                 </div>
             </div>
             <div class="w-full lg:w-[380px] p-6 bg-slate-900 flex flex-col justify-between overflow-y-auto">
                 <div class="flex flex-col gap-4">
                     <div class="flex justify-between items-start">
                         <div>
-                            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Architecture
-                                Blueprint Analysis</span>
-                            <h3 id="blueprint-title" class="text-base font-bold text-white mt-0.5"></h3>
+                            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Architecture Blueprint Analysis</span>
+                            <h3 id="blueprint-title" class="text-base font-bold text-white mt-0.5">Project Bluey-AI Lodgement Topology</h3>
                         </div>
-                        <button onclick="toggleExpandedCanvas(false)"
-                            class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer">
+                        <button data-action="toggle-canvas" data-state="false"
+                            class="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                            aria-label="Close Blueprint Analysis">
                             <i data-lucide="x" class="w-4 h-4"></i>
                         </button>
                     </div>
                     <p id="blueprint-desc"
                         class="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-3.5 rounded-xl border border-slate-850">
+                        An Event Driven Multi-Agent Insurance Claims processing system built with Langgraph, Langchain, and Azure OpenAI (Azure AI Foundry) at its core, with Dual-Emit Observability via Dynatrace &amp; Azure Application Insights.
                     </p>
                     <div id="blueprint-specs" class="space-y-3">
+                        <div class="flex gap-3 items-start text-xs text-slate-300 p-2.5 bg-slate-950/40 rounded-lg border border-slate-850">
+                            <div class="p-1 rounded bg-slate-800 text-sky-400 shrink-0 mt-0.5"><i data-lucide="workflow" class="w-3.5 h-3.5"></i></div>
+                            <div>
+                                <div class="font-semibold text-white">Orchestration</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5 leading-snug">Azure Durable Functions App orchestrating input validations, multi-agent pipeline, and output gates.</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="blueprint-registry"
                     class="pt-4 border-t border-slate-800 mt-6 text-[11px] text-slate-400 font-mono text-center">
+                    Blueprint Reference: Azure-Durable-LangGraph-Pipeline
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        function initializeStaticProfile() {
-            const p = portfolioData.profile;
-            document.getElementById("prof-name").innerText = p.name;
-            document.getElementById("prof-role").innerText = p.role;
-            const metaParts = [p.subRole, p.location, p.relocation].filter(Boolean);
-            document.getElementById("prof-meta").innerHTML = metaParts.join(" &bull; ");
-            document.getElementById("link-github").href = p.github;
-            document.getElementById("link-linkedin").href = p.linkedin;
-            if (document.getElementById("link-email")) {
-                document.getElementById("link-email").href = `mailto:${p.email}`;
-            }
-            if (document.getElementById("link-phone") && p.phone) {
-                document.getElementById("link-phone").href = `tel:${p.phone.replace(/[\s\-]/g, '')}`;
-                if (document.getElementById("link-phone-text")) {
-                    document.getElementById("link-phone-text").innerText = p.phone;
-                }
-            }
-
-            // Render Tech Stack Bar Segment
-            const barContainer = document.getElementById("skills-matrix-bar");
-            barContainer.innerHTML = "";
-            let count = 0;
-            Object.entries(portfolioData.careerDashboard.skills).forEach(([category, list]) => {
-                list.slice(0, 3).forEach(skill => {
-                    if (count < 15) {
-                        const pill = document.createElement("span");
-                        pill.className = "px-2 py-0.5 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-[11px] rounded font-medium transition-colors";
-                        pill.innerText = skill;
-                        barContainer.appendChild(pill);
-                        count++;
-                    }
-                });
-            });
-        }
-
-        function renderApp() {
-            // Apply Dynamic Company Color Scheme
-            document.documentElement.setAttribute('data-theme', selectedCompanyId);
-
-            // Highlight Corporate Honors in top header based on active company
-            ['allianz', 'yashtechnologies', 'persistentsystems'].forEach(cid => {
-                const el = document.getElementById(`honor-${cid}`);
-                if (el) {
-                    if (cid === selectedCompanyId) {
-                        el.className = "theme-badge font-semibold pl-2.5 py-0.5 rounded border transition-all";
-                    } else {
-                        el.className = "text-slate-400 pl-2.5 py-0.5 rounded border border-transparent transition-all";
-                    }
-                }
-            });
-
-            // Expanded Canvas View Logic
-            const overlayModal = document.getElementById("blueprint-expansion-overlay");
-            if (isExpandedViewActive) {
-                overlayModal.classList.remove("hidden");
-                overlayModal.classList.add("flex");
-            } else {
-                overlayModal.classList.remove("flex");
-                overlayModal.classList.add("hidden");
-            }
-
-            const selectedCompany = portfolioData.companies.find(c => c.id === selectedCompanyId);
-
-            // Render 3D Cylindrical Work Experience Drum
-            const cylinderDrum = document.getElementById("cylinder-drum");
-            const indicatorDots = document.getElementById("cylinder-indicator-dots");
-
-            if (cylinderDrum) {
-                const total = portfolioData.companies.length;
-                const activeIndex = portfolioData.companies.findIndex(c => c.id === selectedCompanyId);
-                const prevIndex = (activeIndex - 1 + total) % total;
-                const nextIndex = (activeIndex + 1) % total;
-
-                cylinderDrum.innerHTML = portfolioData.companies.map((company, index) => {
-                    if (index === activeIndex) {
-                        return `
-                            <div class="cylinder-item cylinder-active p-3 rounded-xl border shadow-xl" data-company-id="${company.id}">
-                                <div class="flex items-center justify-between gap-2">
-                                    <div class="flex items-center gap-2 min-w-0">
-                                        <span class="w-2 h-2 rounded-full shrink-0" style="background-color: var(--brand-accent); box-shadow: 0 0 8px var(--brand-accent);"></span>
-                                        <span class="text-xs font-bold text-white truncate">${company.name}</span>
-                                    </div>
-                                    <span class="text-[10px] font-mono theme-badge px-2 py-0.5 rounded shrink-0">${company.duration}</span>
-                                </div>
-                                <div class="text-[11px] font-medium text-slate-200 truncate mt-1 pl-4">${company.targetRole}</div>
-                                <div class="flex items-center justify-between text-[10px] text-slate-400 mt-1 pl-4">
-                                    <span class="truncate">${company.type}</span>
-                                    <span class="theme-text-accent font-medium flex items-center gap-1 shrink-0">
-                                        <span>Active Scope</span>
-                                        <i data-lucide="check" class="w-3 h-3"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        `;
-                    } else if (index === prevIndex) {
-                        return `
-                            <div onclick="setAppState('${company.id}')" class="cylinder-item cylinder-prev p-2 px-3 rounded-lg border flex items-center justify-between text-slate-400 hover:text-slate-200 transition-colors" data-company-id="${company.id}" title="Click or scroll up to switch to ${company.name}">
-                                <div class="flex items-center gap-2 truncate">
-                                    <i data-lucide="chevron-up" class="w-3 h-3 text-slate-500"></i>
-                                    <span class="text-[11px] font-semibold truncate">${company.name}</span>
-                                    <span class="text-[10px] text-slate-500 truncate hidden sm:inline">&bull; ${company.targetRole}</span>
-                                </div>
-                                <span class="text-[9px] font-mono text-slate-500 whitespace-nowrap">${company.duration}</span>
-                            </div>
-                        `;
-                    } else if (index === nextIndex) {
-                        return `
-                            <div onclick="setAppState('${company.id}')" class="cylinder-item cylinder-next p-2 px-3 rounded-lg border flex items-center justify-between text-slate-400 hover:text-slate-200 transition-colors" data-company-id="${company.id}" title="Click or scroll down to switch to ${company.name}">
-                                <div class="flex items-center gap-2 truncate">
-                                    <i data-lucide="chevron-down" class="w-3 h-3 text-slate-500"></i>
-                                    <span class="text-[11px] font-semibold truncate">${company.name}</span>
-                                    <span class="text-[10px] text-slate-500 truncate hidden sm:inline">&bull; ${company.targetRole}</span>
-                                </div>
-                                <span class="text-[9px] font-mono text-slate-500 whitespace-nowrap">${company.duration}</span>
-                            </div>
-                        `;
-                    }
-                    return '';
-                }).join('');
-            }
-
-            if (indicatorDots) {
-                indicatorDots.innerHTML = portfolioData.companies.map((c, idx) => {
-                    const isActive = c.id === selectedCompanyId;
-                    return `
-                        <button onclick="setAppState('${c.id}')" class="transition-all duration-300 cursor-pointer ${isActive
-                            ? 'w-5 h-1.5 rounded-full'
-                            : 'w-1.5 h-1.5 rounded-full opacity-60 hover:opacity-100'
-                        }" style="${isActive
-                            ? 'background-color: var(--brand-accent); box-shadow: 0 0 10px var(--brand-glow);'
-                            : 'background-color: var(--brand-border);'
-                        }" title="${c.name} (${c.duration})"></button>
-                    `;
-                }).join('');
-            }
-
-            // Update Sidebar Scope Details
-            const sidebarRoleBadge = document.getElementById("sidebar-role-badge");
-            const sidebarScopeDetails = document.getElementById("sidebar-scope-details");
-            if (sidebarRoleBadge) {
-                sidebarRoleBadge.innerText = selectedCompany.duration;
-                sidebarRoleBadge.className = "text-[10px] font-mono font-medium theme-badge px-2 py-0.5 rounded";
-            }
-            if (sidebarScopeDetails) {
-                sidebarScopeDetails.innerHTML = `
-                    <div class="font-bold text-white text-sm flex items-center justify-between">
-                        <span>${selectedCompany.name}</span>
-                        <span class="text-[10px] font-normal theme-text-accent font-mono">${selectedCompany.type}</span>
-                    </div>
-                    <div class="text-[11px] text-slate-300">${selectedCompany.targetRole}</div>
-                    <div class="text-[10px] text-slate-400 mt-1 flex items-center gap-1 border-t theme-border pt-1.5">
-                        <i data-lucide="mouse" class="w-3 h-3 theme-text-accent"></i>
-                        <span>Scroll cylinder at top to switch scope</span>
-                    </div>
-                `;
-            }
-
-            // Executive KPI Metric Cards with dynamic company brand palette
-            const kpiCompanyBadge = document.getElementById("kpi-box-company-badge");
-            if (kpiCompanyBadge) {
-                kpiCompanyBadge.innerText = selectedCompany.name;
-            }
-
-            const metricsContainer = document.getElementById("metrics-strip-container");
-            if (metricsContainer && selectedCompany.metrics) {
-                const brandKPIPalettes = {
-                    allianz: [
-                        { text: "text-[#38bdf8]", icon: "text-[#38bdf8]", iconBg: "bg-[#003781]/40 border-blue-400/50" },
-                        { text: "text-[#60a5fa]", icon: "text-[#60a5fa]", iconBg: "bg-[#003781]/40 border-blue-400/50" },
-                        { text: "text-[#38bdf8]", icon: "text-[#38bdf8]", iconBg: "bg-[#003781]/40 border-blue-400/50" },
-                        { text: "text-[#93c5fd]", icon: "text-[#93c5fd]", iconBg: "bg-[#003781]/40 border-blue-400/50" },
-                        { text: "text-[#dbeafe]", icon: "text-[#93c5fd]", iconBg: "bg-[#003781]/55 border-blue-300/60" }
-                    ],
-                    yashtechnologies: [
-                        { text: "text-[#f3e198]", icon: "text-[#f3e198]", iconBg: "bg-[#A89044]/30 border-[#A89044]/60" }, // Luminous Driftwood Gold
-                        { text: "text-[#faebae]", icon: "text-[#faebae]", iconBg: "bg-[#A89044]/30 border-[#A89044]/60" }, // Bright Driftwood
-                        { text: "text-[#99bbff]", icon: "text-[#99bbff]", iconBg: "bg-blue-900/40 border-blue-500/60" },   // Stratos Sky Navy
-                        { text: "text-[#f3e198]", icon: "text-[#f3e198]", iconBg: "bg-[#A89044]/30 border-[#A89044]/60" },
-                        { text: "text-[#ff8080]", icon: "text-[#ff8080]", iconBg: "bg-[#e63946]/30 border-[#e63946]/70" }  // Vibrant Crimson Red
-                    ],
-                    persistentsystems: [
-                        { text: "text-[#ff7a29]", icon: "text-[#ff7a29]", iconBg: "bg-[#FD5F07]/30 border-[#FD5F07]/60" }, // Blaze Orange
-                        { text: "text-[#ffa05c]", icon: "text-[#ffa05c]", iconBg: "bg-[#FD5F07]/25 border-[#ffa05c]/55" }, // Light Orange
-                        { text: "text-[#ff833b]", icon: "text-[#ff833b]", iconBg: "bg-orange-500/25 border-orange-400/50" },
-                        { text: "text-[#ffa05c]", icon: "text-[#ffa05c]", iconBg: "bg-[#FD5F07]/25 border-[#ffa05c]/55" },
-                        { text: "text-[#ff7a29]", icon: "text-[#ff7a29]", iconBg: "bg-[#FD5F07]/40 border-[#FD5F07]/75" }  // Midnight Blaze
-                    ]
-                };
-
-                const currentPalette = brandKPIPalettes[selectedCompanyId] || brandKPIPalettes.allianz;
-
-                metricsContainer.innerHTML = selectedCompany.metrics.map((m, idx) => {
-                    const style = currentPalette[idx] || currentPalette[0];
-                    const valLen = m.value.length;
-                    const valSize = valLen <= 4
-                        ? 'text-lg sm:text-xl xl:text-2xl font-black'
-                        : valLen <= 7
-                            ? 'text-base sm:text-lg xl:text-xl font-extrabold'
-                            : 'text-sm sm:text-base font-bold';
-
-                    return `
-                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all animate-fade-in group cursor-default" 
-                             style="animation-delay: ${idx * 35}ms;" 
-                             title="${m.label}: ${m.value} — ${m.sub}">
-                            <div class="p-1 rounded-md border ${style.iconBg} shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
-                                <i data-lucide="${m.icon}" class="w-3.5 h-3.5 ${style.icon}"></i>
-                            </div>
-                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
-                                <span class="${valSize} tracking-tight ${style.text} block leading-tight select-none">${m.value}</span>
-                            </div>
-                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
-                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">${m.label}</span>
-                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">${m.sub}</span>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            // Production Defenses & Moats
-            const moatsList = selectedCompany.moats || portfolioData.careerDashboard.moats;
-            document.getElementById("moats-container").innerHTML = moatsList.map(moat => `
-                <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
-                    <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
-                    <span class="leading-relaxed">${moat}</span>
-                </div>
-            `).join('');
-
-            // Technical Baselines
-            const baselinesList = selectedCompany.baselines || portfolioData.careerDashboard.baselines;
-            document.getElementById("baselines-container").innerHTML = baselinesList.map(base => `
-                <span class="text-[11px] theme-badge px-2.5 py-1 rounded-md transition-all hover:border-[var(--brand-border-active)]">
-                    ${base}
-                </span>
-            `).join('');
-
-            // Context Banner
-            const contextBanner = document.getElementById("context-banner");
-            let bannerMetaText = "";
-            if (selectedCompanyId === "allianz") {
-                bannerMetaText = "Project Bluey-AI Lodgement &mdash; Declarative JSON Engine handling 19 Claim Variant Journeys reducing lifecycle processing down to minutes.";
-            } else if (selectedCompanyId === "yashtechnologies") {
-                bannerMetaText = "Project FlowIQ &mdash; Text-to-SQL Graph Pipeline optimizing operational database query translations with short & long-term memory frameworks.";
-            } else {
-                bannerMetaText = "Project SASVA &mdash; Codebase analytics repository deploying custom chunk structures and token parsing arrays natively for LLM optimization.";
-            }
-
-            contextBanner.className = "rounded-xl p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border transition-all";
-            contextBanner.style.background = `linear-gradient(90deg, rgba(var(--brand-primary-rgb), 0.16) 0%, rgba(var(--brand-primary-rgb), 0.03) 100%)`;
-            contextBanner.style.borderColor = `var(--brand-border-active)`;
-
-            contextBanner.innerHTML = `
-                <div class="animate-fade-in">
-                    <div class="text-[11px] theme-text-accent font-medium uppercase tracking-wider flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full" style="background-color: var(--brand-accent);"></span>
-                        Active Architectural Scope
-                    </div>
-                    <h3 class="text-lg font-bold text-white mt-0.5">${selectedCompany.name} &mdash; <span class="text-slate-300 font-normal">${selectedCompany.targetRole}</span></h3>
-                </div>
-                <div class="flex items-center gap-2 theme-card px-3.5 py-2 rounded-lg max-w-xl text-xs text-slate-300">
-                    <span class="h-1.5 w-1.5 rounded-full shrink-0" style="background-color: var(--brand-highlight-hint); box-shadow: 0 0 8px var(--brand-highlight-hint);"></span>
-                    <span class="leading-relaxed text-[11px]">${bannerMetaText}</span>
-                </div>
-            `;
-
-            // Deliverables & Project Scope
-            const project = portfolioData.projects[activeProjectKey];
-            document.getElementById("scope-project-name").innerText = project.name;
-
-            const activeTabContent = project.tabs[activeArchTab] || Object.values(project.tabs)[0];
-            document.getElementById("bullet-points-container").innerHTML = activeTabContent.bullets.map(bullet => `
-                <li class="flex gap-2.5 items-start text-xs text-slate-300 leading-relaxed">
-                    <span class="h-1.5 w-1.5 rounded-full shrink-0 mt-1.5" style="background-color: var(--brand-accent);"></span>
-                    <span>${bullet}</span>
-                </li>
-            `).join('');
-
-            document.getElementById("scope-project-stack").innerHTML = project.stack.map(tech => `
-                <span class="text-[11px] code-font theme-badge px-2 py-0.5 rounded font-medium">
-                    ${tech}
-                </span>
-            `).join('');
-
-            // Multi-Tab Pipeline Interaction Layout Setup
-            const tabsContainer = document.getElementById("arch-tabs-container");
-            tabsContainer.innerHTML = "";
-
-            Object.keys(project.tabs).forEach(tabKey => {
-                const tabData = project.tabs[tabKey];
-                const isActive = tabKey === activeArchTab;
-
-                const tabButton = document.createElement("button");
-                tabButton.className = `w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer ${isActive
-                    ? "text-white shadow-sm"
-                    : "theme-card text-slate-400 hover:text-slate-200"
-                    }`;
-                if (isActive) {
-                    tabButton.style.backgroundColor = 'rgba(var(--brand-primary-rgb), 0.18)';
-                    tabButton.style.borderColor = 'var(--brand-border-active)';
-                }
-                tabButton.onclick = () => setArchTab(tabKey);
-
-                let layerIcon = "cpu";
-                if (tabKey === "vector") layerIcon = "git-fork";
-                if (tabKey === "guardrails") layerIcon = "activity";
-
-                tabButton.innerHTML = `
-                    <div class="p-1.5 rounded-md ${isActive ? 'text-white' : 'bg-slate-950 text-slate-500'}" style="${isActive ? 'background-color: var(--brand-primary);' : ''}">
-                        <i data-lucide="${layerIcon}" class="w-4 h-4"></i>
-                    </div>
-                    <div class="overflow-hidden">
-                        <div class="text-xs font-semibold leading-tight ${isActive ? 'text-white' : 'text-slate-300'}">${tabData.title}</div>
-                        <p class="text-[11px] text-slate-400 mt-0.5 leading-snug truncate">${tabData.description}</p>
-                    </div>
-                `;
-                tabsContainer.appendChild(tabButton);
-            });
-
-            // Geometric Dynamic SVG Matrix Engine Update Call
-            document.getElementById("layer-canvas-visualization").innerHTML = generateStructuralVisual(activeTabContent.visualType);
-
-            // Code Specifications Terminal Update Trigger
-            document.getElementById("spec-header-title").innerText = activeTabContent.specTitle;
-            const codeBlock = document.getElementById("spec-code-block");
-            codeBlock.textContent = activeTabContent.code;
-            codeBlock.classList.remove("animate-fade-in");
-            void codeBlock.offsetWidth;
-            codeBlock.classList.add("animate-fade-in");
-            document.getElementById("spec-tradeoffs").innerText = activeTabContent.tradeoffs;
-            document.getElementById("spec-bottlenecks").innerText = activeTabContent.bottlenecks;
-
-            // Blueprint Modal Updates
-            if (selectedCompany.blueprint) {
-                const bp = selectedCompany.blueprint;
-                const titleEl = document.getElementById("blueprint-title");
-                const descEl = document.getElementById("blueprint-desc");
-                const regEl = document.getElementById("blueprint-registry");
-                const mediaEl = document.getElementById("blueprint-media");
-                const specsEl = document.getElementById("blueprint-specs");
-                const togglesEl = document.getElementById("blueprint-view-toggles");
-                const extLinkEl = document.getElementById("blueprint-external-link");
-
-                if (titleEl) titleEl.innerText = bp.title;
-                if (descEl) descEl.innerText = bp.overview;
-                if (regEl) regEl.innerText = `Blueprint Reference: ${bp.registry}`;
-
-                // Header toggles & action link
-                if (togglesEl) {
-                    if (bp.interactiveUrl) {
-                        const isInteractive = blueprintViewMode === "interactive";
-                        togglesEl.innerHTML = `
-                            <button onclick="setBlueprintMode('interactive')" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer ${isInteractive
-                                ? 'bg-blue-600 text-white shadow-sm'
-                                : 'bg-slate-800 text-slate-400 hover:text-white'
-                            }">
-                                <i data-lucide="play" class="w-3 h-3 text-emerald-400"></i>
-                                Interactive Simulation
-                            </button>
-                            <button onclick="setBlueprintMode('static')" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer ${!isInteractive
-                                ? 'bg-blue-600 text-white shadow-sm'
-                                : 'bg-slate-800 text-slate-400 hover:text-white'
-                            }">
-                                <i data-lucide="image" class="w-3 h-3"></i>
-                                Static Diagram
-                            </button>
-                        `;
-                    } else {
-                        togglesEl.innerHTML = `
-                            <span class="px-2.5 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded text-[11px] font-medium">
-                                Architectural Specification
-                            </span>
-                        `;
-                    }
-                }
-
-                if (extLinkEl) {
-                    if (bp.interactiveUrl) {
-                        extLinkEl.innerHTML = `
-                            <a href="${bp.interactiveUrl}" target="_blank" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded text-xs font-medium flex items-center gap-1.5 transition-colors">
-                                <span>Open Fullscreen Studio</span>
-                                <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400"></i>
-                            </a>
-                        `;
-                    } else {
-                        extLinkEl.innerHTML = '';
-                    }
-                }
-
-                if (mediaEl) {
-                    if (bp.interactiveUrl && blueprintViewMode === "interactive") {
-                        mediaEl.innerHTML = `
-                            <div class="w-full h-full min-h-[560px] rounded-xl overflow-hidden border border-slate-800/80 bg-slate-950 flex flex-col">
-                                <iframe src="${bp.interactiveUrl}?embed=true" class="w-full h-full flex-1 border-0" title="${bp.title}"></iframe>
-                            </div>
-                        `;
-                    } else if (bp.image) {
-                        mediaEl.innerHTML = `
-                            <div class="w-full h-full flex flex-col justify-center items-center p-4 relative">
-                                <img src="${bp.image}" alt="${bp.title}" class="max-w-full max-h-[72vh] object-contain rounded-lg shadow-xl" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'text-slate-500 text-xs font-mono border border-dashed border-slate-800 p-8 rounded\\'><i data-lucide=\\'image-off\\' class=\\'w-8 h-8 mx-auto mb-2 text-slate-600\\'></i> Blueprint Frame Available:<br><span class=\\'text-slate-300 font-bold\\'>${bp.image}</span></div>'; lucide.createIcons();">
-                                <span class="absolute bottom-3 left-3 bg-slate-950/90 border border-slate-800 px-2 py-1 rounded text-[10px] font-mono text-slate-400">${bp.registry}</span>
-                            </div>
-                        `;
-                    } else {
-                        mediaEl.innerHTML = `
-                            <div class="w-full h-full flex flex-col justify-center items-center p-8 text-center bg-slate-950 animate-fade-in">
-                                <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl mb-4">
-                                    <i data-lucide="cpu" class="w-10 h-10 text-slate-400"></i>
-                                </div>
-                                <span class="text-[11px] uppercase font-semibold tracking-wider text-slate-400 mb-1">Architecture Specification</span>
-                                <h4 class="text-base font-bold text-white mb-2">${bp.title}</h4>
-                                <p class="text-xs text-slate-400 max-w-lg leading-relaxed">${bp.overview}</p>
-                                <div class="mt-6 inline-flex items-center gap-2 px-3 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-slate-300">
-                                    Reference: ${bp.registry}
-                                </div>
-                            </div>
-                        `;
-                    }
-                }
-
-                if (specsEl && bp.specs) {
-                    specsEl.innerHTML = bp.specs.map(spec => `
-                        <div class="flex gap-2.5 items-start text-xs text-slate-400">
-                            <i data-lucide="${spec.icon}" class="w-4 h-4 text-slate-400 shrink-0 mt-0.5"></i>
-                            <span><strong class="text-slate-200">${spec.label}:</strong> ${spec.desc}</span>
-                        </div>
-                    `).join('');
-                }
-            }
-
-            // Re-render Lucide SVG icons
-            lucide.createIcons();
-        }
-
-        // Custom Architectural UI Micro-Engine
-        function generateStructuralVisual(type) {
-            if (type === "flow-allianz") {
-                return `
-                    <div class="flex flex-col items-center gap-2 w-full text-slate-400">
-                        <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">LangGraph Topology</div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[9px] text-center font-semibold text-slate-200">Guardrails Validation Node</div>
-                        <div class="w-full grid grid-cols-2 gap-1.5">
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">Weather API</div>
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">Coverage Cache</div>
-                        </div>
-                        <div class="w-full grid grid-cols-3 gap-1">
-                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center text-slate-300">Fraud Node</div>
-                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center text-slate-300">Reserve Node</div>
-                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center text-slate-300">Triage Node</div>
-                        </div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[8px] font-mono text-slate-400 text-center">
-                            Foundry GPT-5.4 mini
-                        </div>
-                    </div>
-                `;
-            } else if (type === "flow-sql") {
-                return `
-                    <div class="flex flex-col items-center gap-2 w-full text-slate-400">
-                        <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Text-to-SQL Graph</div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[9px] text-center font-semibold text-slate-200">Natural Language Gateway (FastAPI)</div>
-                        <div class="w-full grid grid-cols-2 gap-1.5">
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">Short-Term Session Memory</div>
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">Long-Term Schema Store</div>
-                        </div>
-                        <div class="w-full grid grid-cols-2 gap-1">
-                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center text-slate-300">CrewAI Synthesizer</div>
-                            <div class="bg-slate-900 border border-slate-800 p-0.5 rounded text-[7px] text-center text-slate-300">AST Dialect Validator</div>
-                        </div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[8px] font-mono text-slate-400 text-center">
-                            Google Gemini 2.5
-                        </div>
-                    </div>
-                `;
-            } else if (type === "vector-rag") {
-                return `
-                    <div class="flex flex-col items-center gap-2 w-full text-slate-400">
-                        <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Codebase Knowledge Graph</div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[9px] text-center font-semibold text-slate-200">Repository AST Chunk Parser</div>
-                        <div class="w-full grid grid-cols-2 gap-1.5">
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">vLLM Batch Embeddings</div>
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">Vector Store Upsert</div>
-                        </div>
-                        <div class="w-full bg-slate-900 border border-slate-800 p-1 rounded text-[8px] text-center font-medium text-slate-300">
-                            Similarity Search & Cache Layer
-                        </div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[8px] font-mono text-slate-400 text-center">
-                            FastAPI + AWS Bedrock
-                        </div>
-                    </div>
-                `;
-            } else if (type === "vector-allianz") {
-                return `
-                    <div class="w-full flex flex-col gap-1.5 text-slate-400">
-                        <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider text-center">Stream Ingestion Fabric</div>
-                        <div class="grid grid-cols-2 gap-1 bg-slate-900 border border-slate-800 p-1.5 rounded">
-                            <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded text-slate-300">Managed Kafka</div>
-                            <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded text-slate-300">Azure Event Hubs</div>
-                        </div>
-                        <div class="text-[9px] text-slate-500 text-center font-medium">&darr; Stream Pipeline &darr;</div>
-                        <div class="bg-slate-900 border border-slate-800 p-1.5 rounded-lg text-center text-[9px] text-slate-200">
-                            Azure Durable Functions Orchestrator
-                            <div class="text-[8px] text-slate-400 mt-0.5">Kafka Ingestion &rarr; LangGraph Activity &rarr; Hot Blob Storage</div>
-                        </div>
-                    </div>
-                `;
-            } else if (type === "guardrails-allianz") {
-                return `
-                    <div class="w-full flex flex-col items-center gap-1.5 text-slate-400">
-                        <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Observability & Telemetry</div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-2 text-left flex flex-col gap-1">
-                            <div class="flex items-center gap-1.5 text-[8px] font-semibold text-slate-300">
-                                <span class="h-1.5 w-1.5 rounded-full bg-blue-400"></span> Dual-Emit Observability
-                            </div>
-                            <div class="grid grid-cols-2 gap-1 text-[7px] font-mono text-slate-400 mt-1">
-                                <div>&bull; Ingestion Rate</div>
-                                <div>&bull; Agent Latency</div>
-                                <div>&bull; Model Duration</div>
-                                <div>&bull; Cache Hit Ratio</div>
-                            </div>
-                        </div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[8px] text-center text-slate-300 font-medium">
-                            Application Insights & Dynatrace
-                        </div>
-                    </div>
-                `;
-            } else if (type === "curation-rag") {
-                return `
-                    <div class="flex flex-col items-center gap-2 w-full text-slate-400">
-                        <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-1">Dataset Curation & Serving</div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[9px] text-center font-semibold text-slate-200">Multi-Source Dataset Aggregator</div>
-                        <div class="w-full grid grid-cols-2 gap-1.5">
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">TRL (LoRA/QLoRA)</div>
-                            <div class="bg-slate-900 border border-slate-800 p-1 rounded text-[8px] font-medium text-center text-slate-300">Perplexity Filter</div>
-                        </div>
-                        <div class="w-full bg-slate-900 border border-slate-800 p-1 rounded text-[8px] text-center font-medium text-slate-300">
-                            vLLM Continuous Batching Engine
-                        </div>
-                        <div class="w-full bg-slate-900 border border-slate-800 rounded p-1 text-[8px] font-mono text-slate-400 text-center">
-                            FastAPI Model Serving (-50% Latency)
-                        </div>
-                    </div>
-                `;
-            }
-            return "";
-        }
-
-        window.onload = () => {
-            document.documentElement.setAttribute('data-theme', selectedCompanyId);
-            initializeStaticProfile();
-            renderApp();
-            setupCylinderInteractions();
-        };
-    </script>
 </body>
-
 </html>

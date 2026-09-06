@@ -1,0 +1,282 @@
+/* ==========================================================================
+   Shivraj Dhaytadak Portfolio - Design System & Theming Engine
+   ========================================================================== */
+
+/* Typography & Layout Tokens */
+:root {
+    --panel-h: 140px;
+    --text-micro: 0.6875rem;   /* 11px - micro badges only */
+    --text-body-sm: 0.8125rem; /* 13px - floor for readable body content */
+
+    /* Tokenized KPI Palette */
+    --kpi-amber: #f59e0b;
+    --kpi-indigo: #6366f1;
+    --kpi-emerald: #10b981;
+    --kpi-blue: #3b82f6;
+    --kpi-purple: #a855f7;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--brand-bg-base);
+    color: #f1f5f9;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.code-font {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.bg-slate-850 {
+    background-color: #131b28;
+}
+
+.border-slate-850 {
+    border-color: #1e293b;
+}
+
+.panel-stage {
+    height: var(--panel-h);
+}
+
+/* ==========================================================================
+   Brand Color Schemes (Dynamic Theming)
+   ========================================================================== */
+
+:root,
+[data-theme="allianz"] {
+    --brand-primary: #003781;
+    --brand-primary-rgb: 0, 55, 129;
+    --brand-accent: #1e6fe8;
+    --brand-accent-rgb: 30, 111, 232;
+    --brand-accent-light: #60a5fa;
+    --brand-bg-base: #060d19;
+    --brand-bg-surface: #0a1322;
+    --brand-bg-card: rgba(10, 21, 38, 0.78);
+    --brand-bg-card-hover: rgba(15, 30, 55, 0.9);
+    --brand-border: rgba(30, 111, 232, 0.22);
+    --brand-border-active: rgba(30, 111, 232, 0.7);
+    --brand-glow: rgba(0, 55, 129, 0.38);
+    --brand-badge-bg: rgba(0, 55, 129, 0.28);
+    --brand-badge-border: rgba(30, 111, 232, 0.45);
+    --brand-badge-text: #93c5fd;
+    --brand-btn-bg: #003781;
+    --brand-btn-border: #1e6fe8;
+    --brand-btn-hover: #004bbb;
+    --brand-highlight-hint: #38bdf8;
+    --brand-hint-rgb: 56, 189, 248;
+    --brand-selection: rgba(0, 55, 129, 0.6);
+}
+
+[data-theme="yashtechnologies"] {
+    --brand-primary: #A89044;
+    --brand-primary-rgb: 168, 144, 68;
+    --brand-accent: #c9b161;
+    --brand-accent-rgb: 201, 177, 97;
+    --brand-accent-light: #e4d393;
+    --brand-bg-base: #03051e; /* Stratos deep navy: RGB(0, 1, 65) */
+    --brand-bg-surface: #060829;
+    --brand-bg-card: rgba(6, 9, 45, 0.82);
+    --brand-bg-card-hover: rgba(11, 16, 65, 0.92);
+    --brand-border: rgba(168, 144, 68, 0.28);
+    --brand-border-active: rgba(168, 144, 68, 0.8);
+    --brand-glow: rgba(168, 144, 68, 0.3);
+    --brand-badge-bg: rgba(168, 144, 68, 0.2);
+    --brand-badge-border: rgba(168, 144, 68, 0.5);
+    --brand-badge-text: #e8dbaa;
+    --brand-btn-bg: #A89044;
+    --brand-btn-border: #c9b161;
+    --brand-btn-hover: #baa14e;
+    --brand-highlight-hint: #e63946; /* Yash red hints */
+    --brand-hint-rgb: 230, 57, 70;
+    --brand-selection: rgba(168, 144, 68, 0.5);
+}
+
+[data-theme="persistentsystems"] {
+    --brand-primary: #FD5F07; /* Blaze Orange: RGB(253, 95, 7) */
+    --brand-primary-rgb: 253, 95, 7;
+    --brand-accent: #ff833b;
+    --brand-accent-rgb: 255, 131, 59;
+    --brand-accent-light: #ffb27d;
+    --brand-bg-base: #091224; /* Midnight Blue: RGB(9, 29, 64) */
+    --brand-bg-surface: #0e1933;
+    --brand-bg-card: rgba(14, 25, 48, 0.82);
+    --brand-bg-card-hover: rgba(22, 38, 72, 0.92);
+    --brand-border: rgba(253, 95, 7, 0.3);
+    --brand-border-active: rgba(253, 95, 7, 0.8);
+    --brand-glow: rgba(253, 95, 7, 0.35);
+    --brand-badge-bg: rgba(253, 95, 7, 0.2);
+    --brand-badge-border: rgba(253, 95, 7, 0.5);
+    --brand-badge-text: #fdba74;
+    --brand-btn-bg: #FD5F07;
+    --brand-btn-border: #ff833b;
+    --brand-btn-hover: #e65200;
+    --brand-highlight-hint: #FD5F07;
+    --brand-hint-rgb: 253, 95, 7;
+    --brand-selection: rgba(253, 95, 7, 0.5);
+}
+
+::selection {
+    background: var(--brand-selection);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   Theme Utility Classes
+   ========================================================================== */
+
+.theme-card {
+    background-color: var(--brand-bg-card) !important;
+    border-color: var(--brand-border) !important;
+    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.theme-card:hover {
+    border-color: var(--brand-border-active) !important;
+    box-shadow: 0 8px 24px -4px var(--brand-glow);
+}
+
+.theme-border {
+    border-color: var(--brand-border) !important;
+}
+
+.theme-border-active {
+    border-color: var(--brand-border-active) !important;
+}
+
+.theme-bg-card {
+    background-color: var(--brand-bg-card) !important;
+}
+
+.theme-badge {
+    background-color: var(--brand-badge-bg) !important;
+    border-color: var(--brand-badge-border) !important;
+    color: var(--brand-badge-text) !important;
+}
+
+.theme-text-accent {
+    color: var(--brand-accent) !important;
+}
+
+.theme-text-primary {
+    color: var(--brand-primary) !important;
+}
+
+.theme-btn-primary {
+    background-color: var(--brand-btn-bg) !important;
+    border-color: var(--brand-btn-border) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px -2px var(--brand-glow);
+    transition: all 0.25s ease;
+}
+
+.theme-btn-primary:hover {
+    background-color: var(--brand-btn-hover) !important;
+    box-shadow: 0 6px 20px 0 var(--brand-glow);
+}
+
+/* ==========================================================================
+   3D Cylindrical Experience Drum
+   ========================================================================== */
+
+.cylinder-wrapper {
+    perspective: 850px;
+    perspective-origin: 50% 50%;
+}
+
+.cylinder-drum {
+    transform-style: preserve-3d;
+    position: relative;
+    height: var(--panel-h);
+}
+
+.cylinder-item {
+    position: absolute;
+    left: 6px;
+    right: 6px;
+    transform-style: preserve-3d;
+    transition: all 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
+    user-select: none;
+}
+
+.cylinder-active {
+    top: 50%;
+    transform: translateY(-50%) translateZ(16px) scale(1);
+    opacity: 1;
+    z-index: 15;
+    cursor: default;
+    border-color: var(--brand-border-active) !important;
+    box-shadow: 0 10px 26px -4px var(--brand-glow);
+    background-color: var(--brand-bg-card) !important;
+}
+
+.cylinder-prev {
+    top: 4px;
+    transform: rotateX(24deg) scale(0.92) translateZ(-8px);
+    opacity: 0.46;
+    z-index: 6;
+    cursor: pointer;
+    border-color: var(--brand-border) !important;
+}
+
+.cylinder-next {
+    bottom: 4px;
+    transform: rotateX(-24deg) scale(0.92) translateZ(-8px);
+    opacity: 0.46;
+    z-index: 6;
+    cursor: pointer;
+    border-color: var(--brand-border) !important;
+}
+
+.cylinder-item:hover:not(.cylinder-active) {
+    opacity: 0.85;
+    background-color: rgba(30, 41, 59, 0.8);
+    border-color: var(--brand-border-active) !important;
+}
+
+.cylinder-fade-top {
+    background: linear-gradient(to bottom, var(--brand-bg-base) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: background 0.4s ease;
+}
+
+.cylinder-fade-bottom {
+    background: linear-gradient(to top, var(--brand-bg-base) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: background 0.4s ease;
+}
+
+/* ==========================================================================
+   Scrollbars & Keyframe Animations
+   ========================================================================== */
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--brand-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--brand-border);
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--brand-border-active);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.18s ease-out both;
+}
