@@ -1,43 +1,27 @@
-<!-- HEADER BANNER: capsule-render -->
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:090D16,35:1E1B4B,70:312E81,100:4338CA&height=220&section=header&text=Shivraj%20Dhaytadak&fontSize=44&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Strategy%20Consultant%20%E2%80%A2%20Agentic%20Systems%20Architect&descFontSize=18&descAlignY=60" width="100%" alt="Header Banner" />
+
+# Shivraj Dhaytadak
+### AI Strategy Consultant & Agentic Systems Architect
+
+Pune, India &bull; `+91 7972476081` &bull; `shivraj.25d@gmail.com`
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-shivraj--dhaytadak.github.io-0F172A?style=flat-square&logo=googlechrome&logoColor=white)](https://shivraj-dhaytadak.github.io/)
+[![Architecture Simulator](https://img.shields.io/badge/Simulator-Interactive_Topology-2563EB?style=flat-square&logo=azurefunctions&logoColor=white)](https://shivraj-dhaytadak.github.io/workflow.html)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-shivraj--dhaytadak7-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shivraj-dhaytadak7)
+[![GitHub](https://img.shields.io/badge/GitHub-Shivraj--Dhaytadak-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Shivraj-Dhaytadak)
+
 </div>
-
-<!-- DYNAMIC TYPING SUBTITLE: readme-typing-svg -->
-<div align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=19&pause=1200&color=818CF8&center=true&vCenter=true&width=700&lines=Enterprise+Multi-Agent+Workflows+(LangGraph+%26+CrewAI);Declarative+JSON+Engines+%7C+145%2B+Production+Agents;Deterministic+LLM+Pipelines+%26+Runtime+Pydantic+Guards;Cloud-Native+GenAI+Infrastructure+(Azure+Foundry+%26+AWS+Bedrock)" alt="Typing SVG" />
-  </a>
-</div>
-
-<p align="center">
-  <b>Associate Business Consultant @ Allianz Services</b> &bull; Based in Pune, India (UTC+5:30)
-</p>
-
-<p align="center">
-  <a href="https://shivraj-dhaytadak.github.io/">
-    <img src="https://img.shields.io/badge/Live_Portfolio-090D16?style=for-the-badge&logo=googlechrome&logoColor=6366F1" alt="Portfolio" />
-  </a>
-  <a href="https://www.linkedin.com/in/shivraj-dhaytadak7">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="mailto:shivraj.25d@gmail.com">
-    <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-  <a href="https://github.com/Shivraj-Dhaytadak">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
-</p>
 
 ---
 
-### 💼 What I Build & Architect
+### 💼 Executive Profile
 
-I design enterprise-grade agentic architectures and deterministic GenAI systems that bridge boardroom AI strategy with production reliability:
+Dynamic **AI Strategy Consultant** with **4+ years of experience** in designing and deploying enterprise Gen AI solutions. Proven track record in optimizing high-throughput workflows and reducing operational costs. Skilled in **Context Engineering**, **RAG**, and **Agentic AI** to automate complex pipelines and generate certified, high-quality outcomes.
 
-- 🧠 **Multi-Agent Orchestration**: Designing state machines, multi-agent supervisor loops, and runtime validation layers using **LangGraph**, **CrewAI**, and **MCP**.
+- 🧠 **Multi-Agent Orchestration**: Designing state machines, multi-agent supervisor loops, and runtime validation layers using **LangGraph**, **CrewAI**, **MCP**, and **A2A**.
 - ⚙️ **Declarative Pipelines**: Replacing brittle prompt chains with schema-governed, declarative JSON workflows processing 100k+ transactions/year.
-- 🛡️ **Defensive Engineering**: Guaranteeing type safety and eliminating non-deterministic LLM failures via runtime **Pydantic schemas** and distributed observability (**Azure Application Insights**, **Dynatrace**).
+- 🛡️ **Defensive Engineering & Privacy**: Halting prompt injection attacks via **Azure Content Safety** and automating **LangChain PII redaction** ensuring 100% compliance with Australian corporate privacy standards.
+- 🚀 **High-Throughput Model Serving**: Fine-tuning via **TRL (LoRA/QLoRA)** and serving via **FastAPI** & **vLLM** with -50% latency reduction.
 
 ---
 
@@ -58,6 +42,8 @@ I design enterprise-grade agentic architectures and deterministic GenAI systems 
   <img src="https://img.shields.io/badge/Azure_AI_Foundry-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" />
   <img src="https://img.shields.io/badge/AWS_Bedrock-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white" alt="AWS Bedrock" />
   <img src="https://img.shields.io/badge/vLLM-6366F1?style=flat-square&logo=speedtest&logoColor=white" alt="vLLM" />
+  <img src="https://img.shields.io/badge/LangFuse-000000?style=flat-square&logo=visualstudiocode&logoColor=white" alt="LangFuse" />
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" />
 </div>
 
 ---
@@ -81,13 +67,15 @@ I design enterprise-grade agentic architectures and deterministic GenAI systems 
         <a href="https://shivraj-dhaytadak.github.io/"><b>View Portfolio &rarr;</b></a>
       </td>
       <td>
-        • Orchestrates <b>145+ specialized micro-agents</b> across 19 claim variant journeys.<br>
-        • Scaled to <b>100k+ claims/year throughput</b> without bespoke code per claim type.<br>
-        • Reduced new claim journey onboarding from <b>weeks to just 1 day</b> via declarative JSON configurations.<br>
-        • Eliminated LLM hallucination and schema drift using runtime Pydantic boundary guards.
+        • Engineered multi-layer <b>Guardrails agent using Azure Content Safety</b> to screen 100k+ annual claims, halting malicious payloads and prompt injection vulnerabilities.<br>
+        • Integrated <b>LangChain PII redaction middleware</b> with Azure Content Safety, ensuring 100% compliance with Australian corporate privacy standards.<br>
+        • Architected a <b>declarative JSON workflow engine covering 19 claim journeys</b> (100k+ claims/yr), slashing onboarding deployment time from <b>3 weeks to 1 day</b>.<br>
+        • Designed a <b>two-tier prompt architecture</b> eliminating 100% prompt duplication while cutting agent configuration latency.<br>
+        • Enforced runtime type-safety via Pydantic classes in each agent node, eliminating LLM non-determinism.
       </td>
       <td>
         <code>LangGraph</code><br>
+        <code>Azure Content Safety</code><br>
         <code>Azure Durable Fn</code><br>
         <code>Managed Kafka</code><br>
         <code>Event Hubs</code><br>
@@ -101,16 +89,18 @@ I design enterprise-grade agentic architectures and deterministic GenAI systems 
         <a href="https://shivraj-dhaytadak.github.io/"><b>View Case Study &rarr;</b></a>
       </td>
       <td>
-        • Automated enterprise query translations, reducing manual SQL development by <b>80%</b>.<br>
-        • Accelerated operational data retrieval latency by <b>40%</b> via high-speed FastAPI endpoints.<br>
-        • Engineered custom hybrid (short-term & long-term) session memory, lifting SQL success rates by <b>25%</b> and precision by <b>35%</b>.
+        • Automated enterprise query translations, reducing manual SQL development by <b>80%</b> and accelerating data retrieval by <b>40%</b> via high-speed FastAPI endpoints.<br>
+        • Architected custom <b>hybrid session memory (short-term & long-term)</b>, lifting SQL success rates by <b>25%</b> and precision by <b>35%</b>.<br>
+        • Built multi-agent workflows using <b>CrewAI & Google Gemini 2.5</b> to support code generation and review across multiple languages.<br>
+        • Engineered deterministic AST verification rules preventing schema leakage and enforcing access boundaries across PostgreSQL and Azure SQL.
       </td>
       <td>
         <code>FastAPI</code><br>
         <code>LangGraph</code><br>
         <code>CrewAI</code><br>
         <code>Gemini 2.5</code><br>
-        <code>PostgreSQL</code>
+        <code>PostgreSQL</code><br>
+        <code>sqlglot</code>
       </td>
     </tr>
     <tr>
@@ -120,20 +110,44 @@ I design enterprise-grade agentic architectures and deterministic GenAI systems 
         <a href="https://shivraj-dhaytadak.github.io/"><b>View Case Study &rarr;</b></a>
       </td>
       <td>
-        • Reduced inference serving endpoint latency by <b>50%</b> with optimized semantic embedding matrices.<br>
-        • Enhanced response relevance by <b>40%</b> through AST chunking, token alignment, and similarity caching.<br>
-        • Automated internal code documentation and contextual discovery across legacy multi-repo services.
+        • Architected a <b>data curation framework</b> aggregating datasets from multiple sources, enabling <b>40% faster data integration</b> to fine-tune LLMs and lifting processing accuracy by <b>30%</b>.<br>
+        • Implemented high-performance model-serving endpoints using <b>FastAPI & vLLM</b>, reducing serving latency by <b>50%</b>.<br>
+        • Developed an internal <b>RAG codebase assistant leveraging LangChain</b> and vector embeddings, reducing developer onboarding documentation lookup time by <b>40%</b>.<br>
+        • Enhanced LLM inference via document chunking, embedding optimization, and similarity search (+40% response relevancy, -30% latency).
       </td>
       <td>
         <code>FastAPI</code><br>
+        <code>vLLM</code><br>
+        <code>TRL (LoRA/QLoRA)</code><br>
         <code>LangChain</code><br>
         <code>AWS Bedrock</code><br>
         <code>SageMaker</code><br>
-        <code>vLLM / Docker</code>
+        <code>Docker</code>
       </td>
     </tr>
   </tbody>
 </table>
+
+---
+
+### 🏆 Corporate Honors & Awards
+
+| Organization | Distinction | Recognition Focus |
+| :--- | :--- | :--- |
+| **Allianz Services** | 🥇 **Best Team Award (H1 2026)** | Enterprise-scale execution & high-volume lodgement automation |
+| **Allianz Services** | 🌟 **Best Performer Award (Q2 July 2026)** | Architectural leadership in multi-agent safety & privacy |
+| **Allianz Services** | 🌟 **Best Performer Award (Q1 March 2026)** | Rapid delivery of declarative 19-journey claim engine |
+| **Yash Technologies** | 💎 **Valuable Individual Asset Award** | Direct reflection of engineering high-impact Agentic AI workflows |
+| **Persistent Systems** | 🎖️ **High Five Individual Award** | Building reusable frameworks across teams & elevating CI/CD results |
+| **Persistent Systems** | 🤝 **Bravo Team Award** | Guiding and mentoring engineering peers in collaborative AI projects |
+
+---
+
+### 🎓 Education & Certifications
+
+- 🎓 **Bachelor of Engineering in Computer Engineering** &mdash; PES Modern College of Engineering, Pune *(Aug 2018 &ndash; Jul 2022)*
+- 📜 **Azure Certified AI Fundamentals** &mdash; Microsoft *(Issued Aug 2025)*
+- 📜 **AWS Cloud Practitioner** &mdash; Amazon Web Services *(Issued Apr 2024 &ndash; Expires Apr 2027)*
 
 ---
 
@@ -161,11 +175,4 @@ I design enterprise-grade agentic architectures and deterministic GenAI systems 
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Shivraj-Dhaytadak/Shivraj-Dhaytadak.github.io/output/github-contribution-grid-snake.svg">
     <img src="https://raw.githubusercontent.com/Shivraj-Dhaytadak/Shivraj-Dhaytadak.github.io/output/github-contribution-grid-snake.svg" alt="Contribution Graph Snake Animation" width="100%" />
   </picture>
-</div>
-
----
-
-<!-- FOOTER BANNER: capsule-render -->
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:090D16,50:1E1B4B,100:312E81&height=90&section=footer" width="100%" alt="Footer Banner" />
 </div>

@@ -7,9 +7,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         .code-font {
             font-family: 'JetBrains Mono', monospace;
@@ -37,10 +37,10 @@
         /* Node Pulse Animations */
         @keyframes nodeGlow {
             0%, 100% {
-                filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.4));
+                filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.25));
             }
             50% {
-                filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.8));
+                filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
             }
         }
         .glow-node {
@@ -53,12 +53,12 @@
             cursor: pointer;
         }
         .diagram-node:hover rect {
-            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.8));
-            stroke-width: 2.5;
+            filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
+            stroke-width: 2;
         }
         .diagram-node.active rect {
-            stroke-width: 3;
-            filter: drop-shadow(0 0 14px rgba(129, 140, 248, 1));
+            stroke-width: 2.5;
+            filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.7));
         }
 
         /* Scanline & Pulse Effects */
@@ -74,20 +74,20 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-slate-700 selection:text-white">
 
     <!-- TOP CONTROL NAVIGATION BAR -->
-    <header class="border-b border-slate-800 bg-slate-900/70 backdrop-blur sticky top-0 z-40 px-4 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-4">
+    <header class="border-b border-slate-800 bg-slate-950/70 backdrop-blur sticky top-0 z-40 px-4 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-4">
         <div class="flex items-center gap-3">
-            <a id="nav-back-btn" href="index.html" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+            <a id="nav-back-btn" href="index.html" class="px-2.5 py-1.5 bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white rounded-lg border border-slate-700 text-xs font-medium flex items-center gap-1.5 transition-colors">
                 <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Portfolio
             </a>
             <div id="nav-divider" class="h-4 w-px bg-slate-800 hidden sm:block"></div>
             <div>
                 <div class="flex items-center gap-2">
-                    <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <h1 class="text-sm font-bold text-white code-font tracking-tight">Project Bluey-AI Lodgement</h1>
-                    <span class="px-2 py-0.5 bg-indigo-950/80 text-indigo-300 border border-indigo-800/80 rounded text-[10px] code-font font-bold">ANIMATED RUNTIME</span>
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    <h1 class="text-sm font-semibold text-white tracking-tight">Project Bluey-AI Lodgement</h1>
+                    <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded text-[11px] font-medium">Interactive Diagram</span>
                 </div>
                 <p class="text-[11px] text-slate-400 mt-0.5">Enterprise Multi-Agent Event-Driven Topology with Dual-Emit Observability</p>
             </div>
@@ -95,25 +95,25 @@
 
         <!-- SIMULATION CONTROLS -->
         <div class="flex items-center gap-2.5">
-            <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs code-font">
-                <button id="btn-play" onclick="toggleSimulation()" class="px-2.5 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-white font-semibold flex items-center gap-1 transition-all">
-                    <i id="play-icon" data-lucide="pause" class="w-3.5 h-3.5"></i>
+            <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs font-medium">
+                <button id="btn-play" onclick="toggleSimulation()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 flex items-center gap-1 transition-colors cursor-pointer">
+                    <i id="play-icon" data-lucide="pause" class="w-3.5 h-3.5 text-emerald-400"></i>
                     <span id="play-text">LIVE</span>
                 </button>
                 <div class="h-3.5 w-px bg-slate-800 mx-0.5"></div>
-                <button onclick="setSpeed(0.5)" id="speed-05" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors">0.5x</button>
-                <button onclick="setSpeed(1.0)" id="speed-10" class="px-2 py-1 rounded bg-slate-800 text-indigo-300 font-bold transition-colors">1.0x</button>
-                <button onclick="setSpeed(2.0)" id="speed-20" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors">2.0x</button>
+                <button onclick="setSpeed(0.5)" id="speed-05" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">0.5x</button>
+                <button onclick="setSpeed(1.0)" id="speed-10" class="px-2 py-1 rounded bg-slate-800 text-white font-medium transition-colors cursor-pointer">1.0x</button>
+                <button onclick="setSpeed(2.0)" id="speed-20" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">2.0x</button>
             </div>
 
-            <button onclick="toggleThemeView()" id="btn-theme" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition-colors code-font">
-                <i data-lucide="palette" class="w-3.5 h-3.5 text-amber-400"></i>
+            <button onclick="toggleThemeView()" id="btn-theme" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
+                <i data-lucide="palette" class="w-3.5 h-3.5 text-slate-400"></i>
                 <span id="theme-text">Eraser Schematic</span>
             </button>
 
-            <button onclick="toggleLogDrawer()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-semibold text-slate-300 flex items-center gap-1.5 transition-colors code-font">
-                <i data-lucide="terminal" class="w-3.5 h-3.5 text-emerald-400"></i>
-                <span id="log-count" class="px-1.5 py-0.2 bg-emerald-950 text-emerald-300 text-[10px] rounded">Live Logs</span>
+            <button onclick="toggleLogDrawer()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
+                <i data-lucide="terminal" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span id="log-count" class="text-xs">Live Logs</span>
             </button>
         </div>
     </header>
