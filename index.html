@@ -1,740 +1,1133 @@
 <!DOCTYPE html>
-<html lang="en" class="dark" data-theme="allianz">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivraj Dhaytadak | Agentic AI Consultant Portfolio</title>
+    <title>Shivraj Dhaytadak | Agentic AI Consultant • Enterprise Multi-Agent Systems</title>
     <meta name="description"
-        content="Portfolio of Shivraj Dhaytadak - Agentic AI Consultant specializing in multi-agent workflows, declarative JSON execution engines, and production safety guardrails across enterprise environments.">
+        content="Portfolio of Shivraj Dhaytadak — Agentic AI Consultant at Allianz Services. Architecting high-throughput multi-agent workflows, declarative JSON execution engines, and production safety guardrails across enterprise scale.">
+    <meta name="keywords"
+        content="Shivraj Dhaytadak, Agentic AI Consultant, LangGraph, Multi-Agent Systems, Allianz Services, Azure AI Foundry, Apache Kafka, Pydantic, GenAI Engineer, Enterprise AI">
+    <meta name="author" content="Shivraj Dhaytadak">
 
-    <!-- Preconnect & Asynchronous Font Loading -->
+    <!-- Open Graph & Social Cards -->
+    <meta property="og:title" content="Shivraj Dhaytadak | Agentic AI Consultant">
+    <meta property="og:description"
+        content="Architecting resilient multi-agent workflows for enterprise scale. 100k+ insurance claims screened, 145+ production micro-agents, 1-day journey rollouts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shivraj-dhaytadak.github.io/">
+
+    <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- External Design System & Brand Palette -->
+    <!-- Design System CSS -->
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Tailwind CSS (Deferred) & Lucide CDN (Pinned v0.462.0 with Defer) -->
+    <!-- Tailwind CSS (Browser runtime) & Lucide Icons CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
     <script src="https://unpkg.com/lucide@0.462.0" defer></script>
 
-    <!-- Application Data & Logic Engines (Deferred) -->
+    <!-- Data Model & Application Logic (Deferred) -->
     <script src="data.js" defer></script>
     <script src="app.js" defer></script>
 </head>
 
-<body class="bg-[#060d19] text-slate-100 min-h-screen flex flex-col selection:bg-slate-700 selection:text-white antialiased">
+<body class="bg-[#090A0F] text-slate-100 min-h-screen flex flex-col antialiased selection:bg-indigo-600/30 selection:text-white">
 
     <!-- Accessible No-Script Resilient Fallback Banner -->
     <noscript>
-        <div class="bg-amber-950/80 border-b border-amber-800 text-amber-200 px-4 py-2.5 text-center text-xs">
+        <div class="bg-amber-950/90 border-b border-amber-800 text-amber-200 px-4 py-2 text-center text-xs">
             <strong>JavaScript is disabled.</strong> Showing complete static pre-rendered portfolio, enterprise metrics, and architecture specifications.
         </div>
     </noscript>
 
-    <!-- EXECUTIVE HEADER -->
-    <header class="border-b border-slate-800/80 bg-slate-950/70 backdrop-blur sticky top-0 z-50 px-4 lg:px-8 py-4">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-            <div class="flex-1">
-                <div class="flex flex-wrap items-center gap-2.5">
-                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                    <h1 id="prof-name" class="text-xl font-bold tracking-tight text-white">Shivraj Dhaytadak</h1>
-                    <span id="prof-role"
-                        class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-medium tracking-wide">Agentic AI Consultant</span>
-                </div>
-
-                <!-- Clean Boxed Profile Meta & Executive Bio -->
-                <div class="mt-2.5 max-w-2xl bg-slate-900/50 border border-slate-800/80 rounded-xl p-3 shadow-sm">
-                    <p id="prof-meta" class="text-xs text-slate-400">
-                        Agentic AI Consultant @ Allianz Services &bull; Pune, IN &bull; Open to Relocation
-                    </p>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed border-t border-slate-800/60 pt-2">
-                        Agentic AI Consultant with 4+ years of experience engineering high-throughput multi-agent
-                        workflows, declarative JSON execution engines, and production safety guardrails across enterprise
-                        environments.
-                    </p>
-                </div>
-
-                <!-- Action Links with High-Contrast Inline SVG Icons -->
-                <div class="flex flex-wrap items-center gap-2 mt-3 text-xs">
-                    <a id="link-github" href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
-                        aria-label="Visit Shivraj's GitHub profile">
-                        <svg class="w-3.5 h-3.5 fill-current text-slate-300 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-                        </svg>
-                        <span>GitHub</span>
-                    </a>
-                    <a id="link-linkedin" href="https://www.linkedin.com/in/shivraj-dhaytadak7" target="_blank" rel="noopener noreferrer"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
-                        aria-label="Connect with Shivraj on LinkedIn">
-                        <svg class="w-3.5 h-3.5 fill-current text-slate-300 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                        </svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a id="link-email" href="mailto:shivraj.25d@gmail.com"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
-                        aria-label="Send email to Shivraj Dhaytadak">
-                        <svg class="w-3.5 h-3.5 stroke-current text-slate-300 fill-none shrink-0" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <rect width="20" height="16" x="2" y="4" rx="2"/>
-                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-                        </svg>
-                        <span>Email</span>
-                    </a>
-                    <a id="link-phone" href="tel:+917972476081"
-                        class="px-2.5 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700/80 flex items-center gap-1.5 transition-colors text-xs font-medium"
-                        aria-label="Call Shivraj Dhaytadak">
-                        <svg class="w-3.5 h-3.5 stroke-current text-slate-300 fill-none shrink-0" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                        </svg>
-                        <span id="link-phone-text">+91 7972476081</span>
-                    </a>
-                </div>
+    <!-- ==========================================================================
+         1. STICKY NAV / RECRUITER QUICK DOCK
+         ========================================================================== -->
+    <header class="sticky top-0 z-40 glass-nav px-4 lg:px-8 py-3 transition-all">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            
+            <!-- Brand Mark & Identity -->
+            <div class="flex items-center gap-3">
+                <a href="#hero" class="flex items-center gap-2.5 group">
+                    <div class="w-8 h-8 rounded-lg bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center font-mono font-bold text-xs text-indigo-400 group-hover:border-indigo-400 group-hover:scale-105 transition-all shadow-sm">
+                        SD
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-bold tracking-tight text-white group-hover:text-indigo-300 transition-colors">Shivraj Dhaytadak</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 font-medium hidden sm:block">Agentic AI Consultant @ Allianz Services</p>
+                    </div>
+                </a>
             </div>
 
-            <div class="w-full lg:w-auto bg-slate-900/40 border border-slate-800/90 p-4 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
-                <div>
-                    <h2 class="text-xs font-semibold text-slate-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
-                        <i data-lucide="award" class="w-3.5 h-3.5 text-slate-400"></i> Corporate Honors
-                    </h2>
-                    <ul class="space-y-1.5 text-slate-300 text-xs">
-                        <li id="honor-allianz" class="theme-badge font-semibold pl-2.5 py-1 rounded border transition-all text-xs">
-                            <span class="text-white font-medium">Allianz Services</span> &bull; Best Team (H1 '26) & Best Performer (Q1, Q2 '26)
-                        </li>
-                        <li id="honor-yashtechnologies" class="text-slate-400 pl-2.5 py-1 rounded border border-transparent transition-all text-xs">
-                            <span class="text-white font-medium">Yash Technologies</span> &bull; Valuable Individual Asset Award
-                        </li>
-                        <li id="honor-persistentsystems" class="text-slate-400 pl-2.5 py-1 rounded border border-transparent transition-all text-xs">
-                            <span class="text-white font-medium">Persistent Systems</span> &bull; High Five Award & Bravo Team Award
-                        </li>
-                    </ul>
-                </div>
-                <div class="border-t md:border-t-0 md:border-l border-slate-800/80 pt-3 md:pt-0 md:pl-5">
-                    <h2 class="text-xs font-semibold text-slate-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
-                        <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-slate-400"></i> Education & Certifications
-                    </h2>
-                    <ul class="space-y-1.5 text-slate-300 text-xs">
-                        <li>
-                            <span class="text-white font-medium">B.E. Computer Engineering</span> &bull; <span class="text-slate-400">PES MCOE (2018–2022)</span>
-                        </li>
-                        <li>
-                            <span class="text-white font-medium">Azure AI Fundamentals</span> &bull; <span class="text-slate-400">Microsoft (Aug 2025)</span>
-                        </li>
-                        <li>
-                            <span class="text-white font-medium">AWS Cloud Practitioner</span> &bull; <span class="text-slate-400">AWS (2024–2027)</span>
-                        </li>
-                    </ul>
-                </div>
+            <!-- Center Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1 bg-slate-900/60 border border-slate-800/80 rounded-full px-3 py-1 text-xs">
+                <a href="#recruiter-snapshot" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Fast Track</a>
+                <a href="#career-timeline" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Career</a>
+                <a href="#case-study" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Case Study</a>
+                <a href="#philosophy" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Philosophy</a>
+                <a href="#contact" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Contact</a>
+            </nav>
+
+            <!-- Recruiter Quick Action Suite -->
+            <div class="flex items-center gap-2.5">
+                <!-- Recruiter Mode Toggle Button -->
+                <button id="recruiter-toggle-btn"
+                    class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white text-xs font-medium transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+                    title="Toggle high-contrast executive recruiter mode">
+                    <span id="recruiter-mode-indicator" class="w-2 h-2 rounded-full bg-slate-500"></span>
+                    <span id="recruiter-toggle-text" class="hidden sm:inline">Recruiter Mode</span>
+                </button>
+
+                <!-- ⌘K Quick Nav Palette Trigger -->
+                <button data-open-cmdk
+                    class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-white text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer"
+                    title="Press Cmd+K or Ctrl+K to search">
+                    <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 text-[10px] font-mono">⌘K</kbd>
+                    <span class="hidden md:inline text-[11px]">Quick Nav</span>
+                </button>
+
+                <!-- PDF Resume Button -->
+                <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                    class="px-3.5 py-1.5 rounded-xl btn-shimmer-primary text-white font-medium text-xs flex items-center gap-1.5">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                    <span>Resume</span>
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- WORK EXPERIENCE CYLINDER & STRATEGIC IMPACT METRICS STRIP -->
-    <section class="border-b border-slate-800/80 bg-slate-950/90 px-4 lg:px-8 py-3.5" aria-label="Executive Experience and Strategic KPIs">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch">
-
-            <!-- 3D Cylindrical Work Experience Drum (Scroll Box) -->
-            <div id="experience-cylinder-card"
-                tabindex="0"
-                role="region"
-                aria-label="Work Experience 3D Carousel. Use arrow keys or scroll when focused to rotate."
-                class="theme-card rounded-xl p-3 flex flex-col justify-between relative shadow-lg overflow-hidden focus:outline-none focus-visible:ring-1 focus-visible:ring-slate-400 h-full">
-                <div class="flex items-center justify-between border-b border-slate-800/60 pb-2 mb-2">
-                    <div class="flex items-center gap-2">
-                        <div class="p-1 rounded bg-slate-800 border border-slate-700">
-                            <i data-lucide="briefcase" class="w-3.5 h-3.5 theme-text-accent"></i>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Work Experience</span>
-                            <span class="text-[10px] theme-badge font-mono font-bold px-1.5 py-0.2 rounded border">4+ YOE</span>
-                        </div>
-                    </div>
-
-                    <!-- Vertical Scroll Prompt & Expanded 44px Accessible Controls -->
-                    <div class="flex items-center gap-1.5">
-                        <div class="flex items-center gap-1 text-[10px] theme-badge px-2 py-0.5 rounded-full"
-                            title="Scroll vertically or use arrows when focused to rotate experience & KPIs">
-                            <i data-lucide="mouse" class="w-3 h-3 theme-text-accent animate-pulse"></i>
-                            <span class="tracking-tight font-mono">Scroll ↕</span>
-                        </div>
-                        <div class="flex items-center gap-1">
-                            <button data-cycle="-1"
-                                class="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white rounded border border-slate-700/80 transition-colors cursor-pointer"
-                                aria-label="Previous employer (Scroll Up)"
-                                title="Previous employer (Scroll Up)">
-                                <i data-lucide="chevron-up" class="w-4 h-4"></i>
-                            </button>
-                            <button data-cycle="1"
-                                class="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white rounded border border-slate-700/80 transition-colors cursor-pointer"
-                                aria-label="Next employer (Scroll Down)"
-                                title="Next employer (Scroll Down)">
-                                <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3D Cylindrical Drum Viewport (Tokenized Height: --panel-h: 140px) -->
-                <div class="cylinder-wrapper relative panel-stage overflow-hidden rounded-lg bg-slate-950/60 theme-border">
-                    <div class="pointer-events-none absolute top-0 inset-x-0 h-7 cylinder-fade-top z-20"></div>
-                    <div class="pointer-events-none absolute bottom-0 inset-x-0 h-7 cylinder-fade-bottom z-20"></div>
-
-                    <div id="cylinder-drum" class="cylinder-drum w-full h-full relative">
-                        <!-- Pre-populated Static Fallback: Allianz Active -->
-                        <div class="cylinder-item cylinder-active theme-card border rounded-lg p-2.5 flex items-center justify-between" title="Active: Allianz Services">
-                            <div class="flex items-center gap-2 overflow-hidden">
-                                <div class="w-1.5 h-7 rounded-full shrink-0" style="background-color: var(--brand-accent); box-shadow: 0 0 10px var(--brand-glow);"></div>
-                                <div class="truncate text-left">
-                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate leading-snug">Allianz Services</h3>
-                                    <div class="text-[11px] text-slate-400 truncate flex items-center gap-1.5 mt-0.5">
-                                        <span>Agentic AI Consultant</span>
-                                        <span class="opacity-40">&bull;</span>
-                                        <span class="font-mono text-[10px] theme-text-accent">Insurance GCC / Captive</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shrink-0 pl-2 text-right">
-                                <span class="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded border theme-badge whitespace-nowrap block">Jan 2026 - Present</span>
-                            </div>
-                        </div>
-
-                        <!-- Pre-populated Static Fallback: Yash Technologies Next -->
-                        <div class="cylinder-item cylinder-next theme-card border rounded-lg p-2.5 flex items-center justify-between" data-cycle="1" title="Click to rotate to Yash Technologies">
-                            <div class="flex items-center gap-2 overflow-hidden">
-                                <div class="w-1.5 h-7 rounded-full shrink-0" style="background-color: var(--brand-border);"></div>
-                                <div class="truncate text-left">
-                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate leading-snug">Yash Technologies</h3>
-                                    <div class="text-[11px] text-slate-400 truncate flex items-center gap-1.5 mt-0.5">
-                                        <span>Data Scientist (Gen AI)</span>
-                                        <span class="opacity-40">&bull;</span>
-                                        <span class="font-mono text-[10px] theme-text-accent">Consultancy</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shrink-0 pl-2 text-right">
-                                <span class="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded border theme-badge whitespace-nowrap block">May 2025 - Jan 2026</span>
-                            </div>
-                        </div>
-
-                        <!-- Pre-populated Static Fallback: Persistent Systems Prev -->
-                        <div class="cylinder-item cylinder-prev theme-card border rounded-lg p-2.5 flex items-center justify-between" data-cycle="-1" title="Click to rotate to Persistent Systems">
-                            <div class="flex items-center gap-2 overflow-hidden">
-                                <div class="w-1.5 h-7 rounded-full shrink-0" style="background-color: var(--brand-border);"></div>
-                                <div class="truncate text-left">
-                                    <h3 class="text-xs sm:text-sm font-bold text-white truncate leading-snug">Persistent Systems</h3>
-                                    <div class="text-[11px] text-slate-400 truncate flex items-center gap-1.5 mt-0.5">
-                                        <span>Software Engineer (Gen AI & Search)</span>
-                                        <span class="opacity-40">&bull;</span>
-                                        <span class="font-mono text-[10px] theme-text-accent">Product Engineering / IT</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="shrink-0 pl-2 text-right">
-                                <span class="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded border theme-badge whitespace-nowrap block">Aug 2022 - May 2025</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer: Reactive Status & Indicator Dots -->
-                <div class="flex items-center justify-between pt-2 mt-1 text-[10px] border-t border-slate-800/50">
-                    <span class="flex items-center gap-1.5 text-slate-400">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                                style="background-color: var(--brand-accent);"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2"
-                                style="background-color: var(--brand-accent);"></span>
-                        </span>
-                        <span class="text-[10px] text-slate-400">Rotates KPIs & Architecture</span>
-                    </span>
-                    <div id="cylinder-indicator-dots" class="flex items-center gap-1.5">
-                        <button data-company="allianz" class="w-2 h-2 rounded-full transition-all cursor-pointer scale-125" style="background-color: var(--brand-accent); box-shadow: 0 0 10px var(--brand-glow);" aria-label="Select Allianz Services" title="Allianz Services (Jan 2026 - Present)"></button>
-                        <button data-company="yashtechnologies" class="w-2 h-2 rounded-full transition-all cursor-pointer opacity-40 hover:opacity-80" style="background-color: var(--brand-border);" aria-label="Select Yash Technologies" title="Yash Technologies (May 2025 - Jan 2026)"></button>
-                        <button data-company="persistentsystems" class="w-2 h-2 rounded-full transition-all cursor-pointer opacity-40 hover:opacity-80" style="background-color: var(--brand-border);" aria-label="Select Persistent Systems" title="Persistent Systems (Aug 2022 - May 2025)"></button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Strategic Impact KPIs Showcase (Identical Size & Container to Scroll Box) -->
-            <div id="kpi-metric-box"
-                tabindex="0"
-                class="theme-card rounded-xl p-3 flex flex-col justify-between relative shadow-lg overflow-hidden focus:outline-none focus-visible:ring-1 focus-visible:ring-slate-400 h-full">
-                <!-- Header: Matches Experience Header Height & Typography -->
-                <div class="flex items-center justify-between border-b border-slate-800/60 pb-2 mb-2">
-                    <div class="flex items-center gap-2">
-                        <div class="p-1 rounded bg-slate-800 border border-slate-700">
-                            <i data-lucide="gauge" class="w-3.5 h-3.5 theme-text-accent"></i>
-                        </div>
-                        <div class="flex items-center gap-1.5">
-                            <span class="text-xs font-bold uppercase tracking-wider text-slate-200">Strategic Impact KPIs</span>
-                            <span id="kpi-box-company-badge"
-                                class="text-[10px] theme-badge font-mono font-bold px-1.5 py-0.2 rounded border">Allianz Services</span>
-                        </div>
-                    </div>
-
-                    <!-- KPI Status Indicator -->
-                    <div class="flex items-center gap-1.5">
-                        <div class="flex items-center gap-1 text-[10px] theme-badge px-2 py-0.5 rounded-full"
-                            title="Real-time validated metrics synced to selected company">
-                            <i data-lucide="activity" class="w-3 h-3 theme-text-accent animate-pulse"></i>
-                            <span class="tracking-tight font-mono">Live Scorecard</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exact Tokenized Height Content Viewport matching 3D Drum (--panel-h: 140px) -->
-                <div class="relative panel-stage overflow-x-auto overflow-y-hidden rounded-lg bg-slate-950/60 p-1.5 theme-border flex items-center">
-                    <div id="metrics-strip-container"
-                        aria-live="polite"
-                        class="grid grid-cols-5 gap-1.5 sm:gap-2 h-full w-full min-w-[460px]">
-                        <!-- Pre-populated Static Fallback: Allianz 5 KPIs -->
-                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Claims Volume: 100k+ — Annual Pipeline">
-                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
-                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#38bdf8]"></i>
-                            </div>
-                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
-                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#38bdf8] block leading-tight select-none">100k+</span>
-                            </div>
-                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
-                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Claims Volume</span>
-                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Annual Pipeline</span>
-                            </div>
-                        </div>
-
-                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Agent Core: 145+ — Micro-Agents in Prod">
-                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
-                                <i data-lucide="bot" class="w-3.5 h-3.5 text-[#60a5fa]"></i>
-                            </div>
-                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
-                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#60a5fa] block leading-tight select-none">145+</span>
-                            </div>
-                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
-                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Agent Core</span>
-                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Micro-Agents in Prod</span>
-                            </div>
-                        </div>
-
-                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Deploy Speed: 1 Day — New Journey Launch">
-                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
-                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#38bdf8]"></i>
-                            </div>
-                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
-                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#38bdf8] block leading-tight select-none">1 Day</span>
-                            </div>
-                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
-                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Deploy Speed</span>
-                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">New Journey Launch</span>
-                            </div>
-                        </div>
-
-                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="Workflows: 19 — Automated Journeys">
-                            <div class="p-1 rounded-md border bg-[#003781]/40 border-blue-400/50 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
-                                <i data-lucide="workflow" class="w-3.5 h-3.5 text-[#93c5fd]"></i>
-                            </div>
-                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
-                                <span class="text-lg sm:text-xl xl:text-2xl font-black tracking-tight text-[#93c5fd] block leading-tight select-none">19</span>
-                            </div>
-                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
-                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">Workflows</span>
-                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Automated Journeys</span>
-                            </div>
-                        </div>
-
-                        <div class="theme-card rounded-lg p-1.5 sm:p-2 flex flex-col justify-between items-center text-center h-full overflow-hidden hover:scale-[1.02] hover:border-slate-500 transition-all group cursor-default" title="GCC Honors: Q1 & Q2 — Best Performer & Team">
-                            <div class="p-1 rounded-md border bg-[#003781]/55 border-blue-300/60 shrink-0 mb-0.5 group-hover:scale-105 transition-transform">
-                                <i data-lucide="award" class="w-3.5 h-3.5 text-[#93c5fd]"></i>
-                            </div>
-                            <div class="my-auto py-0.5 px-0.5 w-full flex items-center justify-center">
-                                <span class="text-base sm:text-lg xl:text-xl font-extrabold tracking-tight text-[#dbeafe] block leading-tight select-none">Q1 &amp; Q2</span>
-                            </div>
-                            <div class="w-full mt-auto pt-1 border-t border-slate-800/60 flex flex-col justify-center">
-                                <span class="text-[9.5px] sm:text-[10px] xl:text-[10.5px] font-bold uppercase tracking-wide text-slate-200 block leading-tight break-words">GCC Honors</span>
-                                <span class="text-[8.5px] sm:text-[9px] xl:text-[9.5px] text-slate-400 block leading-tight mt-0.5 break-words">Best Performer &amp; Team</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Footer: Matches Experience Cylinder Footer Height & Alignment -->
-                <div class="flex items-center justify-between pt-2 mt-1 text-[10px] border-t border-slate-800/50">
-                    <span class="flex items-center gap-1.5 text-slate-400">
-                        <i data-lucide="shield-check" class="w-3.5 h-3.5 theme-text-accent"></i>
-                        <span class="text-[10px] text-slate-400">Production-Benchmarked Invariants</span>
-                    </span>
-                    <span class="text-[10px] font-mono text-slate-400">5 Key Result Indicators</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- EXPERT DOMAINS BAR -->
-    <section class="bg-slate-900/30 border-b border-slate-900/60 px-4 lg:px-8 py-3" aria-label="Core Technical Skills">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-3 items-start md:items-center text-xs">
-            <span class="text-slate-500 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap block pt-1">
-                Expert Domains:
+    <!-- ==========================================================================
+         2. HERO SECTION: THE ARCHITECT'S MANIFESTO
+         ========================================================================== -->
+    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-14 w-full relative z-10">
+        
+        <!-- Live Status Pill & Availability Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-medium text-emerald-300 mb-6 shadow-sm shadow-emerald-500/10">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <div id="skills-matrix-bar" class="flex flex-wrap gap-2 w-full">
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">LangGraph</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">LangChain</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">CrewAI</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Azure AI Foundry</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">OpenAI GPT-4o / GPT-5.4</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Azure Durable Functions</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Apache Kafka</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Python</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">FastAPI</span>
-                <span class="px-2.5 py-1 bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 text-xs rounded font-medium transition-colors">Pydantic</span>
+            <span>Agentic AI Consultant @ Allianz Services &bull; Open to Relocation &amp; High-Impact Agentic Roles</span>
+        </div>
+
+        <!-- Main Persona Header & Editorial Hook -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            
+            <div class="lg:col-span-8 flex flex-col justify-between">
+                <div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-[1.12]">
+                        Architecting Resilient <br class="hidden sm:inline" />
+                        <span class="text-gradient-indigo">Multi-Agent Systems</span> for Enterprise Scale.
+                    </h1>
+                    <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
+                        I'm <strong>Shivraj Dhaytadak</strong>—Agentic AI Consultant at Allianz Services. I bridge stochastic large language models with deterministic, mission-critical distributed pipelines. 4+ years engineering production LangGraph engines, Azure event-driven architectures, and high-throughput agent swarms.
+                    </p>
+                </div>
+
+                <!-- Bento Row 1: Action Buttons & Quick CTAs -->
+                <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                        class="px-5 py-2.5 rounded-xl btn-shimmer-primary text-white font-medium text-sm flex items-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Download Resume (PDF)</span>
+                    </a>
+                    <a href="#recruiter-snapshot"
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-sm flex items-center gap-2">
+                        <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
+                        <span>60s Recruiter View</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/shivraj-dhaytadak7" target="_blank" rel="noopener noreferrer"
+                        class="p-2.5 rounded-xl btn-glass text-slate-300 hover:text-white transition-colors"
+                        aria-label="Connect on LinkedIn" title="LinkedIn Profile">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                    <a href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
+                        class="p-2.5 rounded-xl btn-glass text-slate-300 hover:text-white transition-colors"
+                        aria-label="GitHub Repositories" title="GitHub Profile">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                    </a>
+                    <button data-copy-email
+                        class="p-2.5 rounded-xl btn-glass text-slate-300 hover:text-white transition-colors cursor-pointer"
+                        aria-label="Copy Email" title="Copy Email (shivraj.25d@gmail.com)">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                    </button>
+                    <button data-download-vcard
+                        class="p-2.5 rounded-xl btn-glass text-slate-300 hover:text-white transition-colors cursor-pointer"
+                        aria-label="Download vCard" title="Save Contact (vCard)">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                    </button>
+                </div>
             </div>
+
+            <!-- Bento Hero Card 2: Executive Summary & Corporate Honors Box -->
+            <div class="lg:col-span-4 bento-card p-6 flex flex-col justify-between gap-5 recruiter-highlight">
+                <div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between border-b border-slate-800/80 pb-2">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="award" class="w-3.5 h-3.5 text-indigo-400"></i> Corporate Honors
+                        </span>
+                        <span class="text-indigo-400 font-mono text-[11px]">2022–2026</span>
+                    </div>
+                    <ul class="space-y-3.5 text-xs">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-emerald-400 mt-0.5">✦</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Allianz Services:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">Best Team (H1 '26) &bull; Best Performer (Q1 &amp; Q2 '26)</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-emerald-400 mt-0.5">✦</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Yash Technologies:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">Valuable Individual Asset Award</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-emerald-400 mt-0.5">✦</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Persistent Systems:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">High Five Award &bull; Bravo Team Award</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3">
+                    <div class="text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                        <span>Base: <strong>Pune, IN</strong></span>
+                        <span>Experience: <strong>4+ Yrs</strong></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Proof Pill Array: Verified Frameworks & Tech Stack -->
+        <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col md:flex-row gap-3 items-start md:items-center">
+            <span class="text-slate-500 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap">
+                Production Stack:
+            </span>
+            <div class="flex flex-wrap gap-2 text-xs">
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">LangGraph</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Apache Kafka</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure AI Foundry</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure OpenAI GPT-4o / GPT-5.4</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure Durable Functions</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Pydantic Schema Invariants</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">CrewAI</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">FastAPI &amp; vLLM</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure Content Safety</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         3. RECRUITER 60-SECOND FAST TRACK (INTERACTIVE BENTO GRID)
+         ========================================================================== -->
+    <section id="recruiter-snapshot" class="bg-[#070910]/70 backdrop-blur-md border-y border-white/[0.07] py-16 px-4 sm:px-6 w-full relative z-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider mb-2">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
+                        <span>Recruiter 60-Second Fast Track</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                        Verified Production Metrics &amp; Architecture Invariants
+                    </h2>
+                </div>
+                <p class="text-xs text-slate-400 max-w-md">
+                    Engineered for high-volume insurance and enterprise data streams. Real-world validated throughput and architecture invariants.
+                </p>
+            </div>
+
+            <!-- Key Metrics Bento Grid (Animated Counters) -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="bento-card p-5 recruiter-highlight">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-slate-400">Claims Intake</span>
+                        <div class="p-1 rounded bg-amber-500/10 text-amber-400">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-3"
+                         data-counter-target="100" data-counter-suffix="k+">
+                        100k+
+                    </div>
+                    <div class="text-xs font-medium text-slate-300 mt-1">Claims Volume</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Annual Enterprise Pipeline</div>
+                </div>
+
+                <div class="bento-card p-5 recruiter-highlight">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-slate-400">Agent Swarm</span>
+                        <div class="p-1 rounded bg-indigo-500/10 text-indigo-400">
+                            <i data-lucide="bot" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-indigo-300 font-mono mt-3"
+                         data-counter-target="145" data-counter-suffix="+">
+                        145+
+                    </div>
+                    <div class="text-xs font-medium text-slate-300 mt-1">Micro-Agents</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Production Orchestration</div>
+                </div>
+
+                <div class="bento-card p-5 recruiter-highlight">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-slate-400">Rollout Latency</span>
+                        <div class="p-1 rounded bg-emerald-500/10 text-emerald-400">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono mt-3"
+                         data-counter-target="1" data-counter-suffix=" Day">
+                        1 Day
+                    </div>
+                    <div class="text-xs font-medium text-slate-300 mt-1">Journey Rollout</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Slashed from 14-day cycle</div>
+                </div>
+
+                <div class="bento-card p-5 recruiter-highlight">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-slate-400">Active Workflows</span>
+                        <div class="p-1 rounded bg-sky-500/10 text-sky-400">
+                            <i data-lucide="workflow" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-sky-300 font-mono mt-3"
+                         data-counter-target="19" data-counter-suffix="">
+                        19
+                    </div>
+                    <div class="text-xs font-medium text-slate-300 mt-1">Active Journeys</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Declarative JSON Workflows</div>
+                </div>
+
+            </div>
+
+            <!-- Invariants Bento Strip -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                
+                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                        <span>Dual-Tier Content Safety</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Azure Content Safety screens injection attacks and halts adversarial payloads prior to LLM reasoning.
+                    </p>
+                    <span class="text-[10px] font-mono text-emerald-400/90">&bull; Zero injection breaches</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="lock" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                        <span>Automated PII Redaction</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        LangChain middleware sanitizes Australian citizen PII before persistence or model transit.
+                    </p>
+                    <span class="text-[10px] font-mono text-indigo-400/90">&bull; 100% APP compliant</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="check-circle" class="w-4 h-4 text-sky-400 shrink-0"></i>
+                        <span>Schema-First Invariants</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Every LangGraph node output is strictly bound to Pydantic classes; zero downstream state drift.
+                    </p>
+                    <span class="text-[10px] font-mono text-sky-400/90">&bull; Deterministic recovery gates</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="cpu" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                        <span>Decoupled JSON Engines</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Prompts and transition routes live in declarative JSON, eliminating backend binary redeployments.
+                    </p>
+                    <span class="text-[10px] font-mono text-amber-400/90">&bull; 13 days of dev toil saved</span>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
-    <!-- MAIN DASHBOARD CONTENT -->
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 grid grid-cols-1 lg:grid-cols-4 gap-6">
-
-        <!-- SIDEBAR: SCOPE CONTEXT, PRODUCTION INSIGHTS, BASELINES -->
-        <aside class="lg:col-span-1 flex flex-col gap-6">
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                        <i data-lucide="compass" class="w-4 h-4 text-sky-400"></i> Scope Context
-                    </h2>
-                    <span id="sidebar-role-badge"
-                        class="text-xs font-mono font-medium theme-badge px-2 py-0.5 rounded">Jan 2026 - Present</span>
+    <!-- ==========================================================================
+         4. THE CAREER EVOLUTION (INTERACTIVE CHRONOLOGICAL TIMELINE)
+         ========================================================================== -->
+    <section id="career-timeline" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+                <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider mb-2">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                    <span>Interactive Chronological Timeline</span>
                 </div>
-                <div id="sidebar-scope-details"
-                    class="text-xs text-slate-300 flex flex-col gap-1.5 bg-slate-950/40 p-3 rounded-lg border border-slate-850">
-                    <div class="font-bold text-white text-sm flex items-center justify-between">
-                        <span>Allianz Services</span>
-                        <span class="text-xs font-normal theme-text-accent font-mono">Insurance GCC / Captive</span>
-                    </div>
-                    <div class="text-xs text-slate-300 mt-0.5">Agentic AI Consultant</div>
-                    <div class="text-[11px] text-slate-400 mt-1 flex items-center gap-1 border-t theme-border pt-1.5">
-                        <i data-lucide="mouse" class="w-3 h-3 theme-text-accent"></i>
-                        <span>Use arrows or scroll cylinder at top to switch scope</span>
-                    </div>
-                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    The Career Evolution
+                </h2>
             </div>
+            <p class="text-xs text-slate-400 max-w-md">
+                An intentional trajectory: from high-concurrency search indexing to autonomous multi-agent systems in enterprise production.
+            </p>
+        </div>
 
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col gap-5 flex-1">
-                <div>
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 mb-3">
-                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i> Production Insights
-                    </h2>
-                    <div id="moats-container" class="flex flex-col gap-2">
-                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
-                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
-                            <span class="leading-relaxed">Multi-Layer Guardrails Agent &amp; Azure Content Safety (Halts Injection Attacks)</span>
-                        </div>
-                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
-                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
-                            <span class="leading-relaxed">LangChain PII Redaction Middleware (100% Australia Privacy Compliance)</span>
-                        </div>
-                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
-                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
-                            <span class="leading-relaxed">Declarative JSON Workflow Engine (19 Claim Journeys Managed Directly)</span>
-                        </div>
-                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
-                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
-                            <span class="leading-relaxed">Two-Tier Decoupled Prompt Architecture (100% Duplication Eliminated)</span>
-                        </div>
-                        <div class="flex gap-2.5 items-start text-xs text-slate-300 theme-card p-2.5 rounded-lg">
-                            <i data-lucide="check" class="w-3.5 h-3.5 theme-text-accent shrink-0 mt-0.5"></i>
-                            <span class="leading-relaxed">Runtime Node Validation (LangGraph State Synchronized with Pydantic)</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- 3-Act Selector Tabs -->
+        <div class="flex flex-wrap items-center gap-2 mb-6">
+            <button data-career-tab="allianz"
+                class="px-4 py-2.5 rounded-xl bg-indigo-600/20 border border-indigo-500/50 text-white font-medium text-xs sm:text-sm flex items-center gap-2 transition-all shadow-sm cursor-pointer">
+                <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                <span>Act III: Allianz Services (2026–Present)</span>
+            </button>
+            <button data-career-tab="yashtechnologies"
+                class="px-4 py-2.5 rounded-xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer">
+                <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+                <span>Act II: Yash Technologies (2025–2026)</span>
+            </button>
+            <button data-career-tab="persistentsystems"
+                class="px-4 py-2.5 rounded-xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2 transition-all cursor-pointer">
+                <span class="w-2 h-2 rounded-full bg-slate-600"></span>
+                <span>Act I: Persistent Systems (2022–2025)</span>
+            </button>
+        </div>
 
-                <hr class="border-slate-800">
-
-                <div>
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2 mb-3">
-                        <i data-lucide="layers" class="w-4 h-4 text-blue-400"></i> Technical Baselines
-                    </h2>
-                    <div id="baselines-container" class="flex flex-wrap gap-1.5">
-                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Azure AI Foundry (GPT-5.4 mini)</span>
-                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Azure Content Safety &amp; LangChain PII</span>
-                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Managed Kafka &amp; Event Hubs</span>
-                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Azure Durable Function Apps</span>
-                        <span class="px-2.5 py-1 bg-slate-950/70 border border-slate-800 text-slate-300 rounded text-xs font-mono">Blob Storage Hot Caching</span>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- PROJECT WORKSPACE & ARCHITECTURE SPECIFICATIONS -->
-        <section id="project-workspace-container" class="lg:col-span-3 flex flex-col gap-6">
-
-            <!-- Context Banner -->
-            <div id="context-banner"
-                class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
-                style="background: linear-gradient(90deg, rgba(var(--brand-primary-rgb), 0.16) 0%, rgba(var(--brand-primary-rgb), 0.03) 100%); border-color: var(--brand-border);">
-                <div class="flex flex-col gap-1">
-                    <div class="flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full" style="background-color: var(--brand-accent);"></span>
-                        <h2 class="text-xs font-bold uppercase tracking-wider text-white">Allianz Services Architecture Matrix</h2>
-                    </div>
-                    <p class="text-xs text-slate-300 leading-relaxed max-w-3xl">
-                        Engineered the multi-agent claims engine handling 100k+ annual claims across 19 automated journeys, slashing rollout time from weeks to 1 day.
-                    </p>
-                </div>
-                <div class="flex items-center gap-2 shrink-0">
-                    <button data-action="toggle-canvas" data-state="true" class="theme-btn-primary px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 cursor-pointer">
-                        <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-                        <span>Inspect Blueprint</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Blueprint Navigation Header -->
-            <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="p-2 bg-slate-800 text-slate-300 rounded-lg border border-slate-700">
-                        <i data-lucide="layers" class="w-4 h-4 text-slate-300"></i>
-                    </div>
+        <!-- Dynamic Act Display Container -->
+        <div id="career-act-display">
+            <!-- Pre-rendered Static Act III: Allianz Services -->
+            <div class="p-6 sm:p-8 bg-[#12131A] border border-white/10 rounded-2xl flex flex-col gap-6 shadow-xl">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
                     <div>
-                        <h3 class="text-xs font-semibold text-white tracking-wide">Enterprise Architecture Blueprints</h3>
-                        <p class="text-[11px] text-slate-400 mt-0.5">Explore interactive topology diagrams and verified production pipeline schematics.</p>
-                    </div>
-                </div>
-                <div class="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
-                    <a href="workflow.html" target="_blank"
-                        class="w-full sm:w-auto px-3.5 py-2 theme-card text-slate-200 hover:text-white font-medium text-xs rounded-lg transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="play" class="w-3.5 h-3.5 theme-text-accent"></i>
-                        <span>Architecture Simulator</span>
-                    </a>
-                    <button data-action="toggle-canvas" data-state="true"
-                        class="w-full sm:w-auto px-4 py-2 theme-btn-primary font-medium text-xs rounded-lg transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm">
-                        <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-                        <span>View Blueprint</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Architecture Triple-Column Canvas & Specifications -->
-            <div class="grid grid-cols-1 xl:grid-cols-12 bg-slate-900/40 border border-slate-800 rounded-xl overflow-hidden min-h-[650px]">
-
-                <!-- Column 1: System Overview & Deliverables -->
-                <div class="xl:col-span-4 p-5 border-b xl:border-b-0 xl:border-r border-slate-800 bg-slate-900/30 flex flex-col justify-between gap-6">
-                    <div class="flex flex-col gap-5">
-                        <div>
-                            <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase">System Overview</span>
-                            <h3 id="scope-project-name" class="text-base font-bold text-white mt-1 leading-snug">Project Bluey-AI Lodgement Topology</h3>
-                        </div>
-                        <div>
-                            <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase block mb-2.5">Key Engineering Deliverables</span>
-                            <ul id="bullet-points-container" class="text-xs text-slate-300 list-none flex flex-col gap-2.5">
-                                <li class="flex gap-2 items-start leading-relaxed text-xs">
-                                    <span class="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5" style="background-color: var(--brand-accent);"></span>
-                                    <span>Built scalable Azure Durable Functions orchestrator screening 100k+ annual insurance claim events.</span>
-                                </li>
-                                <li class="flex gap-2 items-start leading-relaxed text-xs">
-                                    <span class="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5" style="background-color: var(--brand-accent);"></span>
-                                    <span>Spearheaded Declarative JSON Engine allowing prompt engineers to deploy new claims in 1 day without backend redeploys.</span>
-                                </li>
-                                <li class="flex gap-2 items-start leading-relaxed text-xs">
-                                    <span class="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5" style="background-color: var(--brand-accent);"></span>
-                                    <span>Integrated Azure Event Hubs / Kafka ingestion with LangGraph state machine node transitions.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div>
-                        <span class="text-[11px] font-semibold tracking-wider text-slate-400 uppercase block mb-2">Core Technology Stack</span>
-                        <div id="scope-project-stack" class="flex flex-wrap gap-1.5">
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">LangGraph</span>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Azure OpenAI GPT-5.4</span>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Durable Functions</span>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Azure Event Hubs</span>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Kafka</span>
-                            <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700/80 rounded text-[11px] font-mono">Pydantic</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Column 2: Architecture Layers Switcher & Interactive SVG Canvas -->
-                <div class="xl:col-span-4 p-5 border-b xl:border-b-0 xl:border-r border-slate-800 flex flex-col gap-4">
-                    <div>
-                        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">Architecture Pipeline Layers</h4>
-                    </div>
-
-                    <div id="arch-tabs-container" class="flex flex-col gap-2.5 mt-1">
-                        <button data-tab="orchestration" class="w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer text-white shadow-sm" style="background-color: rgba(var(--brand-primary-rgb), 0.18); border-color: var(--brand-border-active); box-shadow: 0 0 14px -3px var(--brand-glow);">
-                            <div class="p-1 rounded mt-0.5 border bg-slate-800 border-slate-700 text-white">
-                                <i data-lucide="layers" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <div class="overflow-hidden">
-                                <div class="text-xs font-semibold leading-tight text-white">Orchestration &amp; Declarative JSON</div>
-                                <p class="text-xs text-slate-400 mt-0.5 leading-snug truncate">Azure Durable Functions + LangGraph State Engine</p>
-                            </div>
-                        </button>
-                        <button data-tab="guardrails" class="w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer theme-card text-slate-400 hover:text-slate-200">
-                            <div class="p-1 rounded mt-0.5 border bg-slate-900 border-slate-800 text-slate-400">
-                                <i data-lucide="workflow" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <div class="overflow-hidden">
-                                <div class="text-xs font-semibold leading-tight text-slate-300">Safety, PII &amp; Guardrails</div>
-                                <p class="text-xs text-slate-400 mt-0.5 leading-snug truncate">Multi-Layer Azure Content Safety + PII Middleware</p>
-                            </div>
-                        </button>
-                        <button data-tab="foundry" class="w-full text-left p-3 rounded-lg border transition-all flex items-start gap-3 cursor-pointer theme-card text-slate-400 hover:text-slate-200">
-                            <div class="p-1 rounded mt-0.5 border bg-slate-900 border-slate-800 text-slate-400">
-                                <i data-lucide="workflow" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <div class="overflow-hidden">
-                                <div class="text-xs font-semibold leading-tight text-slate-300">Azure AI Foundry GPT Core</div>
-                                <p class="text-xs text-slate-400 mt-0.5 leading-snug truncate">Federated micro-agents under Foundry inference</p>
-                            </div>
-                        </button>
-                    </div>
-
-                    <div class="flex-1 min-h-[240px] bg-slate-950 border border-slate-850 rounded-lg p-4 flex flex-col justify-center items-center relative overflow-hidden">
-                        <div class="absolute inset-0 opacity-5 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-                        <div id="layer-canvas-visualization" class="w-full h-full flex flex-col justify-center items-center text-center p-1 z-10">
-                            <div class="w-full flex flex-col items-center gap-1.5 text-slate-400">
-                                <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Azure Event Pipeline</div>
-                                <div class="w-full grid grid-cols-2 gap-1">
-                                    <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded text-slate-300">Kafka Broker</div>
-                                    <div class="text-[8px] p-0.5 text-center bg-slate-950 rounded text-slate-300">Azure Event Hubs</div>
-                                </div>
-                                <div class="text-[9px] text-slate-500 text-center font-medium">&darr; Stream Pipeline &darr;</div>
-                                <div class="bg-slate-900 border border-slate-800 p-1.5 rounded-lg text-center text-[9px] text-slate-200">
-                                    Azure Durable Functions Orchestrator
-                                    <div class="text-[8px] text-slate-400 mt-0.5">Kafka Ingestion &rarr; LangGraph Activity &rarr; Hot Blob Storage</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Column 3: Terminal Code Specification & Engineering Trade-offs -->
-                <div class="xl:col-span-4 bg-slate-950/70 flex flex-col h-full">
-                    <div class="p-3.5 border-b border-slate-800 bg-slate-950 flex justify-between items-center">
                         <div class="flex items-center gap-2">
-                            <i data-lucide="code-2" class="w-4 h-4 text-slate-400"></i>
-                            <h4 id="spec-header-title" class="text-xs font-semibold text-slate-200">LangGraph Declarative Workflow Definition</h4>
+                            <span class="px-2 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 font-mono text-[11px] font-semibold">Act III</span>
+                            <span class="text-xs font-mono text-slate-400">Jan 2026 – Present</span>
+                            <span class="text-xs text-slate-500">&bull;</span>
+                            <span class="text-xs text-slate-400">Pune, IN</span>
                         </div>
-                        <span class="text-[10px] bg-slate-900 text-slate-400 px-2 py-0.5 rounded border border-slate-800 font-medium">Production Verified</span>
+                        <h3 class="text-2xl font-extrabold text-white mt-1.5 flex items-center gap-3">
+                            <span>Allianz Services</span>
+                            <span class="text-sm font-semibold text-slate-400 font-sans hidden sm:inline">&mdash; Agentic AI Consultant</span>
+                        </h3>
+                        <p class="text-xs sm:text-sm font-medium text-indigo-300 mt-1">Enterprise Autonomy &amp; Production Resiliency</p>
+                        <p class="text-xs text-slate-400 mt-0.5">Insurance Captive / GCC handling massive claim workflows across Asia-Pacific.</p>
                     </div>
-
-                    <div class="p-4 border-b border-slate-850 bg-slate-950 overflow-x-auto max-h-[280px] flex-1">
-                        <pre class="text-[11px] code-font text-slate-300 leading-relaxed"><code id="spec-code-block">{
-  "journeyId": "motor_comprehensive_claim_v4",
-  "entryNode": "guardrail_safety_filter",
-  "stateSchema": "ClaimStateSchemaV2",
-  "nodes": [
-    {
-      "id": "guardrail_safety_filter",
-      "agent": "ContentSafetyAgent",
-      "failRoute": "reject_claim_submission"
-    },
-    {
-      "id": "policy_coverage_resolver",
-      "agent": "PolicyValidationAgent",
-      "requires": ["customer_id", "incident_date"]
-    }
-  ]
-}</code></pre>
-                    </div>
-
-                    <div class="p-4 bg-slate-900/40 border-t border-slate-800 flex flex-col gap-3">
-                        <div class="flex gap-2.5 items-start">
-                            <div class="p-1 rounded bg-slate-800 border border-slate-700/80 mt-0.5">
-                                <i data-lucide="scale" class="w-3.5 h-3.5 text-slate-300"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide">System Boundary Trade-Offs</h5>
-                                <p id="spec-tradeoffs" class="text-xs text-slate-400 mt-0.5 leading-relaxed">Decoupled prompt JSON configs from orchestration binary, reducing claim rollout latency from 14 days to 1 day at the cost of slight initial JSON schema parsing overhead.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex gap-2.5 items-start">
-                            <div class="p-1 rounded bg-slate-800 border border-slate-700/80 mt-0.5">
-                                <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-slate-300"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-[11px] font-semibold text-slate-300 uppercase tracking-wide">Bottleneck Interventions</h5>
-                                <p id="spec-bottlenecks" class="text-xs text-slate-400 mt-0.5 leading-relaxed">Mitigated cold starts on high-traffic claims by maintaining warm Kafka consumer pools and caching policy disclosure clauses in hot Blob Storage.</p>
-                            </div>
+                    <div class="shrink-0 flex flex-col items-start md:items-end gap-1.5">
+                        <div class="px-3 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
+                            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                            <span>Best Team (H1 '26) &bull; Best Performer (Q1 &amp; Q2 '26)</span>
                         </div>
                     </div>
                 </div>
 
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="bg-slate-900/60 border border-slate-800/80 p-3.5 rounded-xl">
+                        <div class="text-xs text-slate-400 font-medium">Claims Intake</div>
+                        <div class="text-xl font-bold font-mono text-white mt-1">100k+/yr</div>
+                    </div>
+                    <div class="bg-slate-900/60 border border-slate-800/80 p-3.5 rounded-xl">
+                        <div class="text-xs text-slate-400 font-medium">Deployment SLA</div>
+                        <div class="text-xl font-bold font-mono text-white mt-1">1 Day</div>
+                    </div>
+                    <div class="bg-slate-900/60 border border-slate-800/80 p-3.5 rounded-xl">
+                        <div class="text-xs text-slate-400 font-medium">Micro-Agents</div>
+                        <div class="text-xl font-bold font-mono text-white mt-1">145+</div>
+                    </div>
+                    <div class="bg-slate-900/60 border border-slate-800/80 p-3.5 rounded-xl">
+                        <div class="text-xs text-slate-400 font-medium">Active Journeys</div>
+                        <div class="text-xl font-bold font-mono text-white mt-1">19</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                    <div class="bg-slate-900/40 border border-slate-800/70 p-4 rounded-xl flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-400">
+                            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> The Friction / Problem
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Legacy claim intake pipelines required 10–14 days of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/40 border border-slate-800/70 p-4 rounded-xl flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+                            <i data-lucide="cpu" class="w-3.5 h-3.5"></i> The Architectural Solution
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Architected a Declarative JSON Workflow Engine separating prompt configurations and route logic from execution binaries. Incoming stream payloads from Kafka and Event Hubs are orchestrated through Azure Durable Functions and passed through Azure Content Safety and LangChain PII redaction before entering the LangGraph state machine.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/40 border border-slate-800/70 p-4 rounded-xl flex flex-col gap-2">
+                        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Proven Impact
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Slashed new claim journey launch time from 14 days to &lt; 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and 100% regulatory compliance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-4">
+                    <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-indigo-400"></i>
+                        <span>Production Engineering Deliverables</span>
+                    </div>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
+                            <span>Architected the declarative JSON workflow engine driving 19 claim types, allowing business &amp; prompt engineers to launch new claim journeys in 24 hours without backend redeployment.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
+                            <span>Implemented multi-tier Azure Content Safety &amp; LangChain PII redaction middleware ensuring 100% compliance with Australian corporate privacy standards (APP).</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
+                            <span>Synchronized LangGraph node transitions with Azure Durable Functions and warm Kafka consumer pools to prevent cold-start bottlenecks.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
+                            <span>Designed a two-tier decoupled prompt architecture combining generalized agent directives with journey-specific rules, eliminating 100% of prompt duplication.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-4 flex flex-wrap items-center gap-2">
+                    <span class="text-xs font-medium text-slate-500 mr-2">Verified Stack:</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">LangGraph</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">Azure Durable Functions</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">Azure AI Foundry</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">Managed Kafka</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">Azure Event Hubs</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">Azure Content Safety</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">Pydantic</span>
+                    <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-xs font-mono font-medium">Blob Storage</span>
+                </div>
             </div>
+        </div>
 
-        </section>
-    </main>
+    </section>
 
-    <!-- BLUEPRINT EXPANSION OVERLAY MODAL -->
-    <div id="blueprint-expansion-overlay"
-        class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md p-3 md:p-6 flex-col justify-center items-center hidden"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="blueprint-title">
-        <div class="max-w-7xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col lg:flex-row h-[92vh]">
-            <div class="flex-1 bg-slate-950 flex flex-col relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800">
-                <div id="blueprint-media-header"
-                    class="px-4 py-2.5 bg-slate-900/90 border-b border-slate-800 flex flex-wrap justify-between items-center gap-3">
-                    <div id="blueprint-view-toggles" class="flex items-center gap-1.5 text-xs">
-                        <button data-blueprint-mode="interactive" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer bg-blue-600 text-white shadow-sm">
-                            <i data-lucide="play" class="w-3 h-3 text-emerald-400"></i>
-                            Interactive Simulation
-                        </button>
-                        <button data-blueprint-mode="static" class="px-2.5 py-1 rounded text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer bg-slate-800 text-slate-400 hover:text-white">
-                            <i data-lucide="image" class="w-3 h-3"></i>
-                            Static Diagram
-                        </button>
+    <!-- ==========================================================================
+         5. FLAGSHIP CASE STUDY: PROJECT BLUEY-AI LODGEMENT
+         ========================================================================== -->
+    <section id="case-study" class="bg-[#070910]/70 backdrop-blur-md border-y border-white/[0.07] py-16 px-4 sm:px-6 w-full relative z-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- Case Study Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-emerald-400 uppercase tracking-wider mb-2">
+                        <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                        <span>Flagship Architecture Case Study</span>
                     </div>
-                    <div id="blueprint-external-link" class="flex items-center gap-2">
-                        <a href="workflow.html" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded text-xs font-medium flex items-center gap-1.5 border border-slate-700 transition-colors">
-                            <span>Open Simulator in Full Window</span>
-                            <i data-lucide="external-link" class="w-3 h-3"></i>
-                        </a>
-                    </div>
-                </div>
-                <div id="blueprint-media" class="flex-1 p-2 md:p-3 flex flex-col justify-center items-center relative overflow-hidden">
-                    <iframe src="workflow.html" class="w-full h-full border-0 rounded-lg shadow-inner" title="Project Bluey Interactive Workflow Simulation"></iframe>
-                </div>
-            </div>
-            <div class="w-full lg:w-[380px] p-6 bg-slate-900 flex flex-col justify-between overflow-y-auto">
-                <div class="flex flex-col gap-4">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <span class="text-[10px] font-semibold tracking-wider text-slate-400 uppercase">Architecture Blueprint Analysis</span>
-                            <h3 id="blueprint-title" class="text-base font-bold text-white mt-0.5">Project Bluey-AI Lodgement Topology</h3>
-                        </div>
-                        <button data-action="toggle-canvas" data-state="false"
-                            class="p-2 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
-                            aria-label="Close Blueprint Analysis">
-                            <i data-lucide="x" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                    <p id="blueprint-desc"
-                        class="text-xs text-slate-300 leading-relaxed bg-slate-950/60 p-3.5 rounded-xl border border-slate-850">
-                        An Event Driven Multi-Agent Insurance Claims processing system built with Langgraph, Langchain, and Azure OpenAI (Azure AI Foundry) at its core, with Dual-Emit Observability via Dynatrace &amp; Azure Application Insights.
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                        Project Bluey-AI Lodgement
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                        Enterprise Declarative Multi-Agent Lodgement Engine with Dual-Emit Observability &bull; Allianz Services
                     </p>
-                    <div id="blueprint-specs" class="space-y-3">
-                        <div class="flex gap-3 items-start text-xs text-slate-300 p-2.5 bg-slate-950/40 rounded-lg border border-slate-850">
-                            <div class="p-1 rounded bg-slate-800 text-sky-400 shrink-0 mt-0.5"><i data-lucide="workflow" class="w-3.5 h-3.5"></i></div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="workflow.html" target="_blank"
+                        class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-all flex items-center gap-2 shadow-lg shadow-indigo-600/25">
+                        <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                        <span>Open Full Animated Visualizer</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Metric Highlights Banner -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+                <div class="bg-slate-900/60 border border-slate-800/90 p-4 rounded-xl">
+                    <span class="text-[11px] text-slate-400 font-medium">Rollout Velocity</span>
+                    <div class="text-lg sm:text-xl font-bold font-mono text-emerald-400 mt-1">&lt; 24 Hours</div>
+                    <span class="text-[10px] text-slate-500 mt-0.5 block">Slashed from 14 days (93% cut)</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800/90 p-4 rounded-xl">
+                    <span class="text-[11px] text-slate-400 font-medium">Annual Claims Volume</span>
+                    <div class="text-lg sm:text-xl font-bold font-mono text-white mt-1">100,000+</div>
+                    <span class="text-[10px] text-slate-500 mt-0.5 block">Autonomous lodgements</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800/90 p-4 rounded-xl">
+                    <span class="text-[11px] text-slate-400 font-medium">Micro-Agent Swarm</span>
+                    <div class="text-lg sm:text-xl font-bold font-mono text-indigo-300 mt-1">145+</div>
+                    <span class="text-[10px] text-slate-500 mt-0.5 block">Production agents</span>
+                </div>
+                <div class="bg-slate-900/60 border border-slate-800/90 p-4 rounded-xl">
+                    <span class="text-[11px] text-slate-400 font-medium">Automated Journeys</span>
+                    <div class="text-lg sm:text-xl font-bold font-mono text-sky-300 mt-1">19 Topologies</div>
+                    <span class="text-[10px] text-slate-500 mt-0.5 block">Zero backend redeploys</span>
+                </div>
+            </div>
+
+            <!-- STAR Story Narrative Breakdown -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bento-card p-6 flex flex-col justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-400">
+                            <i data-lucide="alert-triangle" class="w-4 h-4"></i> The Challenge (Situation &amp; Friction)
+                        </div>
+                        <h4 class="text-base font-bold text-white mt-2">14-Day Release Cycle &amp; LLM Compliance Risk</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-2">
+                            Insurance claim lodgement is legally audited and high stakes. Historically, modifying business lodgement rules or introducing a new insurance claim type required 10–14 days of backend developer engineering, hardcoded validations, schema changes, and full CI/CD deployment cycles.
+                        </p>
+                        <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                            Furthermore, LLM stochastic non-determinism introduced legal, compliance, and hallucination risks under Australian privacy mandates (APP), requiring strict boundary enforcement.
+                        </p>
+                    </div>
+                    <div class="p-3 bg-amber-500/10 border border-amber-500/20 rounded-lg text-[11px] text-amber-300">
+                        <strong>The Mandate:</strong> Enable prompt engineers to launch new claim journeys in &lt; 24h with zero backend redeployment and 100% regulatory compliance.
+                    </div>
+                </div>
+
+                <div class="bento-card p-6 flex flex-col justify-between gap-4">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+                            <i data-lucide="cpu" class="w-4 h-4"></i> The Breakthrough (Architecture &amp; Action)
+                        </div>
+                        <h4 class="text-base font-bold text-white mt-2">Declarative JSON Engine &amp; LangGraph State Machine</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-2">
+                            Engineered a Declarative JSON Workflow Engine that completely decouples prompt configurations, state transition routes, and tool schemas from the execution binary. Each claim journey is configured via a single declarative JSON schema document.
+                        </p>
+                        <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                            Incoming stream payloads from Kafka and Azure Event Hubs are ingested through Azure Durable Functions, filtered by Azure Content Safety and LangChain PII redaction, and orchestrated across LangGraph state machines with runtime Pydantic schema invariants.
+                        </p>
+                    </div>
+                    <div class="p-3 bg-indigo-500/10 border border-indigo-500/20 rounded-lg text-[11px] text-indigo-300">
+                        <strong>Key Innovation:</strong> Decoupled prompt AST schemas cached in hot memory + warm Kafka consumer pools to eliminate cold-start latency.
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE TOPOLOGY SIMULATOR & NODE INSPECTOR -->
+            <div class="bento-card p-6 mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-5">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <h3 class="text-base font-bold text-white">Interactive Production Topology Simulator</h3>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-0.5">Click any architectural node to inspect its live state schema, SLA latency, and invariant guarantees.</p>
+                    </div>
+                    <a href="workflow.html" target="_blank" class="text-xs font-medium text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 self-start sm:self-auto">
+                        <span>Open Full Screen Studio</span>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    
+                    <!-- Left: Clickable Architecture Topology Nodes -->
+                    <div class="lg:col-span-7 flex flex-col gap-2.5">
+                        
+                        <div class="topo-node" data-topo-node="kafka_ingest">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="p-1.5 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                                        <i data-lucide="zap" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-white">Managed Kafka &amp; Event Hubs</h5>
+                                        <span class="text-[10px] text-slate-400 font-mono">Stream Ingestion Layer &bull; High Concurrency</span>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">&lt; 12ms</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center text-slate-600 text-xs">&darr; stream ingestion dispatch &darr;</div>
+
+                        <div class="topo-node" data-topo-node="durable_func">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="p-1.5 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                                        <i data-lucide="workflow" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-white">Azure Durable Functions Orchestrator</h5>
+                                        <span class="text-[10px] text-slate-400 font-mono">Distributed State Machine &bull; Activity Checkpointing</span>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-mono text-indigo-300 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">Stateful</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center text-slate-600 text-xs">&darr; input validation &amp; privacy gate &darr;</div>
+
+                        <div class="topo-node" data-topo-node="guardrails">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-white">Dual-Tier Safety &amp; PII Guardrail</h5>
+                                        <span class="text-[10px] text-slate-400 font-mono">Azure Content Safety + LangChain PII Redactor</span>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">100% APP</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center text-slate-600 text-xs">&darr; sanitized payload to reasoning &darr;</div>
+
+                        <div class="topo-node active" data-topo-node="langgraph_engine">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="p-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+                                        <i data-lucide="bot" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-xs font-bold text-white">LangGraph Declarative State Machine</h5>
+                                        <span class="text-[10px] text-slate-400 font-mono">19 Journeys &bull; Azure AI Foundry GPT-5.4 mini</span>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-mono text-indigo-300 bg-indigo-500/20 px-2 py-0.5 rounded border border-indigo-500/40">145+ Agents</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 mt-1">
+                            <div class="topo-node" data-topo-node="hot_cache">
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="database" class="w-3.5 h-3.5 text-slate-400"></i>
+                                    <div class="truncate">
+                                        <div class="text-[11px] font-bold text-white truncate">Hot Blob Cache</div>
+                                        <div class="text-[9px] text-slate-400 font-mono">94% Hit Rate</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="topo-node" data-topo-node="observability">
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="activity" class="w-3.5 h-3.5 text-sky-400"></i>
+                                    <div class="truncate">
+                                        <div class="text-[11px] font-bold text-white truncate">Dual-Emit Telemetry</div>
+                                        <div class="text-[9px] text-slate-400 font-mono">Dynatrace + App Insights</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right: Node Details & Live Schema Inspector -->
+                    <div class="lg:col-span-5 bg-slate-950/80 border border-slate-800 rounded-xl p-5 min-h-[460px] flex flex-col justify-between">
+                        <div id="topology-inspector">
+                            <!-- Populated dynamically by app.js -->
+                            <div class="text-xs text-slate-400">Loading topology node details...</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PRODUCTION CODE EXPLORER TABS -->
+            <div class="bento-card p-6 mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-4">
+                    <div>
+                        <span class="text-xs font-mono text-indigo-400 uppercase tracking-wider font-semibold">Production Code &amp; Declarative Schemas</span>
+                        <h4 class="text-base font-bold text-white mt-0.5">Execution Engine Implementations</h4>
+                    </div>
+                    
+                    <div class="flex flex-wrap items-center gap-1.5">
+                        <button data-code-tab="schema_tab"
+                            class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-medium text-xs transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer">
+                            <i data-lucide="file-code" class="w-3 h-3"></i>
+                            <span>Declarative JSON</span>
+                        </button>
+                        <button data-code-tab="langgraph_tab"
+                            class="px-3 py-1.5 rounded-lg bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs transition-colors flex items-center gap-1.5 border border-slate-800 cursor-pointer">
+                            <i data-lucide="code" class="w-3 h-3"></i>
+                            <span>LangGraph Python</span>
+                        </button>
+                        <button data-code-tab="guardrails_tab"
+                            class="px-3 py-1.5 rounded-lg bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs transition-colors flex items-center gap-1.5 border border-slate-800 cursor-pointer">
+                            <i data-lucide="shield" class="w-3 h-3"></i>
+                            <span>Safety Middleware</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Terminal Chrome -->
+                <div class="bg-[#08090E] border border-white/[0.08] rounded-xl overflow-hidden shadow-2xl">
+                    <div class="px-4 py-2.5 bg-gradient-to-b from-[#161824] to-[#10121A] border-b border-white/[0.08] flex items-center justify-between text-xs">
+                        <div class="flex items-center gap-2">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-[0_0_8px_rgba(244,63,94,0.6)]"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.6)]"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+                            </div>
+                            <span id="code-filename" class="font-mono text-slate-200 text-xs ml-2 font-medium">motor_claim_journey_v4.json</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">Production Verified</span>
+                            <button id="copy-code-btn"
+                                class="px-2.5 py-1 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white font-mono text-[10px] transition-colors flex items-center gap-1.5 border border-slate-700 cursor-pointer"
+                                title="Copy code to clipboard">
+                                <i data-lucide="copy" class="w-3 h-3"></i>
+                                <span>Copy Code</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <p id="code-description" class="px-4 py-2 bg-white/[0.02] text-xs text-slate-400 border-b border-white/[0.06]">
+                        Production JSON schema defining an entire claim journey. Business teams deploy this directly without recompiling or redeploying backend code.
+                    </p>
+
+                    <div class="p-4 overflow-x-auto max-h-[380px] bg-[#07080D]">
+                        <pre class="text-xs font-mono text-slate-300 leading-relaxed"><code id="code-content-block">Loading production code sample...</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ENGINEERING POST-MORTEM (HIRING MANAGERS LOVE THIS) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-xl flex gap-3.5 items-start">
+                    <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 shrink-0">
+                        <i data-lucide="scale" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-xs font-bold uppercase tracking-wider text-white">Engineering Trade-Off Analysis</h5>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1.5">
+                            Decoupled JSON schemas introduced slight initial parsing and schema compilation overhead (~15ms per cold session). We mitigated this by caching validated AST schemas in hot worker memory and storing policy disclosure documents in hot Azure Blob Storage.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-xl flex gap-3.5 items-start">
+                    <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shrink-0">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h5 class="text-xs font-bold uppercase tracking-wider text-white">Key Architectural Takeaway</h5>
+                        <p class="text-xs text-slate-300 leading-relaxed mt-1.5">
+                            Strict runtime Pydantic schema validation at every micro-agent node boundary is 10x cheaper than attempting to debug corrupted multi-agent conversational states downstream in production.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. THE ENGINEERING PHILOSOPHY & "THE LAB"
+         ========================================================================== -->
+    <section id="philosophy" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+                <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider mb-2">
+                    <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+                    <span>The Engineering Mindset</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    Architectural Invariants &amp; The Lab
+                </h2>
+            </div>
+            <p class="text-xs text-slate-400 max-w-md">
+                Deterministic invariants over stochastic hope. Continuous research into memory compression, streaming latency, and multi-agent persistence.
+            </p>
+        </div>
+
+        <!-- 3 Core Invariants -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+            
+            <div class="bento-card p-6 flex flex-col justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono font-bold text-indigo-400">INVARIANT 01</span>
+                    <h4 class="text-base font-bold text-white mt-1">Deterministic Guardrails &gt; Stochastic Hope</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-3">
+                        LLMs are statistical sequence predictors, not verified state machines. Never allow an LLM to mutate system state without strict Pydantic runtime schema validation. If an agent output fails type boundaries, drop into a deterministic recovery gate immediately.
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-slate-800 text-[11px] font-mono text-slate-400">
+                    &bull; Bound state mutations only
+                </div>
+            </div>
+
+            <div class="bento-card p-6 flex flex-col justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono font-bold text-emerald-400">INVARIANT 02</span>
+                    <h4 class="text-base font-bold text-white mt-1">Traceability is Non-Negotiable</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-3">
+                        If an agent workflow cannot be replayed step-by-step from an immutable event log, it should not run in enterprise production. Dual-emit telemetry through Dynatrace and Azure Application Insights ensures complete forensic replay of every reasoning hop.
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-slate-800 text-[11px] font-mono text-slate-400">
+                    &bull; Immutable audit logging
+                </div>
+            </div>
+
+            <div class="bento-card p-6 flex flex-col justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono font-bold text-amber-400">INVARIANT 03</span>
+                    <h4 class="text-base font-bold text-white mt-1">Simplicity Over Complexity</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-3">
+                        Multi-agent orchestration should only be introduced when a single constrained prompt cannot reliably handle the state space complexity. Keep node interfaces minimal, decoupling prompt schemas from execution code.
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-slate-800 text-[11px] font-mono text-slate-400">
+                    &bull; Decoupled prompt schemas
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Research Reading List & Global Certifications -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            
+            <!-- Research Reading List -->
+            <div class="lg:col-span-7 bento-card p-6 flex flex-col justify-between gap-4">
+                <div>
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="book-open" class="w-4 h-4 text-indigo-400"></i>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Current Research &amp; Reading List</h4>
+                        </div>
+                        <span class="text-[10px] font-mono text-indigo-400">The Lab</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                            <div class="text-xs font-bold text-white">Agentic Memory Compression &amp; Sliding Window Context Condensation</div>
+                            <p class="text-[11px] text-slate-400 mt-1">Evaluating token-efficient episodic memory retrieval for long-horizon insurance settlement sessions.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                            <div class="text-xs font-bold text-white">LangGraph Multi-Thread Persistence &amp; Asynchronous Checkpointing</div>
+                            <p class="text-[11px] text-slate-400 mt-1">Stress-testing durable state recovery across Kafka partition rebalances.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                            <div class="text-xs font-bold text-white">Latency Reduction in Streaming Tool Calls via Speculative Decoding</div>
+                            <p class="text-[11px] text-slate-400 mt-1">Benchmarking sub-second tool dispatch on Azure AI Foundry and vLLM clusters.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-[11px] text-slate-500 pt-2 border-t border-slate-800">
+                    Active focus: Token latency reduction, durable multi-agent checkpointing, and deterministic guardrails.
+                </div>
+            </div>
+
+            <!-- Education & Certifications Bento -->
+            <div class="lg:col-span-5 bento-card p-6 flex flex-col justify-between gap-5">
+                <div>
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-indigo-400"></i>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Education &amp; Global Certifications</h4>
+                        </div>
+                        <span class="text-[10px] font-mono text-emerald-400">Verified</span>
+                    </div>
+
+                    <div class="space-y-3.5">
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 shrink-0">
+                                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                            </div>
                             <div>
-                                <div class="font-semibold text-white">Orchestration</div>
-                                <div class="text-[11px] text-slate-400 mt-0.5 leading-snug">Azure Durable Functions App orchestrating input validations, multi-agent pipeline, and output gates.</div>
+                                <div class="text-xs font-bold text-white">B.E. Computer Engineering</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">PES Modern College of Engineering (PES MCOE), Pune</div>
+                                <span class="text-[10px] font-mono text-slate-500">2018 – 2022</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 shrink-0">
+                                <i data-lucide="award" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold text-white">Microsoft Certified: Azure AI Fundamentals</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Credential ID: AI-900 (Aug 2025)</div>
+                                <span class="text-[10px] font-mono text-emerald-400">Microsoft Certified</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 shrink-0">
+                                <i data-lucide="cloud" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold text-white">AWS Certified Cloud Practitioner</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Amazon Web Services (2024–2027)</div>
+                                <span class="text-[10px] font-mono text-amber-400">AWS Certified</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="blueprint-registry"
-                    class="pt-4 border-t border-slate-800 mt-6 text-[11px] text-slate-400 font-mono text-center">
-                    Blueprint Reference: Azure-Durable-LangGraph-Pipeline
+
+                <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                    <span>Pune, Maharashtra, India</span>
+                    <span class="text-emerald-400 font-mono text-[11px]">&bull; Open to Relocation</span>
                 </div>
             </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================================
+         7. FRICTIONLESS RECRUITMENT FOOTER & INTERACTIVE COMMAND BAR
+         ========================================================================== -->
+    <footer id="contact" class="bg-[#05060A]/85 backdrop-blur-md border-t border-white/[0.08] py-16 px-4 sm:px-6 w-full mt-auto relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col gap-10">
+            
+            <!-- Recruitment CTA Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 bento-card p-6 sm:p-8">
+                <div>
+                    <span class="text-xs font-mono font-semibold text-emerald-400 uppercase tracking-wider">Direct Access &bull; Frictionless Recruitment</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                        Ready to Build Resilient Agentic Workflows?
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl font-normal">
+                        Open to relocation and high-impact Agentic AI Consultant / Senior Staff AI Engineer roles. Let's discuss architecture, production multi-agent orchestration, and deterministic system scaling.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="mailto:shivraj.25d@gmail.com"
+                        class="px-5 py-2.5 rounded-xl btn-shimmer-primary text-white font-medium text-xs sm:text-sm flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>Email Shivraj</span>
+                    </a>
+                    <button data-download-vcard
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <span>Save vCard (.vcf)</span>
+                    </button>
+                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        <span>Resume (PDF)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Channels Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <div class="bento-card p-4 flex items-center justify-between cursor-pointer" data-copy-email>
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-slate-400">Email Address</div>
+                            <div class="text-xs font-bold text-white mt-0.5">shivraj.25d@gmail.com</div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-indigo-400">Copy ↵</span>
+                </div>
+
+                <div class="bento-card p-4 flex items-center justify-between cursor-pointer" data-copy-phone>
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-slate-400">Phone / WhatsApp</div>
+                            <div class="text-xs font-bold text-white mt-0.5">+91 7972476081</div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-emerald-400">Copy ↵</span>
+                </div>
+
+                <a href="https://www.linkedin.com/in/shivraj-dhaytadak7" target="_blank" rel="noopener noreferrer"
+                    class="bento-card p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-slate-400">LinkedIn Profile</div>
+                            <div class="text-xs font-bold text-white mt-0.5">/in/shivraj-dhaytadak7</div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-blue-400">Visit &rarr;</span>
+                </a>
+
+                <a href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
+                    class="bento-card p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <div class="text-[11px] text-slate-400">GitHub Profile</div>
+                            <div class="text-xs font-bold text-white mt-0.5">/Shivraj-Dhaytadak</div>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-purple-400">Visit &rarr;</span>
+                </a>
+
+            </div>
+
+            <!-- Bottom Static Metadata -->
+            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>100% Client-Side &bull; Hosted on GitHub Pages (`shivraj-dhaytadak.github.io`)</span>
+                </div>
+                <div class="flex items-center gap-4 text-[11px] font-mono">
+                    <span>Architecture: Zero-Backend Static</span>
+                    <button data-open-cmdk class="text-slate-400 hover:text-white transition-colors cursor-pointer">
+                        <kbd class="px-1 py-0.5 rounded bg-slate-800 text-slate-300">⌘K</kbd> Command Palette
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         8. CLIENT-SIDE ⌘K COMMAND PALETTE MODAL
+         ========================================================================== -->
+    <div id="cmdk-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md p-4 flex justify-center items-start pt-[12vh] hidden" role="dialog" aria-modal="true">
+        <div class="max-w-xl w-full bg-[#12131A] border border-white/10 rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-fade-in">
+            
+            <!-- Command Input -->
+            <div class="p-3 border-b border-slate-800 flex items-center gap-3">
+                <i data-lucide="search" class="w-4 h-4 text-slate-400 shrink-0"></i>
+                <input id="cmdk-input" type="text" placeholder="Type a section, action, or keyword (e.g. resume, allianz, email)..."
+                       class="w-full bg-transparent border-0 text-white placeholder-slate-500 text-xs focus:outline-none font-sans"
+                       autocomplete="off" spellcheck="false">
+                <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] font-mono">ESC</kbd>
+            </div>
+
+            <!-- Results List -->
+            <div id="cmdk-results" class="max-h-[320px] overflow-y-auto p-2 space-y-1">
+                <!-- Dynamically rendered by app.js -->
+            </div>
+
+            <!-- Footer Keyboard Navigation Hints -->
+            <div class="px-4 py-2 bg-slate-950/80 border-t border-slate-800 flex items-center justify-between text-[10px] text-slate-500 font-mono">
+                <div class="flex items-center gap-3">
+                    <span><kbd class="px-1 rounded bg-slate-800 text-slate-400">↑</kbd> <kbd class="px-1 rounded bg-slate-800 text-slate-400">↓</kbd> Navigate</span>
+                    <span><kbd class="px-1 rounded bg-slate-800 text-slate-400">↵</kbd> Select</span>
+                </div>
+                <span>ESC to Close</span>
+            </div>
+
         </div>
     </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
 
 </body>
 </html>

@@ -1,282 +1,410 @@
 /* ==========================================================================
-   Shivraj Dhaytadak Portfolio - Design System & Theming Engine
+   Shivraj Dhaytadak Portfolio - Design System & UI Engine
+   Standard: "Wall of Portfolios" (High-Craft Obsidian & Cosmic Glass)
+   Inspired by: Linear, Raycast, Stripe Press, Vercel
    ========================================================================== */
 
-/* Typography & Layout Tokens */
 :root {
-    --panel-h: 140px;
-    --text-micro: 0.6875rem;   /* 11px - micro badges only */
-    --text-body-sm: 0.8125rem; /* 13px - floor for readable body content */
+    /* Cosmic Obsidian Palette */
+    --bg-canvas: #06070A;
+    --bg-surface: #0B0D14;
+    --bg-card: rgba(14, 16, 25, 0.85);
+    --bg-card-elevated: rgba(20, 23, 36, 0.9);
+    --bg-card-hover: rgba(24, 28, 44, 0.95);
+    
+    /* Precision Specular Borders */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-card: rgba(255, 255, 255, 0.09);
+    --border-hover: rgba(129, 140, 248, 0.45);
+    --border-active: rgba(99, 102, 241, 0.8);
 
-    /* Tokenized KPI Palette */
-    --kpi-amber: #f59e0b;
-    --kpi-indigo: #6366f1;
-    --kpi-emerald: #10b981;
-    --kpi-blue: #3b82f6;
-    --kpi-purple: #a855f7;
+    /* Cohesive Accent Palette */
+    --accent-indigo: #6366F1;
+    --accent-indigo-light: #818CF8;
+    --accent-violet: #A855F7;
+    --accent-emerald: #10B981;
+    --accent-emerald-light: #34D399;
+    --accent-sky: #38BDF8;
+    --accent-amber: #F59E0B;
+    --accent-rose: #FB7185;
+
+    /* Typography Hierarchy */
+    --text-primary: #FFFFFF;
+    --text-secondary: #E2E8F0;
+    --text-muted: #94A3B8;
+    --text-dim: #64748B;
+
+    /* Atmospheric Glow Shadows */
+    --glow-indigo: rgba(99, 102, 241, 0.35);
+    --glow-emerald: rgba(16, 185, 129, 0.35);
+    --glow-sky: rgba(56, 189, 248, 0.3);
+
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Base Document Styling */
+html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--brand-bg-base);
-    color: #f1f5f9;
-    transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-.code-font {
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.bg-slate-850 {
-    background-color: #131b28;
-}
-
-.border-slate-850 {
-    border-color: #1e293b;
-}
-
-.panel-stage {
-    height: var(--panel-h);
-}
-
-/* ==========================================================================
-   Brand Color Schemes (Dynamic Theming)
-   ========================================================================== */
-
-:root,
-[data-theme="allianz"] {
-    --brand-primary: #003781;
-    --brand-primary-rgb: 0, 55, 129;
-    --brand-accent: #1e6fe8;
-    --brand-accent-rgb: 30, 111, 232;
-    --brand-accent-light: #60a5fa;
-    --brand-bg-base: #060d19;
-    --brand-bg-surface: #0a1322;
-    --brand-bg-card: rgba(10, 21, 38, 0.78);
-    --brand-bg-card-hover: rgba(15, 30, 55, 0.9);
-    --brand-border: rgba(30, 111, 232, 0.22);
-    --brand-border-active: rgba(30, 111, 232, 0.7);
-    --brand-glow: rgba(0, 55, 129, 0.38);
-    --brand-badge-bg: rgba(0, 55, 129, 0.28);
-    --brand-badge-border: rgba(30, 111, 232, 0.45);
-    --brand-badge-text: #93c5fd;
-    --brand-btn-bg: #003781;
-    --brand-btn-border: #1e6fe8;
-    --brand-btn-hover: #004bbb;
-    --brand-highlight-hint: #38bdf8;
-    --brand-hint-rgb: 56, 189, 248;
-    --brand-selection: rgba(0, 55, 129, 0.6);
-}
-
-[data-theme="yashtechnologies"] {
-    --brand-primary: #A89044;
-    --brand-primary-rgb: 168, 144, 68;
-    --brand-accent: #c9b161;
-    --brand-accent-rgb: 201, 177, 97;
-    --brand-accent-light: #e4d393;
-    --brand-bg-base: #03051e; /* Stratos deep navy: RGB(0, 1, 65) */
-    --brand-bg-surface: #060829;
-    --brand-bg-card: rgba(6, 9, 45, 0.82);
-    --brand-bg-card-hover: rgba(11, 16, 65, 0.92);
-    --brand-border: rgba(168, 144, 68, 0.28);
-    --brand-border-active: rgba(168, 144, 68, 0.8);
-    --brand-glow: rgba(168, 144, 68, 0.3);
-    --brand-badge-bg: rgba(168, 144, 68, 0.2);
-    --brand-badge-border: rgba(168, 144, 68, 0.5);
-    --brand-badge-text: #e8dbaa;
-    --brand-btn-bg: #A89044;
-    --brand-btn-border: #c9b161;
-    --brand-btn-hover: #baa14e;
-    --brand-highlight-hint: #e63946; /* Yash red hints */
-    --brand-hint-rgb: 230, 57, 70;
-    --brand-selection: rgba(168, 144, 68, 0.5);
-}
-
-[data-theme="persistentsystems"] {
-    --brand-primary: #FD5F07; /* Blaze Orange: RGB(253, 95, 7) */
-    --brand-primary-rgb: 253, 95, 7;
-    --brand-accent: #ff833b;
-    --brand-accent-rgb: 255, 131, 59;
-    --brand-accent-light: #ffb27d;
-    --brand-bg-base: #091224; /* Midnight Blue: RGB(9, 29, 64) */
-    --brand-bg-surface: #0e1933;
-    --brand-bg-card: rgba(14, 25, 48, 0.82);
-    --brand-bg-card-hover: rgba(22, 38, 72, 0.92);
-    --brand-border: rgba(253, 95, 7, 0.3);
-    --brand-border-active: rgba(253, 95, 7, 0.8);
-    --brand-glow: rgba(253, 95, 7, 0.35);
-    --brand-badge-bg: rgba(253, 95, 7, 0.2);
-    --brand-badge-border: rgba(253, 95, 7, 0.5);
-    --brand-badge-text: #fdba74;
-    --brand-btn-bg: #FD5F07;
-    --brand-btn-border: #ff833b;
-    --brand-btn-hover: #e65200;
-    --brand-highlight-hint: #FD5F07;
-    --brand-hint-rgb: 253, 95, 7;
-    --brand-selection: rgba(253, 95, 7, 0.5);
-}
-
-::selection {
-    background: var(--brand-selection);
-    color: #ffffff;
-}
-
-/* ==========================================================================
-   Theme Utility Classes
-   ========================================================================== */
-
-.theme-card {
-    background-color: var(--brand-bg-card) !important;
-    border-color: var(--brand-border) !important;
-    transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-}
-
-.theme-card:hover {
-    border-color: var(--brand-border-active) !important;
-    box-shadow: 0 8px 24px -4px var(--brand-glow);
-}
-
-.theme-border {
-    border-color: var(--brand-border) !important;
-}
-
-.theme-border-active {
-    border-color: var(--brand-border-active) !important;
-}
-
-.theme-bg-card {
-    background-color: var(--brand-bg-card) !important;
-}
-
-.theme-badge {
-    background-color: var(--brand-badge-bg) !important;
-    border-color: var(--brand-badge-border) !important;
-    color: var(--brand-badge-text) !important;
-}
-
-.theme-text-accent {
-    color: var(--brand-accent) !important;
-}
-
-.theme-text-primary {
-    color: var(--brand-primary) !important;
-}
-
-.theme-btn-primary {
-    background-color: var(--brand-btn-bg) !important;
-    border-color: var(--brand-btn-border) !important;
-    color: #ffffff !important;
-    box-shadow: 0 4px 14px -2px var(--brand-glow);
-    transition: all 0.25s ease;
-}
-
-.theme-btn-primary:hover {
-    background-color: var(--brand-btn-hover) !important;
-    box-shadow: 0 6px 20px 0 var(--brand-glow);
-}
-
-/* ==========================================================================
-   3D Cylindrical Experience Drum
-   ========================================================================== */
-
-.cylinder-wrapper {
-    perspective: 850px;
-    perspective-origin: 50% 50%;
-}
-
-.cylinder-drum {
-    transform-style: preserve-3d;
+    background-color: var(--bg-canvas);
+    color: var(--text-secondary);
+    min-height: 100vh;
+    overflow-x: hidden;
     position: relative;
-    height: var(--panel-h);
+    letter-spacing: -0.011em;
 }
 
-.cylinder-item {
-    position: absolute;
-    left: 6px;
-    right: 6px;
-    transform-style: preserve-3d;
-    transition: all 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
-    user-select: none;
+/* Atmospheric Ambient Lighting & Subtle Grid Vignette */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 600px;
+    background: radial-gradient(circle 800px at 50% -120px, rgba(99, 102, 241, 0.15), transparent 70%),
+                radial-gradient(circle 600px at 85% 100px, rgba(168, 85, 247, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-.cylinder-active {
-    top: 50%;
-    transform: translateY(-50%) translateZ(16px) scale(1);
-    opacity: 1;
-    z-index: 15;
-    cursor: default;
-    border-color: var(--brand-border-active) !important;
-    box-shadow: 0 10px 26px -4px var(--brand-glow);
-    background-color: var(--brand-bg-card) !important;
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 15%, #000 40%, transparent 85%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 15%, #000 40%, transparent 85%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-.cylinder-prev {
-    top: 4px;
-    transform: rotateX(24deg) scale(0.92) translateZ(-8px);
-    opacity: 0.46;
-    z-index: 6;
-    cursor: pointer;
-    border-color: var(--brand-border) !important;
+/* Selection Color */
+::selection {
+    background: rgba(99, 102, 241, 0.35);
+    color: #FFFFFF;
 }
 
-.cylinder-next {
-    bottom: 4px;
-    transform: rotateX(-24deg) scale(0.92) translateZ(-8px);
-    opacity: 0.46;
-    z-index: 6;
-    cursor: pointer;
-    border-color: var(--brand-border) !important;
+/* Code & Schematic Typography */
+.font-mono, code, pre, .code-font {
+    font-family: var(--font-mono);
 }
 
-.cylinder-item:hover:not(.cylinder-active) {
-    opacity: 0.85;
-    background-color: rgba(30, 41, 59, 0.8);
-    border-color: var(--brand-border-active) !important;
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
 }
-
-.cylinder-fade-top {
-    background: linear-gradient(to bottom, var(--brand-bg-base) 0%, rgba(0, 0, 0, 0) 100%);
-    transition: background 0.4s ease;
+::-webkit-scrollbar-track {
+    background: #06070A;
 }
-
-.cylinder-fade-bottom {
-    background: linear-gradient(to top, var(--brand-bg-base) 0%, rgba(0, 0, 0, 0) 100%);
-    transition: background 0.4s ease;
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.6);
 }
 
 /* ==========================================================================
-   Scrollbars & Keyframe Animations
+   Bento Card Architecture with Glass Specular Highlights & Cursor Glow
    ========================================================================== */
 
-::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+.bento-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(18, 21, 33, 0.8) 0%, rgba(11, 13, 20, 0.88) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-card);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    border-radius: 1.125rem;
+    overflow: hidden;
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--brand-bg-base);
+.bento-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+        420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(129, 140, 248, 0.32),
+        transparent 70%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s ease;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--brand-border);
-    border-radius: 2px;
+.bento-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.16), 0 16px 40px -10px var(--glow-indigo);
+    transform: translateY(-2px);
 }
 
-::-webkit-scrollbar-thumb:hover {
-    background: var(--brand-border-active);
+.bento-card:hover::before {
+    opacity: 1;
 }
 
-@keyframes fadeIn {
+/* ==========================================================================
+   Recruiter Mode High-Contrast Telemetry Theme
+   ========================================================================== */
+
+[data-recruiter-mode="true"] {
+    --bg-canvas: #050807;
+}
+
+[data-recruiter-mode="true"] body::before {
+    background: radial-gradient(circle 800px at 50% -120px, rgba(16, 185, 129, 0.15), transparent 70%),
+                radial-gradient(circle 600px at 85% 100px, rgba(52, 211, 153, 0.08), transparent 60%);
+}
+
+[data-recruiter-mode="true"] .recruiter-highlight {
+    border-color: rgba(16, 185, 129, 0.45) !important;
+    box-shadow: inset 0 1px 0 0 rgba(52, 211, 153, 0.25), 0 0 30px -5px var(--glow-emerald) !important;
+    background: linear-gradient(180deg, rgba(13, 27, 20, 0.85) 0%, rgba(8, 18, 14, 0.9) 100%) !important;
+}
+
+[data-recruiter-mode="true"] .recruiter-badge {
+    background-color: rgba(16, 185, 129, 0.18) !important;
+    color: #6EE7B7 !important;
+    border-color: rgba(16, 185, 129, 0.4) !important;
+    box-shadow: 0 0 12px -2px rgba(16, 185, 129, 0.35);
+}
+
+[data-recruiter-mode="true"] #recruiter-toggle-btn {
+    background: linear-gradient(135deg, rgba(6, 78, 59, 0.9) 0%, rgba(4, 120, 87, 0.9) 100%);
+    border-color: #10B981;
+    color: #D1FAE5;
+    box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+}
+
+[data-recruiter-mode="true"] #recruiter-mode-indicator {
+    background-color: #34D399;
+    box-shadow: 0 0 12px #34D399;
+}
+
+/* ==========================================================================
+   Editorial High-Craft Typography Gradients
+   ========================================================================== */
+
+.text-gradient-indigo {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0E7FF 35%, #A5B4FC 65%, #818CF8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+    background: linear-gradient(135deg, #FFFFFF 0%, #D1FAE5 35%, #6EE7B7 65%, #10B981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-amber {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FEF3C7 35%, #FCD34D 65%, #F59E0B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Glassmorphic Navigation & Pills
+   ========================================================================== */
+
+.glass-nav {
+    background: rgba(6, 7, 10, 0.82);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-pill {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-pill:hover {
+    background: rgba(99, 102, 241, 0.14);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 0 16px -3px var(--glow-indigo), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+/* Shimmer Buttons */
+.btn-shimmer-primary {
+    background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #4338CA 100%);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 8px 24px -4px var(--glow-indigo);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-shimmer-primary:hover {
+    background: linear-gradient(135deg, #5B52F2 0%, #7074F8 50%, #4F46E5 100%);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 12px 30px -4px rgba(99, 102, 241, 0.55);
+    transform: translateY(-1px);
+}
+
+.btn-glass {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.2s ease;
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 6px 20px -2px rgba(0, 0, 0, 0.4);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   Interactive Topology Simulator Node Cards
+   ========================================================================== */
+
+.topo-node {
+    position: relative;
+    background: linear-gradient(180deg, rgba(17, 20, 31, 0.9) 0%, rgba(11, 13, 20, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 4px 16px -2px rgba(0, 0, 0, 0.5);
+    border-radius: 0.875rem;
+    padding: 0.95rem;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.topo-node:hover {
+    border-color: rgba(129, 140, 248, 0.5);
+    transform: translateY(-2px);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 10px 26px -6px var(--glow-indigo);
+}
+
+.topo-node.active {
+    border-color: var(--accent-indigo-light);
+    background: linear-gradient(180deg, rgba(26, 31, 52, 0.95) 0%, rgba(16, 19, 32, 0.98) 100%);
+    box-shadow: 0 0 0 1px var(--accent-indigo-light), inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 14px 36px -6px var(--glow-indigo);
+}
+
+/* ==========================================================================
+   Syntax Highlighting Colors for Terminal Code Blocks
+   ========================================================================== */
+
+.syn-keyword { color: #C084FC; font-weight: 600; }
+.syn-string  { color: #34D399; }
+.syn-number  { color: #FBBF24; }
+.syn-boolean { color: #F472B6; font-weight: 600; }
+.syn-key     { color: #38BDF8; font-weight: 500; }
+.syn-type    { color: #67E8F9; }
+.syn-comment { color: #64748B; font-style: italic; }
+.syn-func    { color: #818CF8; font-weight: 600; }
+
+/* ==========================================================================
+   Command Palette (⌘K) Modal Styling
+   ========================================================================== */
+
+#cmdk-modal {
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+#cmdk-modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#cmdk-modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.cmdk-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.65rem 0.85rem;
+    border-radius: 0.625rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cmdk-item:hover, .cmdk-item.selected {
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   Toast Notification Styling
+   ========================================================================== */
+
+#toast-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.toast {
+    background: rgba(18, 22, 34, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: #F8FAFC;
+    border: 1px solid rgba(99, 102, 241, 0.45);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 12px 36px -4px rgba(0, 0, 0, 0.7), 0 0 24px -4px var(--glow-indigo);
+    border-radius: 0.875rem;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.8125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    animation: toastSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    pointer-events: auto;
+}
+
+@keyframes toastSlideIn {
     from {
         opacity: 0;
-        transform: translateY(3px);
+        transform: translateY(16px) scale(0.96);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
-.animate-fade-in {
-    animation: fadeIn 0.18s ease-out both;
+@keyframes toastSlideOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(16px) scale(0.96);
+    }
+}
+
+/* Focus Rings for Accessibility */
+button:focus-visible, a:focus-visible, input:focus-visible {
+    outline: 2px solid var(--accent-indigo-light);
+    outline-offset: 2px;
 }
