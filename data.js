@@ -160,10 +160,10 @@ const portfolioData = {
             honors: "Best Team (H1 '26) • Best Performer (Q1 & Q2 '26)",
             stack: ["LangGraph", "Azure Durable Functions", "Azure AI Foundry (GPT-5.4 mini)", "Managed Kafka", "Azure Event Hubs", "Azure Content Safety", "Pydantic", "Blob Storage"],
             metrics: [
-                { label: "Claims Intake", value: "100k+/yr" },
-                { label: "Deployment SLA", value: "1 Day" },
-                { label: "Micro-Agents", value: "145+" },
-                { label: "Active Journeys", value: "19" }
+                { label: "AST Parse Cache", value: "< 0.4ms" },
+                { label: "Cold Start Latency", value: "0ms (Warm)" },
+                { label: "APP-19 Privacy", value: "100% Pass" },
+                { label: "Prompt Duplication", value: "0%" }
             ],
             narrative: {
                 challenge: "Legacy claim intake pipelines required 10–14 days of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.",
@@ -171,10 +171,10 @@ const portfolioData = {
                 impact: "Slashed new claim journey launch time from 14 days to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and 100% regulatory compliance."
             },
             deliverables: [
-                "Architected the declarative JSON workflow engine driving 19 claim types, allowing business & prompt engineers to launch new claim journeys in 24 hours without backend redeployment.",
-                "Implemented multi-tier Azure Content Safety & LangChain PII redaction middleware ensuring 100% compliance with Australian corporate privacy standards (APP).",
-                "Synchronized LangGraph node transitions with Azure Durable Functions and warm Kafka consumer pools to prevent cold-start bottlenecks.",
-                "Designed a two-tier decoupled prompt architecture combining generalized agent directives with journey-specific rules, eliminating 100% of prompt duplication."
+                "<strong>[Architecture]</strong> Declarative JSON workflow engine driving 19 claim types, allowing business & prompt engineers to launch new claim journeys in 24 hours without backend redeployment.",
+                "<strong>[Guardrails]</strong> Multi-tier Azure Content Safety & LangChain PII redaction middleware ensuring 100% compliance with Australian corporate privacy standards (APP).",
+                "<strong>[Orchestration]</strong> Synchronized LangGraph node transitions with Azure Durable Functions and warm Kafka consumer pools to prevent cold-start bottlenecks.",
+                "<strong>[Prompt Decoupling]</strong> Two-tier prompt architecture combining generalized agent directives with journey-specific rules, eliminating 100% of prompt duplication."
             ]
         },
         {
@@ -200,10 +200,10 @@ const portfolioData = {
                 impact: "Reduced manual analytics development effort by 80%, accelerated query retrieval by 40%, and achieved 35% higher response precision with zero database schema leaks."
             },
             deliverables: [
-                "Engineered high-performance FastAPI Text-to-SQL endpoints with sub-second translation of complex natural language questions into structured SQL queries.",
-                "Architected custom hybrid session memory buffers, boosting query accuracy by 35% and improving operational SQL execution rates by 25%.",
-                "Deployed CrewAI multi-agent code generation and review team with deterministic AST dialect verification via sqlglot across PostgreSQL and Azure SQL.",
-                "Sharded database metadata catalogs into hot memory spaces to eliminate schema lookup lockups during high-concurrency analytical bursts."
+                "<strong>FastAPI Endpoints:</strong> Engineered high-performance FastAPI Text-to-SQL endpoints with sub-second translation of complex natural language questions into structured SQL queries.",
+                "<strong>Hybrid Memory:</strong> Architected custom hybrid session memory buffers, boosting query accuracy by 35% and improving operational SQL execution rates by 25%.",
+                "<strong>AST Verification:</strong> Deployed CrewAI multi-agent code generation and review team with deterministic AST dialect verification via sqlglot across PostgreSQL and Azure SQL.",
+                "<strong>Metadata Sharding:</strong> Sharded database metadata catalogs into hot memory spaces to eliminate schema lookup lockups during high-concurrency analytical bursts."
             ]
         },
         {
@@ -229,10 +229,10 @@ const portfolioData = {
                 impact: "Cut developer onboarding lookup time by 40%, slashed model serving response latency by 50%, and boosted overall developer output by 25% across enterprise initiatives."
             },
             deliverables: [
-                "Built high-throughput search indexing pipelines and microservices handling millions of records with hybrid dense-sparse neural retrieval.",
-                "Architected an internal RAG codebase knowledge graph with AST chunking and vector search, reducing developer lookup time by 40%.",
-                "Implemented distributed model-serving endpoints with FastAPI and vLLM continuous batching, cutting inference latency by 50%.",
-                "Designed multi-source dataset curation pipelines for LoRA/QLoRA fine-tuning, improving data preparation velocity by 40%."
+                "<strong>Distributed Search:</strong> Built high-throughput search indexing pipelines and microservices handling millions of records with hybrid dense-sparse neural retrieval.",
+                "<strong>Codebase RAG:</strong> Architected an internal RAG codebase knowledge graph with AST chunking and vector search, reducing developer lookup time by 40%.",
+                "<strong>Model Serving:</strong> Implemented distributed model-serving endpoints with FastAPI and vLLM continuous batching, cutting inference latency by 50%.",
+                "<strong>Dataset Curation:</strong> Designed multi-source dataset curation pipelines for LoRA/QLoRA fine-tuning, improving data preparation velocity by 40%."
             ]
         }
     ],
@@ -572,7 +572,7 @@ class EnterpriseClaimSafetyGate:
         { id: "philosophy", label: "Engineering Philosophy & The Lab", category: "Jump to Section", icon: "cpu", action: "scroll", target: "philosophy" },
         { id: "contact", label: "Frictionless Recruitment Footer", category: "Jump to Section", icon: "mail", action: "scroll", target: "contact" },
         { id: "resume", label: "Download Resume (PDF)", category: "Quick Actions", icon: "file-text", action: "download-resume" },
-        { id: "toggle-recruiter", label: "Toggle Recruiter Mode (Focus View)", category: "Quick Actions", icon: "sparkles", action: "toggle-recruiter-mode" },
+        { id: "toggle-dark-mode", label: "Toggle Dark Mode (Obsidian Scheme)", category: "Quick Actions", icon: "moon", action: "toggle-recruiter-mode" },
         { id: "copy-email", label: "Copy Email (shivraj.25d@gmail.com)", category: "Quick Actions", icon: "copy", action: "copy-email" },
         { id: "copy-phone", label: "Copy Phone (+91 7972476081)", category: "Quick Actions", icon: "phone", action: "copy-phone" },
         { id: "vcard", label: "Save Contact (vCard .vcf)", category: "Quick Actions", icon: "user-plus", action: "download-vcard" },
