@@ -1,31 +1,35 @@
 /* ==========================================================================
    Shivraj Dhaytadak Portfolio - Design System & UI Engine
    Standard: "Wall of Portfolios" (High-Craft Obsidian & Cosmic Glass)
-   Inspired by: Linear, Raycast, Stripe Press, Vercel
+   Inspired by: Linear, Raycast, Stripe Press, Vercel, Apple Developer
    ========================================================================== */
 
 :root {
     /* Cosmic Obsidian Palette */
-    --bg-canvas: #06070A;
-    --bg-surface: #0B0D14;
-    --bg-card: rgba(14, 16, 25, 0.85);
-    --bg-card-elevated: rgba(20, 23, 36, 0.9);
-    --bg-card-hover: rgba(24, 28, 44, 0.95);
+    --bg-canvas: #08090E;
+    --bg-surface: #0E111A;
+    --bg-surface-inset: #090B12;
+    --bg-card: rgba(16, 19, 29, 0.78);
+    --bg-card-elevated: rgba(22, 26, 38, 0.88);
+    --bg-card-hover: rgba(26, 31, 46, 0.95);
     
-    /* Precision Specular Borders */
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-card: rgba(255, 255, 255, 0.09);
-    --border-hover: rgba(129, 140, 248, 0.45);
-    --border-active: rgba(99, 102, 241, 0.8);
+    /* Precision Specular Borders & Rims */
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-card: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(129, 140, 248, 0.4);
+    --border-active: rgba(99, 102, 241, 0.75);
 
-    /* Cohesive Accent Palette */
+    /* Cohesive Semantic Palette */
     --accent-indigo: #6366F1;
     --accent-indigo-light: #818CF8;
     --accent-violet: #A855F7;
+    --accent-violet-light: #C084FC;
     --accent-emerald: #10B981;
     --accent-emerald-light: #34D399;
     --accent-sky: #38BDF8;
+    --accent-sky-light: #7DD3FC;
     --accent-amber: #F59E0B;
+    --accent-amber-light: #FBBF24;
     --accent-rose: #FB7185;
 
     /* Typography Hierarchy */
@@ -34,10 +38,13 @@
     --text-muted: #94A3B8;
     --text-dim: #64748B;
 
-    /* Atmospheric Glow Shadows */
+    /* Layered Atmospheric Shadows */
+    --shadow-card: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), inset 0 0 0 1px rgba(255, 255, 255, 0.02), 0 12px 36px -8px rgba(0, 0, 0, 0.65);
+    --shadow-card-hover: inset 0 1px 0 0 rgba(255, 255, 255, 0.22), 0 16px 44px -10px rgba(99, 102, 241, 0.35);
     --glow-indigo: rgba(99, 102, 241, 0.35);
     --glow-emerald: rgba(16, 185, 129, 0.35);
     --glow-sky: rgba(56, 189, 248, 0.3);
+    --glow-amber: rgba(245, 158, 11, 0.35);
 
     --font-mono: 'JetBrains Mono', monospace;
 }
@@ -58,16 +65,18 @@ body {
     letter-spacing: -0.011em;
 }
 
-/* Atmospheric Ambient Lighting & Subtle Grid Vignette */
+/* Atmospheric Multi-Stop Ambient Mesh Lighting */
 body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 600px;
-    background: radial-gradient(circle 800px at 50% -120px, rgba(99, 102, 241, 0.15), transparent 70%),
-                radial-gradient(circle 600px at 85% 100px, rgba(168, 85, 247, 0.08), transparent 60%);
+    height: 100vh;
+    background: radial-gradient(1000px circle at 18% -8%, rgba(99, 102, 241, 0.16), transparent 60%),
+                radial-gradient(850px circle at 85% 6%, rgba(14, 165, 233, 0.1), transparent 55%),
+                radial-gradient(900px circle at 50% 60%, rgba(139, 92, 246, 0.06), transparent 65%),
+                radial-gradient(800px circle at 40% 95%, rgba(99, 102, 241, 0.08), transparent 70%);
     pointer-events: none;
     z-index: 0;
 }
@@ -76,10 +85,10 @@ body::after {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
     background-size: 28px 28px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 15%, #000 40%, transparent 85%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 15%, #000 40%, transparent 85%);
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 18%, #000 45%, transparent 90%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 18%, #000 45%, transparent 90%);
     pointer-events: none;
     z-index: 0;
 }
@@ -95,16 +104,16 @@ body::after {
     font-family: var(--font-mono);
 }
 
-/* Custom Scrollbars */
+/* Custom Sleek Scrollbars */
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: #06070A;
+    background: #08090E;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.14);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -117,11 +126,11 @@ body::after {
 
 .bento-card {
     position: relative;
-    background: linear-gradient(180deg, rgba(18, 21, 33, 0.8) 0%, rgba(11, 13, 20, 0.88) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: linear-gradient(180deg, rgba(18, 22, 34, 0.75) 0%, rgba(11, 13, 22, 0.85) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid var(--border-card);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08), 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-card);
     border-radius: 1.125rem;
     overflow: hidden;
     transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
@@ -151,7 +160,7 @@ body::after {
 
 .bento-card:hover {
     border-color: var(--border-hover);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.16), 0 16px 40px -10px var(--glow-indigo);
+    box-shadow: var(--shadow-card-hover);
     transform: translateY(-2px);
 }
 
@@ -160,41 +169,85 @@ body::after {
 }
 
 /* ==========================================================================
-   Recruiter Mode High-Contrast Telemetry Theme
+   Scrollytelling Sticky Pipeline Visuals
+   ========================================================================== */
+
+.step-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(18, 22, 34, 0.8) 0%, rgba(11, 13, 22, 0.9) 100%);
+    border: 1px solid var(--border-card);
+    box-shadow: var(--shadow-card);
+    border-radius: 1.125rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-card.active {
+    opacity: 1 !important;
+    border-color: rgba(99, 102, 241, 0.55) !important;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 14px 40px -8px rgba(99, 102, 241, 0.3) !important;
+    transform: scale(1.01);
+}
+
+.hud-container {
+    background: linear-gradient(180deg, rgba(14, 17, 27, 0.92) 0%, rgba(9, 11, 18, 0.96) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 20px 50px -10px rgba(0, 0, 0, 0.7);
+    border-radius: 1.25rem;
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.hud-node {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+    border-radius: 0.875rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-node.active {
+    border-color: rgba(99, 102, 241, 0.6) !important;
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.16) 0%, rgba(14, 165, 233, 0.08) 100%) !important;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 0 24px -4px rgba(99, 102, 241, 0.35) !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   Recruiter Mode High-Contrast Cyber-Amber Executive Theme
    ========================================================================== */
 
 [data-recruiter-mode="true"] {
-    --bg-canvas: #050807;
+    --bg-canvas: #07080A;
 }
 
 [data-recruiter-mode="true"] body::before {
-    background: radial-gradient(circle 800px at 50% -120px, rgba(16, 185, 129, 0.15), transparent 70%),
-                radial-gradient(circle 600px at 85% 100px, rgba(52, 211, 153, 0.08), transparent 60%);
+    background: radial-gradient(900px circle at 50% -100px, rgba(245, 158, 11, 0.15), transparent 70%),
+                radial-gradient(800px circle at 85% 100px, rgba(217, 119, 6, 0.08), transparent 60%);
 }
 
 [data-recruiter-mode="true"] .recruiter-highlight {
-    border-color: rgba(16, 185, 129, 0.45) !important;
-    box-shadow: inset 0 1px 0 0 rgba(52, 211, 153, 0.25), 0 0 30px -5px var(--glow-emerald) !important;
-    background: linear-gradient(180deg, rgba(13, 27, 20, 0.85) 0%, rgba(8, 18, 14, 0.9) 100%) !important;
+    border-color: rgba(245, 158, 11, 0.5) !important;
+    box-shadow: inset 0 1px 0 0 rgba(251, 191, 36, 0.25), 0 0 32px -6px var(--glow-amber) !important;
+    background: linear-gradient(180deg, rgba(26, 20, 10, 0.85) 0%, rgba(15, 12, 7, 0.9) 100%) !important;
 }
 
 [data-recruiter-mode="true"] .recruiter-badge {
-    background-color: rgba(16, 185, 129, 0.18) !important;
-    color: #6EE7B7 !important;
-    border-color: rgba(16, 185, 129, 0.4) !important;
-    box-shadow: 0 0 12px -2px rgba(16, 185, 129, 0.35);
+    background-color: rgba(245, 158, 11, 0.18) !important;
+    color: #FDE68A !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+    box-shadow: 0 0 14px -2px rgba(245, 158, 11, 0.35);
 }
 
 [data-recruiter-mode="true"] #recruiter-toggle-btn {
-    background: linear-gradient(135deg, rgba(6, 78, 59, 0.9) 0%, rgba(4, 120, 87, 0.9) 100%);
-    border-color: #10B981;
-    color: #D1FAE5;
-    box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(120, 53, 15, 0.9) 0%, rgba(180, 83, 9, 0.9) 100%);
+    border-color: #F59E0B;
+    color: #FEF3C7;
+    box-shadow: 0 0 20px -3px rgba(245, 158, 11, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
 }
 
 [data-recruiter-mode="true"] #recruiter-mode-indicator {
-    background-color: #34D399;
-    box-shadow: 0 0 12px #34D399;
+    background-color: #FBBF24;
+    box-shadow: 0 0 12px #FBBF24;
 }
 
 /* ==========================================================================
@@ -202,19 +255,31 @@ body::after {
    ========================================================================== */
 
 .text-gradient-indigo {
-    background: linear-gradient(135deg, #FFFFFF 0%, #E0E7FF 35%, #A5B4FC 65%, #818CF8 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0E7FF 30%, #A5B4FC 60%, #818CF8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-cyan {
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0F2FE 30%, #7DD3FC 60%, #38BDF8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-emerald {
-    background: linear-gradient(135deg, #FFFFFF 0%, #D1FAE5 35%, #6EE7B7 65%, #10B981 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #D1FAE5 30%, #6EE7B7 60%, #10B981 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-amber {
-    background: linear-gradient(135deg, #FFFFFF 0%, #FEF3C7 35%, #FCD34D 65%, #F59E0B 100%);
+    background: linear-gradient(135deg, #FFFFFF 0%, #FEF3C7 30%, #FCD34D 60%, #F59E0B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-metallic {
+    background: linear-gradient(180deg, #FFFFFF 25%, #CBD5E1 70%, #94A3B8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -224,11 +289,11 @@ body::after {
    ========================================================================== */
 
 .glass-nav {
-    background: rgba(6, 7, 10, 0.82);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(8, 9, 14, 0.82);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .glass-pill {
@@ -248,28 +313,28 @@ body::after {
 
 /* Shimmer Buttons */
 .btn-shimmer-primary {
-    background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #4338CA 100%);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.25), 0 8px 24px -4px var(--glow-indigo);
+    background: linear-gradient(135deg, #4338CA 0%, #6366F1 50%, #7C3AED 100%);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.32), 0 8px 24px -4px var(--glow-indigo), 0 0 20px -4px rgba(124, 58, 237, 0.35);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-shimmer-primary:hover {
-    background: linear-gradient(135deg, #5B52F2 0%, #7074F8 50%, #4F46E5 100%);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.35), 0 12px 30px -4px rgba(99, 102, 241, 0.55);
+    background: linear-gradient(135deg, #4F46E5 0%, #7074F8 50%, #8B5CF6 100%);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.45), 0 12px 32px -4px rgba(99, 102, 241, 0.65), 0 0 28px 0px rgba(124, 58, 237, 0.5);
     transform: translateY(-1px);
 }
 
 .btn-glass {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
-    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-glass:hover {
-    background: rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 6px 20px -2px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 6px 20px -2px rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
 }
 
@@ -279,7 +344,7 @@ body::after {
 
 .topo-node {
     position: relative;
-    background: linear-gradient(180deg, rgba(17, 20, 31, 0.9) 0%, rgba(11, 13, 20, 0.95) 100%);
+    background: linear-gradient(180deg, rgba(17, 20, 31, 0.85) 0%, rgba(11, 13, 20, 0.92) 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.06), 0 4px 16px -2px rgba(0, 0, 0, 0.5);
     border-radius: 0.875rem;
@@ -291,25 +356,26 @@ body::after {
 .topo-node:hover {
     border-color: rgba(129, 140, 248, 0.5);
     transform: translateY(-2px);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 10px 26px -6px var(--glow-indigo);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.14), 0 10px 26px -6px var(--glow-indigo);
 }
 
 .topo-node.active {
     border-color: var(--accent-indigo-light);
-    background: linear-gradient(180deg, rgba(26, 31, 52, 0.95) 0%, rgba(16, 19, 32, 0.98) 100%);
+    border-left: 3px solid #818CF8;
+    background: linear-gradient(90deg, rgba(30, 37, 65, 0.95) 0%, rgba(16, 19, 32, 0.98) 100%);
     box-shadow: 0 0 0 1px var(--accent-indigo-light), inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 14px 36px -6px var(--glow-indigo);
 }
 
 /* ==========================================================================
-   Syntax Highlighting Colors for Terminal Code Blocks
+   Syntax Highlighting Colors for Terminal Code Blocks (Tokyo Night / Vercel Pro)
    ========================================================================== */
 
 .syn-keyword { color: #C084FC; font-weight: 600; }
 .syn-string  { color: #34D399; }
 .syn-number  { color: #FBBF24; }
 .syn-boolean { color: #F472B6; font-weight: 600; }
-.syn-key     { color: #38BDF8; font-weight: 500; }
-.syn-type    { color: #67E8F9; }
+.syn-key     { color: #7DD3FC; font-weight: 500; }
+.syn-type    { color: #38BDF8; }
 .syn-comment { color: #64748B; font-style: italic; }
 .syn-func    { color: #818CF8; font-weight: 600; }
 
@@ -365,9 +431,9 @@ body::after {
 }
 
 .toast {
-    background: rgba(18, 22, 34, 0.95);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(16, 20, 32, 0.95);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     color: #F8FAFC;
     border: 1px solid rgba(99, 102, 241, 0.45);
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 12px 36px -4px rgba(0, 0, 0, 0.7), 0 0 24px -4px var(--glow-indigo);
@@ -408,3 +474,73 @@ button:focus-visible, a:focus-visible, input:focus-visible {
     outline: 2px solid var(--accent-indigo-light);
     outline-offset: 2px;
 }
+
+/* ==========================================================================
+   Persona Lens Switcher (Recruiter | AI Manager | AI Engineer)
+   ========================================================================== */
+
+.persona-dock {
+    background: rgba(14, 18, 28, 0.88);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 8px 32px rgba(0, 0, 0, 0.5);
+    border-radius: 9999px;
+    padding: 0.25rem 0.35rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.persona-btn {
+    border-radius: 9999px;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+}
+
+.persona-btn:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.persona-btn.active {
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #4338CA 0%, #6366F1 50%, #7C3AED 100%);
+    border-color: rgba(129, 140, 248, 0.5);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.3), 0 0 20px -3px rgba(99, 102, 241, 0.5);
+    font-weight: 600;
+}
+
+/* Persona block visibility */
+.persona-hidden {
+    display: none !important;
+}
+
+/* Persona Specific Badges */
+.persona-tag-recruiter {
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(129, 140, 248, 0.3);
+    color: #A5B4FC;
+}
+
+.persona-tag-manager {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    color: #6EE7B7;
+}
+
+.persona-tag-engineer {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(125, 211, 252, 0.3);
+    color: #7DD3FC;
+}
+

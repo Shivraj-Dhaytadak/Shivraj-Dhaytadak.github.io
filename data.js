@@ -561,8 +561,12 @@ class EnterpriseClaimSafetyGate:
     },
 
     commandPaletteItems: [
+        { id: "persona-recruiter", label: "Switch Persona: 👔 Recruiter View", category: "Persona Lens", icon: "user-check", action: "switch-persona", persona: "recruiter" },
+        { id: "persona-manager", label: "Switch Persona: 💼 AI Manager View", category: "Persona Lens", icon: "briefcase", action: "switch-persona", persona: "manager" },
+        { id: "persona-engineer", label: "Switch Persona: ⚡ AI Engineer View", category: "Persona Lens", icon: "cpu", action: "switch-persona", persona: "engineer" },
         { id: "hero", label: "Hero & Manifesto", category: "Jump to Section", icon: "terminal", action: "scroll", target: "hero" },
         { id: "recruiter", label: "Recruiter 60-Second Fast Track", category: "Jump to Section", icon: "zap", action: "scroll", target: "recruiter-snapshot" },
+        { id: "pipeline", label: "How Systems Operate: Agentic Claim Pipeline", category: "Jump to Section", icon: "git-merge", action: "scroll", target: "pipeline" },
         { id: "timeline", label: "The Career Evolution (Allianz, Yash, Persistent)", category: "Jump to Section", icon: "clock", action: "scroll", target: "career-timeline" },
         { id: "case-study", label: "Flagship Case Study: Project Bluey", category: "Jump to Section", icon: "layers", action: "scroll", target: "case-study" },
         { id: "philosophy", label: "Engineering Philosophy & The Lab", category: "Jump to Section", icon: "cpu", action: "scroll", target: "philosophy" },

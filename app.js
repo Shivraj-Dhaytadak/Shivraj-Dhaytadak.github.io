@@ -6,6 +6,7 @@
  */
 
 // Application State
+let currentPersona = "recruiter";
 let activeCareerAct = "allianz";
 let activeCodeTabId = "schema_tab";
 let activeTopologyNodeId = "langgraph_engine";
@@ -168,6 +169,90 @@ END:VCARD`;
 }
 
 // ==========================================================================
+// 2B. Persona Lens Switcher Engine (Recruiter | AI Manager | AI Engineer)
+// ==========================================================================
+function switchPersona(persona, updateUrlHash = true, showNotification = true) {
+    const validPersonas = ["recruiter", "manager", "engineer"];
+    if (!validPersonas.includes(persona)) persona = "recruiter";
+
+    currentPersona = persona;
+    localStorage.setItem("selected_persona", persona);
+
+    if (updateUrlHash) {
+        history.replaceState(null, null, "#" + persona);
+    }
+
+    // Update switcher button active styles
+    document.querySelectorAll(".persona-btn").forEach(btn => {
+        const isActive = btn.dataset.targetView === persona;
+        btn.classList.toggle("active", isActive);
+    });
+
+    // Toggle visibility of elements with [data-persona]
+    document.querySelectorAll("[data-persona]").forEach(el => {
+        const allowed = el.dataset.persona.split(",").map(s => s.trim().toLowerCase());
+        const isMatch = allowed.includes(persona) || allowed.includes("all");
+        if (isMatch) {
+            el.classList.remove("persona-hidden");
+        } else {
+            el.classList.add("persona-hidden");
+        }
+    });
+
+    // Set persona mode attribute on <html>
+    document.documentElement.setAttribute("data-persona-mode", persona);
+
+    // Re-render any icons inside revealed elements
+    if (window.lucide && typeof lucide.createIcons === "function") {
+        lucide.createIcons();
+    }
+
+    if (showNotification) {
+        const notices = {
+            recruiter: { text: "👔 Recruiter View: Showing fast track credentials, ATS keywords & 1-click contact", icon: "user-check" },
+            manager: { text: "💼 AI Manager View: Showing business velocity, 13x ROI & system governance", icon: "briefcase" },
+            engineer: { text: "⚡ AI Engineer View: Showing Pydantic schemas, state invariants & technical post-mortem", icon: "cpu" }
+        };
+        const n = notices[persona];
+        if (n) showToast(n.text, n.icon, 2400);
+    }
+}
+
+function initPersonaSwitcher() {
+    const buttons = document.querySelectorAll(".persona-btn");
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const target = btn.dataset.targetView;
+            if (target) switchPersona(target, true, true);
+        });
+    });
+
+    // Check initial hash (e.g. #manager) or localStorage, defaulting to 'recruiter'
+    const validPersonas = ["recruiter", "manager", "engineer"];
+    const currentHash = window.location.hash.replace("#", "").toLowerCase();
+    let initialPersona = "recruiter";
+
+    if (validPersonas.includes(currentHash)) {
+        initialPersona = currentHash;
+    } else {
+        const saved = localStorage.getItem("selected_persona");
+        if (validPersonas.includes(saved)) {
+            initialPersona = saved;
+        }
+    }
+
+    switchPersona(initialPersona, false, false);
+
+    // Listen for hash changes (e.g. user clicks shared link or browser back/forward)
+    window.addEventListener("hashchange", () => {
+        const newHash = window.location.hash.replace("#", "").toLowerCase();
+        if (validPersonas.includes(newHash) && newHash !== currentPersona) {
+            switchPersona(newHash, false, true);
+        }
+    });
+}
+
+// ==========================================================================
 // 3. Recruiter Mode Toggle Engine
 // ==========================================================================
 function setRecruiterMode(state) {
@@ -241,6 +326,8 @@ function executeCmdkAction(item) {
         copyToClipboard(portfolioData.profile.phone, "Phone");
     } else if (item.action === "download-vcard") {
         downloadVCard();
+    } else if (item.action === "switch-persona") {
+        switchPersona(item.persona, true, true);
     } else if (item.action === "open-link" && item.url) {
         window.open(item.url, "_blank", "noopener,noreferrer");
     }
@@ -251,8 +338,11 @@ function renderCmdkList(filterText = "") {
     if (!container) return;
 
     const query = filterText.toLowerCase().trim();
+    const queryTokens = query.split(/\s+/).filter(Boolean);
     filteredCmdkItems = portfolioData.commandPaletteItems.filter(item => {
-        return item.label.toLowerCase().includes(query) || item.category.toLowerCase().includes(query);
+        if (queryTokens.length === 0) return true;
+        const haystack = `${item.label} ${item.category}`.toLowerCase();
+        return queryTokens.every(token => haystack.includes(token));
     });
 
     if (filteredCmdkItems.length === 0) {
@@ -416,7 +506,7 @@ function animateCounter(element, target, suffix = "", duration = 1200) {
 // ==========================================================================
 function initBentoCardGlow() {
     document.addEventListener("mousemove", (e) => {
-        const cards = document.querySelectorAll(".bento-card");
+        const cards = document.querySelectorAll(".bento-card, .step-card");
         cards.forEach(card => {
             const rect = card.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -426,6 +516,109 @@ function initBentoCardGlow() {
         });
     });
 }
+
+// ==========================================================================
+// 6B. Interactive Scrollytelling Visual Pipeline (Agentic Claim Lifecycle)
+// ==========================================================================
+function initPipelineScrollytelling() {
+    const steps = document.querySelectorAll(".step-card");
+    if (steps.length === 0) return;
+
+    const nodes = {
+        "1": document.getElementById("hud-node-1"),
+        "2": document.getElementById("hud-node-2"),
+        "3": document.getElementById("hud-node-3"),
+        "4": document.getElementById("hud-node-4"),
+    };
+    const statusLabel = document.getElementById("pipeline-status");
+    const telemetryWindow = document.getElementById("hud-telemetry");
+
+    const telemetryData = {
+        "1": {
+            status: "INGESTION_ACTIVE",
+            statusClass: "text-indigo-300 bg-indigo-500/15 border-indigo-500/30",
+            json: '{\n  "event_id": "ev_98241a",\n  "status": "STREAM_INGEST",\n  "partition": "kafka-node-0",\n  "throughput": "3,400 msg/sec"\n}'
+        },
+        "2": {
+            status: "GUARDRAILS_VALIDATING",
+            statusClass: "text-emerald-300 bg-emerald-500/15 border-emerald-500/30",
+            json: '{\n  "pii_redacted": true,\n  "content_safety": "PASSED",\n  "compliance": "AU_PRIVACY_OK",\n  "injection_score": 0.001\n}'
+        },
+        "3": {
+            status: "LANGGRAPH_EVALUATION",
+            statusClass: "text-purple-300 bg-purple-500/15 border-purple-500/30",
+            json: '{\n  "graph_id": "motor_claim_v4",\n  "active_nodes": ["policy_val", "coverage_chk"],\n  "confidence": 0.984,\n  "schema": "VALID"\n}'
+        },
+        "4": {
+            status: "RESOLVED_&_DISPATCHED",
+            statusClass: "text-amber-300 bg-amber-500/15 border-amber-500/30",
+            json: '{\n  "decision": "LODGE_APPROVED",\n  "latency": "142ms",\n  "trace_id": "dt_trace_9824",\n  "telemetry": "DYNATRACE_ACK"\n}'
+        }
+    };
+
+    // Initial syntax highlight for node 1
+    if (telemetryWindow && telemetryData["1"]) {
+        telemetryWindow.innerHTML = `<code>${highlightSyntax(telemetryData["1"].json, "json")}</code>`;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const stepNum = entry.target.getAttribute("data-step");
+                
+                // Highlight current step card, dim others
+                steps.forEach(card => {
+                    card.classList.remove("active");
+                    card.classList.add("opacity-40");
+                });
+                entry.target.classList.remove("opacity-40");
+                entry.target.classList.add("active");
+
+                // Update HUD nodes
+                Object.keys(nodes).forEach(num => {
+                    const el = nodes[num];
+                    if (!el) return;
+                    const dot = el.querySelector(".rounded-full");
+                    const latencySpan = el.querySelector("span:last-child");
+                    if (num === stepNum) {
+                        el.className = "hud-node active flex items-center gap-3 p-3 transition-all";
+                        if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-indigo-400 animate-ping shrink-0";
+                        if (latencySpan) {
+                            latencySpan.className = "text-[10px] text-indigo-300 font-mono";
+                            if (num === "1") latencySpan.textContent = "2.1ms";
+                            else if (num === "2") latencySpan.textContent = "18ms";
+                            else if (num === "3") latencySpan.textContent = "1.8s";
+                            else if (num === "4") latencySpan.textContent = "142ms";
+                        }
+                    } else {
+                        el.className = "hud-node flex items-center gap-3 p-3 opacity-40 transition-all";
+                        if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-slate-600 shrink-0";
+                        if (latencySpan) {
+                            latencySpan.className = "text-[10px] text-slate-500 font-mono";
+                            latencySpan.textContent = "Standby";
+                        }
+                    }
+                });
+
+                // Update HUD Status Badge & Telemetry with Syntax Highlighting
+                const data = telemetryData[stepNum];
+                if (data && statusLabel) {
+                    statusLabel.textContent = data.status;
+                    statusLabel.className = `px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold border ${data.statusClass}`;
+                }
+                if (data && telemetryWindow) {
+                    telemetryWindow.innerHTML = `<code>${highlightSyntax(data.json, "json")}</code>`;
+                }
+            }
+        });
+    }, {
+        rootMargin: "-25% 0px -35% 0px",
+        threshold: 0.25
+    });
+
+    steps.forEach(card => observer.observe(card));
+}
+
 
 // ==========================================================================
 // 7. Interactive Editorial Timeline (The Career Evolution)
@@ -478,27 +671,27 @@ function renderCareerAct(actId) {
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 ${act.metrics.map(m => `
                     <div class="bg-slate-950/60 border border-slate-800/80 p-3.5 rounded-xl">
-                        <div class="text-xs text-slate-400 font-medium">${m.label}</div>
-                        <div class="text-xl font-bold font-mono text-white mt-1">${m.value}</div>
+                        <div class="text-[10px] uppercase font-mono tracking-wider text-slate-400 font-medium">${m.label}</div>
+                        <div class="text-xl font-bold font-mono text-gradient-metallic mt-1">${m.value}</div>
                     </div>
                 `).join('')}
             </div>
 
             <!-- STAR-P Narrative Breakdown -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                <div class="bg-slate-950/50 border border-amber-500/20 p-4 rounded-xl flex flex-col gap-2">
+                <div class="bg-slate-950/60 border border-slate-800 border-t-2 border-t-amber-500/80 p-4 rounded-xl flex flex-col gap-2">
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-400">
                         <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i> The Friction / Problem
                     </div>
                     <p class="text-xs text-slate-300 leading-relaxed">${act.narrative.challenge}</p>
                 </div>
-                <div class="bg-slate-950/50 border border-indigo-500/20 p-4 rounded-xl flex flex-col gap-2">
+                <div class="bg-slate-950/60 border border-slate-800 border-t-2 border-t-indigo-500/80 p-4 rounded-xl flex flex-col gap-2">
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
                         <i data-lucide="cpu" class="w-3.5 h-3.5"></i> The Architectural Solution
                     </div>
                     <p class="text-xs text-slate-300 leading-relaxed">${act.narrative.solution}</p>
                 </div>
-                <div class="bg-slate-950/50 border border-emerald-500/20 p-4 rounded-xl flex flex-col gap-2">
+                <div class="bg-slate-950/60 border border-slate-800 border-t-2 border-t-emerald-500/80 p-4 rounded-xl flex flex-col gap-2">
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
                         <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> Proven Impact
                     </div>
@@ -721,11 +914,13 @@ function initPortfolio() {
     }
 
     // Initialize sub-components
+    initPersonaSwitcher();
     renderCareerAct("allianz");
     renderTopologyNodeDetails("langgraph_engine");
     renderCodeTab("schema_tab");
     initKpiCounters();
     initBentoCardGlow();
+    initPipelineScrollytelling();
     setupCmdkListeners();
     setupDelegatedListeners();
 
@@ -739,6 +934,7 @@ function initPortfolio() {
 window.openCmdk = openCmdk;
 window.closeCmdk = closeCmdk;
 window.toggleRecruiterMode = toggleRecruiterMode;
+window.switchPersona = switchPersona;
 window.copyToClipboard = copyToClipboard;
 window.downloadVCard = downloadVCard;
 window.copyActiveCode = copyActiveCode;

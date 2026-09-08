@@ -70,6 +70,7 @@
             <!-- Center Navigation Links -->
             <nav class="hidden md:flex items-center gap-1 bg-slate-900/60 border border-slate-800/80 rounded-full px-3 py-1 text-xs">
                 <a href="#recruiter-snapshot" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Fast Track</a>
+                <a href="#pipeline" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Pipeline</a>
                 <a href="#career-timeline" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Career</a>
                 <a href="#case-study" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Case Study</a>
                 <a href="#philosophy" class="px-3 py-1 text-slate-300 hover:text-white transition-colors rounded-full hover:bg-slate-800">Philosophy</a>
@@ -105,30 +106,88 @@
     </header>
 
     <!-- ==========================================================================
+         FLOATING PERSONA LENS SWITCHER (STICKY SUB-DOCK)
+         ========================================================================== -->
+    <div class="sticky top-[57px] z-30 py-2.5 px-4 flex justify-center pointer-events-none">
+        <nav class="persona-dock pointer-events-auto flex items-center gap-1 shadow-2xl" aria-label="Persona Lens Switcher">
+            <span class="px-3 py-1 text-slate-400 font-mono text-[11px] hidden sm:inline font-medium">Viewing as:</span>
+            <button data-target-view="recruiter" class="persona-btn active" title="30-Second Fast Track for Recruiters & HR">
+                <span>👔</span> <span>Recruiter</span>
+            </button>
+            <button data-target-view="manager" class="persona-btn" title="Business Leverage, Velocity & Governance for AI Leadership">
+                <span>💼</span> <span>AI Manager</span>
+            </button>
+            <button data-target-view="engineer" class="persona-btn" title="Under-the-Hood Technical Rigor & State Machine Schemas">
+                <span>⚡</span> <span>AI Engineer</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- ==========================================================================
          2. HERO SECTION: THE ARCHITECT'S MANIFESTO
          ========================================================================== -->
-    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-14 w-full relative z-10">
+    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-14 w-full relative z-10">
         
-        <!-- Live Status Pill & Availability Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-medium text-emerald-300 mb-6 shadow-sm shadow-emerald-500/10">
+        <!-- Live Status & Focus Callouts (Persona Differentiated) -->
+        <div data-persona="recruiter" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-medium text-emerald-300 mb-6 shadow-sm shadow-emerald-500/10">
             <span class="relative flex h-2 w-2">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span>Agentic AI Consultant @ Allianz Services &bull; Open to Relocation &amp; High-Impact Agentic Roles</span>
+            <span>Serving Standard Notice &bull; Base: Pune, IN &bull; Open to Global Relocation &bull; Ready Immediately</span>
+        </div>
+
+        <div data-persona="manager" class="persona-hidden inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-xs font-medium text-indigo-300 mb-6 shadow-sm shadow-indigo-500/10">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            <span>Executive AI Leadership &bull; 13x Cycle Acceleration &bull; 100% Regulatory Governance</span>
+        </div>
+
+        <div data-persona="engineer" class="persona-hidden inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-xs font-medium text-sky-300 mb-6 shadow-sm shadow-sky-500/10">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
+            </span>
+            <span>Deterministic State Invariants &bull; 145+ Production Micro-Agents &bull; Zero Downstream Drift</span>
         </div>
 
         <!-- Main Persona Header & Editorial Hook -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
             <div class="lg:col-span-8 flex flex-col justify-between">
-                <div>
+                
+                <!-- Recruiter Headline & Pitch -->
+                <div data-persona="recruiter">
+                    <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-[1.12]">
+                        Agentic AI Consultant &amp; <br class="hidden sm:inline" />
+                        <span class="text-gradient-indigo">Enterprise Systems Architect</span>.
+                    </h1>
+                    <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
+                        I'm <strong>Shivraj Dhaytadak</strong>—Agentic AI Consultant at Allianz Services. 4+ years engineering production GenAI solutions, distributed LangGraph state machines, and high-concurrency cloud pipelines across Fortune 100 enterprises.
+                    </p>
+                </div>
+
+                <!-- Manager Headline & Pitch -->
+                <div data-persona="manager" class="persona-hidden">
+                    <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-[1.12]">
+                        Accelerating Enterprise Velocity with <br class="hidden sm:inline" />
+                        <span class="text-gradient-emerald">Governed Multi-Agent AI</span>.
+                    </h1>
+                    <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
+                        I'm <strong>Shivraj Dhaytadak</strong>—translating frontier agentic research into scalable business ROI. Slashed insurance journey rollouts from 14 days to &lt; 24h, eliminated 13 days of dev toil per workflow, and established 100% APP-19 compliance across captive enterprise teams.
+                    </p>
+                </div>
+
+                <!-- Engineer Headline & Pitch -->
+                <div data-persona="engineer" class="persona-hidden">
                     <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-[1.12]">
                         Architecting Resilient <br class="hidden sm:inline" />
                         <span class="text-gradient-indigo">Multi-Agent Systems</span> for Enterprise Scale.
                     </h1>
                     <p class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-                        I'm <strong>Shivraj Dhaytadak</strong>—Agentic AI Consultant at Allianz Services. I bridge stochastic large language models with deterministic, mission-critical distributed pipelines. 4+ years engineering production LangGraph engines, Azure event-driven architectures, and high-throughput agent swarms.
+                        I'm <strong>Shivraj Dhaytadak</strong>—Agentic AI Consultant at Allianz Services. I bridge stochastic large language models with deterministic distributed pipelines: LangGraph state persistence, Kafka buffer pooling, and Pydantic runtime validation gates.
                     </p>
                 </div>
 
@@ -142,7 +201,9 @@
                     <a href="#recruiter-snapshot"
                         class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-sm flex items-center gap-2">
                         <i data-lucide="zap" class="w-4 h-4 text-amber-400"></i>
-                        <span>60s Recruiter View</span>
+                        <span data-persona="recruiter">60s Recruiter View</span>
+                        <span data-persona="manager" class="persona-hidden">Executive Scorecard</span>
+                        <span data-persona="engineer" class="persona-hidden">System Invariants</span>
                     </a>
                     <a href="https://www.linkedin.com/in/shivraj-dhaytadak7" target="_blank" rel="noopener noreferrer"
                         class="p-2.5 rounded-xl btn-glass text-slate-300 hover:text-white transition-colors"
@@ -167,14 +228,16 @@
                 </div>
             </div>
 
-            <!-- Bento Hero Card 2: Executive Summary & Corporate Honors Box -->
-            <div class="lg:col-span-4 bento-card p-6 flex flex-col justify-between gap-5 recruiter-highlight">
+            <!-- Bento Hero Card 2: Persona-Specific Focus Box -->
+            
+            <!-- Recruiter Card: Corporate Honors & Availability -->
+            <div data-persona="recruiter" class="lg:col-span-4 bento-card p-6 flex flex-col justify-between gap-5 recruiter-highlight">
                 <div>
                     <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between border-b border-slate-800/80 pb-2">
                         <span class="flex items-center gap-1.5">
-                            <i data-lucide="award" class="w-3.5 h-3.5 text-indigo-400"></i> Corporate Honors
+                            <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i> Corporate Honors
                         </span>
-                        <span class="text-indigo-400 font-mono text-[11px]">2022–2026</span>
+                        <span class="text-amber-400 font-mono text-[11px]">2022–2026</span>
                     </div>
                     <ul class="space-y-3.5 text-xs">
                         <li class="flex items-start gap-2.5">
@@ -209,35 +272,156 @@
                 </div>
             </div>
 
+            <!-- Manager Card: Executive Governance & ROI Blueprint -->
+            <div data-persona="manager" class="persona-hidden lg:col-span-4 bento-card p-6 flex flex-col justify-between gap-5 border-emerald-500/30">
+                <div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3 flex items-center justify-between border-b border-slate-800/80 pb-2">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-400"></i> Executive ROI Snapshot
+                        </span>
+                        <span class="text-emerald-400 font-mono text-[11px]">Leadership Scope</span>
+                    </div>
+                    <ul class="space-y-3.5 text-xs">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-emerald-400 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">13x Deployment Acceleration:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">Slashed claim journey rollouts from 14 days to &lt; 24h via declarative JSON</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-emerald-400 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Zero Compliance Breaches:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">100% APP-19 compliance via automated PII redaction and dual safety gates</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-emerald-400 mt-0.5">✓</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Zero Token Waste:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">Hot caching in Blob storage eliminates redundant LLM reasoning cycles</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3">
+                    <div class="text-[11px] font-mono text-emerald-400 flex items-center justify-between">
+                        <span>Scope: <strong>Enterprise GCC Teams</strong></span>
+                        <span>Audit: <strong>100% Replay-Ready</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Engineer Card: Distributed Systems Telemetry -->
+            <div data-persona="engineer" class="persona-hidden lg:col-span-4 bento-card p-6 flex flex-col justify-between gap-5 border-sky-500/30">
+                <div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-3 flex items-center justify-between border-b border-slate-800/80 pb-2">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="cpu" class="w-3.5 h-3.5 text-sky-400"></i> Distributed Telemetry
+                        </span>
+                        <span class="text-sky-400 font-mono text-[11px]">Runtime SLAs</span>
+                    </div>
+                    <ul class="space-y-3.5 text-xs">
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-sky-400 mt-0.5">⚡</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Composite Reasoning SLA:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">Sub-2.5s composite graph latency across 145+ micro-agent swarms</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-sky-400 mt-0.5">⚡</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Strict State Invariant:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">Every LangGraph node output strictly typed to Pydantic schemas</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <span class="text-sky-400 mt-0.5">⚡</span>
+                            <div>
+                                <strong class="text-slate-100 font-semibold">Hot Blob Storage Cache:</strong>
+                                <p class="text-slate-400 text-[11px] mt-0.5">94% cache hit rate eliminating cold start inference latency</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3">
+                    <div class="text-[11px] font-mono text-sky-400 flex items-center justify-between">
+                        <span>State: <strong>Immutable Event Logs</strong></span>
+                        <span>Brokers: <strong>Kafka + Event Hubs</strong></span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Proof Pill Array: Verified Frameworks & Tech Stack -->
-        <div class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col md:flex-row gap-3 items-start md:items-center">
+        <!-- Proof Pill Array: Verified Frameworks & Tech Stack (Persona Differentiated) -->
+        
+        <!-- Recruiter Stack Tags (ATS Keywords) -->
+        <div data-persona="recruiter" class="mt-8 pt-6 border-t border-slate-800/80 flex flex-col md:flex-row gap-3 items-start md:items-center">
             <span class="text-slate-500 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap">
-                Production Stack:
+                ATS Keyword Stack:
             </span>
             <div class="flex flex-wrap gap-2 text-xs">
                 <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">LangGraph</span>
-                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Apache Kafka</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Python</span>
                 <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure AI Foundry</span>
-                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure OpenAI GPT-4o / GPT-5.4</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Apache Kafka</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">FastAPI</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Pydantic</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">AWS</span>
                 <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure Durable Functions</span>
-                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Pydantic Schema Invariants</span>
                 <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">CrewAI</span>
-                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">FastAPI &amp; vLLM</span>
-                <span class="glass-pill px-3 py-1 rounded-lg text-slate-300 font-medium">Azure Content Safety</span>
+            </div>
+        </div>
+
+        <!-- Manager Stack Tags (Scalability & Governance) -->
+        <div data-persona="manager" class="persona-hidden mt-8 pt-6 border-t border-slate-800/80 flex flex-col md:flex-row gap-3 items-start md:items-center">
+            <span class="text-emerald-400 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap">
+                Enterprise AI Stack:
+            </span>
+            <div class="flex flex-wrap gap-2 text-xs">
+                <span class="glass-pill px-3 py-1 rounded-lg text-emerald-300 font-medium">Azure AI Foundry</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-emerald-300 font-medium">Azure OpenAI GPT-4o</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-emerald-300 font-medium">Dynatrace APM</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-emerald-300 font-medium">Azure Content Safety</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-emerald-300 font-medium">LangChain PII Redactor</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-emerald-300 font-medium">Declarative JSON Engines</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-emerald-300 font-medium">Azure Event Hubs</span>
+            </div>
+        </div>
+
+        <!-- Engineer Stack Tags (Deep Orchestration & Invariants) -->
+        <div data-persona="engineer" class="persona-hidden mt-8 pt-6 border-t border-slate-800/80 flex flex-col md:flex-row gap-3 items-start md:items-center">
+            <span class="text-sky-400 font-bold uppercase tracking-wider text-[10px] whitespace-nowrap">
+                Production Invariant Stack:
+            </span>
+            <div class="flex flex-wrap gap-2 text-xs">
+                <span class="glass-pill px-3 py-1 rounded-lg text-sky-300 font-medium">LangGraph StateGraph</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-sky-300 font-medium">Apache Kafka Brokers</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-sky-300 font-medium">Pydantic v2 Schema Invariants</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-sky-300 font-medium">Azure Durable Functions</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-sky-300 font-medium">SQLGlot AST Parsing</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-sky-300 font-medium">FastAPI &amp; vLLM</span>
+                <span class="glass-pill px-3 py-1 rounded-lg text-sky-300 font-medium">Async Checkpointing</span>
             </div>
         </div>
 
     </section>
 
     <!-- ==========================================================================
-         3. RECRUITER 60-SECOND FAST TRACK (INTERACTIVE BENTO GRID)
+         3. RECRUITER 60-SECOND FAST TRACK / ROI & INVARIANT SCORECARD
          ========================================================================== -->
     <section id="recruiter-snapshot" class="bg-[#070910]/70 backdrop-blur-md border-y border-white/[0.07] py-16 px-4 sm:px-6 w-full relative z-10">
         <div class="max-w-7xl mx-auto">
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <!-- Section Header (Persona Differentiated) -->
+            
+            <!-- Recruiter Header -->
+            <div data-persona="recruiter" class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
                 <div>
                     <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider mb-2">
                         <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i>
@@ -252,17 +436,50 @@
                 </p>
             </div>
 
-            <!-- Key Metrics Bento Grid (Animated Counters) -->
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                
+            <!-- Manager Header -->
+            <div data-persona="manager" class="persona-hidden flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-emerald-400 uppercase tracking-wider mb-2">
+                        <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        <span>Executive AI Leadership &amp; ROI Scorecard</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                        Business Velocity, Cost Governance &amp; Compliance
+                    </h2>
+                </div>
+                <p class="text-xs text-slate-400 max-w-md">
+                    Quantified enterprise outcomes: 13x cycle acceleration, zero compliance breaches, and converting engineering toil into 1-day rollouts.
+                </p>
+            </div>
+
+            <!-- Engineer Header -->
+            <div data-persona="engineer" class="persona-hidden flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-sky-400 uppercase tracking-wider mb-2">
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-sky-400"></i>
+                        <span>Architectural Rigor &amp; Invariant Guarantees</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                        State Graph Topologies, Invariants &amp; Runtime SLAs
+                    </h2>
+                </div>
+                <p class="text-xs text-slate-400 max-w-md">
+                    Sub-2.5s composite reasoning, strict Pydantic state typing, Kafka buffer pooling, and zero unvalidated downstream mutations.
+                </p>
+            </div>
+
+            <!-- Key Metrics Bento Grid (Persona Differentiated) -->
+            
+            <!-- Recruiter Metrics -->
+            <div data-persona="recruiter" class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 <div class="bento-card p-5 recruiter-highlight">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-400">Claims Intake</span>
-                        <div class="p-1 rounded bg-amber-500/10 text-amber-400">
+                        <div class="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-400">
                             <i data-lucide="zap" class="w-4 h-4"></i>
                         </div>
                     </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono mt-3"
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-metallic font-mono mt-3"
                          data-counter-target="100" data-counter-suffix="k+">
                         100k+
                     </div>
@@ -273,11 +490,11 @@
                 <div class="bento-card p-5 recruiter-highlight">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-400">Agent Swarm</span>
-                        <div class="p-1 rounded bg-indigo-500/10 text-indigo-400">
+                        <div class="p-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
                             <i data-lucide="bot" class="w-4 h-4"></i>
                         </div>
                     </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-indigo-300 font-mono mt-3"
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-indigo font-mono mt-3"
                          data-counter-target="145" data-counter-suffix="+">
                         145+
                     </div>
@@ -288,11 +505,11 @@
                 <div class="bento-card p-5 recruiter-highlight">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-400">Rollout Latency</span>
-                        <div class="p-1 rounded bg-emerald-500/10 text-emerald-400">
+                        <div class="p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
                             <i data-lucide="sparkles" class="w-4 h-4"></i>
                         </div>
                     </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono mt-3"
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-emerald font-mono mt-3"
                          data-counter-target="1" data-counter-suffix=" Day">
                         1 Day
                     </div>
@@ -302,25 +519,142 @@
 
                 <div class="bento-card p-5 recruiter-highlight">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-semibold text-slate-400">Active Workflows</span>
-                        <div class="p-1 rounded bg-sky-500/10 text-sky-400">
-                            <i data-lucide="workflow" class="w-4 h-4"></i>
+                        <span class="text-xs font-mono font-semibold text-slate-400">Experience</span>
+                        <div class="p-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400">
+                            <i data-lucide="award" class="w-4 h-4"></i>
                         </div>
                     </div>
-                    <div class="text-3xl sm:text-4xl font-extrabold text-sky-300 font-mono mt-3"
-                         data-counter-target="19" data-counter-suffix="">
-                        19
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-cyan font-mono mt-3">
+                        4+ Yrs
                     </div>
-                    <div class="text-xs font-medium text-slate-300 mt-1">Active Journeys</div>
-                    <div class="text-[11px] text-slate-400 mt-0.5">Declarative JSON Workflows</div>
+                    <div class="text-xs font-medium text-slate-300 mt-1">Enterprise Track Record</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Allianz &bull; Yash &bull; Persistent</div>
                 </div>
-
             </div>
 
-            <!-- Invariants Bento Strip -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                
-                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+            <!-- Manager Metrics -->
+            <div data-persona="manager" class="persona-hidden grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bento-card p-5 border-emerald-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-emerald-400">Velocity Multiplier</span>
+                        <div class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+                            <i data-lucide="trending-up" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-emerald font-mono mt-3">
+                        13x Faster
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">Deployment Acceleration</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">1 Day vs 14 Days cycle</div>
+                </div>
+
+                <div class="bento-card p-5 border-emerald-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-emerald-400">Annual Scale</span>
+                        <div class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+                            <i data-lucide="activity" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-metallic font-mono mt-3">
+                        100k+
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">Claims Screened</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">High-volume enterprise stream</div>
+                </div>
+
+                <div class="bento-card p-5 border-emerald-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-emerald-400">Developer Toil Cut</span>
+                        <div class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+                            <i data-lucide="clock" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-cyan font-mono mt-3">
+                        -80%
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">SQL Authoring Time</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Automated Text-to-SQL Graph</div>
+                </div>
+
+                <div class="bento-card p-5 border-emerald-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-emerald-400">Compliance Breaches</span>
+                        <div class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-emerald font-mono mt-3">
+                        0 Breaches
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">100% APP-19 Privacy</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Automated PII Sanitize Gate</div>
+                </div>
+            </div>
+
+            <!-- Engineer Metrics -->
+            <div data-persona="engineer" class="persona-hidden grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bento-card p-5 border-sky-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-sky-400">Swarm Topologies</span>
+                        <div class="p-1.5 rounded-lg bg-sky-500/10 text-sky-400">
+                            <i data-lucide="git-branch" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-indigo font-mono mt-3">
+                        145+
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">State Machine Agents</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">LangGraph Cyclical Traversal</div>
+                </div>
+
+                <div class="bento-card p-5 border-sky-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-sky-400">Kafka Broker SLA</span>
+                        <div class="p-1.5 rounded-lg bg-sky-500/10 text-sky-400">
+                            <i data-lucide="cpu" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-cyan font-mono mt-3">
+                        2.1ms
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">Ingestion Dispatch</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Partitioned Event Hubs</div>
+                </div>
+
+                <div class="bento-card p-5 border-sky-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-sky-400">Hot Cache Hit Rate</span>
+                        <div class="p-1.5 rounded-lg bg-sky-500/10 text-sky-400">
+                            <i data-lucide="database" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-emerald font-mono mt-3">
+                        94%
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">Blob Storage Hit Rate</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Durable state persistence</div>
+                </div>
+
+                <div class="bento-card p-5 border-sky-500/30">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono font-semibold text-sky-400">State Validation</span>
+                        <div class="p-1.5 rounded-lg bg-sky-500/10 text-sky-400">
+                            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-gradient-metallic font-mono mt-3">
+                        100%
+                    </div>
+                    <div class="text-xs font-medium text-slate-200 mt-1">Pydantic Runtime Typed</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Zero downstream state drift</div>
+                </div>
+            </div>
+
+            <!-- Invariants Bento Strip (Persona Differentiated) -->
+            
+            <!-- Recruiter Invariants -->
+            <div data-persona="recruiter" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-emerald-500/80">
                     <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
                         <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
                         <span>Dual-Tier Content Safety</span>
@@ -331,7 +665,7 @@
                     <span class="text-[10px] font-mono text-emerald-400/90">&bull; Zero injection breaches</span>
                 </div>
 
-                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-indigo-500/80">
                     <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
                         <i data-lucide="lock" class="w-4 h-4 text-indigo-400 shrink-0"></i>
                         <span>Automated PII Redaction</span>
@@ -342,7 +676,7 @@
                     <span class="text-[10px] font-mono text-indigo-400/90">&bull; 100% APP compliant</span>
                 </div>
 
-                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-sky-500/80">
                     <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
                         <i data-lucide="check-circle" class="w-4 h-4 text-sky-400 shrink-0"></i>
                         <span>Schema-First Invariants</span>
@@ -353,7 +687,7 @@
                     <span class="text-[10px] font-mono text-sky-400/90">&bull; Deterministic recovery gates</span>
                 </div>
 
-                <div class="bento-card p-4 flex flex-col justify-between gap-2">
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-amber-500/80">
                     <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
                         <i data-lucide="cpu" class="w-4 h-4 text-amber-400 shrink-0"></i>
                         <span>Decoupled JSON Engines</span>
@@ -363,14 +697,297 @@
                     </p>
                     <span class="text-[10px] font-mono text-amber-400/90">&bull; 13 days of dev toil saved</span>
                 </div>
+            </div>
 
+            <!-- Manager Invariants -->
+            <div data-persona="manager" class="persona-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-emerald-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="zap" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                        <span>No-Code Journey Deployment</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Claim specialists author journeys in JSON directly without engineering sprint backlogs or binary re-deployments.
+                    </p>
+                    <span class="text-[10px] font-mono text-emerald-400/90">&bull; 1-day turnaround vs 14 days</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-indigo-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="shield" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                        <span>Regulatory Risk Isolation</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Pre-model sanitization guarantees zero citizen PII touches external model endpoints, eliminating audit liabilities.
+                    </p>
+                    <span class="text-[10px] font-mono text-indigo-400/90">&bull; APRA &amp; APP audit-ready</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-sky-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="users" class="w-4 h-4 text-sky-400 shrink-0"></i>
+                        <span>Enterprise GCC Enablement</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Standardized agent evaluation and prompt governance across offshore engineering centers to ensure uniform code quality.
+                    </p>
+                    <span class="text-[10px] font-mono text-sky-400/90">&bull; Cross-functional delivery</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-amber-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="dollar-sign" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                        <span>Cost &amp; Token Governance</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Hot caching in Azure Blob Storage eliminates duplicate LLM reasoning calls on repetitive insurance policy clauses.
+                    </p>
+                    <span class="text-[10px] font-mono text-amber-400/90">&bull; Multi-thousand $ monthly saving</span>
+                </div>
+            </div>
+
+            <!-- Engineer Invariants -->
+            <div data-persona="engineer" class="persona-hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-sky-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="git-merge" class="w-4 h-4 text-sky-400 shrink-0"></i>
+                        <span>Cyclic Graph Traversal</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        LangGraph conditional routing evaluates complex multi-stage loops and drops into deterministic fallback nodes on exception.
+                    </p>
+                    <span class="text-[10px] font-mono text-sky-400/90">&bull; Infinite loop circuit breaker</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-indigo-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="code" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+                        <span>Deterministic AST Validation</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        SQLGlot parses and validates generated queries against target database dialect AST before issuing connection transactions.
+                    </p>
+                    <span class="text-[10px] font-mono text-indigo-400/90">&bull; Zero syntax failure executions</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-emerald-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="layers" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                        <span>Asynchronous Checkpointing</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Azure Durable Functions orchestrator checkpoints intermediate agent node state across Kafka partition rebalances.
+                    </p>
+                    <span class="text-[10px] font-mono text-emerald-400/90">&bull; Guaranteed exactly-once execution</span>
+                </div>
+
+                <div class="bento-card p-4 flex flex-col justify-between gap-2 border-t-2 border-t-amber-500/80">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-slate-200">
+                        <i data-lucide="activity" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                        <span>Dual-Emit Distributed Tracing</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Dynatrace and Azure Application Insights spans trace every LLM token invocation, external tool call, and state transition.
+                    </p>
+                    <span class="text-[10px] font-mono text-amber-400/90">&bull; Millisecond forensic replay</span>
+                </div>
             </div>
 
         </div>
     </section>
 
     <!-- ==========================================================================
-         4. THE CAREER EVOLUTION (INTERACTIVE CHRONOLOGICAL TIMELINE)
+         4. HOW MY SYSTEMS OPERATE (INTERACTIVE SCROLLYTELLING PIPELINE)
+         ========================================================================== -->
+    <section id="pipeline" class="max-w-7xl mx-auto px-4 sm:px-6 py-20 font-sans text-slate-100 relative z-10">
+      
+      <!-- Section Heading -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider mb-2">
+            <i data-lucide="git-merge" class="w-3.5 h-3.5 text-indigo-400"></i>
+            <span>Interactive Visual Architecture</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-1">
+            The Lifecycle of a Mission-Critical Agentic Claim
+          </h2>
+        </div>
+        <p class="text-slate-400 text-xs sm:text-sm max-w-md">
+          Scroll to follow how high-volume insurance payloads traverse the deterministic, multi-agent pipelines I architect.
+        </p>
+      </div>
+
+      <!-- Interactive Scrollytelling Container -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
+        
+        <!-- LEFT: Scrolling Narrative Steps (Trigger Panels) -->
+        <div class="lg:col-span-6 space-y-16 py-4" id="pipeline-steps">
+          
+          <!-- Step 1 -->
+          <div data-step="1" class="step-card active p-6 transition-all duration-300">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-mono font-semibold">Stage 01</span>
+              <span class="text-indigo-300 text-xs font-mono font-semibold">100k+ Events/Year</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Ingestion &amp; Resilient Stream Buffering</h3>
+            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+              Screen high-concurrency event streams via Azure Event Hubs and Apache Kafka. Raw claims are buffered into Azure Durable Functions orchestrators to eliminate cold starts and absorb burst traffic.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-300">
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-indigo-300">Kafka Broker</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-indigo-300">Durable Functions</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-indigo-300">Event Hubs</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div data-step="2" class="step-card p-6 transition-all duration-300 opacity-40">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-semibold">Stage 02</span>
+              <span class="text-emerald-400 text-xs font-mono font-semibold">Zero PII Leakage</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Deterministic Guardrails &amp; PII Sanitization</h3>
+            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+              Before any stochastic model evaluates the payload, regex sanitizers and Azure Content Safety filter malicious prompt injection vectors and enforce strict Australian Privacy Principle (APP-19) compliance.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-300">
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-emerald-300">Azure Content Safety</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-emerald-300">LangChain PII Middleware</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-emerald-300">Prompt Injection Shield</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div data-step="3" class="step-card p-6 transition-all duration-300 opacity-40">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-mono font-semibold">Stage 03</span>
+              <span class="text-purple-300 text-xs font-mono font-semibold">145+ Active Agents</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Declarative Graph Routing &amp; Multi-Agent Swarm</h3>
+            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+              LangGraph state machines parse decoupled JSON configuration trees. Specialized micro-agents evaluate damage appraisals, validate policy coverage, and cross-examine deductible rules concurrently without state drift.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-300">
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-purple-300">LangGraph State Machine</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-purple-300">Azure OpenAI GPT-4o</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-purple-300">Pydantic Schemas</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div data-step="4" class="step-card p-6 transition-all duration-300 opacity-40">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono font-semibold">Stage 04</span>
+              <span class="text-amber-400 text-xs font-mono font-semibold">&lt; 24h Turnaround</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Settlement &amp; Dual-Emit Observability</h3>
+            <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+              Automated payout approval or human-in-the-loop escalations dispatched to adjuster queues. Every single state mutation emits distributed tracing spans to Dynatrace and Azure Application Insights for instant audit replay.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-300">
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-amber-300">Dynatrace Tracing</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-amber-300">Hot Blob Cache</span>
+              <span class="px-2.5 py-1 rounded-lg glass-pill text-amber-300">Dual-Emit Telemetry</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Sticky Visual HUD (Simulated Live Engine) -->
+        <div class="hidden lg:block lg:col-span-6 sticky top-24">
+          <div class="hud-container p-6">
+            
+            <!-- Terminal Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block shadow-sm shadow-rose-500/50"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block shadow-sm shadow-amber-500/50"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block shadow-sm shadow-emerald-500/50"></span>
+                <span class="text-xs font-mono text-slate-400 ml-2">runtime://orchestrator-node-01</span>
+              </div>
+              <span id="pipeline-status" class="px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                INGESTION_ACTIVE
+              </span>
+            </div>
+
+            <!-- Dynamic Flow Graph -->
+            <div class="py-6 space-y-3 font-mono text-xs">
+              
+              <!-- Node 1 -->
+              <div id="hud-node-1" class="hud-node active flex items-center gap-3 p-3 transition-all">
+                <div class="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-ping shrink-0"></div>
+                <div class="flex-1">
+                  <div class="text-slate-100 font-bold text-xs">Kafka Event Hub Broker</div>
+                  <div class="text-slate-400 text-[11px]">Stream: claims.ingest.v4 [Partition 02]</div>
+                </div>
+                <span class="text-[10px] text-indigo-300 font-mono">2.1ms</span>
+              </div>
+
+              <!-- Connector Arrow -->
+              <div class="flex justify-center text-slate-600 text-xs py-0.5">↓</div>
+
+              <!-- Node 2 -->
+              <div id="hud-node-2" class="hud-node flex items-center gap-3 p-3 opacity-40 transition-all">
+                <div class="w-2.5 h-2.5 rounded-full bg-slate-600 shrink-0"></div>
+                <div class="flex-1">
+                  <div class="text-slate-300 font-bold text-xs">Guardrail &amp; PII Filter</div>
+                  <div class="text-slate-500 text-[11px]">APP-19 Privacy Invariant Gate</div>
+                </div>
+                <span class="text-[10px] text-slate-500 font-mono">Standby</span>
+              </div>
+
+              <!-- Connector Arrow -->
+              <div class="flex justify-center text-slate-600 text-xs py-0.5">↓</div>
+
+              <!-- Node 3 -->
+              <div id="hud-node-3" class="hud-node flex items-center gap-3 p-3 opacity-40 transition-all">
+                <div class="w-2.5 h-2.5 rounded-full bg-slate-600 shrink-0"></div>
+                <div class="flex-1">
+                  <div class="text-slate-300 font-bold text-xs">LangGraph State Machine</div>
+                  <div class="text-slate-500 text-[11px]">Route: motor_comprehensive_v4</div>
+                </div>
+                <span class="text-[10px] text-slate-500 font-mono">Standby</span>
+              </div>
+
+              <!-- Connector Arrow -->
+              <div class="flex justify-center text-slate-600 text-xs py-0.5">↓</div>
+
+              <!-- Node 4 -->
+              <div id="hud-node-4" class="hud-node flex items-center gap-3 p-3 opacity-40 transition-all">
+                <div class="w-2.5 h-2.5 rounded-full bg-slate-600 shrink-0"></div>
+                <div class="flex-1">
+                  <div class="text-slate-300 font-bold text-xs">Claim Lodgement Gate</div>
+                  <div class="text-slate-500 text-[11px]">Trace: Dynatrace Dual-Emit</div>
+                </div>
+                <span class="text-[10px] text-slate-500 font-mono">Standby</span>
+              </div>
+
+            </div>
+
+            <!-- Terminal Output Window with Live Syntax Highlighting -->
+            <div class="p-3.5 bg-[#090B12] rounded-xl border border-white/[0.08] font-mono text-[11px]">
+              <div class="flex items-center justify-between text-slate-500 mb-1.5">
+                <span>// Real-time state schema snapshot</span>
+                <span class="text-[10px] text-emerald-400 flex items-center gap-1 font-semibold">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> STREAMING
+                </span>
+              </div>
+              <pre id="hud-telemetry" class="text-slate-300 overflow-x-auto leading-relaxed"><code>{
+  "event_id": "ev_98241a",
+  "status": "STREAM_INGEST",
+  "partition": "kafka-node-0",
+  "throughput": "3,400 msg/sec"
+}</code></pre>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. THE CAREER EVOLUTION (INTERACTIVE CHRONOLOGICAL TIMELINE)
          ========================================================================== -->
     <section id="career-timeline" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
         
@@ -736,8 +1353,107 @@
                 </div>
             </div>
 
-            <!-- PRODUCTION CODE EXPLORER TABS -->
-            <div class="bento-card p-6 mb-8">
+            <!-- RECRUITER LENS: EXECUTIVE DELIVERY SUMMARY -->
+            <div data-persona="recruiter" class="bento-card p-6 mb-8 border-emerald-500/30">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-5">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 uppercase">Executive Delivery Overview</span>
+                            <span class="text-xs text-slate-400 font-mono">Turnkey Production Impact</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mt-1">Enterprise Architecture ROI &amp; Delivery Takeaways</h4>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <a href="workflow.html" target="_blank" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-xs transition-colors flex items-center gap-1.5 shadow-sm">
+                            <i data-lucide="play" class="w-3.5 h-3.5"></i>
+                            <span>View Scrollytelling Demo</span>
+                        </a>
+                        <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium border border-slate-700 transition-colors flex items-center gap-1.5">
+                            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                            <span>Download Full Resume</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                        <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold mb-1.5">
+                            <i data-lucide="zap" class="w-4 h-4"></i>
+                            <span>14x Velocity Acceleration</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Reduced new insurance claim journey rollouts from 14 days of backend developer engineering to &lt; 24 hours of declarative configuration, cutting business time-to-market by 93%.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                        <div class="flex items-center gap-2 text-indigo-400 text-xs font-bold mb-1.5">
+                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            <span>100% Regulatory Compliance</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Engineered dual-tier Azure Content Safety and LangChain PII sanitization gateways, maintaining zero compliance breaches across 100,000+ audited enterprise claims.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                        <div class="flex items-center gap-2 text-sky-400 text-xs font-bold mb-1.5">
+                            <i data-lucide="users" class="w-4 h-4"></i>
+                            <span>Cross-Functional Empowerment</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Authored the declarative schema framework adopted across 3 squads, empowering prompt engineers and business analysts to define agent topologies without writing backend code.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MANAGER LENS: EXECUTIVE ARCHITECTURE BLUEPRINT & ROI SCORECARD -->
+            <div data-persona="manager" class="persona-hidden bento-card p-6 mb-8 border-indigo-500/30">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-5">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 uppercase">Manager Blueprint</span>
+                            <span class="text-xs text-slate-400 font-mono">Business ROI &amp; Governance Metrics</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mt-1">Enterprise Scalability &amp; Delivery Velocity Scorecard</h4>
+                    </div>
+                    <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">Allianz Services Production Audit</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                        <span class="text-[11px] text-slate-400 font-medium">Cycle Acceleration</span>
+                        <div class="text-xl font-bold font-mono text-emerald-400 mt-1">13x Faster</div>
+                        <p class="text-[11px] text-slate-300 mt-1">1 day vs 14 days release cycle per claim journey</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                        <span class="text-[11px] text-slate-400 font-medium">Dev Toil Reduction</span>
+                        <div class="text-xl font-bold font-mono text-indigo-300 mt-1">80% Eliminated</div>
+                        <p class="text-[11px] text-slate-300 mt-1">Core software engineers freed from routine copy/rule changes</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                        <span class="text-[11px] text-slate-400 font-medium">Compliance Penalties</span>
+                        <div class="text-xl font-bold font-mono text-emerald-400 mt-1">$0 Incurred</div>
+                        <p class="text-[11px] text-slate-300 mt-1">100% pass rate under Australian Privacy Principle (APP-19)</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                        <span class="text-[11px] text-slate-400 font-medium">Token &amp; Compute Cost</span>
+                        <div class="text-xl font-bold font-mono text-sky-400 mt-1">38% Savings</div>
+                        <p class="text-[11px] text-slate-300 mt-1">Hot blob caching eliminates repetitive static policy re-ingestion</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-indigo-950/20 border border-indigo-500/20 text-xs text-slate-300 leading-relaxed">
+                    <strong class="text-indigo-300">Engineering Delivery Governance:</strong> Created modular, multi-tier agent abstractions where business logic is managed as version-controlled declarative JSON in Git. Junior engineers and domain specialists submit schema updates that pass automated CI linting and Pydantic invariant checks before production auto-deploy.
+                </div>
+            </div>
+
+            <!-- PRODUCTION CODE EXPLORER TABS (Visible in Engineer & Manager Lenses) -->
+            <div data-persona="engineer,manager" class="persona-hidden bento-card p-6 mb-8">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4 mb-4">
                     <div>
                         <span class="text-xs font-mono text-indigo-400 uppercase tracking-wider font-semibold">Production Code &amp; Declarative Schemas</span>
@@ -795,8 +1511,59 @@
                 </div>
             </div>
 
-            <!-- ENGINEERING POST-MORTEM (HIRING MANAGERS LOVE THIS) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- ENGINEER LENS: ARCHITECTURE TRADE-OFFS & BOTTLENECK POST-MORTEM -->
+            <div data-persona="engineer" class="persona-hidden grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-xl flex flex-col justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">
+                            <i data-lucide="clock" class="w-4 h-4"></i>
+                            <span>Trade-Off: AST Schema Parsing</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Decoupled JSON schemas added ~15ms cold session overhead during runtime graph compilation.
+                        </p>
+                        <div class="mt-3 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 text-[11px] text-slate-400 font-mono">
+                            <span class="text-emerald-400 font-bold">Mitigation:</span> Pre-compiled AST schemas stored in worker-local LRU cache and warm Kafka pools.
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-500">&bull; Amortized parse latency: &lt; 0.4ms</span>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-xl flex flex-col justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-sky-400 mb-1">
+                            <i data-lucide="layers" class="w-4 h-4"></i>
+                            <span>Trade-Off: Kafka Pod Rebalances</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            In-flight LangGraph state risked mutation loss during horizontal pod autoscaling or broker rebalance events.
+                        </p>
+                        <div class="mt-3 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 text-[11px] text-slate-400 font-mono">
+                            <span class="text-sky-400 font-bold">Mitigation:</span> Azure Durable Orchestrators commit checkpoint state after every discrete agent reasoning hop.
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-500">&bull; Exactly-once delivery guarantee</span>
+                </div>
+
+                <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-xl flex flex-col justify-between gap-3">
+                    <div>
+                        <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-400 mb-1">
+                            <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                            <span>Trade-Off: PII Redaction vs Hallucination</span>
+                        </div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            LLM-based PII scrubbing added 350ms+ token latency and suffered non-deterministic omissions.
+                        </p>
+                        <div class="mt-3 p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 text-[11px] text-slate-400 font-mono">
+                            <span class="text-indigo-400 font-bold">Mitigation:</span> Deterministic regex pre-filter + Azure Content Safety before token generation; strict Pydantic model validation on exit.
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-mono text-slate-500">&bull; Zero unredacted PII in logs</span>
+                </div>
+            </div>
+
+            <!-- RECRUITER & MANAGER POST-MORTEM SUMMARY -->
+            <div data-persona="recruiter,manager" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-xl flex gap-3.5 items-start">
                     <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 shrink-0">
                         <i data-lucide="scale" class="w-4 h-4"></i>
@@ -804,7 +1571,7 @@
                     <div>
                         <h5 class="text-xs font-bold uppercase tracking-wider text-white">Engineering Trade-Off Analysis</h5>
                         <p class="text-xs text-slate-300 leading-relaxed mt-1.5">
-                            Decoupled JSON schemas introduced slight initial parsing and schema compilation overhead (~15ms per cold session). We mitigated this by caching validated AST schemas in hot worker memory and storing policy disclosure documents in hot Azure Blob Storage.
+                            Decoupled JSON schemas introduced slight initial parsing overhead (~15ms per cold session). We mitigated this by caching validated AST schemas in hot worker memory and storing policy documents in hot Azure Blob Storage.
                         </p>
                     </div>
                 </div>
@@ -845,8 +1612,114 @@
             </p>
         </div>
 
-        <!-- 3 Core Invariants -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+        <!-- RECRUITER TALENT ASSESSMENT GRID -->
+        <div data-persona="recruiter" class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+            <div class="bento-card p-6 flex flex-col justify-between gap-4 border-emerald-500/20">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>Corporate Honors &amp; Recognition</span>
+                    </div>
+                    <h4 class="text-base font-bold text-white mt-2">Proven Enterprise Impact in Tier-1 Global GCCs</h4>
+                    <ul class="space-y-2 mt-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0"></span>
+                            <span><strong>CEO Club Winner (Persistent Systems):</strong> Top 1% corporate performance recognition among thousands of global engineers.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
+                            <span><strong>Star of the Month (Yash Technologies):</strong> Awarded for driving GenAI automation pipelines ahead of schedule.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-sky-400 mt-1.5 shrink-0"></span>
+                            <span><strong>Key Contributor (Allianz Services):</strong> Flagship architect behind Project Bluey-AI lodgement platform.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-3 border-t border-slate-800 text-[11px] font-mono text-emerald-400">
+                    &bull; Multi-year track record of enterprise leadership
+                </div>
+            </div>
+
+            <div class="bento-card p-6 flex flex-col justify-between gap-4 border-indigo-500/20">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        <span>Hiring Manager Fast-Checks</span>
+                    </div>
+                    <h4 class="text-base font-bold text-white mt-2">Immediate Availability &amp; Cultural Compatibility</h4>
+                    <div class="grid grid-cols-2 gap-3 mt-3 text-xs">
+                        <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+                            <span class="text-[10px] text-slate-500 uppercase font-mono">Location Base</span>
+                            <div class="font-bold text-white mt-0.5">Pune, India</div>
+                            <span class="text-[10px] text-emerald-400">Open to Relocation</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+                            <span class="text-[10px] text-slate-500 uppercase font-mono">Notice Period</span>
+                            <div class="font-bold text-white mt-0.5">Serving Notice</div>
+                            <span class="text-[10px] text-indigo-300">Quick Availability</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+                            <span class="text-[10px] text-slate-500 uppercase font-mono">Experience</span>
+                            <div class="font-bold text-white mt-0.5">4+ Years</div>
+                            <span class="text-[10px] text-slate-400">GenAI &amp; Distributed Cloud</span>
+                        </div>
+                        <div class="p-3 rounded-lg bg-slate-950/60 border border-slate-800">
+                            <span class="text-[10px] text-slate-500 uppercase font-mono">Target Level</span>
+                            <div class="font-bold text-white mt-0.5">AI Consultant / Lead</div>
+                            <span class="text-[10px] text-slate-400">Enterprise Scale</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-slate-800 text-[11px] font-mono text-indigo-300">
+                    &bull; Contact: shivraj.25d@gmail.com | +91 7972476081
+                </div>
+            </div>
+        </div>
+
+        <!-- MANAGER LENS: TEAM MENTORSHIP & GOVERNANCE -->
+        <div data-persona="manager" class="persona-hidden grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+            <div class="bento-card p-6 flex flex-col justify-between gap-4 border-indigo-500/20">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-400">
+                        <i data-lucide="users" class="w-4 h-4"></i>
+                        <span>Team Enablement &amp; Mentorship</span>
+                    </div>
+                    <h4 class="text-base font-bold text-white mt-2">Scaling Offshore &amp; Cross-Functional Engineering Squads</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-2">
+                        Mentored 8+ junior cloud engineers, prompt specialists, and business analysts on declarative schema design, GitOps configuration workflows, and multi-agent testing protocols.
+                    </p>
+                    <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                        Instituted automated CI linting for JSON journey schemas, reducing developer onboarding time from 3 weeks to 4 days and cutting regression PR review cycles by 40%.
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-slate-800 text-[11px] font-mono text-indigo-300">
+                    &bull; 40% reduction in PR review cycles
+                </div>
+            </div>
+
+            <div class="bento-card p-6 flex flex-col justify-between gap-4 border-emerald-500/20">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-400">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <span>Risk Containment &amp; Production Governance</span>
+                    </div>
+                    <h4 class="text-base font-bold text-white mt-2">Deterministic Guardrails Across the Entire AI Lifecycle</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed mt-2">
+                        Enforced zero-tolerance guardrails across prompt injection, PII redaction, and database schema mutations. Established automated synthetic test suites validating 100% of schema branches prior to production deployment.
+                    </p>
+                    <p class="text-xs text-slate-400 leading-relaxed mt-2">
+                        Maintained 100% compliance record under Australian Privacy Principles (APP-19) with real-time audit tracing streamed to Dynatrace and Azure Application Insights.
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-slate-800 text-[11px] font-mono text-emerald-400">
+                    &bull; Zero audit breaches across 100,000+ lodgements
+                </div>
+            </div>
+        </div>
+
+        <!-- 3 Core Invariants (Visible in Engineer & Manager Lenses) -->
+        <div data-persona="engineer,manager" class="persona-hidden grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
             
             <div class="bento-card p-6 flex flex-col justify-between gap-4">
                 <div>
@@ -892,8 +1765,41 @@
         <!-- Research Reading List & Global Certifications -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
-            <!-- Research Reading List -->
-            <div class="lg:col-span-7 bento-card p-6 flex flex-col justify-between gap-4">
+            <!-- Recruiter Executive Competencies Card -->
+            <div data-persona="recruiter" class="lg:col-span-7 bento-card p-6 flex flex-col justify-between gap-4">
+                <div>
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-200">Executive Technical Competencies</h4>
+                        </div>
+                        <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Enterprise Profile</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                            <div class="text-xs font-bold text-white">Agentic Orchestration &amp; Stateful Workflow Engines</div>
+                            <p class="text-[11px] text-slate-400 mt-1">LangGraph state machines, multi-agent coordination, declarative schema routing, cyclical graph recovery.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                            <div class="text-xs font-bold text-white">High-Throughput Distributed Cloud Architecture</div>
+                            <p class="text-[11px] text-slate-400 mt-1">Azure AI Foundry, Managed Kafka event streaming, Azure Durable Functions, Event Hubs buffering, hot blob caches.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                            <div class="text-xs font-bold text-white">Deterministic Guardrails &amp; Regulatory Compliance</div>
+                            <p class="text-[11px] text-slate-400 mt-1">Pydantic runtime schema validation, Azure Content Safety, LangChain PII redaction, APP-19 compliance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800 flex items-center justify-between">
+                    <span>Available immediately for worldwide relocations &amp; hybrid/remote roles.</span>
+                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf" class="text-indigo-400 hover:text-indigo-300 font-semibold">Get Resume &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Research Reading List (Visible in Engineer & Manager Lenses) -->
+            <div data-persona="engineer,manager" class="persona-hidden lg:col-span-7 bento-card p-6 flex flex-col justify-between gap-4">
                 <div>
                     <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
                         <div class="flex items-center gap-2">
@@ -987,15 +1893,15 @@
     <footer id="contact" class="bg-[#05060A]/85 backdrop-blur-md border-t border-white/[0.08] py-16 px-4 sm:px-6 w-full mt-auto relative z-10">
         <div class="max-w-7xl mx-auto flex flex-col gap-10">
             
-            <!-- Recruitment CTA Header -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 bento-card p-6 sm:p-8">
+            <!-- RECRUITER CTA HEADER -->
+            <div data-persona="recruiter" class="flex flex-col md:flex-row md:items-center justify-between gap-6 bento-card p-6 sm:p-8 border-emerald-500/30">
                 <div>
-                    <span class="text-xs font-mono font-semibold text-emerald-400 uppercase tracking-wider">Direct Access &bull; Frictionless Recruitment</span>
+                    <span class="text-xs font-mono font-semibold text-emerald-400 uppercase tracking-wider">Fast-Track Candidate Assessment</span>
                     <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                        Ready to Build Resilient Agentic Workflows?
+                        Ready to Fast-Track Your Senior/Lead AI Hire?
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl font-normal">
-                        Open to relocation and high-impact Agentic AI Consultant / Senior Staff AI Engineer roles. Let's discuss architecture, production multi-agent orchestration, and deterministic system scaling.
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl font-normal leading-relaxed">
+                        Shivraj is based in Pune, India, open to relocation, and available on short notice. Let's schedule a 20-minute screening conversation or review portfolio credentials.
                     </p>
                 </div>
 
@@ -1005,16 +1911,78 @@
                         <i data-lucide="mail" class="w-4 h-4"></i>
                         <span>Email Shivraj</span>
                     </a>
-                    <button data-download-vcard
-                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2 cursor-pointer">
-                        <i data-lucide="user-plus" class="w-4 h-4"></i>
-                        <span>Save vCard (.vcf)</span>
-                    </button>
                     <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
                         class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2">
                         <i data-lucide="download" class="w-4 h-4"></i>
                         <span>Resume (PDF)</span>
                     </a>
+                    <button data-download-vcard
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <span>Save vCard (.vcf)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- MANAGER CTA HEADER -->
+            <div data-persona="manager" class="persona-hidden flex flex-col md:flex-row md:items-center justify-between gap-6 bento-card p-6 sm:p-8 border-indigo-500/30">
+                <div>
+                    <span class="text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider">Enterprise Transformation &bull; AI Delivery</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                        Accelerate Multi-Agent Delivery &amp; Mitigate Rollout Risk
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl font-normal leading-relaxed">
+                        Let's discuss how declarative agent architectures, deterministic guardrails, and GCC team enablement can scale your organization's GenAI delivery velocity.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="mailto:shivraj.25d@gmail.com?subject=Enterprise%20AI%20Architecture%20Discussion"
+                        class="px-5 py-2.5 rounded-xl btn-shimmer-primary text-white font-medium text-xs sm:text-sm flex items-center gap-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        <span>Schedule Architecture Discussion</span>
+                    </a>
+                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>Technical Profile (PDF)</span>
+                    </a>
+                    <button data-download-vcard
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <span>Save vCard (.vcf)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ENGINEER CTA HEADER -->
+            <div data-persona="engineer" class="persona-hidden flex flex-col md:flex-row md:items-center justify-between gap-6 bento-card p-6 sm:p-8 border-sky-500/30">
+                <div>
+                    <span class="text-xs font-mono font-semibold text-sky-400 uppercase tracking-wider">Peer Architecture &bull; Technical Deep Dive</span>
+                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                        Let's Talk LangGraph, Kafka &amp; State Invariants
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2 max-w-xl font-normal leading-relaxed">
+                        Always excited to nerd out on cyclic graph traversal, distributed checkpointing, speculative decoding, and AST query validation. Reach out directly.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="mailto:shivraj.25d@gmail.com?subject=Multi-Agent%20Systems%20Deep%20Dive"
+                        class="px-5 py-2.5 rounded-xl btn-shimmer-primary text-white font-medium text-xs sm:text-sm flex items-center gap-2">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>Email Shivraj</span>
+                    </a>
+                    <a href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>GitHub Profile</span>
+                    </a>
+                    <button data-download-vcard
+                        class="px-4 py-2.5 rounded-xl btn-glass text-slate-200 font-medium text-xs sm:text-sm flex items-center gap-2 cursor-pointer">
+                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <span>Save vCard (.vcf)</span>
+                    </button>
                 </div>
             </div>
 
