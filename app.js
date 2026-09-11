@@ -202,8 +202,10 @@ function switchPersona(persona, updateUrlHash = true, showNotification = true) {
         const isMatch = allowed.includes(persona) || allowed.includes("all");
         if (isMatch) {
             el.classList.remove("persona-hidden");
+            el.setAttribute("aria-hidden", "false");
         } else {
             el.classList.add("persona-hidden");
+            el.setAttribute("aria-hidden", "true");
         }
     });
 
@@ -1289,6 +1291,27 @@ function setupDelegatedListeners() {
         if (e.target.closest("[data-copy-phone]")) {
             copyToClipboard(portfolioData.profile.phone, "Phone");
             return;
+        }
+    });
+
+    // Keyboard accessibility: allow Enter or Space to activate [data-topo-node] and [data-career-tab]
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            const topoNode = e.target.closest("[data-topo-node]");
+            if (topoNode) {
+                e.preventDefault();
+                const nodeId = topoNode.dataset.topoNode;
+                if (nodeId) renderTopologyNodeDetails(nodeId);
+                return;
+            }
+
+            const careerBtn = e.target.closest("[data-career-tab]");
+            if (careerBtn) {
+                e.preventDefault();
+                const actId = careerBtn.dataset.careerTab;
+                if (actId) renderCareerAct(actId);
+                return;
+            }
         }
     });
 }

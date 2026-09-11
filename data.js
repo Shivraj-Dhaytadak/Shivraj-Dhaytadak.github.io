@@ -569,6 +569,7 @@ class EnterpriseClaimSafetyGate:
         { id: "pipeline", label: "How Systems Operate: Agentic Claim Pipeline", category: "Jump to Section", icon: "git-merge", action: "scroll", target: "pipeline" },
         { id: "timeline", label: "The Career Evolution (Allianz, Yash, Persistent)", category: "Jump to Section", icon: "clock", action: "scroll", target: "career-timeline" },
         { id: "case-study", label: "Flagship Case Study: Project Bluey", category: "Jump to Section", icon: "layers", action: "scroll", target: "case-study" },
+        { id: "featured-systems", label: "Featured Enterprise Systems (Yash, Persistent, Lab)", category: "Jump to Section", icon: "folder-git-2", action: "scroll", target: "featured-systems" },
         { id: "philosophy", label: "Engineering Philosophy & The Lab", category: "Jump to Section", icon: "cpu", action: "scroll", target: "philosophy" },
         { id: "contact", label: "Frictionless Recruitment Footer", category: "Jump to Section", icon: "mail", action: "scroll", target: "contact" },
         { id: "resume", label: "Download Resume (PDF)", category: "Quick Actions", icon: "file-text", action: "download-resume" },
