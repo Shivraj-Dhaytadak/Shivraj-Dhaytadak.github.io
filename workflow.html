@@ -422,14 +422,14 @@
                             <text x="232" y="764" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">Application Insights</text>
                         </g>
 
-                        <!-- Dynatrace Node -->
+                        <!-- LangFuse Node -->
                         <g id="node-dynatrace" class="diagram-node" onclick="inspectNode('dynatrace')">
                             <rect x="310" y="695" width="115" height="95" rx="8" fill="#0F172A" stroke="#BE123C" stroke-width="1.2" />
                             <!-- 3D Cube Icon -->
                             <rect x="355" y="718" width="22" height="22" rx="4" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5" />
                             <polygon points="355,718 366,710 387,710 377,718" fill="#38BDF8" fill-opacity="0.4" />
                             <polygon points="377,718 387,710 387,732 377,740" fill="#38BDF8" fill-opacity="0.2" />
-                            <text x="367" y="764" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">Dynatrace</text>
+                            <text x="367" y="764" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">LangFuse</text>
                         </g>
 
                         <!-- Metric Bullets -->
@@ -579,7 +579,7 @@
                     <div class="grid grid-cols-2 gap-2 text-[11px]">
                         <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
                             <span class="text-[9px] text-slate-500 uppercase font-bold code-font block">Avg Latency</span>
-                            <span id="inspect-latency" class="font-bold text-slate-200 code-font">18ms</span>
+                            <span id="inspect-latency" class="font-bold text-slate-200 code-font">Instant</span>
                         </div>
                         <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
                             <span class="text-[9px] text-slate-500 uppercase font-bold code-font block">Throughput</span>
@@ -664,7 +664,7 @@
                 desc: "Dispatches standardized payload into LangGraph Multi-Agent execution loop and coordinates tool responses.",
                 contract: "AgenticGraphState -> LangGraphLoop",
                 latency: "420ms",
-                throughput: "145+ Agents",
+                throughput: "19 Claim Journeys",
                 status: "INFERRING",
                 deps: ["Guardrails", "Foundry GPT-5.4 mini", "Observability"]
             },
@@ -676,14 +676,14 @@
                 latency: "35ms",
                 throughput: "100%",
                 status: "COMMITTING",
-                deps: ["Observability", "Dynatrace"]
+                deps: ["Observability", "LangFuse"]
             },
             guardrails: {
                 category: "LANGGRAPH AGENTS",
                 title: "🛡️ Guardrails Agent",
                 desc: "Pydantic validation layer enforcing input invariants, content safety boundaries, and schema integrity before downstream agents fire.",
                 contract: "AgenticGraphState -> PydanticScheme",
-                latency: "18ms",
+                latency: "Instant",
                 throughput: "1.2k req/min",
                 status: "ONLINE",
                 deps: ["Weather", "Foundry GPT-5.4 mini"]
@@ -704,7 +704,7 @@
                 desc: "Matches policy schedule against incident metadata, querying hot PDS caching in Azure Blob Storage.",
                 contract: "PolicyNumber -> PDSLookupTable",
                 latency: "32ms",
-                throughput: "94% Cache Hit",
+                throughput: "Cosmos DB State",
                 status: "ONLINE",
                 deps: ["Triage", "Blob Storage (PDS Cache)"]
             },
@@ -831,10 +831,10 @@
             foundry: {
                 category: "INFERENCE INFRASTRUCTURE",
                 title: "Foundry GPT-5.4 mini",
-                desc: "Unified cloud LLM inference gateway serving all 145+ specialized micro-agents with deterministic tool-calling constraints.",
+                desc: "Unified cloud LLM inference gateway serving all 19 specialized micro-agents with deterministic tool-calling constraints.",
                 contract: "ChatCompletion(Tools, Pydantic) -> StructuredOutput",
                 latency: "280ms",
-                throughput: "145+ Agents Backed",
+                throughput: "19 Claim Journeys",
                 status: "OPTIMAL",
                 deps: ["LangGraph Multi-Agent Workflow"]
             },
@@ -850,7 +850,7 @@
             },
             dynatrace: {
                 category: "OBSERVABILITY",
-                title: "Dynatrace Business Observability",
+                title: "LangFuse Business Observability",
                 desc: "Enterprise executive solution monitoring insurance claim journey SLA completion and transaction conversion metrics.",
                 contract: "OneAgent -> BusinessDashboards",
                 latency: "Real-time",
@@ -907,7 +907,7 @@
             "[FOUNDRY_INFERENCE] GPT-5.4 mini completed multi-tool reasoning in 240ms",
             "[AUDITOR] Generated compliance certificate #AUD-99103. Invariants valid",
             "[DURABLE_ORCHESTRATOR] Activity 3 committed state to persistent store",
-            "[APP_INSIGHTS] Dual-emit distributed trace dispatched to Dynatrace"
+            "[APP_INSIGHTS] Dual-emit distributed trace dispatched to LangFuse"
         ];
         let logIndex = 0;
 

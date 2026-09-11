@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 /* ==========================================================================
    Shivraj Dhaytadak Portfolio - Design System & UI Engine
    Theme: Editorial Luxury Cream & Prestigious Enterprise Identity
@@ -6,6 +8,11 @@
    ========================================================================== */
 
 :root {
+    /* Font Families */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
     /* Editorial Luxury Cream Palette */
     --bg-canvas: #FAF8F5;
     --bg-surface: #FFFFFF;
@@ -47,11 +54,11 @@
     --accent-rose: #E11D48;
     --accent-rose-subtle: #FFF1F2;
 
-    /* High-Contrast Editorial Typography Hierarchy */
+    /* High-Contrast Editorial Typography Hierarchy (WCAG AA Compliant >= 4.5:1) */
     --text-primary: #0F172A;
     --text-secondary: #334155;
-    --text-muted: #64748B;
-    --text-dim: #94A3B8;
+    --text-muted: #475569;
+    --text-dim: #64748B;
 
     /* Warm, Diffuse Editorial Shadows */
     --shadow-card: 0 4px 20px -2px rgba(40, 30, 20, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
@@ -59,8 +66,50 @@
     --glow-allianz: rgba(0, 55, 129, 0.2);
     --glow-emerald: rgba(16, 185, 129, 0.2);
     --glow-amber: rgba(217, 119, 6, 0.2);
+}
 
-    --font-mono: 'JetBrains Mono', monospace;
+/* Strict Major Third (1.250) Typography Scale & Heading Polish */
+.font-display, h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+}
+
+h1 {
+    font-size: clamp(2.15rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.032em;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.028em;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+p, .body-copy {
+    line-height: 1.68;
+    color: var(--text-secondary);
+}
+
+.prose-measure {
+    max-width: 68ch;
+}
+
+/* Nav Link Scroll-Spy Active Indicator */
+.nav-link-active {
+    color: var(--allianz-blue) !important;
+    background-color: var(--allianz-blue-subtle) !important;
+    font-weight: 700 !important;
+    box-shadow: 0 1px 2px rgba(0, 55, 129, 0.08);
 }
 
 /* Base Document Styling */
@@ -505,12 +554,59 @@ html.dark .bg-\[\#F4EFEA\],
     background-color: #05060A !important;
 }
 
+/* Hero Lens Card (Progressive Disclosure Perspective Card) */
+.hero-lens-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(40, 30, 20, 0.12);
+    color: #334155;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+html.dark .hero-lens-card,
+[data-recruiter-mode="true"] .hero-lens-card,
+[data-theme="dark"] .hero-lens-card {
+    background: #111827 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #CBD5E1 !important;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark .hero-lens-card strong,
+[data-recruiter-mode="true"] .hero-lens-card strong,
+[data-theme="dark"] .hero-lens-card strong {
+    color: #F8FAFC !important;
+}
+
+html.dark .hero-lens-card [data-persona="recruiter"] i,
+[data-theme="dark"] .hero-lens-card [data-persona="recruiter"] i {
+    color: #34D399 !important;
+}
+
+html.dark .hero-lens-card [data-persona="manager"] i,
+[data-theme="dark"] .hero-lens-card [data-persona="manager"] i {
+    color: #60A5FA !important;
+}
+
+html.dark .hero-lens-card [data-persona="engineer"] i,
+[data-theme="dark"] .hero-lens-card [data-persona="engineer"] i {
+    color: #A5B4FC !important;
+}
+
+html.dark .border-\[rgba\(40\,30\,20\,0\.07\)\],
+[data-recruiter-mode="true"] .border-\[rgba\(40\,30\,20\,0\.07\)\],
+[data-theme="dark"] .border-\[rgba\(40\,30\,20\,0\.07\)\],
 html.dark .border-\[rgba\(40\,30\,20\,0\.08\)\],
 [data-recruiter-mode="true"] .border-\[rgba\(40\,30\,20\,0\.08\)\],
 [data-theme="dark"] .border-\[rgba\(40\,30\,20\,0\.08\)\],
+html.dark .border-\[rgba\(40\,30\,20\,0\.1\)\],
+[data-recruiter-mode="true"] .border-\[rgba\(40\,30\,20\,0\.1\)\],
+[data-theme="dark"] .border-\[rgba\(40\,30\,20\,0\.1\)\],
 html.dark .border-\[rgba\(40\,30\,20\,0\.12\)\],
 [data-recruiter-mode="true"] .border-\[rgba\(40\,30\,20\,0\.12\)\],
-[data-theme="dark"] .border-\[rgba\(40\,30\,20\,0\.12\)\] {
+[data-theme="dark"] .border-\[rgba\(40\,30\,20\,0\.12\)\],
+html.dark .border-\[rgba\(40\,30\,20\,0\.14\)\],
+[data-recruiter-mode="true"] .border-\[rgba\(40\,30\,20\,0\.14\)\],
+[data-theme="dark"] .border-\[rgba\(40\,30\,20\,0\.14\)\] {
     border-color: rgba(255, 255, 255, 0.09) !important;
 }
 
@@ -1069,10 +1165,20 @@ html.dark .toast span,
     }
 }
 
-/* Focus Rings for Accessibility */
-button:focus-visible, a:focus-visible, input:focus-visible {
-    outline: 2px solid var(--allianz-blue);
-    outline-offset: 2px;
+/* Focus Rings for Accessibility (WCAG 2.1 Compliant) */
+button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus-visible {
+    outline: 2px solid var(--allianz-blue) !important;
+    outline-offset: 3px !important;
+    box-shadow: 0 0 0 4px rgba(0, 55, 129, 0.15) !important;
+}
+
+/* Touch Target Minimum (44x44px for mobile a11y) */
+.touch-target {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ==========================================================================

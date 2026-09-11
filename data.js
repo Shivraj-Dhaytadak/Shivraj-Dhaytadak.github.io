@@ -57,8 +57,8 @@ const portfolioData = {
             },
             {
                 id: "kpi-agents",
-                value: "145+",
-                number: 145,
+                value: "19",
+                number: 19,
                 suffix: "+",
                 label: "Micro-Agents",
                 sublabel: "Production Orchestration",
@@ -72,7 +72,7 @@ const portfolioData = {
                 number: 1,
                 suffix: " Day",
                 label: "Journey Rollout",
-                sublabel: "Slashed from 14-day cycle",
+                sublabel: "Slashed from 3-week cycle",
                 icon: "sparkles",
                 accent: "emerald",
                 highlight: "Zero-code redeploy declarative JSON"
@@ -117,7 +117,7 @@ const portfolioData = {
             },
             {
                 title: "LangChain Automated PII Redaction",
-                description: "100% compliance with Australian Privacy Principles (APP) prior to data persistence.",
+                description: "100% compliance with Australia Corporate Privacy Standards prior to data persistence.",
                 icon: "lock"
             },
             {
@@ -162,13 +162,13 @@ const portfolioData = {
             metrics: [
                 { label: "AST Parse Cache", value: "< 0.4ms" },
                 { label: "Cold Start Latency", value: "0ms (Warm)" },
-                { label: "APP-19 Privacy", value: "100% Pass" },
+                { label: "Australia Privacy Standards", value: "100% Pass" },
                 { label: "Prompt Duplication", value: "0%" }
             ],
             narrative: {
-                challenge: "Legacy claim intake pipelines required 10–14 days of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.",
+                challenge: "Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.",
                 solution: "Architected a Declarative JSON Workflow Engine separating prompt configurations and route logic from execution binaries. Incoming stream payloads from Kafka and Event Hubs are orchestrated through Azure Durable Functions and passed through Azure Content Safety and LangChain PII redaction before entering the LangGraph state machine.",
-                impact: "Slashed new claim journey launch time from 14 days to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and 100% regulatory compliance."
+                impact: "Slashed new claim journey launch time from 3 weeks to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and 100% regulatory compliance."
             },
             deliverables: [
                 "<strong>[Architecture]</strong> Declarative JSON workflow engine driving 19 claim types, allowing business & prompt engineers to launch new claim journeys in 24 hours without backend redeployment.",
@@ -247,11 +247,11 @@ const portfolioData = {
         kpis: [
             { label: "Rollout Velocity", from: "14 Days", to: "< 24 Hours", change: "93% Reduction" },
             { label: "Annual Volume", value: "100,000+", sub: "Screened Claims" },
-            { label: "Swarm Scale", value: "145+", sub: "Production Agents" },
+            { label: "Swarm Scale", value: "19", sub: "Production Agents" },
             { label: "Active Journeys", value: "19", sub: "Automated Claim Paths" }
         ],
         starNarrative: {
-            situation: "Insurance claim lodgement is a high-stakes, legally audited domain. Historically, modifying or adding a claim journey required 10–14 days of backend developer engineering, hardcoded business rule changes, schema re-validation, and full CI/CD deployment cycles. Meanwhile, the inherent non-determinism of LLMs created legal, compliance, and hallucination risks under Australian regulatory frameworks.",
+            situation: "Insurance claim lodgement is a high-stakes, legally audited domain. Historically, modifying or adding a claim journey required 3 weeks of backend developer engineering, hardcoded business rule changes, schema re-validation, and full CI/CD deployment cycles. Meanwhile, the inherent non-determinism of LLMs created legal, compliance, and hallucination risks under Australian regulatory frameworks.",
             task: "Engineer a production-grade multi-agent architecture that empowers non-developer prompt engineers to ship new claim journeys in under 24 hours without backend binary redeployments, while guaranteeing 100% compliance with privacy mandates and zero corrupted agent state transitions.",
             action: [
                 "Declarative JSON Workflow Engine: Completely decoupled prompt definitions, state transition routes, and tool schemas from the execution binary. Each claim journey is configured via a single declarative JSON document.",
@@ -259,7 +259,7 @@ const portfolioData = {
                 "Distributed Stream Orchestration: State progression is coordinated via Azure Durable Functions, ensuring durable checkpointing, warm consumer pools, and zero dropped claims under peak surges.",
                 "Runtime Pydantic Invariants: Every LangGraph node transition executes runtime Pydantic schema validation. If an LLM returns unexpected structures, deterministic recovery gates intervene immediately."
             ],
-            result: "Slashed journey deployment cycle from 14 days to less than 24 hours. The platform processes 100,000+ claims annually across 19 production journeys with zero security breaches and zero state drift.",
+            result: "Slashed journey deployment cycle from 3 weeks to less than 24 hours. The platform processes 100,000+ claims annually across 19 production journeys with zero security breaches and zero state drift.",
             postMortem: {
                 tradeoff: "Decoupling JSON schemas introduced slight initial parsing and validation overhead (~15ms per cold session). We mitigated this by compiling and caching validated AST schemas in hot memory and maintaining policy disclosure documents in hot Azure Blob Storage.",
                 takeaway: "Strict runtime Pydantic schema validation at every micro-agent boundary is 10x cheaper than attempting to debug corrupted multi-agent conversational states downstream in production."
@@ -352,7 +352,7 @@ const portfolioData = {
                 label: "Hot Policy & Disclosure Blob Cache",
                 category: "Storage Optimization",
                 tech: "Azure Blob Storage + In-Memory AST",
-                badge: "Cache Hit: 94%",
+                badge: "Cache Hit: Persistent State",
                 description: "Maintains pre-compiled declarative journey ASTs and hot policy disclosure clauses to avoid redundant remote fetches.",
                 payloadSample: `{
   "cacheHit": true,
@@ -367,7 +367,7 @@ const portfolioData = {
                 id: "observability",
                 label: "Dual-Emit Observability Engine",
                 category: "Telemetry & APM",
-                tech: "Dynatrace + Azure Application Insights",
+                tech: "LangFuse + Azure Application Insights",
                 badge: "Distributed Tracing",
                 description: "Streams high-fidelity distributed traces measuring ingestion throughput, agent latency, LLM token duration, and schema hit-rates.",
                 payloadSample: `{
@@ -527,7 +527,7 @@ class EnterpriseClaimSafetyGate:
                 number: "02",
                 axiom: "Traceability is Non-Negotiable",
                 subtext: "If an agent journey cannot be replayed step-by-step from an event log, it does not run in production.",
-                description: "Every agent node transition, prompt template version, tool invocation parameter, and external API result must produce an immutable audit log. Dual-emit observability via Dynatrace and Azure Application Insights enables forensic isolation within seconds."
+                description: "Every agent node transition, prompt template version, tool invocation parameter, and external API result must produce an immutable audit log. Dual-emit observability via Azure Application Insights and LangFuse enables forensic isolation within seconds."
             },
             {
                 number: "03",

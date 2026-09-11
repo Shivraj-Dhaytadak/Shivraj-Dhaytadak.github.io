@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="light" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Shivraj Dhaytadak</title>
+    <meta name="description" content="The requested page could not be found. Return to Shivraj Dhaytadak's enterprise AI portfolio.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
+    <script src="https://unpkg.com/lucide@0.462.0" defer></script>
+</head>
+
+<body class="bg-[#FAF8F5] text-slate-800 min-h-screen flex flex-col justify-between antialiased selection:bg-[#003781]/15 selection:text-[#003781]">
+
+    <!-- Simple Header -->
+    <header class="px-6 py-4 border-b border-[rgba(40,30,20,0.08)] bg-white/80 backdrop-blur-md sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-[#003781] flex items-center justify-center font-mono font-bold text-xs text-white shadow-xs">
+                    SD
+                </div>
+                <span class="text-sm font-bold text-slate-900">Shivraj Dhaytadak</span>
+            </a>
+            <a href="index.html" class="text-xs font-semibold text-[#003781] hover:underline flex items-center gap-1">
+                <span>&larr; Back to Portfolio</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main 404 Hero -->
+    <main class="max-w-2xl mx-auto px-6 py-24 text-center my-auto">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EBF3FB] border border-[#003781]/20 text-[#003781] text-xs font-mono font-semibold mb-6">
+            <span>ERROR 404 &bull; INVARIANT ROUTE NOT FOUND</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight font-display mb-4">
+            State Unreachable
+        </h1>
+        
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto mb-8">
+            The graph traversal encountered an unmapped route or deprecated node. Let's redirect you back to the verified production state graph.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-3">
+            <a href="index.html" class="px-5 py-2.5 rounded-xl bg-[#003781] hover:bg-[#002659] text-white font-semibold text-sm transition-all shadow-md flex items-center gap-2">
+                <i data-lucide="home" class="w-4 h-4"></i>
+                <span>Return to Homepage</span>
+            </a>
+            <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf" class="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 text-sm font-medium transition-all shadow-xs flex items-center gap-2">
+                <i data-lucide="file-down" class="w-4 h-4 text-emerald-700"></i>
+                <span>Download Resume (PDF)</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 px-6 border-t border-[rgba(40,30,20,0.08)] text-center text-xs text-slate-500 font-mono">
+        Shivraj Dhaytadak &bull; Agentic AI Consultant &bull; Pune, IN
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

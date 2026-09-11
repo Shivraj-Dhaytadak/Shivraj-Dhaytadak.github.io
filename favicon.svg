@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="sdGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#003781" />
+      <stop offset="100%" stop-color="#001B44" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+  <!-- Background rounded squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#sdGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="2" />
+  <!-- Accent corner node -->
+  <circle cx="50" cy="14" r="4" fill="url(#accentGrad)" />
+  <!-- Monogram SD -->
+  <text x="32" y="42" text-anchor="middle" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" letter-spacing="-1">SD</text>
+  <!-- Sub-dot indicator -->
+  <rect x="20" y="48" width="24" height="2" rx="1" fill="rgba(255,255,255,0.4)" />
+</svg>

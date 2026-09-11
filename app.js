@@ -1317,6 +1317,41 @@ function setupDelegatedListeners() {
 }
 
 // ==========================================================================
+// ==========================================================================
+// 10B. Interactive Navigation Scroll-Spy (IntersectionObserver)
+// ==========================================================================
+function initScrollSpy() {
+    const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+    if (!navLinks.length) return;
+
+    const sectionIds = Array.from(navLinks).map(link => link.getAttribute("href").substring(1));
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    if (!("IntersectionObserver" in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const activeId = entry.target.id;
+                navLinks.forEach(link => {
+                    if (link.getAttribute("href") === `#${activeId}`) {
+                        link.classList.add("nav-link-active");
+                    } else {
+                        link.classList.remove("nav-link-active");
+                    }
+                });
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: 0
+    });
+
+    sections.forEach(section => observer.observe(section));
+}
+
+// ==========================================================================
 // 11. Initialization Lifecycle
 // ==========================================================================
 function initPortfolio() {
@@ -1336,6 +1371,7 @@ function initPortfolio() {
     initKpiCounters();
     initBentoCardGlow();
     initPipelineScrollytelling();
+    initScrollSpy();
     setupCmdkListeners();
     setupDelegatedListeners();
 
