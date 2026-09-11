@@ -1336,8 +1336,10 @@ function initScrollSpy() {
                 navLinks.forEach(link => {
                     if (link.getAttribute("href") === `#${activeId}`) {
                         link.classList.add("nav-link-active");
+                        link.setAttribute("aria-current", "true");
                     } else {
                         link.classList.remove("nav-link-active");
+                        link.removeAttribute("aria-current");
                     }
                 });
             }
