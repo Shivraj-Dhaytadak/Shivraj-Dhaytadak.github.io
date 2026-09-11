@@ -1398,3 +1398,31 @@ if (document.readyState === "loading") {
 } else {
     initPortfolio();
 }
+
+// ==========================================================================
+// Architecture Blueprint Interactive Lightbox
+// ==========================================================================
+window.openLightbox = function() {
+    const lb = document.getElementById('blueprint-lightbox');
+    if (lb) {
+        lb.classList.remove('hidden');
+        lb.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide && typeof lucide.createIcons === 'function') {
+            lucide.createIcons({ root: lb });
+        }
+    }
+};
+
+window.closeLightbox = function() {
+    const lb = document.getElementById('blueprint-lightbox');
+    if (lb) {
+        lb.classList.add('hidden');
+        lb.classList.remove('flex');
+        document.body.style.overflow = '';
+    }
+};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeLightbox();
+});

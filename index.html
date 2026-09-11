@@ -88,19 +88,13 @@
                 class="hidden md:flex items-center gap-1 bg-white/90 border border-[rgba(40,30,20,0.08)] shadow-sm rounded-full px-3 py-1 text-xs"
                 aria-label="Main Navigation">
                 <a href="#case-study"
-                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB]">Work</a>
-                <a href="#featured-systems"
-                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB]">Systems</a>
-                <a href="#recruiter-snapshot"
-                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB]">Metrics</a>
-                <a href="#pipeline"
-                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB]">Simulator</a>
+                    class="px-3.5 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Work</a>
                 <a href="#career-timeline"
-                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB]">Experience</a>
-                <a href="#philosophy"
-                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB]">Principles</a>
+                    class="px-3.5 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Experience</a>
+                <a href="#recruiter-snapshot"
+                    class="px-3.5 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Metrics</a>
                 <a href="#contact"
-                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB]">Contact</a>
+                    class="px-3.5 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Contact</a>
             </nav>
 
             <!-- Action Suite -->
@@ -110,7 +104,7 @@
                     class="px-2.5 py-1.5 rounded-xl bg-white border border-[rgba(40,30,20,0.12)] text-slate-700 hover:text-slate-900 text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer shadow-sm hover:bg-slate-50"
                     title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
                     <i id="theme-toggle-icon" data-lucide="moon"
-                        class="w-3.5 h-3.5 text-slate-600 transition-transform duration-300"></i>
+                        class="w-3.5 h-3.5 text-slate-600 transition-transform duration-300" aria-hidden="true"></i>
                     <span id="recruiter-mode-indicator" class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
                     <span id="recruiter-toggle-text" class="hidden sm:inline text-[11px] font-medium">Dark Mode</span>
                 </button>
@@ -119,50 +113,28 @@
                 <button data-open-cmdk
                     class="px-2.5 py-1.5 rounded-xl bg-white border border-[rgba(40,30,20,0.12)] text-slate-700 hover:text-slate-900 text-xs font-mono transition-all flex items-center gap-1 cursor-pointer shadow-sm hover:bg-slate-50"
                     title="Search site (Cmd+K or Ctrl+K)" aria-label="Open Command Palette Search">
-                    <i data-lucide="search" class="w-3.5 h-3.5 sm:hidden text-slate-600"></i>
+                    <i data-lucide="search" class="w-3.5 h-3.5 sm:hidden text-slate-600" aria-hidden="true"></i>
                     <kbd
                         class="hidden sm:inline-block px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 text-[10px] font-mono border border-slate-200">⌘K</kbd>
                 </button>
 
                 <!-- Secondary Resume Button -->
-                <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
                     class="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 hover:text-[#003781] text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-                    title="Download Resume (PDF)">
-                    <i data-lucide="file-down" class="w-3.5 h-3.5 text-emerald-700 shrink-0"></i>
+                    title="View Resume in new tab (PDF)">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5 text-emerald-700 shrink-0" aria-hidden="true"></i>
                     <span>Resume</span>
                 </a>
 
-                <!-- Primary Schedule Intro CTA -->
-                <a href="mailto:shivraj.25d@gmail.com?subject=Enterprise%20AI%20Architecture%20Discussion"
+                <!-- Primary Get in Touch CTA -->
+                <a href="#contact"
                     class="px-3.5 py-1.5 rounded-xl btn-shimmer-primary text-white font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-[#003781]/25">
-                    <i data-lucide="calendar" class="w-3.5 h-3.5 shrink-0"></i>
-                    <span class="whitespace-nowrap">Schedule Intro</span>
+                    <i data-lucide="calendar" class="w-3.5 h-3.5 shrink-0" aria-hidden="true"></i>
+                    <span class="whitespace-nowrap">Get in Touch</span>
                 </a>
             </div>
         </div>
     </header>
-
-    <!-- ==========================================================================
-         FLOATING PERSONA LENS SWITCHER (STICKY SUB-DOCK)
-         ========================================================================== -->
-    <div class="sticky top-[57px] z-30 py-2.5 px-4 flex justify-center pointer-events-none">
-        <nav class="persona-dock pointer-events-auto flex items-center gap-1 shadow-md"
-            aria-label="Perspective Lens Switcher">
-            <span class="px-3 py-1 text-slate-600 font-mono text-[11px] hidden sm:inline font-medium">Perspective:</span>
-            <button data-target-view="recruiter" class="persona-btn active"
-                title="Recruiter perspective: credentials, metrics, and resume" aria-label="Switch to Recruiter Lens: credentials and verified metrics">
-                <span aria-hidden="true">👔</span> <span>Recruiter</span>
-            </button>
-            <button data-target-view="manager" class="persona-btn"
-                title="AI Leadership perspective: velocity, governance, and business ROI" aria-label="Switch to AI Manager Lens: delivery velocity and governance">
-                <span aria-hidden="true">💼</span> <span>AI Manager</span>
-            </button>
-            <button data-target-view="engineer" class="persona-btn"
-                title="Engineering perspective: state graphs, schemas, and runtime invariants" aria-label="Switch to AI Engineer Lens: state schemas and architecture invariants">
-                <span aria-hidden="true">⚡</span> <span>AI Engineer</span>
-            </button>
-        </nav>
-    </div>
 
     <!-- ==========================================================================
          2. HERO SECTION: IDENTITY & PRODUCTION SCALE
@@ -191,73 +163,31 @@
                     </p>
                 </div>
 
-                <!-- Layered Focus Card (Progressive Disclosure tailored by Perspective) -->
-                <div class="hero-lens-card mt-4 p-3.5 rounded-xl max-w-2xl text-xs sm:text-sm leading-relaxed shadow-xs" aria-live="polite">
-                    <div data-persona="recruiter" class="flex items-start gap-2.5">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                        <span><strong>Production Scale:</strong> Orchestrated 19 production claim journeys handling 100k+ annual claims with 1-day journey rollouts and zero security breaches.</span>
-                    </div>
-                    <div data-persona="manager" class="persona-hidden flex items-start gap-2.5">
-                        <i data-lucide="trending-up" class="w-4 h-4 text-[#003781] shrink-0 mt-0.5"></i>
-                        <span><strong>Business Velocity:</strong> Slashed journey rollout cycles from 3 weeks to &lt; 24h (21x acceleration), eliminated 80% developer toil, and enforced 100% Australia Corporate Privacy Standards compliance.</span>
-                    </div>
-                    <div data-persona="engineer" class="persona-hidden flex items-start gap-2.5">
-                        <i data-lucide="cpu" class="w-4 h-4 text-indigo-600 shrink-0 mt-0.5"></i>
-                        <span><strong>Architectural Rigor:</strong> LangGraph state machines, warm Kafka broker pools, SQLGlot AST query verification, runtime Pydantic invariants, and sub-2.5s composite graph latency.</span>
+                <!-- Production Scale & Governance Callout -->
+                <div class="hero-lens-card mt-4 p-4 rounded-xl max-w-2xl text-xs sm:text-sm leading-relaxed shadow-xs" aria-live="polite">
+                    <div class="flex items-start gap-2.5">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" aria-hidden="true"></i>
+                        <span><strong>Production Scale &amp; Governance:</strong> Orchestrated 19 production claim journeys handling 100k+ annual claims at Allianz Services. Slashed journey rollout cycles from 3 weeks to &lt; 24h with 0 downstream drift and 100% Australia Corporate Privacy Standards compliance.</span>
                     </div>
                 </div>
 
-                <!-- Unified CTA Suite: 1 High-Contrast Primary, 1 Secondary, 1 Tertiary -->
+                <!-- Unified Hero CTAs: Exactly 2 Choices (Zero Decision Paralysis) -->
                 <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-
-                    <!-- Primary Action (High Contrast Glow) -->
+                    <!-- Primary Action: Direct Jump to Case Study -->
                     <a href="#case-study"
                         class="px-5 py-2.5 rounded-xl btn-shimmer-primary text-white font-semibold text-sm flex items-center gap-2 cursor-pointer shadow-lg shadow-[#003781]/25 touch-target"
                         title="Explore Flagship Architecture Case Study">
-                        <i data-lucide="layers" class="w-4 h-4 shrink-0"></i>
-                        <span>Explore Flagship Work</span>
+                        <i data-lucide="layers" class="w-4 h-4 shrink-0" aria-hidden="true"></i>
+                        <span>View Architecture Case Study</span>
                     </a>
 
-                    <!-- Secondary Action (Clean Outlined Button) -->
-                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                    <!-- Secondary Action: Open Resume in New Tab -->
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
                         class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 hover:text-[#003781] border border-[rgba(40,30,20,0.14)] font-medium text-sm flex items-center gap-2 transition-all shadow-xs touch-target"
-                        title="Download Shivraj Dhaytadak Resume PDF">
-                        <i data-lucide="file-down" class="w-4 h-4 text-emerald-700 shrink-0"></i>
-                        <span>Download Resume (PDF)</span>
+                        title="View Shivraj Dhaytadak Resume PDF in new tab">
+                        <i data-lucide="file-text" class="w-4 h-4 text-emerald-700 shrink-0" aria-hidden="true"></i>
+                        <span>View Resume (PDF)</span>
                     </a>
-
-                    <!-- Tertiary Action (Schedule Intro) -->
-                    <a href="mailto:shivraj.25d@gmail.com?subject=Enterprise%20AI%20Architecture%20Discussion"
-                        class="px-4 py-2.5 rounded-xl text-slate-700 hover:text-[#003781] hover:bg-[#EBF3FB] font-medium text-sm flex items-center gap-1.5 transition-colors touch-target"
-                        title="Schedule a 15-minute introduction">
-                        <i data-lucide="calendar" class="w-4 h-4 shrink-0 text-[#003781]"></i>
-                        <span>Schedule Intro</span>
-                    </a>
-
-                    <!-- Subtle Micro-Action Suite -->
-                    <div class="flex items-center gap-1.5 pl-1 sm:border-l sm:border-[rgba(40,30,20,0.12)] sm:pl-3">
-                        <a href="https://www.linkedin.com/in/shivraj-dhaytadak7" target="_blank"
-                            rel="noopener noreferrer"
-                            class="p-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-[#003781] transition-colors border border-[rgba(40,30,20,0.1)] flex items-center justify-center shadow-xs"
-                            aria-label="Connect on LinkedIn" title="LinkedIn Profile">
-                            <i data-lucide="linkedin" class="w-4 h-4 shrink-0"></i>
-                        </a>
-                        <a href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
-                            class="p-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 transition-colors border border-[rgba(40,30,20,0.1)] flex items-center justify-center shadow-xs"
-                            aria-label="GitHub Repositories" title="GitHub Profile">
-                            <i data-lucide="github" class="w-4 h-4 shrink-0"></i>
-                        </a>
-                        <button data-copy-email
-                            class="p-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-[#003781] transition-colors border border-[rgba(40,30,20,0.1)] cursor-pointer flex items-center justify-center shadow-xs"
-                            aria-label="Copy Email address" title="Copy Email (shivraj.25d@gmail.com)">
-                            <i data-lucide="mail" class="w-4 h-4 shrink-0"></i>
-                        </button>
-                        <button data-download-vcard
-                            class="p-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-[#003781] transition-colors border border-[rgba(40,30,20,0.1)] cursor-pointer flex items-center justify-center shadow-xs"
-                            aria-label="Download contact vCard" title="Save Contact (vCard)">
-                            <i data-lucide="user-plus" class="w-4 h-4 shrink-0"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
 
@@ -354,17 +284,17 @@
             <div class="flex flex-wrap items-center gap-2">
                 <span
                     class="honor-badge-persistent px-2.5 py-1 rounded-full bg-[#FEF3C7] border border-[#D97706]/30 text-[#B45309] text-[11px] font-mono font-semibold flex items-center gap-1.5 shadow-sm">
-                    <i data-lucide="award" class="w-3.5 h-3.5 text-[#D97706] shrink-0"></i>
+                    <i data-lucide="award" class="w-3.5 h-3.5 text-[#D97706] shrink-0" aria-hidden="true"></i>
                     <span>Persistent: CEO Club Winner (Top 1%)</span>
                 </span>
                 <span
                     class="honor-badge-yash px-2.5 py-1 rounded-full bg-[#FEF2F2] border border-[#D32F2F]/25 text-[#B91C1C] text-[11px] font-mono font-semibold flex items-center gap-1.5 shadow-sm">
-                    <i data-lucide="award" class="w-3.5 h-3.5 text-[#D32F2F] shrink-0"></i>
+                    <i data-lucide="award" class="w-3.5 h-3.5 text-[#D32F2F] shrink-0" aria-hidden="true"></i>
                     <span>Yash: Star of the Month</span>
                 </span>
                 <span
                     class="honor-badge-allianz px-2.5 py-1 rounded-full bg-[#EBF3FB] border border-[#003781]/25 text-[#003781] text-[11px] font-mono font-semibold flex items-center gap-1.5 shadow-sm">
-                    <i data-lucide="award" class="w-3.5 h-3.5 text-[#003781] shrink-0"></i>
+                    <i data-lucide="award" class="w-3.5 h-3.5 text-[#003781] shrink-0" aria-hidden="true"></i>
                     <span>Allianz: Best Team (H1 '26)</span>
                 </span>
             </div>
@@ -387,11 +317,11 @@
                 <div>
                     <div class="flex items-center gap-2 mb-2 flex-wrap">
                         <span class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#003781] uppercase tracking-wider">
-                            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="layers" class="w-3.5 h-3.5" aria-hidden="true"></i>
                             <span>01 / Flagship Architecture Case Study</span>
                         </span>
                         <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-emerald-50 border border-emerald-200 text-emerald-800 inline-flex items-center gap-1">
-                            <i data-lucide="shield-check" class="w-3 h-3"></i>
+                            <i data-lucide="shield-check" class="w-3 h-3" aria-hidden="true"></i>
                             <span>Sanitized Architecture • APP-11 Governed</span>
                         </span>
                     </div>
@@ -402,13 +332,19 @@
                         Declarative Multi-Agent State Graph Architecture with Dual-Emit Observability &bull; Tier-1 Global Insurance GCC (Allianz Services)
                     </p>
                 </div>
-                <div class="flex items-center gap-2">
-                    <a href="workflow.html" target="_blank"
-                        class="px-4 py-2 rounded-xl bg-[#003781] hover:bg-[#002659] text-white font-medium text-xs transition-all flex items-center gap-2 shadow-md"
-                        aria-label="Launch interactive simulator in new tab">
-                        <i data-lucide="play" class="w-3.5 h-3.5"></i>
-                        <span>Launch Interactive Simulator</span>
-                        <i data-lucide="external-link" class="w-3 h-3 text-white/70"></i>
+                <div class="flex items-center gap-2.5 flex-wrap">
+                    <a href="case-study.html"
+                        class="px-4 py-2 rounded-xl btn-shimmer-primary text-white font-semibold text-xs transition-all flex items-center gap-1.5 shadow-md shadow-[#003781]/25"
+                        title="Read full architectural case study with ADRs and dataflows">
+                        <i data-lucide="book-open" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                        <span>Explore Deep-Dive Case Study &rarr;</span>
+                    </a>
+                    <a href="workflow.html" target="_blank" rel="noopener noreferrer"
+                        class="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 hover:text-[#003781] font-medium text-xs transition-all flex items-center gap-1.5 shadow-xs"
+                        aria-label="Launch interactive topology simulator in new window">
+                        <i data-lucide="play" class="w-3.5 h-3.5 text-emerald-700" aria-hidden="true"></i>
+                        <span>Interactive Simulator</span>
+                        <i data-lucide="external-link" class="w-3 h-3 text-slate-400" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -444,7 +380,7 @@
                     <div>
                         <div
                             class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-800">
-                            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i> The Challenge (Situation &amp;
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600" aria-hidden="true"></i> The Challenge (Situation &amp;
                             Friction)
                         </div>
                         <h4 class="text-base font-bold text-slate-900 mt-2">14-Day Release Cycle &amp; LLM Compliance
@@ -467,7 +403,7 @@
                     <div>
                         <div
                             class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#003781]">
-                            <i data-lucide="cpu" class="w-4 h-4"></i> The Breakthrough (Architecture &amp; Action)
+                            <i data-lucide="cpu" class="w-4 h-4" aria-hidden="true"></i> The Breakthrough (Architecture &amp; Action)
                         </div>
                         <h4 class="text-base font-bold text-slate-900 mt-2">Declarative JSON Engine &amp; LangGraph
                             State Machine</h4>
@@ -485,21 +421,48 @@
                 </div>
             </div>
 
-            <!-- Visual Architecture Diagram Blueprint -->
+            <!-- Visual Architecture Diagram Blueprint with Interactive Lightbox -->
             <div class="mb-8 rounded-2xl overflow-hidden border border-[rgba(40,30,20,0.1)] bg-white shadow-xs p-4 sm:p-5">
                 <div class="flex items-center justify-between gap-3 mb-3 flex-wrap">
                     <div class="flex items-center gap-2">
-                        <i data-lucide="image" class="w-4 h-4 text-[#003781]"></i>
+                        <i data-lucide="image" class="w-4 h-4 text-[#003781]" aria-hidden="true"></i>
                         <span class="text-xs font-bold uppercase tracking-wider text-slate-900">Production Architecture Blueprint &bull; Full Dataflow</span>
                     </div>
-                    <a href="ProjectBluey.png" target="_blank" class="text-xs font-medium text-[#003781] hover:underline inline-flex items-center gap-1">
-                        <span>View High-Res Blueprint</span>
-                        <i data-lucide="external-link" class="w-3 h-3"></i>
-                    </a>
+                    <div class="flex items-center gap-3">
+                        <button onclick="openLightbox()" class="text-xs font-medium text-[#003781] hover:underline inline-flex items-center gap-1 cursor-pointer">
+                            <i data-lucide="maximize-2" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                            <span>Enlarge Lightbox</span>
+                        </button>
+                        <a href="case-study.html" class="text-xs font-medium text-emerald-700 hover:underline inline-flex items-center gap-1">
+                            <span>Read Deep-Dive &rarr;</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-50 relative group">
-                    <img src="ProjectBluey.png" alt="Production Multi-Agent Architecture Diagram for Claims Lodgement Engine at Allianz Services" class="w-full h-auto max-h-[360px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy">
+                <div class="rounded-xl overflow-hidden border border-slate-200 bg-slate-900 relative group cursor-pointer" onclick="openLightbox()" title="Click to view full-resolution blueprint in interactive lightbox">
+                    <picture>
+                        <source srcset="ProjectBluey.webp" type="image/webp">
+                        <img src="ProjectBluey.png" alt="Production Multi-Agent Architecture Diagram for Claims Lodgement Engine at Allianz Services" width="1890" height="1119" class="w-full h-auto max-h-[420px] object-contain mx-auto transition-transform duration-300 group-hover:scale-[1.01]" loading="lazy">
+                    </picture>
+                    <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/10 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 pointer-events-none">
+                        <span class="px-3.5 py-1.5 rounded-lg bg-white/95 text-slate-900 font-semibold text-xs shadow-md backdrop-blur-sm flex items-center gap-1.5">
+                            <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
+                            <span>Click to Pan &amp; Zoom</span>
+                        </span>
+                    </div>
                 </div>
+                <!-- Accessible Dataflow Summary Table (WCAG 1.1.1 Equivalent) -->
+                <details class="mt-3 p-3 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-xs text-slate-700">
+                    <summary class="font-bold text-slate-900 cursor-pointer font-mono hover:text-[#003781]">
+                        &blacktriangleright; Accessible Text Dataflow Summary (Screen Reader &amp; Flow Spec)
+                    </summary>
+                    <div class="mt-2 space-y-1.5 font-mono text-[11px] leading-relaxed">
+                        <p><strong>Stage 1 (Ingestion):</strong> Insurance claim payload received via Azure API Management gateway &rarr; queued into Kafka event buffer.</p>
+                        <p><strong>Stage 2 (Multi-Layer Guardrails):</strong> Azure Content Safety screens injection attacks &rarr; LangChain PII redaction middleware sanitizes citizen data prior to persistence.</p>
+                        <p><strong>Stage 3 (Declarative Graph Engine):</strong> JSON execution engine resolves 1 of 19 claim journey state graphs &rarr; LangGraph orchestrates cyclic agent nodes.</p>
+                        <p><strong>Stage 4 (Runtime Verification):</strong> Every discrete node validates output through strict Pydantic models &rarr; eliminates downstream type drift.</p>
+                        <p><strong>Stage 5 (Dual-Emit Observability):</strong> Distributed tracing spans emitted concurrently to Azure Application Insights and LangFuse.</p>
+                    </div>
+                </details>
             </div>
 
             <!-- INTERACTIVE TOPOLOGY SIMULATOR & NODE INSPECTOR -->
@@ -518,7 +481,7 @@
                         class="text-xs font-medium text-[#003781] hover:text-[#002659] flex items-center gap-1.5 self-start sm:self-auto"
                         aria-label="Launch interactive simulator in new window">
                         <span>Launch Interactive Simulator</span>
-                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        <i data-lucide="external-link" class="w-3.5 h-3.5" aria-hidden="true"></i>
                     </a>
                 </div>
 
@@ -532,7 +495,7 @@
                                 <div class="flex items-center gap-2.5">
                                     <div
                                         class="p-1.5 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                                        <i data-lucide="zap" class="w-4 h-4"></i>
+                                        <i data-lucide="zap" class="w-4 h-4" aria-hidden="true"></i>
                                     </div>
                                     <div>
                                         <h5 class="text-xs font-bold text-slate-900">Managed Kafka &amp; Event Hubs</h5>
@@ -554,7 +517,7 @@
                                 <div class="flex items-center gap-2.5">
                                     <div
                                         class="p-1.5 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                                        <i data-lucide="workflow" class="w-4 h-4"></i>
+                                        <i data-lucide="workflow" class="w-4 h-4" aria-hidden="true"></i>
                                     </div>
                                     <div>
                                         <h5 class="text-xs font-bold text-slate-900">Azure Durable Functions
@@ -576,7 +539,7 @@
                                 <div class="flex items-center gap-2.5">
                                     <div
                                         class="p-1.5 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                        <i data-lucide="shield-check" class="w-4 h-4" aria-hidden="true"></i>
                                     </div>
                                     <div>
                                         <h5 class="text-xs font-bold text-slate-900">Dual-Tier Safety &amp; PII
@@ -599,7 +562,7 @@
                                 <div class="flex items-center gap-2.5">
                                     <div
                                         class="p-1.5 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                                        <i data-lucide="bot" class="w-4 h-4"></i>
+                                        <i data-lucide="bot" class="w-4 h-4" aria-hidden="true"></i>
                                     </div>
                                     <div>
                                         <h5 class="text-xs font-bold text-slate-900">LangGraph Declarative State Machine
@@ -617,7 +580,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-1">
                             <div class="topo-node cursor-pointer" data-topo-node="hot_cache" role="button" tabindex="0" aria-label="Inspect Hot Blob Cache">
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="database" class="w-3.5 h-3.5 text-slate-600"></i>
+                                    <i data-lucide="database" class="w-3.5 h-3.5 text-slate-600" aria-hidden="true"></i>
                                     <div class="truncate">
                                         <div class="text-[11px] font-bold text-slate-900 truncate">Hot Blob Cache</div>
                                         <div class="text-[9px] text-slate-600 font-mono">Cosmos DB State</div>
@@ -627,7 +590,7 @@
 
                             <div class="topo-node cursor-pointer" data-topo-node="observability" role="button" tabindex="0" aria-label="Inspect Dual-Emit Telemetry">
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="activity" class="w-3.5 h-3.5 text-[#003781]"></i>
+                                    <i data-lucide="activity" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                                     <div class="truncate">
                                         <div class="text-[11px] font-bold text-slate-900 truncate">Dual-Emit Telemetry
                                         </div>
@@ -687,7 +650,7 @@
                                 <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
                                     <span class="text-[11px] text-slate-400 font-mono">Tech: LangGraph + Azure AI Foundry (GPT-5.4)</span>
                                     <a href="workflow.html" target="_blank" class="text-[#38BDF8] hover:text-[#7DD3FC] font-medium flex items-center gap-1 text-xs transition-colors">
-                                        <span>Launch Interactive Simulator</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                                        <span>Launch Interactive Simulator</span> <i data-lucide="arrow-right" class="w-3 h-3" aria-hidden="true"></i>
                                     </a>
                                 </div>
                             </div>
@@ -777,17 +740,17 @@
                     <div class="flex flex-wrap items-center gap-1.5">
                         <button data-code-tab="schema_tab"
                             class="px-3 py-1.5 rounded-lg bg-[#003781] text-white font-medium text-xs transition-colors flex items-center gap-1.5 shadow-sm cursor-pointer">
-                            <i data-lucide="file-code" class="w-3 h-3"></i>
+                            <i data-lucide="file-code" class="w-3 h-3" aria-hidden="true"></i>
                             <span>Declarative JSON</span>
                         </button>
                         <button data-code-tab="langgraph_tab"
                             class="px-3 py-1.5 rounded-lg bg-[#FAF8F5] text-slate-600 hover:text-slate-900 font-medium text-xs transition-colors flex items-center gap-1.5 border border-[rgba(40,30,20,0.08)] cursor-pointer">
-                            <i data-lucide="code" class="w-3 h-3"></i>
+                            <i data-lucide="code" class="w-3 h-3" aria-hidden="true"></i>
                             <span>LangGraph Python</span>
                         </button>
                         <button data-code-tab="guardrails_tab"
                             class="px-3 py-1.5 rounded-lg bg-[#FAF8F5] text-slate-600 hover:text-slate-900 font-medium text-xs transition-colors flex items-center gap-1.5 border border-[rgba(40,30,20,0.08)] cursor-pointer">
-                            <i data-lucide="shield" class="w-3 h-3"></i>
+                            <i data-lucide="shield" class="w-3 h-3" aria-hidden="true"></i>
                             <span>Safety Middleware</span>
                         </button>
                     </div>
@@ -813,7 +776,7 @@
                             <button id="copy-code-btn"
                                 class="px-2.5 py-1 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-300 hover:text-white font-mono text-[10px] transition-colors flex items-center gap-1.5 border border-slate-700 cursor-pointer"
                                 title="Copy code to clipboard">
-                                <i data-lucide="copy" class="w-3 h-3"></i>
+                                <i data-lucide="copy" class="w-3 h-3" aria-hidden="true"></i>
                                 <span>Copy Code</span>
                             </button>
                         </div>
@@ -879,7 +842,7 @@
                     <div>
                         <div
                             class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 mb-1">
-                            <i data-lucide="clock" class="w-4 h-4"></i>
+                            <i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i>
                             <span>Trade-Off: AST Schema Parsing</span>
                         </div>
                         <p class="text-xs text-slate-600 leading-relaxed">
@@ -899,7 +862,7 @@
                     <div>
                         <div
                             class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#003781] mb-1">
-                            <i data-lucide="layers" class="w-4 h-4"></i>
+                            <i data-lucide="layers" class="w-4 h-4" aria-hidden="true"></i>
                             <span>Trade-Off: Kafka Pod Rebalances</span>
                         </div>
                         <p class="text-xs text-slate-600 leading-relaxed">
@@ -920,7 +883,7 @@
                     <div>
                         <div
                             class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">
-                            <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                            <i data-lucide="shield-alert" class="w-4 h-4" aria-hidden="true"></i>
                             <span>Trade-Off: PII Redaction vs Hallucination</span>
                         </div>
                         <p class="text-xs text-slate-600 leading-relaxed">
@@ -942,7 +905,7 @@
                     class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-5 rounded-xl flex gap-3.5 items-start shadow-sm">
                     <div
                         class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)] shrink-0">
-                        <i data-lucide="scale" class="w-4 h-4"></i>
+                        <i data-lucide="scale" class="w-4 h-4" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h5 class="text-xs font-bold uppercase tracking-wider text-slate-900">Engineering Trade-Off
@@ -959,7 +922,7 @@
                     class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-5 rounded-xl flex gap-3.5 items-start shadow-sm">
                     <div
                         class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)] shrink-0">
-                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        <i data-lucide="check-circle" class="w-4 h-4" aria-hidden="true"></i>
                     </div>
                     <div>
                         <h5 class="text-xs font-bold uppercase tracking-wider text-slate-900">Key Architectural Takeaway
@@ -984,7 +947,7 @@
             <div>
                 <div
                     class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#003781] uppercase tracking-wider mb-2">
-                    <i data-lucide="folder-git-2" class="w-3.5 h-3.5"></i>
+                    <i data-lucide="folder-git-2" class="w-3.5 h-3.5" aria-hidden="true"></i>
                     <span>02 / Featured Systems & Micro-Case-Studies</span>
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -1022,7 +985,7 @@
 
                     <div class="p-3.5 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] space-y-2">
                         <div class="text-[11px] font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                            <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#003781]"></i>
+                            <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                             <span>Architecture &amp; Key Decisions</span>
                         </div>
                         <ul class="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
@@ -1088,7 +1051,7 @@
 
                     <div class="p-3.5 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] space-y-2">
                         <div class="text-[11px] font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                            <i data-lucide="layers" class="w-3.5 h-3.5 text-[#003781]"></i>
+                            <i data-lucide="layers" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                             <span>Architecture &amp; Key Decisions</span>
                         </div>
                         <ul class="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
@@ -1135,7 +1098,7 @@
                 <div class="space-y-4">
                     <div class="flex items-center justify-between gap-2 flex-wrap">
                         <span class="px-3 py-1 rounded-full text-xs font-mono font-bold inline-flex items-center gap-1.5 bg-slate-100 text-slate-800 border border-slate-200 shadow-xs">
-                            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                            <i data-lucide="github" class="w-3.5 h-3.5" aria-hidden="true"></i>
                             <span>Open Source &amp; Research</span>
                         </span>
                         <span class="text-[11px] font-mono text-emerald-600 font-semibold">Active Lab</span>
@@ -1154,7 +1117,7 @@
 
                     <div class="p-3.5 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] space-y-2">
                         <div class="text-[11px] font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                            <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#003781]"></i>
+                            <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                             <span>Architecture &amp; Key Decisions</span>
                         </div>
                         <ul class="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
@@ -1193,7 +1156,7 @@
                     <a href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
                         class="text-xs font-semibold text-[#003781] hover:underline inline-flex items-center gap-1">
                         <span>View GitHub</span>
-                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -1216,7 +1179,7 @@
                 <div>
                     <div
                         class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#003781] uppercase tracking-wider mb-2">
-                        <i data-lucide="zap" class="w-3.5 h-3.5 text-[#D97706]"></i>
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-[#D97706]" aria-hidden="true"></i>
                         <span>03 / Scale &amp; Production Impact</span>
                     </div>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -1235,7 +1198,7 @@
                 <div>
                     <div
                         class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#003781] uppercase tracking-wider mb-2">
-                        <i data-lucide="trending-up" class="w-3.5 h-3.5 text-[#047857]"></i>
+                        <i data-lucide="trending-up" class="w-3.5 h-3.5 text-[#047857]" aria-hidden="true"></i>
                         <span>Enterprise Impact &amp; Verified Outcomes</span>
                     </div>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -1254,7 +1217,7 @@
                 <div>
                     <div
                         class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#003781] uppercase tracking-wider mb-2">
-                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#003781]"></i>
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                         <span>System Invariants &amp; Runtime Guarantees</span>
                     </div>
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -1275,7 +1238,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Claims Intake</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="zap" class="w-4 h-4"></i>
+                            <i data-lucide="zap" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3"
@@ -1290,7 +1253,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Agent Graph</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="bot" class="w-4 h-4"></i>
+                            <i data-lucide="bot" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3"
@@ -1305,7 +1268,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Rollout Latency</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            <i data-lucide="sparkles" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3"
@@ -1320,7 +1283,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Compliance &amp; PII</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            <i data-lucide="shield-check" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1337,7 +1300,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Velocity Multiplier</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="trending-up" class="w-4 h-4"></i>
+                            <i data-lucide="trending-up" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1351,7 +1314,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Annual Scale</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="activity" class="w-4 h-4"></i>
+                            <i data-lucide="activity" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1365,7 +1328,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Developer Toil Cut</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="clock" class="w-4 h-4"></i>
+                            <i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1379,7 +1342,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Compliance Breaches</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            <i data-lucide="shield-check" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1396,7 +1359,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Graph Topologies</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="git-branch" class="w-4 h-4"></i>
+                            <i data-lucide="git-branch" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1410,7 +1373,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Kafka Broker SLA</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="cpu" class="w-4 h-4"></i>
+                            <i data-lucide="cpu" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1424,7 +1387,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">Hot Cache Hit Rate</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="database" class="w-4 h-4"></i>
+                            <i data-lucide="database" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1438,7 +1401,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-mono font-semibold text-slate-700">State Validation</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                            <i data-lucide="check-circle-2" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3">
@@ -1456,7 +1419,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="shield-check" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="shield-check" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Dual-Tier Content Safety</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1470,7 +1433,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="lock" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="lock" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Automated PII Redaction</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1482,7 +1445,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="check-circle" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="check-circle" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Schema-First Invariants</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1495,7 +1458,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="cpu" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="cpu" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Decoupled JSON Engines</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1513,7 +1476,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="zap" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="zap" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>No-Code Journey Deployment</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1527,7 +1490,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="shield" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="shield" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Regulatory Risk Isolation</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1541,7 +1504,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="users" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="users" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Enterprise GCC Enablement</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1555,7 +1518,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="dollar-sign" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="dollar-sign" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Cost &amp; Token Governance</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1573,7 +1536,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="git-merge" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="git-merge" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Cyclic Graph Traversal</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1587,7 +1550,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="code" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="code" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Deterministic AST Validation</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1601,7 +1564,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="layers" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="layers" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Asynchronous Checkpointing</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1615,7 +1578,7 @@
                 <div
                     class="bento-card p-4 flex flex-col justify-between gap-2 bg-white border border-[rgba(40,30,20,0.08)]">
                     <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
-                        <i data-lucide="activity" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                        <i data-lucide="activity" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                         <span>Dual-Emit Distributed Tracing</span>
                     </div>
                     <p class="text-xs text-slate-600 leading-relaxed">
@@ -1632,7 +1595,7 @@
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[rgba(40,30,20,0.08)] pb-4 mb-4">
                     <div class="flex items-center gap-2.5">
                         <div class="p-2 rounded-xl bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                            <i data-lucide="award" class="w-4 h-4"></i>
+                            <i data-lucide="award" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                         <div>
                             <h4 class="text-sm font-bold text-slate-900">Verified Corporate Recognition &amp; Peer Endorsements</h4>
@@ -1641,7 +1604,7 @@
                     </div>
                     <a href="https://www.linkedin.com/in/shivraj-dhaytadak7/details/recommendations/" target="_blank" rel="noopener noreferrer"
                         class="text-xs font-semibold text-[#003781] hover:underline inline-flex items-center gap-1.5 self-start md:self-auto shrink-0">
-                        <i data-lucide="linkedin" class="w-3.5 h-3.5"></i>
+                        <i data-lucide="linkedin" class="w-3.5 h-3.5" aria-hidden="true"></i>
                         <span>View Verified LinkedIn Recommendations &rarr;</span>
                     </a>
                 </div>
@@ -1701,7 +1664,7 @@
             <div>
                 <div
                     class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#003781] uppercase tracking-wider mb-2">
-                    <i data-lucide="git-merge" class="w-3.5 h-3.5 text-[#003781]"></i>
+                    <i data-lucide="git-merge" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                     <span>Deterministic Orchestration Under the Hood</span>
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-1">
@@ -1719,7 +1682,7 @@
             class="mb-8 p-4 rounded-2xl bento-card bg-white border border-[rgba(40,30,20,0.08)] flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
             <div class="flex items-center gap-2.5">
                 <div class="p-2 rounded-xl bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                    <i data-lucide="play-circle" class="w-4 h-4"></i>
+                    <i data-lucide="play-circle" class="w-4 h-4" aria-hidden="true"></i>
                 </div>
                 <div>
                     <div class="text-xs font-bold text-slate-900 uppercase tracking-wider font-mono">Test Payload
@@ -1731,17 +1694,17 @@
             <div class="flex flex-wrap items-center gap-2">
                 <button class="sim-payload-btn active" data-sim-payload="valid" id="btn-sim-valid"
                     title="Standard Valid Insurance Claim">
-                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-[#047857] shrink-0"></i>
+                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-[#047857] shrink-0" aria-hidden="true"></i>
                     <span>Clean Claim (Valid)</span>
                 </button>
                 <button class="sim-payload-btn" data-sim-payload="injection" id="btn-sim-injection"
                     title="Adversarial Prompt Injection Attempt">
-                    <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-[#D32F2F] shrink-0"></i>
+                    <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-[#D32F2F] shrink-0" aria-hidden="true"></i>
                     <span>Prompt Injection (Threat)</span>
                 </button>
                 <button class="sim-payload-btn" data-sim-payload="pii" id="btn-sim-pii"
                     title="Unstructured Citizen PII (Australian Privacy Principles)">
-                    <i data-lucide="lock" class="w-3.5 h-3.5 text-[#D97706] shrink-0"></i>
+                    <i data-lucide="lock" class="w-3.5 h-3.5 text-[#D97706] shrink-0" aria-hidden="true"></i>
                     <span>Citizen PII Payload</span>
                 </button>
             </div>
@@ -1972,7 +1935,7 @@
             <div>
                 <div
                     class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#003781] uppercase tracking-wider mb-2">
-                    <i data-lucide="clock" class="w-3.5 h-3.5 text-[#003781]"></i>
+                    <i data-lucide="clock" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                     <span>02 / THE TRAJECTORY</span>
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -2033,7 +1996,7 @@
                     <div class="shrink-0 flex flex-col items-start md:items-end gap-1.5">
                         <div
                             class="px-3.5 py-1.5 rounded-lg bg-[#EBF3FB] border border-[#003781]/30 text-[#003781] text-xs font-semibold flex items-center gap-2 shadow-sm">
-                            <i data-lucide="award" class="w-4 h-4"></i>
+                            <i data-lucide="award" class="w-4 h-4" aria-hidden="true"></i>
                             <span>Best Team (H1 '26) &bull; Best Performer (Q1 &amp; Q2 '26)</span>
                         </div>
                     </div>
@@ -2067,7 +2030,7 @@
                     <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-4 rounded-xl flex flex-col gap-2">
                         <div
                             class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800">
-                            <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-slate-500"></i> The Friction / Problem
+                            <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-slate-500" aria-hidden="true"></i> The Friction / Problem
                         </div>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema
@@ -2078,7 +2041,7 @@
                     <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-4 rounded-xl flex flex-col gap-2">
                         <div
                             class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800">
-                            <i data-lucide="cpu" class="w-3.5 h-3.5 text-slate-500"></i> The Architectural Solution
+                            <i data-lucide="cpu" class="w-3.5 h-3.5 text-slate-500" aria-hidden="true"></i> The Architectural Solution
                         </div>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Architected a Declarative JSON Workflow Engine separating prompt configurations and route
@@ -2090,7 +2053,7 @@
                     <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-4 rounded-xl flex flex-col gap-2">
                         <div
                             class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800">
-                            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-slate-500"></i> Proven Impact
+                            <i data-lucide="trending-up" class="w-3.5 h-3.5 text-slate-500" aria-hidden="true"></i> Proven Impact
                         </div>
                         <p class="text-xs text-slate-600 leading-relaxed">
                             Slashed new claim journey launch time from 3 weeks to &lt; 24 hours. Scaled pipeline to
@@ -2103,7 +2066,7 @@
                 <div class="border-t border-[rgba(40,30,20,0.08)] pt-4">
                     <div
                         class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
-                        <i data-lucide="check-circle-2" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Production Engineering Deliverables</span>
                     </div>
                     <ul class="space-y-2.5">
@@ -2173,7 +2136,7 @@
             <div>
                 <div
                     class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#003781] uppercase tracking-wider mb-2">
-                    <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+                    <i data-lucide="compass" class="w-3.5 h-3.5" aria-hidden="true"></i>
                     <span>The Engineering Mindset</span>
                 </div>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
@@ -2192,7 +2155,7 @@
                 class="bento-card bg-white p-6 flex flex-col justify-between gap-4 border border-[rgba(40,30,20,0.08)] shadow-sm">
                 <div>
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#003781]">
-                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <i data-lucide="award" class="w-4 h-4" aria-hidden="true"></i>
                         <span>Corporate Honors &amp; Recognition</span>
                     </div>
                     <h4 class="text-base font-bold text-slate-900 mt-2">Proven Enterprise Impact in Tier-1 Global GCCs
@@ -2224,7 +2187,7 @@
                 class="bento-card bg-white p-6 flex flex-col justify-between gap-4 border border-[rgba(40,30,20,0.08)] shadow-sm">
                 <div>
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#003781]">
-                        <i data-lucide="check-circle" class="w-4 h-4"></i>
+                        <i data-lucide="check-circle" class="w-4 h-4" aria-hidden="true"></i>
                         <span>Hiring Manager Fast-Checks</span>
                     </div>
                     <h4 class="text-base font-bold text-slate-900 mt-2">Immediate Availability &amp; Cultural
@@ -2264,7 +2227,7 @@
                 class="bento-card bg-white p-6 flex flex-col justify-between gap-4 border border-[rgba(40,30,20,0.08)] shadow-sm">
                 <div>
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#003781]">
-                        <i data-lucide="users" class="w-4 h-4"></i>
+                        <i data-lucide="users" class="w-4 h-4" aria-hidden="true"></i>
                         <span>Team Enablement &amp; Mentorship</span>
                     </div>
                     <h4 class="text-base font-bold text-slate-900 mt-2">Scaling Offshore &amp; Cross-Functional
@@ -2287,7 +2250,7 @@
                 class="bento-card bg-white p-6 flex flex-col justify-between gap-4 border border-[rgba(40,30,20,0.08)] shadow-sm">
                 <div>
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#003781]">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
+                        <i data-lucide="shield-check" class="w-4 h-4" aria-hidden="true"></i>
                         <span>Risk Containment &amp; Production Governance</span>
                     </div>
                     <h4 class="text-base font-bold text-slate-900 mt-2">Deterministic Guardrails Across the Entire AI
@@ -2370,7 +2333,7 @@
                 <div>
                     <div class="flex items-center justify-between border-b border-[rgba(40,30,20,0.08)] pb-3 mb-4">
                         <div class="flex items-center gap-2">
-                            <i data-lucide="sparkles" class="w-4 h-4 text-[#003781]"></i>
+                            <i data-lucide="sparkles" class="w-4 h-4 text-[#003781]" aria-hidden="true"></i>
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Executive Technical
                                 Competencies</h4>
                         </div>
@@ -2414,7 +2377,7 @@
                 <div>
                     <div class="flex items-center justify-between border-b border-[rgba(40,30,20,0.08)] pb-3 mb-4">
                         <div class="flex items-center gap-2">
-                            <i data-lucide="book-open" class="w-4 h-4 text-[#003781]"></i>
+                            <i data-lucide="book-open" class="w-4 h-4 text-[#003781]" aria-hidden="true"></i>
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Current Research &amp;
                                 Reading List</h4>
                         </div>
@@ -2455,7 +2418,7 @@
                 <div>
                     <div class="flex items-center justify-between border-b border-[rgba(40,30,20,0.08)] pb-3 mb-4">
                         <div class="flex items-center gap-2">
-                            <i data-lucide="graduation-cap" class="w-4 h-4 text-[#003781]"></i>
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-[#003781]" aria-hidden="true"></i>
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900">Education &amp; Global
                                 Certifications</h4>
                         </div>
@@ -2466,7 +2429,7 @@
                         <div class="flex items-start gap-3">
                             <div
                                 class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)] shrink-0">
-                                <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+                                <i data-lucide="graduation-cap" class="w-4 h-4" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <div class="text-xs font-bold text-slate-900">B.E. Computer Engineering</div>
@@ -2479,7 +2442,7 @@
                         <div class="flex items-start gap-3">
                             <div
                                 class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)] shrink-0">
-                                <i data-lucide="award" class="w-4 h-4"></i>
+                                <i data-lucide="award" class="w-4 h-4" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <div class="text-xs font-bold text-slate-900">Microsoft Certified: Azure AI Fundamentals
@@ -2494,7 +2457,7 @@
                         <div class="flex items-start gap-3">
                             <div
                                 class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)] shrink-0">
-                                <i data-lucide="cloud" class="w-4 h-4"></i>
+                                <i data-lucide="cloud" class="w-4 h-4" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <div class="text-xs font-bold text-slate-900">AWS Certified Cloud Practitioner</div>
@@ -2547,25 +2510,25 @@
                 <div class="flex flex-wrap items-center gap-3 shrink-0">
                     <a href="mailto:shivraj.25d@gmail.com?subject=Technical%20Exploration%20%2F%20Interview%20-%20Shivraj%20Dhaytadak"
                         class="px-5 py-2.5 rounded-xl bg-[#003781] hover:bg-[#002659] text-white font-medium text-xs sm:text-sm flex items-center gap-2 shadow-md transition-colors">
-                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        <i data-lucide="calendar" class="w-4 h-4" aria-hidden="true"></i>
                         <span>Schedule Intro</span>
                     </a>
                     <button data-copy-email
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] cursor-pointer transition-colors shadow-sm"
                         title="Copy email to clipboard">
-                        <i data-lucide="copy" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="copy" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Copy Email</span>
                     </button>
-                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] transition-colors shadow-sm"
                         title="Download resume PDF">
-                        <i data-lucide="download" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="download" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Download Resume (PDF)</span>
                     </a>
                     <button data-download-vcard
                         class="p-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-600 hover:text-slate-900 border border-[rgba(40,30,20,0.08)] transition-colors cursor-pointer shadow-sm"
                         aria-label="Save vCard" title="Save Contact (vCard)">
-                        <i data-lucide="user-plus" class="w-4 h-4"></i>
+                        <i data-lucide="user-plus" class="w-4 h-4" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -2588,24 +2551,24 @@
                 <div class="flex flex-wrap items-center gap-3 shrink-0">
                     <a href="mailto:shivraj.25d@gmail.com?subject=Enterprise%20AI%20Architecture%20Discussion"
                         class="px-5 py-2.5 rounded-xl bg-[#003781] hover:bg-[#002659] text-white font-medium text-xs sm:text-sm flex items-center gap-2 shadow-md transition-colors">
-                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        <i data-lucide="calendar" class="w-4 h-4" aria-hidden="true"></i>
                         <span>Schedule Intro</span>
                     </a>
                     <button data-copy-email
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] cursor-pointer transition-colors shadow-sm"
                         title="Copy email to clipboard">
-                        <i data-lucide="copy" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="copy" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Copy Email</span>
                     </button>
-                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] transition-colors shadow-sm"
                         title="Download resume PDF">
-                        <i data-lucide="file-text" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="file-text" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Download Resume (PDF)</span>
                     </a>
                     <button data-download-vcard
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] cursor-pointer transition-colors shadow-sm">
-                        <i data-lucide="user-plus" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="user-plus" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Save vCard (.vcf)</span>
                     </button>
                 </div>
@@ -2629,23 +2592,23 @@
                 <div class="flex flex-wrap items-center gap-3 shrink-0">
                     <a href="mailto:shivraj.25d@gmail.com?subject=Multi-Agent%20Systems%20Deep%20Dive"
                         class="px-5 py-2.5 rounded-xl bg-[#003781] hover:bg-[#002659] text-white font-medium text-xs sm:text-sm flex items-center gap-2 shadow-md transition-colors">
-                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        <i data-lucide="calendar" class="w-4 h-4" aria-hidden="true"></i>
                         <span>Schedule Intro</span>
                     </a>
-                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf"
+                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] transition-colors shadow-sm"
                         title="Download resume PDF">
-                        <i data-lucide="download" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="download" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Download Resume (PDF)</span>
                     </a>
                     <a href="https://github.com/Shivraj-Dhaytadak" target="_blank" rel="noopener noreferrer"
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] transition-colors shadow-sm">
-                        <i data-lucide="github" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="github" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>GitHub Profile</span>
                     </a>
                     <button data-download-vcard
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] cursor-pointer transition-colors shadow-sm">
-                        <i data-lucide="user-plus" class="w-4 h-4 text-slate-500"></i>
+                        <i data-lucide="user-plus" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Save vCard (.vcf)</span>
                     </button>
                 </div>
@@ -2658,7 +2621,7 @@
                     data-copy-email>
                     <div class="flex items-center gap-3">
                         <div class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            <i data-lucide="mail" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                         <div>
                             <div class="text-[11px] text-slate-500">Email Address</div>
@@ -2672,7 +2635,7 @@
                     data-copy-phone>
                     <div class="flex items-center gap-3">
                         <div class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            <i data-lucide="phone" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                         <div>
                             <div class="text-[11px] text-slate-500">Phone / WhatsApp</div>
@@ -2686,7 +2649,7 @@
                     class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3">
                         <div class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            <i data-lucide="linkedin" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                         <div>
                             <div class="text-[11px] text-slate-500">LinkedIn Profile</div>
@@ -2700,7 +2663,7 @@
                     class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-4 flex items-center justify-between shadow-sm hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3">
                         <div class="p-2 rounded-lg bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)]">
-                            <i data-lucide="github" class="w-4 h-4"></i>
+                            <i data-lucide="github" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                         <div>
                             <div class="text-[11px] text-slate-500">GitHub Profile</div>
@@ -2743,7 +2706,7 @@
 
             <!-- Command Input -->
             <div class="p-3.5 border-b border-[rgba(40,30,20,0.08)] flex items-center gap-3 bg-white">
-                <i data-lucide="search" class="w-4 h-4 text-[#003781] shrink-0"></i>
+                <i data-lucide="search" class="w-4 h-4 text-[#003781] shrink-0" aria-hidden="true"></i>
                 <input id="cmdk-input" type="text"
                     placeholder="Type a section, action, or keyword (e.g. resume, allianz, email)..."
                     class="w-full bg-transparent border-0 text-slate-900 placeholder-slate-400 text-xs focus:outline-none font-sans"
@@ -2775,6 +2738,30 @@
 
     <!-- Toast Notification Container -->
     <div id="toast-container"></div>
+
+
+    <!-- Interactive Lightbox Modal for Architecture Blueprint -->
+    <div id="blueprint-lightbox" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8"
+        role="dialog" aria-modal="true" aria-label="Architecture Diagram Lightbox Viewer">
+        <div class="relative max-w-7xl max-h-[90vh] w-full flex flex-col items-center">
+            <button onclick="closeLightbox()"
+                class="absolute -top-12 right-0 p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-mono"
+                aria-label="Close Lightbox (Press Escape)">
+                <span>Close [ESC]</span>
+                <i data-lucide="x" class="w-4 h-4" aria-hidden="true"></i>
+            </button>
+            <div class="overflow-auto max-h-[85vh] w-full rounded-2xl border border-white/15 bg-slate-900 shadow-2xl p-2">
+                <picture>
+                    <source srcset="ProjectBluey.webp" type="image/webp">
+                    <img src="ProjectBluey.png" alt="Full resolution architecture diagram for Allianz Services Claims Lodgement Engine"
+                        width="1890" height="1119" class="w-full h-auto min-w-[800px] object-contain rounded-xl" />
+                </picture>
+            </div>
+            <div class="mt-3 text-xs font-mono text-slate-400 text-center">
+                Scroll or pinch to pan across nodes &bull; Click Close or press ESC to exit
+            </div>
+        </div>
+    </div>
 
 </body>
 
