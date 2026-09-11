@@ -239,10 +239,10 @@ const portfolioData = {
 
     flagshipCaseStudy: {
         id: "bluey",
-        badge: "Flagship Architecture Case Study",
-        title: "Project Bluey-AI Lodgement",
-        subtitle: "Enterprise Declarative Multi-Agent Lodgement Engine with Dual-Emit Observability",
-        client: "Allianz Services (Insurance GCC)",
+        badge: "Sanitized Architecture Case Study • APP-11 Governed",
+        title: "Enterprise Multi-Agent Claims Lodgement Engine",
+        subtitle: "Declarative Multi-Agent State Graph Architecture with Dual-Emit Observability",
+        client: "Tier-1 Global Insurance GCC (Allianz Services)",
         status: "In Production (100k+ Annual Claims)",
         kpis: [
             { label: "Rollout Velocity", from: "14 Days", to: "< 24 Hours", change: "93% Reduction" },
@@ -579,7 +579,7 @@ class EnterpriseClaimSafetyGate:
         { id: "vcard", label: "Save Contact (vCard .vcf)", category: "Quick Actions", icon: "user-plus", action: "download-vcard" },
         { id: "github", label: "Visit GitHub Profile", category: "External Links", icon: "github", action: "open-link", url: "https://github.com/Shivraj-Dhaytadak" },
         { id: "linkedin", label: "Connect on LinkedIn", category: "External Links", icon: "linkedin", action: "open-link", url: "https://www.linkedin.com/in/shivraj-dhaytadak7" },
-        { id: "simulator", label: "Open Architecture Simulator", category: "External Links", icon: "external-link", action: "open-link", url: "workflow.html" }
+        { id: "simulator", label: "Launch Interactive Simulator", category: "External Links", icon: "external-link", action: "open-link", url: "workflow.html" }
     ]
 };
 

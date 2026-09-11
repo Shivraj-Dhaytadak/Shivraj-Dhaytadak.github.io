@@ -1175,7 +1175,7 @@ function renderTopologyNodeDetails(nodeId) {
             <div class="pt-3 border-t border-[rgba(40,30,20,0.08)] flex items-center justify-between text-xs">
                 <span class="text-[11px] text-slate-500 font-mono">Tech: ${node.tech}</span>
                 <a href="workflow.html" target="_blank" class="text-[#003781] hover:text-[#002659] font-medium flex items-center gap-1 text-xs transition-colors">
-                    Full Visualizer <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                    <span>Launch Interactive Simulator</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
                 </a>
             </div>
         </div>
