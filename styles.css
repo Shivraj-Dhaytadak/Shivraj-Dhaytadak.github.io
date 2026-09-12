@@ -481,6 +481,26 @@ html.dark header nav a:hover,
     background: rgba(59, 130, 246, 0.15) !important;
 }
 
+html.dark header nav a.nav-link-active,
+[data-recruiter-mode="true"] header nav a.nav-link-active,
+[data-theme="dark"] header nav a.nav-link-active {
+    color: #60A5FA !important;
+    background: rgba(59, 130, 246, 0.22) !important;
+    font-weight: 700 !important;
+}
+
+/* Accessible Focus Rings */
+:focus-visible {
+    outline: 2px solid #003781;
+    outline-offset: 2px;
+}
+
+html.dark :focus-visible,
+[data-theme="dark"] :focus-visible,
+[data-recruiter-mode="true"] :focus-visible {
+    outline-color: #60A5FA;
+}
+
 /* Persona Dock in Dark Mode */
 html.dark .persona-dock,
 [data-recruiter-mode="true"] .persona-dock,

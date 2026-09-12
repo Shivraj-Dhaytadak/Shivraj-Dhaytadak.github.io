@@ -177,107 +177,14 @@ END:VCARD`;
 }
 
 // ==========================================================================
-// 2B. Persona Lens Switcher Engine (Recruiter | AI Manager | AI Engineer)
+// 2B. Unified Persona Architecture (Backwards-Compatibility Stubs)
 // ==========================================================================
-function switchPersona(persona, updateUrlHash = true, showNotification = true) {
-    const validPersonas = ["recruiter", "manager", "engineer"];
-    if (!validPersonas.includes(persona)) persona = "recruiter";
-
-    currentPersona = persona;
-    localStorage.setItem("selected_persona", persona);
-
-    if (updateUrlHash) {
-        history.replaceState(null, null, "#" + persona);
-    }
-
-    // Update switcher button active styles
-    document.querySelectorAll(".persona-btn").forEach(btn => {
-        const isActive = btn.dataset.targetView === persona;
-        btn.classList.toggle("active", isActive);
-    });
-
-    // Toggle visibility of elements with [data-persona]
-    document.querySelectorAll("[data-persona]").forEach(el => {
-        const allowed = el.dataset.persona.split(",").map(s => s.trim().toLowerCase());
-        const isMatch = allowed.includes(persona) || allowed.includes("all");
-        if (isMatch) {
-            el.classList.remove("persona-hidden");
-            el.setAttribute("aria-hidden", "false");
-        } else {
-            el.classList.add("persona-hidden");
-            el.setAttribute("aria-hidden", "true");
-        }
-    });
-
-    // Set persona mode attribute on <html>
-    document.documentElement.setAttribute("data-persona-mode", persona);
-
-    // Re-render any icons inside revealed elements
-    if (window.lucide && typeof lucide.createIcons === "function") {
-        lucide.createIcons();
-    }
-
-    if (showNotification) {
-        const notices = {
-            recruiter: { 
-                badge: "Recruiter Lens", 
-                badgeColor: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
-                text: "Showing fast-track credentials, verified metrics & 1-click resume", 
-                icon: "user-check",
-                iconColor: "text-emerald-400"
-            },
-            manager: { 
-                badge: "AI Manager Lens", 
-                badgeColor: "bg-blue-500/20 text-blue-300 border-blue-500/30",
-                text: "Showing business velocity, 13x ROI & system governance", 
-                icon: "briefcase",
-                iconColor: "text-blue-400"
-            },
-            engineer: { 
-                badge: "AI Engineer Lens", 
-                badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
-                text: "Showing Pydantic schemas, state invariants & technical post-mortem", 
-                icon: "cpu",
-                iconColor: "text-amber-400"
-            }
-        };
-        const n = notices[persona];
-        if (n) showToast(n.text, n.icon, 2800, n.badge, n.badgeColor, n.iconColor);
-    }
+function switchPersona(persona) {
+    currentPersona = persona || "recruiter";
 }
 
 function initPersonaSwitcher() {
-    const buttons = document.querySelectorAll(".persona-btn");
-    buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const target = btn.dataset.targetView;
-            if (target) switchPersona(target, true, true);
-        });
-    });
-
-    // Check initial hash (e.g. #manager) or localStorage, defaulting to 'recruiter'
-    const validPersonas = ["recruiter", "manager", "engineer"];
-    const currentHash = window.location.hash.replace("#", "").toLowerCase();
-    let initialPersona = "recruiter";
-
-    if (validPersonas.includes(currentHash)) {
-        initialPersona = currentHash;
-    } else {
-        const saved = localStorage.getItem("selected_persona");
-        if (validPersonas.includes(saved)) {
-            initialPersona = saved;
-        }
-    }
-
-    switchPersona(initialPersona, false, false);
-
-    // Listen for hash changes (e.g. user clicks shared link or browser back/forward)
-    window.addEventListener("hashchange", () => {
-        const newHash = window.location.hash.replace("#", "").toLowerCase();
-        if (validPersonas.includes(newHash) && newHash !== currentPersona) {
-            switchPersona(newHash, false, true);
-        }
-    });
+    // Content is unified into a cohesive narrative; no hash hijacking or persona hiding.
 }
 
 // ==========================================================================

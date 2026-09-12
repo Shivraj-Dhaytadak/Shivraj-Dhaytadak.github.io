@@ -561,25 +561,20 @@ class EnterpriseClaimSafetyGate:
     },
 
     commandPaletteItems: [
-        { id: "persona-recruiter", label: "Switch Persona: 👔 Recruiter View", category: "Persona Lens", icon: "user-check", action: "switch-persona", persona: "recruiter" },
-        { id: "persona-manager", label: "Switch Persona: 💼 AI Manager View", category: "Persona Lens", icon: "briefcase", action: "switch-persona", persona: "manager" },
-        { id: "persona-engineer", label: "Switch Persona: ⚡ AI Engineer View", category: "Persona Lens", icon: "cpu", action: "switch-persona", persona: "engineer" },
-        { id: "hero", label: "Hero & Manifesto", category: "Jump to Section", icon: "terminal", action: "scroll", target: "hero" },
-        { id: "recruiter", label: "Recruiter 60-Second Fast Track", category: "Jump to Section", icon: "zap", action: "scroll", target: "recruiter-snapshot" },
-        { id: "pipeline", label: "How Systems Operate: Agentic Claim Pipeline", category: "Jump to Section", icon: "git-merge", action: "scroll", target: "pipeline" },
-        { id: "timeline", label: "The Career Evolution (Allianz, Yash, Persistent)", category: "Jump to Section", icon: "clock", action: "scroll", target: "career-timeline" },
-        { id: "case-study", label: "Flagship Case Study: Project Bluey", category: "Jump to Section", icon: "layers", action: "scroll", target: "case-study" },
-        { id: "featured-systems", label: "Featured Enterprise Systems (Yash, Persistent, Lab)", category: "Jump to Section", icon: "folder-git-2", action: "scroll", target: "featured-systems" },
-        { id: "philosophy", label: "Engineering Philosophy & The Lab", category: "Jump to Section", icon: "cpu", action: "scroll", target: "philosophy" },
-        { id: "contact", label: "Frictionless Recruitment Footer", category: "Jump to Section", icon: "mail", action: "scroll", target: "contact" },
+        { id: "case-study", label: "Flagship Case Study: Allianz Claims Lodgement Engine", category: "Jump to Section", icon: "layers", action: "scroll", target: "case-study" },
+        { id: "featured-systems", label: "Featured Systems: FlowIQ, SASVA & Research Lab", category: "Jump to Section", icon: "folder-git-2", action: "scroll", target: "featured-systems" },
+        { id: "pipeline", label: "Interactive Simulator: Claims Triage Graph", category: "Jump to Section", icon: "git-merge", action: "scroll", target: "pipeline" },
+        { id: "timeline", label: "Work Experience: Allianz, Yash, Persistent", category: "Jump to Section", icon: "clock", action: "scroll", target: "career-timeline" },
+        { id: "philosophy", label: "Engineering Principles & About Shivraj", category: "Jump to Section", icon: "compass", action: "scroll", target: "philosophy" },
+        { id: "contact", label: "Get in Touch & Contact Channels", category: "Jump to Section", icon: "mail", action: "scroll", target: "contact" },
         { id: "resume", label: "Download Resume (PDF)", category: "Quick Actions", icon: "file-text", action: "download-resume" },
-        { id: "toggle-dark-mode", label: "Toggle Dark Mode (Obsidian Scheme)", category: "Quick Actions", icon: "moon", action: "toggle-recruiter-mode" },
+        { id: "toggle-dark-mode", label: "Toggle Dark / Light Mode", category: "Quick Actions", icon: "moon", action: "toggle-recruiter-mode" },
         { id: "copy-email", label: "Copy Email (shivraj.25d@gmail.com)", category: "Quick Actions", icon: "copy", action: "copy-email" },
         { id: "copy-phone", label: "Copy Phone (+91 7972476081)", category: "Quick Actions", icon: "phone", action: "copy-phone" },
         { id: "vcard", label: "Save Contact (vCard .vcf)", category: "Quick Actions", icon: "user-plus", action: "download-vcard" },
+        { id: "simulator", label: "Launch Topology Simulator (New Tab)", category: "External Tools", icon: "external-link", action: "open-link", url: "workflow.html" },
         { id: "github", label: "Visit GitHub Profile", category: "External Links", icon: "github", action: "open-link", url: "https://github.com/Shivraj-Dhaytadak" },
-        { id: "linkedin", label: "Connect on LinkedIn", category: "External Links", icon: "linkedin", action: "open-link", url: "https://www.linkedin.com/in/shivraj-dhaytadak7" },
-        { id: "simulator", label: "Launch Interactive Simulator", category: "External Links", icon: "external-link", action: "open-link", url: "workflow.html" }
+        { id: "linkedin", label: "Connect on LinkedIn", category: "External Links", icon: "linkedin", action: "open-link", url: "https://www.linkedin.com/in/shivraj-dhaytadak7" }
     ]
 };
 
