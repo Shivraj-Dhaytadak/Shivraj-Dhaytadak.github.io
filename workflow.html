@@ -4,83 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Bluey-AI Lodgement | Interactive Animated Architecture</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        .code-font {
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        /* Flowing Packet Animations */
-        @keyframes flowDash {
-            to {
-                stroke-dashoffset: -40;
-            }
-        }
-        .animate-flow-fast {
-            stroke-dasharray: 6, 6;
-            animation: flowDash 0.8s linear infinite;
-        }
-        .animate-flow-normal {
-            stroke-dasharray: 6, 6;
-            animation: flowDash 1.4s linear infinite;
-        }
-        .animate-flow-slow {
-            stroke-dasharray: 6, 6;
-            animation: flowDash 2.2s linear infinite;
-        }
+    
+    <!-- Preconnect Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-        /* Node Pulse Animations */
-        @keyframes nodeGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 2px rgba(99, 102, 241, 0.25));
-            }
-            50% {
-                filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
-            }
-        }
-        .glow-node {
-            animation: nodeGlow 3s ease-in-out infinite;
-        }
+    <!-- Compiled Production CSS (Tailwind CSS v4 + Custom Styles) -->
+    <link rel="stylesheet" href="dist/output.css">
 
-        /* Interactive Node States */
-        .diagram-node {
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-        .diagram-node:hover rect {
-            filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
-            stroke-width: 2;
-        }
-        .diagram-node.active rect {
-            stroke-width: 2.5;
-            filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.7));
-        }
-        .diagram-node:focus-visible {
-            outline: none;
-        }
-        .diagram-node:focus-visible rect {
-            stroke: #818cf8 !important;
-            stroke-width: 2.5 !important;
-            filter: drop-shadow(0 0 10px rgba(129, 140, 248, 0.9)) !important;
-        }
-
-        /* Scanline & Pulse Effects */
-        .telemetry-feed::-webkit-scrollbar {
-            width: 4px;
-        }
-        .telemetry-feed::-webkit-scrollbar-track {
-            background: #090d16;
-        }
-        .telemetry-feed::-webkit-scrollbar-thumb {
-            background: #1e293b;
-            border-radius: 2px;
-        }
-    </style>
+    <!-- Pinned Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@0.462.0"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-slate-700 selection:text-white">
 
