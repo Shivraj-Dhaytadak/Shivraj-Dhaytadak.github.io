@@ -555,91 +555,154 @@ function initPipelineScrollytelling() {
     };
     const statusLabel = document.getElementById("pipeline-status");
     const telemetryWindow = document.getElementById("hud-telemetry");
+    const telemetryLabel = document.getElementById("hud-telemetry-label");
 
     const telemetryData = {
         "1": {
             status: "INGESTION_ACTIVE",
-            statusClass: "text-indigo-300 bg-indigo-500/15 border-indigo-500/30",
+            statusClass: "text-[#003781] dark:text-indigo-300 bg-[#EBF3FB] dark:bg-indigo-500/15 border-[#003781]/20 dark:border-indigo-500/30",
+            telemetryLabel: "// Real-time state schema snapshot (Ingestion)",
+            latency: "2.1ms",
             json: '{\n  "event_id": "ev_98241a",\n  "status": "STREAM_INGEST",\n  "partition": "kafka-node-0",\n  "throughput": "3,400 msg/sec"\n}'
         },
         "2": {
             status: "GUARDRAILS_VALIDATING",
-            statusClass: "text-emerald-300 bg-emerald-500/15 border-emerald-500/30",
+            statusClass: "text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-500/15 border-emerald-300 dark:border-emerald-500/30",
+            telemetryLabel: "// Content safety & PII redaction schema",
+            latency: "18ms",
             json: '{\n  "pii_redacted": true,\n  "content_safety": "PASSED",\n  "compliance": "AU_PRIVACY_OK",\n  "injection_score": 0.001\n}'
         },
         "3": {
             status: "LANGGRAPH_EVALUATION",
-            statusClass: "text-purple-300 bg-purple-500/15 border-purple-500/30",
+            statusClass: "text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-500/15 border-purple-300 dark:border-purple-500/30",
+            telemetryLabel: "// LangGraph multi-agent state evaluation",
+            latency: "1.8s",
             json: '{\n  "graph_id": "motor_claim_v4",\n  "active_nodes": ["policy_val", "coverage_chk"],\n  "confidence": 0.984,\n  "schema": "VALID"\n}'
         },
         "4": {
             status: "RESOLVED_&_DISPATCHED",
-            statusClass: "text-amber-300 bg-amber-500/15 border-amber-500/30",
+            statusClass: "text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-500/15 border-amber-300 dark:border-amber-500/30",
+            telemetryLabel: "// Settlement dispatch & dual-emit telemetry",
+            latency: "142ms",
             json: '{\n  "decision": "LODGE_APPROVED",\n  "latency": "142ms",\n  "trace_id": "dt_trace_9824",\n  "telemetry": "DYNATRACE_ACK"\n}'
         }
     };
 
-    // Initial syntax highlight for node 1
-    if (telemetryWindow && telemetryData["1"]) {
-        telemetryWindow.innerHTML = `<code>${highlightSyntax(telemetryData["1"].json, "json")}</code>`;
-    }
+    function activatePipelineStep(stepNum) {
+        // Reset payload simulator buttons active highlight if manual step was selected
+        document.querySelectorAll("[data-sim-payload]").forEach(btn => {
+            btn.classList.remove("active", "threat-active", "pii-active");
+            btn.setAttribute("aria-checked", "false");
+            btn.setAttribute("tabindex", "-1");
+        });
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const stepNum = entry.target.getAttribute("data-step");
-                
-                // Highlight current step card, dim others
-                steps.forEach(card => {
-                    card.classList.remove("active");
-                    card.classList.add("opacity-40");
-                });
-                entry.target.classList.remove("opacity-40");
-                entry.target.classList.add("active");
+        // Highlight selected step card, dim others
+        steps.forEach(card => {
+            const isTarget = card.getAttribute("data-step") === stepNum;
+            card.classList.toggle("active", isTarget);
+            card.classList.toggle("opacity-70", !isTarget);
+            card.setAttribute("aria-selected", isTarget ? "true" : "false");
+            card.setAttribute("tabindex", isTarget ? "0" : "-1");
+            card.classList.remove("card-alert-danger", "card-alert-warning");
+        });
 
-                // Update HUD nodes
-                Object.keys(nodes).forEach(num => {
-                    const el = nodes[num];
-                    if (!el) return;
-                    const dot = el.querySelector(".rounded-full");
-                    const latencySpan = el.querySelector("span:last-child");
-                    if (num === stepNum) {
-                        el.className = "hud-node active flex items-center gap-3 p-3 transition-all";
-                        if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-indigo-400 animate-ping shrink-0";
-                        if (latencySpan) {
-                            latencySpan.className = "text-xs text-indigo-300 font-mono";
-                            if (num === "1") latencySpan.textContent = "2.1ms";
-                            else if (num === "2") latencySpan.textContent = "18ms";
-                            else if (num === "3") latencySpan.textContent = "1.8s";
-                            else if (num === "4") latencySpan.textContent = "142ms";
-                        }
-                    } else {
-                        el.className = "hud-node flex items-center gap-3 p-3 opacity-40 transition-all";
-                        if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-slate-600 shrink-0";
-                        if (latencySpan) {
-                            latencySpan.className = "text-xs text-slate-500 font-mono";
-                            latencySpan.textContent = "Standby";
-                        }
-                    }
-                });
+        // Update HUD nodes
+        Object.keys(nodes).forEach(num => {
+            const el = nodes[num];
+            if (!el) return;
+            const dot = el.querySelector(".rounded-full");
+            const latencySpan = el.querySelector("span:last-child");
+            const title = el.querySelector("div.flex-1 > div:first-child");
+            const sub = el.querySelector("div.flex-1 > div:last-child");
 
-                // Update HUD Status Badge & Telemetry with Syntax Highlighting
-                const data = telemetryData[stepNum];
-                if (data && statusLabel) {
-                    statusLabel.textContent = data.status;
-                    statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${data.statusClass}`;
+            // Reset node base classes
+            el.className = num === stepNum
+                ? "hud-node active flex items-center gap-3 p-3 transition-all cursor-pointer"
+                : "hud-node flex items-center gap-3 p-3 opacity-40 transition-all cursor-pointer";
+
+            if (num === stepNum) {
+                if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-[#003781] dark:bg-indigo-400 animate-ping shrink-0";
+                if (latencySpan) {
+                    latencySpan.className = "text-xs text-[#003781] dark:text-indigo-300 font-mono font-semibold";
+                    latencySpan.textContent = telemetryData[num].latency;
                 }
-                if (data && telemetryWindow) {
-                    telemetryWindow.innerHTML = `<code>${highlightSyntax(data.json, "json")}</code>`;
+            } else {
+                if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600 shrink-0";
+                if (latencySpan) {
+                    latencySpan.className = "text-xs text-slate-500 font-mono";
+                    latencySpan.textContent = "Standby";
+                }
+            }
+
+            // Restore clean node subtitles
+            if (title && sub) {
+                if (num === "1") {
+                    title.textContent = "Kafka Event Hub Broker";
+                    sub.textContent = "Stream: claims.ingest.v4 [Partition 02]";
+                    sub.className = "text-slate-500 dark:text-slate-400 text-xs";
+                } else if (num === "2") {
+                    title.textContent = "Guardrail & PII Filter";
+                    sub.textContent = "Australia Privacy Invariant Gate";
+                    sub.className = "text-slate-500 dark:text-slate-500 text-xs";
+                } else if (num === "3") {
+                    title.textContent = "LangGraph State Machine";
+                    sub.textContent = "Route: motor_comprehensive_v4";
+                    sub.className = "text-slate-500 dark:text-slate-500 text-xs";
+                } else if (num === "4") {
+                    title.textContent = "Claim Lodgement Gate";
+                    sub.textContent = "Trace: LangFuse Trace";
+                    sub.className = "text-slate-500 dark:text-slate-500 text-xs";
                 }
             }
         });
-    }, {
-        rootMargin: "-25% 0px -35% 0px",
-        threshold: 0.25
+
+        // Update HUD Status Badge & Telemetry with Syntax Highlighting
+        const data = telemetryData[stepNum];
+        if (data && statusLabel) {
+            statusLabel.textContent = data.status;
+            statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${data.statusClass}`;
+        }
+        if (data && telemetryLabel) {
+            telemetryLabel.textContent = data.telemetryLabel;
+        }
+        if (data && telemetryWindow) {
+            telemetryWindow.innerHTML = `<code>${highlightSyntax(data.json, "json")}</code>`;
+        }
+    }
+
+    // Attach click and keyboard listeners to all 4 step cards
+    steps.forEach(card => {
+        const stepNum = card.getAttribute("data-step");
+        card.addEventListener("click", () => activatePipelineStep(stepNum));
+        card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                activatePipelineStep(stepNum);
+            }
+        });
     });
 
-    steps.forEach(card => observer.observe(card));
+    // Also attach click listeners to the HUD nodes on the right so clicking a node activates its step!
+    Object.keys(nodes).forEach(num => {
+        const nodeEl = nodes[num];
+        if (nodeEl) {
+            nodeEl.addEventListener("click", () => activatePipelineStep(num));
+            nodeEl.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    activatePipelineStep(num);
+                }
+            });
+        }
+    });
+
+    // Expose activatePipelineStep on window for external triggers
+    if (typeof window !== "undefined") {
+        window.activatePipelineStep = activatePipelineStep;
+    }
+
+    // Initial activation of Stage 1
+    activatePipelineStep("1");
 }
 
 // ==========================================================================
@@ -916,6 +979,63 @@ function simulateSwarmPayload(payloadKey) {
             latency.className = n.latencyCls;
         }
     });
+
+    // Update lifecycle stage cards on the left to mirror simulated payload state
+    const stageCards = document.querySelectorAll(".step-card");
+    if (stageCards.length > 0) {
+        stageCards.forEach(card => {
+            card.classList.remove("card-alert-danger", "card-alert-warning");
+        });
+        if (payloadKey === "injection") {
+            const card2 = document.querySelector('.step-card[data-step="2"]');
+            if (card2) {
+                card2.classList.add("card-alert-danger", "active");
+                card2.classList.remove("opacity-70");
+                card2.setAttribute("aria-selected", "true");
+                card2.setAttribute("tabindex", "0");
+            }
+            stageCards.forEach(c => {
+                if (c.getAttribute("data-step") !== "2") {
+                    c.classList.remove("active");
+                    c.classList.add("opacity-70");
+                    c.setAttribute("aria-selected", "false");
+                    c.setAttribute("tabindex", "-1");
+                }
+            });
+        } else if (payloadKey === "pii") {
+            const card2 = document.querySelector('.step-card[data-step="2"]');
+            if (card2) {
+                card2.classList.add("card-alert-warning", "active");
+                card2.classList.remove("opacity-70");
+                card2.setAttribute("aria-selected", "true");
+                card2.setAttribute("tabindex", "0");
+            }
+            stageCards.forEach(c => {
+                if (c.getAttribute("data-step") !== "2") {
+                    c.classList.remove("active");
+                    c.classList.add("opacity-70");
+                    c.setAttribute("aria-selected", "false");
+                    c.setAttribute("tabindex", "-1");
+                }
+            });
+        } else if (payloadKey === "valid") {
+            const card4 = document.querySelector('.step-card[data-step="4"]');
+            if (card4) {
+                card4.classList.add("active");
+                card4.classList.remove("opacity-70");
+                card4.setAttribute("aria-selected", "true");
+                card4.setAttribute("tabindex", "0");
+            }
+            stageCards.forEach(c => {
+                if (c.getAttribute("data-step") !== "4") {
+                    c.classList.remove("active");
+                    c.classList.add("opacity-70");
+                    c.setAttribute("aria-selected", "false");
+                    c.setAttribute("tabindex", "-1");
+                }
+            });
+        }
+    }
 
     showToast(sim.toastMsg, sim.toastIcon, 2600);
 }
