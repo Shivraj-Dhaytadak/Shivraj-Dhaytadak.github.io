@@ -41,22 +41,22 @@
         <!-- SIMULATION CONTROLS -->
         <div class="flex items-center gap-2.5">
             <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs font-medium">
-                <button id="btn-play" onclick="toggleSimulation()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 flex items-center gap-1 transition-colors cursor-pointer">
+                <button id="btn-play" onclick="toggleSimulation()" aria-label="Toggle simulation live playback" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 flex items-center gap-1 transition-colors cursor-pointer">
                     <i id="play-icon" data-lucide="pause" class="w-3.5 h-3.5 text-emerald-400"></i>
                     <span id="play-text">LIVE</span>
                 </button>
                 <div class="h-3.5 w-px bg-slate-800 mx-0.5"></div>
-                <button onclick="setSpeed(0.5)" id="speed-05" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">0.5x</button>
-                <button onclick="setSpeed(1.0)" id="speed-10" class="px-2 py-1 rounded bg-slate-800 text-white font-medium transition-colors cursor-pointer">1.0x</button>
-                <button onclick="setSpeed(2.0)" id="speed-20" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">2.0x</button>
+                <button onclick="setSpeed(0.5)" id="speed-05" aria-label="Set simulation speed to 0.5x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">0.5x</button>
+                <button onclick="setSpeed(1.0)" id="speed-10" aria-label="Set simulation speed to 1.0x" class="px-2 py-1 rounded bg-slate-800 text-white font-medium transition-colors cursor-pointer">1.0x</button>
+                <button onclick="setSpeed(2.0)" id="speed-20" aria-label="Set simulation speed to 2.0x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">2.0x</button>
             </div>
 
-            <button onclick="toggleThemeView()" id="btn-theme" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
+            <button onclick="toggleThemeView()" id="btn-theme" aria-label="Switch diagram theme" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
                 <i data-lucide="palette" class="w-3.5 h-3.5 text-slate-400"></i>
                 <span id="theme-text">Eraser Schematic</span>
             </button>
 
-            <button onclick="toggleLogDrawer()" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
+            <button onclick="toggleLogDrawer()" aria-label="Toggle live telemetry log drawer" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
                 <i data-lucide="terminal" class="w-3.5 h-3.5 text-slate-400"></i>
                 <span id="log-count" class="text-xs">Live Logs</span>
             </button>
