@@ -161,7 +161,7 @@ EMAIL;type=INTERNET;type=WORK:${p.email}
 TEL;type=CELL:${p.phone}
 ADR;type=WORK:;;Pune;Maharashtra;;India
 URL:${p.linkedin}
-NOTE:Agentic AI Consultant specializing in Multi-Agent Workflows, LangGraph, and Distributed Cloud Pipelines.
+NOTE:Senior Agentic AI Engineer & Architect specializing in Multi-Agent Workflows, LangGraph, and Distributed Cloud Pipelines.
 END:VCARD`;
 
     const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8;" });
@@ -717,7 +717,7 @@ const swarmSimulations = {
                 settlement_dispatcher: "APPROVED_SLA_MET"
             },
             composite_latency: "1.49s",
-            regulatory_audit: "100% COMPLIANT (APP-19)"
+            regulatory_audit: "100% COMPLIANT (APP-11)"
         }, null, 2)
     },
     injection: {
@@ -790,10 +790,10 @@ const swarmSimulations = {
     pii: {
         key: "pii",
         label: "Unstructured Citizen PII Payload",
-        statusBadge: "PROTECTED // PII_REDACTED_APP19",
+        statusBadge: "PROTECTED // PII_REDACTED_APP11",
         statusClass: "text-amber-300 bg-amber-500/15 border-amber-500/30",
         telemetryLabel: "// Sanitized state payload (zero raw citizen PII)",
-        toastMsg: "Protected: Australian Citizen PII Redacted prior to LLM transit (APP-19 Safe)",
+        toastMsg: "Protected: Australian Citizen PII Redacted prior to LLM transit (APP-11 Safe)",
         toastIcon: "lock",
         nodes: [
             {
@@ -844,7 +844,7 @@ const swarmSimulations = {
         json: JSON.stringify({
             claim_id: "CLM-2026-98242",
             raw_pii_detected: true,
-            privacy_framework: "AUSTRALIAN_PRIVACY_PRINCIPLES (APP-19)",
+            privacy_framework: "AUSTRALIAN_PRIVACY_PRINCIPLES (APP-11)",
             sanitized_entities: [
                 { field: "driver_license", action: "MASKED", token: "[REDACTED_AU_DL]" },
                 { field: "tax_file_number", action: "MASKED", token: "[REDACTED_AU_TFN]" }
@@ -860,10 +860,12 @@ function simulateSwarmPayload(payloadKey) {
     const sim = swarmSimulations[payloadKey];
     if (!sim) return;
 
-    // Update buttons active classes
+    // Update buttons active classes & WAI-ARIA radio state
     document.querySelectorAll("[data-sim-payload]").forEach(btn => {
         const isSelected = btn.dataset.simPayload === payloadKey;
         btn.classList.toggle("active", isSelected);
+        btn.setAttribute("aria-checked", isSelected ? "true" : "false");
+        btn.setAttribute("tabindex", isSelected ? "0" : "-1");
         btn.classList.remove("threat-active", "pii-active");
         if (isSelected) {
             if (payloadKey === "injection") btn.classList.add("threat-active");
@@ -1272,8 +1274,32 @@ function setupDelegatedListeners() {
         }
     });
 
-    // Keyboard accessibility: allow Enter or Space to activate [data-topo-node] and [data-career-tab]
+    // Keyboard accessibility: allow Enter or Space to activate [data-topo-node], [data-career-tab], [data-sim-payload]
+    // and ArrowLeft / ArrowRight to navigate radiogroup payloads
     document.addEventListener("keydown", (e) => {
+        // Arrow-key navigation across simulator payloads (WAI-ARIA Radio Group pattern)
+        if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === "ArrowLeft" || e.key === "ArrowUp") {
+            const currentRadio = e.target.closest('[role="radio"][data-sim-payload], .sim-payload-btn');
+            if (currentRadio) {
+                e.preventDefault();
+                const radioGroup = Array.from(document.querySelectorAll('[data-sim-payload]'));
+                const currentIndex = radioGroup.indexOf(currentRadio);
+                let nextIndex = currentIndex;
+                if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                    nextIndex = (currentIndex + 1) % radioGroup.length;
+                } else {
+                    nextIndex = (currentIndex - 1 + radioGroup.length) % radioGroup.length;
+                }
+                const nextBtn = radioGroup[nextIndex];
+                if (nextBtn) {
+                    nextBtn.focus();
+                    const nextKey = nextBtn.dataset.simPayload;
+                    if (nextKey) simulateSwarmPayload(nextKey);
+                }
+                return;
+            }
+        }
+
         if (e.key === "Enter" || e.key === " ") {
             const topoNode = e.target.closest("[data-topo-node]");
             if (topoNode) {
@@ -1288,6 +1314,14 @@ function setupDelegatedListeners() {
                 e.preventDefault();
                 const actId = careerBtn.dataset.careerTab;
                 if (actId) renderCareerAct(actId);
+                return;
+            }
+
+            const simRadio = e.target.closest("[data-sim-payload]");
+            if (simRadio) {
+                e.preventDefault();
+                const payloadKey = simRadio.dataset.simPayload;
+                if (payloadKey) simulateSwarmPayload(payloadKey);
                 return;
             }
         }

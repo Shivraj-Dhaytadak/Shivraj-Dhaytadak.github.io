@@ -1,7 +1,7 @@
 <div align="center">
 
 # Shivraj Dhaytadak
-### Agentic AI Consultant & Enterprise Systems Architect
+### Senior Agentic AI Engineer & Architect
 
 Pune, India &bull; `+91 7972476081` &bull; `shivraj.25d@gmail.com`
 
@@ -21,7 +21,7 @@ Agentic AI Systems Engineer with **4+ years of experience** designing and scalin
 
 - 🧠 **Multi-Agent Orchestration**: Designing deterministic state machines, supervisor loops, and runtime validation layers using **LangGraph**, **CrewAI**, **MCP**, and **A2A**.
 - ⚙️ **Declarative Pipelines**: Replacing brittle prompt chains with schema-governed, declarative JSON workflows processing 100k+ transactions/year.
-- 🛡️ **Defensive Engineering & Privacy**: Halting prompt injection attacks via **Azure Content Safety** and automating **LangChain PII redaction** to meet Australian Privacy Principle (APP-19) compliance mandates.
+- 🛡️ **Defensive Engineering & Privacy**: Halting prompt injection attacks via **Azure Content Safety** and automating **LangChain PII redaction** to meet Australian Privacy Principle (APP 11 - Security of Personal Information) compliance mandates.
 - 🚀 **High-Throughput Model Serving**: Fine-tuning via **TRL (LoRA/QLoRA)** and serving via **FastAPI** & **vLLM** with significant latency reductions.
 
 ---
@@ -70,7 +70,7 @@ Agentic AI Systems Engineer with **4+ years of experience** designing and scalin
       </td>
       <td>
         • Engineered multi-layer <b>Guardrails agent using Azure Content Safety</b> to screen 100k+ annual claims with zero reported security breaches.<br>
-        • Integrated <b>LangChain PII redaction middleware</b> with Azure Content Safety, adhering strictly to Australian Privacy Principle (APP-19) standards.<br>
+        • Integrated <b>LangChain PII redaction middleware</b> with Azure Content Safety, adhering strictly to Australian Privacy Principle (APP 11) standards.<br>
         • Architected a <b>declarative JSON workflow engine covering 19 claim journeys</b>, slashing journey rollout time from <b>3 weeks to 1 day</b>.<br>
         • Designed a <b>two-tier prompt architecture</b> eliminating redundant prompt duplication and cutting configuration latency.<br>
         • Enforced runtime type-safety via Pydantic v2 schemas at each graph node boundary, guaranteeing deterministic state validation.

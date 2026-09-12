@@ -8,9 +8,9 @@
 const portfolioData = {
     profile: {
         name: "Shivraj Dhaytadak",
-        title: "Agentic AI Consultant",
+        title: "Senior Agentic AI Engineer & Architect",
         headline: "Architecting Resilient Multi-Agent Workflows for Enterprise Scale.",
-        bio: "I'm Shivraj Dhaytadak—Agentic AI Consultant at Allianz Services. I bridge stochastic large language models with deterministic, mission-critical distributed pipelines. 4+ years engineering production LangGraph engines, Azure event-driven architectures, and high-throughput agent swarms.",
+        bio: "I'm Shivraj Dhaytadak—Senior Agentic AI Engineer & Architect at Allianz Services. I bridge stochastic large language models with deterministic, mission-critical distributed pipelines. 4+ years engineering production LangGraph engines, Azure event-driven architectures, and high-throughput agent swarms.",
         location: "Pune, IN",
         status: "Open to Relocation & High-Impact Agentic AI Roles",
         experienceYears: "4+ Years",
@@ -117,7 +117,7 @@ const portfolioData = {
             },
             {
                 title: "LangChain Automated PII Redaction",
-                description: "Strict compliance with Australian Privacy Principles (APP-19) prior to data persistence.",
+                description: "Strict compliance with Australian Privacy Principles (APP 11 - Security of Personal Information) prior to data persistence.",
                 icon: "lock"
             },
             {
@@ -153,7 +153,7 @@ const portfolioData = {
             id: "allianz",
             period: "Jan 2026 – Present",
             company: "Allianz Services",
-            role: "Agentic AI Consultant",
+            role: "Senior Agentic AI Engineer & Architect",
             location: "Pune, IN",
             theme: "Enterprise Autonomy & Production Resiliency",
             context: "Insurance Captive / GCC handling massive claim workflows across Asia-Pacific.",
@@ -162,17 +162,17 @@ const portfolioData = {
             metrics: [
                 { label: "AST Parse Cache", value: "< 0.4ms" },
                 { label: "Cold Start Latency", value: "0ms (Warm)" },
-                { label: "Privacy Compliance", value: "APP-19 Pass" },
+                { label: "Privacy Compliance", value: "APP 11 Pass" },
                 { label: "Prompt Duplication", value: "Zero Redundancy" }
             ],
             narrative: {
                 challenge: "Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.",
                 solution: "Architected a Declarative JSON Workflow Engine separating prompt configurations and route logic from execution binaries. Incoming stream payloads from Kafka and Event Hubs are orchestrated through Azure Durable Functions and passed through Azure Content Safety and LangChain PII redaction before entering the LangGraph state machine.",
-                impact: "Slashed new claim journey launch time from 3 weeks to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and validated APP-19 compliance."
+                impact: "Slashed new claim journey launch time from 3 weeks to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and validated APP 11 compliance."
             },
             deliverables: [
                 "<strong>[Architecture]</strong> Declarative JSON workflow engine driving 19 claim types, allowing business & prompt engineers to launch new claim journeys in 24 hours without backend redeployment.",
-                "<strong>[Guardrails]</strong> Multi-tier Azure Content Safety & LangChain PII redaction middleware ensuring compliance with Australian Privacy Principles (APP-19).",
+                "<strong>[Guardrails]</strong> Multi-tier Azure Content Safety & LangChain PII redaction middleware ensuring compliance with Australian Privacy Principles (APP 11).",
                 "<strong>[Orchestration]</strong> Synchronized LangGraph node transitions with Azure Durable Functions and warm Kafka consumer pools to prevent cold-start bottlenecks.",
                 "<strong>[Prompt Decoupling]</strong> Two-tier prompt architecture combining generalized agent directives with journey-specific rules, eliminating redundant prompt duplication."
             ]
@@ -312,7 +312,7 @@ const portfolioData = {
                 label: "Dual-Tier Safety & PII Guardrail",
                 category: "AI Safety & Compliance",
                 tech: "Azure Content Safety + LangChain PII",
-                badge: "APP-19 Compliant",
+                badge: "APP 11 Compliant",
                 description: "Screens prompt injection attacks, detects toxic inputs, and anonymizes personal data before LLM reasoning.",
                 payloadSample: `{
   "injectionCheck": { "flagged": false, "confidence": 0.998 },
@@ -321,7 +321,7 @@ const portfolioData = {
     "licenseNumber": "[REDACTED_DL_AU]",
     "phone": "[REDACTED_TEL]"
   },
-  "complianceStatus": "CERTIFIED_APP_COMPLIANT"
+  "complianceStatus": "CERTIFIED_APP_11_COMPLIANT"
 }`,
                 sla: "< 35ms safety filter hop",
                 invariant: "Zero raw PII to inference"
@@ -504,7 +504,7 @@ class EnterpriseClaimSafetyGate:
                 "sanitized_payload": None
             }
 
-        # Step 2: LangChain PII Redaction (Australian Privacy Principles APP-19 compliance)
+        # Step 2: LangChain PII Redaction (Australian Privacy Principles APP 11 compliance)
         sanitized = self.pii_redactor.transform_text(raw_text)
         return {
             "decision": "PERMITTED",

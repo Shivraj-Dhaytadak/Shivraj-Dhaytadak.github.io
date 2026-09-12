@@ -1,7 +1,7 @@
 {
   "name": "shivraj-dhaytadak-portfolio",
   "version": "2.0.0",
-  "description": "Portfolio of Shivraj Dhaytadak — Agentic AI Consultant",
+  "description": "Portfolio of Shivraj Dhaytadak — Senior Agentic AI Engineer & Architect",
   "private": true,
   "scripts": {
     "build:css": "tailwindcss -i src/input.css -o dist/output.css --minify",
