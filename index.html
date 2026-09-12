@@ -21,6 +21,9 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://shivraj-dhaytadak.github.io/">
     <meta property="og:image" content="https://shivraj-dhaytadak.github.io/ProjectBluey.png">
+    <meta property="og:image:width" content="1890">
+    <meta property="og:image:height" content="1119">
+    <meta property="og:image:alt" content="Shivraj Dhaytadak - Production Multi-Agent Systems Architecture Blueprint">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -28,6 +31,7 @@
     <meta name="twitter:description"
         content="Architecting resilient multi-agent workflows and governed AI pipelines for enterprise scale.">
     <meta name="twitter:image" content="https://shivraj-dhaytadak.github.io/ProjectBluey.png">
+    <meta name="twitter:image:alt" content="Shivraj Dhaytadak - Production Multi-Agent Systems Architecture Blueprint">
 
     <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,6 +53,9 @@
 
 <body
     class="bg-[#FAF8F5] text-slate-800 min-h-screen flex flex-col antialiased selection:bg-[#003781]/15 selection:text-[#003781]">
+
+    <!-- Accessible Skip Navigation Link (WCAG 2.4.1) -->
+    <a href="#main-content" class="skip-link">Skip to Main Content</a>
 
     <!-- Accessible No-Script Resilient Fallback Banner -->
     <noscript>
@@ -88,6 +95,8 @@
                 aria-label="Main Navigation">
                 <a href="#case-study"
                     class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Work</a>
+                <a href="#capabilities"
+                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Capabilities</a>
                 <a href="#featured-systems"
                     class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Systems</a>
                 <a href="#pipeline"
@@ -123,74 +132,116 @@
                 </button>
 
                 <!-- Secondary Resume Button -->
-                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" data-resume-source="header_nav"
-                    class="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 hover:text-[#003781] text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
-                    title="View Resume in new tab (PDF)">
+                <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf" target="_blank" rel="noopener noreferrer" data-resume-source="header_nav"
+                    class="hidden sm:flex px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 hover:text-[#003781] text-xs font-medium transition-all items-center gap-1.5 cursor-pointer shadow-xs"
+                    title="Download Shivraj Dhaytadak Technical Resume (PDF, 120 KB)">
                     <i data-lucide="file-text" class="w-3.5 h-3.5 text-emerald-700 shrink-0" aria-hidden="true"></i>
-                    <span>Resume</span>
+                    <span>Resume (PDF, 120 KB)</span>
                 </a>
 
                 <!-- Primary Get in Touch CTA -->
                 <a href="#contact"
-                    class="px-3.5 py-1.5 rounded-xl btn-shimmer-primary text-white font-semibold text-xs flex items-center gap-1.5 shadow-md shadow-[#003781]/25">
+                    class="hidden xs:flex px-3.5 py-1.5 rounded-xl btn-shimmer-primary text-white font-semibold text-xs items-center gap-1.5 shadow-md shadow-[#003781]/25">
                     <i data-lucide="calendar" class="w-3.5 h-3.5 shrink-0" aria-hidden="true"></i>
                     <span class="whitespace-nowrap">Get in Touch</span>
                 </a>
+
+                <!-- Mobile Hamburger Button with ARIA (WCAG AA Touch Target 48x48px) -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden touch-target flex items-center justify-center p-2 rounded-xl bg-white border border-[rgba(40,30,20,0.12)] text-slate-700 hover:text-slate-900 cursor-pointer shadow-sm hover:bg-slate-50"
+                    aria-label="Open mobile navigation menu" aria-controls="mobile-nav-drawer" aria-expanded="false">
+                    <i data-lucide="menu" class="w-5 h-5 text-slate-700" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- ==========================================================================
-         2. HERO SECTION: IDENTITY & PRODUCTION SCALE
-         ========================================================================== -->
-    <section id="hero" class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-14 w-full relative z-10">
-
-        <!-- Live Status & Focus Callout -->
-        <div
-            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(40,30,20,0.1)] text-xs font-semibold text-slate-800 mb-6 shadow-xs">
-            <span class="w-2 h-2 rounded-full bg-[#003781] shrink-0"></span>
-            <span>AGENTIC AI CONSULTANT &bull; ALLIANZ SERVICES &bull; PUNE, IN (OPEN TO RELOCATION)</span>
-        </div>
-
-        <!-- Main Hero Header & Identity Hook -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-
-            <div class="lg:col-span-8 flex flex-col justify-between">
-
-                <!-- Single Canonical H1 & Plain-English Identity Statement -->
+    <!-- Mobile Navigation Drawer & Backdrop (Accessible Modal Pattern) -->
+    <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+    <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-[#003781] text-white flex items-center justify-center font-mono font-bold text-xs shadow-sm">SD</div>
                 <div>
-                    <h1
-                        class="text-3xl sm:text-4xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 leading-[1.15] font-display">
-                        I build <span class="text-gradient-allianz">production-grade multi-agent AI systems</span> for
-                        regulated enterprises.
-                    </h1>
-                    <p
-                        class="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl font-normal prose-measure">
-                        Architecting autonomous, compliant agent workflows at Allianz Services &mdash; powering 19
-                        production journeys handling 100k+ claims/year with sub-2.5s graph latency and zero reported
-                        security breaches.
-                    </p>
-                </div>
-
-                <!-- Unified Hero CTAs: Exactly 2 Choices (Zero Decision Paralysis) -->
-                <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-                    <!-- Primary Action: Direct Jump to Case Study -->
-                    <a href="#case-study"
-                        class="px-5 py-2.5 rounded-xl btn-shimmer-primary text-white font-semibold text-sm flex items-center gap-2 cursor-pointer shadow-lg shadow-[#003781]/25 touch-target"
-                        title="Explore Flagship Architecture Case Study">
-                        <i data-lucide="layers" class="w-4 h-4 shrink-0" aria-hidden="true"></i>
-                        <span>Explore Work</span>
-                    </a>
-
-                    <!-- Secondary Action: Open Resume in New Tab -->
-                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" data-resume-source="hero_cta"
-                        class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 hover:text-[#003781] border border-[rgba(40,30,20,0.14)] font-medium text-sm flex items-center gap-2 transition-all shadow-xs touch-target"
-                        title="View Shivraj Dhaytadak Resume PDF in new tab">
-                        <i data-lucide="file-text" class="w-4 h-4 text-emerald-700 shrink-0" aria-hidden="true"></i>
-                        <span>Download Resume</span>
-                    </a>
+                    <span class="font-bold text-sm text-slate-900 dark:text-white block">Shivraj Dhaytadak</span>
+                    <span class="text-xs text-slate-500 font-medium">Agentic AI Consultant</span>
                 </div>
             </div>
+            <button id="mobile-nav-close" class="touch-target flex items-center justify-center p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white cursor-pointer" aria-label="Close mobile navigation menu">
+                <i data-lucide="x" class="w-5 h-5" aria-hidden="true"></i>
+            </button>
+        </div>
+        <nav class="py-4 flex flex-col gap-1.5 font-sans" aria-label="Mobile Menu Links">
+            <a href="#case-study" class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Flagship Work</a>
+            <a href="#capabilities" class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Capabilities Matrix</a>
+            <a href="#featured-systems" class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Featured Systems</a>
+            <a href="#pipeline" class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Claims Simulator</a>
+            <a href="#career-timeline" class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Experience &amp; Impact</a>
+            <a href="#philosophy" class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Engineering Principles</a>
+            <a href="#contact" class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Contact</a>
+            <div class="pt-4 mt-2 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-3">
+                <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline-secondary py-2.5 px-4 rounded-xl text-center font-medium text-xs flex items-center justify-center gap-2 touch-target shadow-xs">
+                    <i data-lucide="file-text" class="w-4 h-4 text-emerald-600" aria-hidden="true"></i>
+                    <span>Download Technical Resume (PDF, 120 KB)</span>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Main Content Landmark (WCAG 2.1 AA) -->
+    <main id="main-content">
+
+        <!-- ==========================================================================
+             2. HERO SECTION: IDENTITY & PRODUCTION SCALE
+             ========================================================================== -->
+        <section id="hero" aria-labelledby="hero-title" class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-14 w-full relative z-10">
+
+            <!-- Live Status & Focus Callout -->
+            <div
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[rgba(40,30,20,0.1)] text-xs font-semibold text-slate-800 mb-6 shadow-xs">
+                <span class="w-2 h-2 rounded-full bg-[#003781] shrink-0"></span>
+                <span>AGENTIC AI CONSULTANT &bull; ALLIANZ SERVICES &bull; PUNE, IN (OPEN TO RELOCATION)</span>
+            </div>
+
+            <!-- Main Hero Header & Identity Hook -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+
+                <div class="lg:col-span-8 flex flex-col justify-between">
+
+                    <!-- Single Canonical H1 & High-Trust Engineering Proposition -->
+                    <div>
+                        <h1 id="hero-title"
+                            class="text-3xl sm:text-4xl lg:text-[3.25rem] font-extrabold tracking-tight text-slate-900 leading-[1.15] font-display">
+                            I architect <span class="text-gradient-allianz">production-grade multi-agent systems</span> for
+                            regulated enterprises.
+                        </h1>
+                        <p
+                            class="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl font-normal prose-measure">
+                            Architecting autonomous, compliant agent workflows at Allianz Services &mdash; powering 19
+                            production journeys handling 100k+ claims/year with sub-2.5s graph latency and zero reported
+                            security breaches.
+                        </p>
+                    </div>
+
+                    <!-- Unified Hero CTAs: Exactly 2 Choices (Zero Decision Paralysis) -->
+                    <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+                        <!-- Primary Action: Direct Jump to Case Study -->
+                        <a href="#case-study"
+                            class="px-5 py-2.5 rounded-xl btn-shimmer-primary text-white font-semibold text-sm flex items-center gap-2 cursor-pointer shadow-lg shadow-[#003781]/25 touch-target"
+                            title="Explore Flagship Architecture Case Study">
+                            <i data-lucide="layers" class="w-4 h-4 shrink-0" aria-hidden="true"></i>
+                            <span>Explore Flagship Architecture &darr;</span>
+                        </a>
+
+                        <!-- Secondary Action: Open Resume in New Tab -->
+                        <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf" target="_blank" rel="noopener noreferrer" data-resume-source="hero_cta"
+                            class="px-4 py-2.5 rounded-xl btn-outline-secondary font-medium text-sm flex items-center gap-2 transition-all shadow-xs touch-target"
+                            title="Download Technical Resume (PDF, 120 KB)">
+                            <i data-lucide="file-text" class="w-4 h-4 text-emerald-600 shrink-0" aria-hidden="true"></i>
+                            <span>Download Technical Resume (PDF, 120 KB) &nearr;</span>
+                        </a>
+                    </div>
+                </div>
 
             <!-- Bento Hero Card 2: Live Active Agent Architecture Inspector HUD -->
             <div
@@ -401,7 +452,7 @@
     <!-- ==========================================================================
          03. FLAGSHIP CASE STUDY: PROJECT BLUEY-AI LODGEMENT (ALLIANZ SERVICES)
          ========================================================================== -->
-    <section id="case-study"
+    <section id="case-study" aria-labelledby="case-study-title"
         class="bg-[#FAF8F5] border-y border-[rgba(40,30,20,0.08)] py-16 px-4 sm:px-6 w-full relative z-10">
         <div class="max-w-7xl mx-auto">
 
@@ -420,7 +471,7 @@
                             <span>Sanitized Architecture • APP-11 Governed</span>
                         </span>
                     </div>
-                    <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    <h2 id="case-study-title" class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
                         Enterprise Multi-Agent Claims Lodgement Engine
                     </h2>
                     <p class="text-xs sm:text-sm text-slate-600 mt-1 max-w-2xl">
@@ -1107,17 +1158,165 @@
     </section>
 
     <!-- ==========================================================================
+         04. CONTEXTUAL CAPABILITIES & ARCHITECTURE MATRIX (WCAG AA & 8PT GRID)
+         Replaces arbitrary skill percentage bars with 4 verified production domains
+         ========================================================================== -->
+    <section id="capabilities" aria-labelledby="capabilities-title" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full relative z-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+            <div>
+                <div class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#003781] uppercase tracking-wider mb-2">
+                    <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
+                    <span>02 / Core Architecture &amp; Execution Competencies</span>
+                </div>
+                <h2 id="capabilities-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight font-display">
+                    Contextual Capabilities &amp; Architecture Matrix
+                </h2>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-md">
+                Production-verified competencies replacing arbitrary percentage bars with concrete architectural decisions, production SLAs, and validated stacks across four enterprise layers.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Domain 1: Multi-Agent Orchestration & State Graphs -->
+            <div class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 rounded-2xl flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-mono font-semibold text-[#003781] uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="git-merge" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                            <span>State Machines &amp; Graphs</span>
+                        </span>
+                        <span class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-[#EBF3FB] text-[#003781] border border-[#003781]/25">Sub-2.5s SLA</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 font-display">Multi-Agent Orchestration &amp; State Graphs</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                        Architecting cyclical DAGs, human-in-the-loop escalation routes, and persistent agent state machines that survive container rebalancing and long-horizon sessions.
+                    </p>
+                    <div class="mt-4 p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-xl space-y-1.5">
+                        <div class="text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Production Mandate &bull; 19 Journeys:</div>
+                        <p class="text-xs text-slate-600">Decoupled GitOps JSON workflow configurations from execution binaries, slashing rollout velocity from 3 weeks to under 24 hours.</p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-[rgba(40,30,20,0.08)]">
+                    <div class="text-xs font-mono text-slate-500 mb-1.5 font-semibold">Core Architectural Stack:</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">LangGraph</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">CrewAI</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Autogen</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">State Checkpointing</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Declarative JSON AST</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domain 2: Event Streaming & Distributed Ingest -->
+            <div class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 rounded-2xl flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-mono font-semibold text-emerald-700 uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="zap" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                            <span>High-Throughput Ingest</span>
+                        </span>
+                        <span class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">100k+ Claims/Yr</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 font-display">Event Streaming &amp; Distributed Ingest</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                        Buffering high-volume payload streams, orchestrating consumer group partitions, and guaranteeing exactly-once processing with dead-letter queue containment.
+                    </p>
+                    <div class="mt-4 p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-xl space-y-1.5">
+                        <div class="text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Resilience Invariant:</div>
+                        <p class="text-xs text-slate-600">Transactional outbox patterns and asynchronous worker pools that withstand broker partition rebalances without session mutation loss.</p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-[rgba(40,30,20,0.08)]">
+                    <div class="text-xs font-mono text-slate-500 mb-1.5 font-semibold">Core Architectural Stack:</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Apache Kafka</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Azure Event Hubs</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">FastAPI Async</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Redis Buffer</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">DLQ Pipelines</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domain 3: Deterministic Safety & Guardrails -->
+            <div class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 rounded-2xl flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-mono font-semibold text-amber-800 uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                            <span>Enterprise Governance</span>
+                        </span>
+                        <span class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-amber-50 text-amber-900 border border-amber-200">0 Breaches</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 font-display">Deterministic Safety &amp; Guardrails</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                        Enforcing strict runtime schema coercion, prompt injection screening, and multi-layer privacy scrubbers compliant with Australian Privacy Principles (APP-19).
+                    </p>
+                    <div class="mt-4 p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-xl space-y-1.5">
+                        <div class="text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Zero-Leak Guarantee:</div>
+                        <p class="text-xs text-slate-600">Deterministic regex pre-filters combined with Azure Content Safety and Pydantic runtime models eliminate LLM hallucinated mutations.</p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-[rgba(40,30,20,0.08)]">
+                    <div class="text-xs font-mono text-slate-500 mb-1.5 font-semibold">Core Architectural Stack:</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Pydantic v2</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Azure Content Safety</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">sqlglot AST</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">LangChain PII</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Jailbreak Containment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domain 4: Serving Infrastructure & Optimization -->
+            <div class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 rounded-2xl flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div>
+                    <div class="flex items-center justify-between gap-2 mb-2">
+                        <span class="text-xs font-mono font-semibold text-indigo-700 uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="layers" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                            <span>Distributed Serving</span>
+                        </span>
+                        <span class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-indigo-50 text-indigo-800 border border-indigo-200">&lt; 0.4ms Cache Hit</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 font-display">Serving Infrastructure &amp; Optimization</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mt-2">
+                        Deploying continuous batching inference clusters, AST pre-compilation caches in hot RAM, and low-latency hybrid neural retrieval architectures.
+                    </p>
+                    <div class="mt-4 p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-xl space-y-1.5">
+                        <div class="text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Performance Metric:</div>
+                        <p class="text-xs text-slate-600">Slashed inference serving latency by 50% on vLLM endpoints and achieved sub-0.4ms schema retrieval via worker LRU cache layers.</p>
+                    </div>
+                </div>
+                <div class="pt-3 border-t border-[rgba(40,30,20,0.08)]">
+                    <div class="text-xs font-mono text-slate-500 mb-1.5 font-semibold">Core Architectural Stack:</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">vLLM</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">AWS Bedrock</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Azure AI Foundry</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Docker / K8s</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">LRU Cache</span>
+                        <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">LoRA / QLoRA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
          5B. FEATURED ENTERPRISE SYSTEMS & RESEARCH SHOWCASE
          ========================================================================== -->
-    <section id="featured-systems" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
+    <section id="featured-systems" aria-labelledby="featured-systems-title" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
                 <div
                     class="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-[#003781] uppercase tracking-wider mb-2">
                     <i data-lucide="folder-git-2" class="w-3.5 h-3.5" aria-hidden="true"></i>
-                    <span>02 / Featured Systems & Micro-Case-Studies</span>
+                    <span>03 / Featured Systems &amp; Micro-Case-Studies</span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                <h2 id="featured-systems-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     Featured Systems &amp; Engineering Track Record
                 </h2>
             </div>
@@ -1130,7 +1329,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
             <!-- Card 1: Project FlowIQ (Yash Technologies) -->
-            <div
+            <article aria-labelledby="flowiq-title"
                 class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between gap-2 flex-wrap">
@@ -1150,7 +1349,7 @@
                                 class="text-xs font-mono font-semibold text-[#D32F2F] uppercase tracking-wider">Project
                                 FlowIQ</span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mt-1 font-display">Text-to-SQL Graph Matrix &amp;
+                        <h3 id="flowiq-title" class="text-lg font-bold text-slate-900 mt-1 font-display">Text-to-SQL Graph Matrix &amp;
                             Schema Memory</h3>
                         <p class="text-xs text-slate-600 leading-relaxed mt-2">
                             <strong class="text-slate-800">Problem &amp; Context:</strong> Manual SQL query authoring
@@ -1218,10 +1417,10 @@
                             SQL</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Card 2: Project SASVA (Persistent Systems) -->
-            <div
+            <article aria-labelledby="sasva-title"
                 class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between gap-2 flex-wrap">
@@ -1241,7 +1440,7 @@
                                 class="text-xs font-mono font-semibold text-[#D97706] uppercase tracking-wider">Project
                                 SASVA</span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mt-1 font-display">Codebase RAG &amp; vLLM
+                        <h3 id="sasva-title" class="text-lg font-bold text-slate-900 mt-1 font-display">Codebase RAG &amp; vLLM
                             Distributed Serving</h3>
                         <p class="text-xs text-slate-600 leading-relaxed mt-2">
                             <strong class="text-slate-800">Problem &amp; Context:</strong> Developer onboarding
@@ -1301,10 +1500,10 @@
                             class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">LoRA/QLoRA</span>
                     </div>
                 </div>
-            </div>
+            </article>
 
             <!-- Card 3: Open-Source Agentic Lab & Invariants -->
-            <div
+            <article aria-labelledby="agentic-lab-title"
                 class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between gap-2 flex-wrap">
@@ -1323,7 +1522,7 @@
                             <span class="text-xs font-mono font-semibold text-[#003781] uppercase tracking-wider">The
                                 Agentic Systems Lab</span>
                         </div>
-                        <h3 class="text-lg font-bold text-slate-900 mt-1 font-display">State Graph Invariants &amp;
+                        <h3 id="agentic-lab-title" class="text-lg font-bold text-slate-900 mt-1 font-display">State Graph Invariants &amp;
                             Protocol R&amp;D</h3>
                         <p class="text-xs text-slate-600 leading-relaxed mt-2">
                             <strong class="text-slate-800">Problem &amp; Context:</strong> Autonomous multi-agent swarms
@@ -1385,7 +1584,7 @@
                         <i data-lucide="arrow-up-right" class="w-3.5 h-3.5" aria-hidden="true"></i>
                     </a>
                 </div>
-            </div>
+            </article>
 
         </div>
     </section>
@@ -1393,7 +1592,7 @@
     <!-- ==========================================================================
          05. HOW MY SYSTEMS OPERATE: CLAIMS TRIAGE SIMULATOR
          ========================================================================== -->
-    <section id="pipeline" class="max-w-7xl mx-auto px-4 sm:px-6 py-20 font-sans text-slate-800 relative z-10">
+    <section id="pipeline" aria-labelledby="pipeline-title" class="max-w-7xl mx-auto px-4 sm:px-6 py-20 font-sans text-slate-800 relative z-10">
 
         <!-- Section Heading with Tension-Driven Hook -->
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
@@ -1403,7 +1602,7 @@
                     <i data-lucide="git-merge" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                     <span>Deterministic Orchestration Under the Hood</span>
                 </div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-1">
+                <h2 id="pipeline-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mt-1">
                     Claims Triage Agent Graph: Live Flow Simulation
                 </h2>
             </div>
@@ -1665,7 +1864,7 @@
          06. THE TRAJECTORY: CAREER EVOLUTION & ENTERPRISE IMPACT
          Theme: Allianz Blue (Act III), Yash Red & Blue (Act II), Persistent Amber (Act I)
          ========================================================================== -->
-    <section id="career-timeline" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
+    <section id="career-timeline" aria-labelledby="career-timeline-title" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
 
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
@@ -1674,7 +1873,7 @@
                     <i data-lucide="clock" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
                     <span>04 / Work Experience</span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                <h2 id="career-timeline-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     From Distributed Systems to Autonomous AI Governance
                 </h2>
             </div>
@@ -1868,7 +2067,7 @@
     <!-- ==========================================================================
          07. THE ENGINEERING APPROACH & ABOUT SHIVRAJ
          ========================================================================== -->
-    <section id="philosophy" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
+    <section id="philosophy" aria-labelledby="philosophy-title" class="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
 
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
             <div>
@@ -1877,7 +2076,7 @@
                     <i data-lucide="compass" class="w-3.5 h-3.5" aria-hidden="true"></i>
                     <span>05 / Mindset &amp; Story</span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                <h2 id="philosophy-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                     Engineering Principles &amp; About Shivraj
                 </h2>
             </div>
@@ -2138,11 +2337,12 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- ==========================================================================
          08. GET IN TOUCH & TERMINAL RECRUITMENT ANCHOR
          ========================================================================== -->
-    <footer id="contact"
+    <footer id="contact" aria-labelledby="contact-title"
         class="bg-[#F4EFEA] border-t border-[rgba(40,30,20,0.08)] py-16 px-4 sm:px-6 w-full mt-auto relative z-10">
         <div class="max-w-7xl mx-auto flex flex-col gap-10">
 
@@ -2157,9 +2357,9 @@
                             class="px-2.5 py-0.5 rounded-full bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-600 text-xs font-mono">Pune,
                             IN &bull; Open to Global Relocation</span>
                     </div>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-display">
+                    <h2 id="contact-title" class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1 font-display">
                         Let's Build Fault-Tolerant AI Systems Together
-                    </h3>
+                    </h2>
                     <p class="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl font-normal leading-relaxed">
                         I'm available on notice for Staff / Senior AI Systems Engineer and Agentic AI Architect
                         roles worldwide. Whether you're architecting multi-agent swarms, decoupling JSON workflows, or
@@ -2179,11 +2379,11 @@
                         <i data-lucide="copy" class="w-4 h-4 text-slate-500" aria-hidden="true"></i>
                         <span>Copy Email</span>
                     </button>
-                    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" data-resume-source="footer_contact"
+                    <a href="resume.pdf" download="Shivraj_Dhaytadak_Resume.pdf" target="_blank" rel="noopener noreferrer" data-resume-source="footer_contact"
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] transition-colors shadow-sm"
-                        title="Download resume PDF">
+                        title="Download Shivraj Dhaytadak Technical Resume (PDF, 120 KB)">
                         <i data-lucide="file-text" class="w-4 h-4 text-emerald-700" aria-hidden="true"></i>
-                        <span>Download Resume (PDF)</span>
+                        <span>Download Technical Resume (PDF, 120 KB)</span>
                     </a>
                     <button data-download-vcard
                         class="p-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-600 hover:text-slate-900 border border-[rgba(40,30,20,0.08)] transition-colors cursor-pointer shadow-sm"

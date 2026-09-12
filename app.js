@@ -1324,11 +1324,62 @@ function initScrollSpy() {
         });
     }, {
         root: null,
-        rootMargin: "-20% 0px -60% 0px",
+        rootMargin: "-30% 0px -70% 0px",
         threshold: 0
     });
 
     sections.forEach(section => observer.observe(section));
+}
+
+// ==========================================================================
+// 10C. Accessible Mobile Navigation Drawer & Body Scroll Lock
+// ==========================================================================
+function initMobileNav() {
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const drawer = document.getElementById("mobile-nav-drawer");
+    const backdrop = document.getElementById("mobile-nav-backdrop");
+    const closeBtn = document.getElementById("mobile-nav-close");
+    const navLinks = document.querySelectorAll(".mobile-nav-link");
+
+    if (!menuBtn || !drawer) return;
+
+    function openDrawer() {
+        drawer.classList.add("open");
+        if (backdrop) backdrop.classList.add("open");
+        document.body.classList.add("overflow-hidden");
+        menuBtn.setAttribute("aria-expanded", "true");
+        drawer.setAttribute("aria-hidden", "false");
+    }
+
+    function closeDrawer() {
+        drawer.classList.remove("open");
+        if (backdrop) backdrop.classList.remove("open");
+        document.body.classList.remove("overflow-hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+        drawer.setAttribute("aria-hidden", "true");
+    }
+
+    menuBtn.addEventListener("click", () => {
+        const isOpen = drawer.classList.contains("open");
+        if (isOpen) {
+            closeDrawer();
+        } else {
+            openDrawer();
+        }
+    });
+
+    if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+    if (backdrop) backdrop.addEventListener("click", closeDrawer);
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", closeDrawer);
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && drawer.classList.contains("open")) {
+            closeDrawer();
+        }
+    });
 }
 
 // ==========================================================================
@@ -1352,6 +1403,7 @@ function initPortfolio() {
     initBentoCardGlow();
     initPipelineScrollytelling();
     initScrollSpy();
+    initMobileNav();
     initScrollReveal();
     setupCmdkListeners();
     setupDelegatedListeners();

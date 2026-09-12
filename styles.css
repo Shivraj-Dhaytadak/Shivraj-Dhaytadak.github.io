@@ -11,59 +11,59 @@
     --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Editorial Luxury Cream Palette */
-    --bg-canvas: #FAF8F5;
+    /* High-Trust Architectural Canvas Palette */
+    --bg-canvas: #FAF9F6;
     --bg-surface: #FFFFFF;
-    --bg-surface-inset: #F4EFEA;
+    --bg-surface-inset: #F1F5F9;
     --bg-card: #FFFFFF;
     --bg-card-elevated: #FFFFFF;
-    --bg-card-hover: #FDFCFB;
+    --bg-card-hover: #F8FAFC;
     
-    /* Warm Precision Specular Borders & Rims */
-    --border-subtle: rgba(40, 30, 20, 0.07);
-    --border-card: rgba(40, 30, 20, 0.08);
-    --border-hover: rgba(0, 55, 129, 0.28);
-    --border-active: rgba(0, 55, 129, 0.5);
+    /* Clean Precision Borders & Rims */
+    --border-subtle: rgba(15, 23, 42, 0.09);
+    --border-card: rgba(15, 23, 42, 0.12);
+    --border-hover: rgba(0, 55, 129, 0.4);
+    --border-active: rgba(0, 55, 129, 0.65);
 
-    /* Official Enterprise Corporate Accents */
+    /* Official Enterprise Corporate Accents - Vibrant & Saturated */
     /* 1. Allianz Services: Allianz Blue */
     --allianz-blue: #003781;
     --allianz-blue-deep: #002659;
     --allianz-blue-light: #0056B3;
-    --allianz-blue-subtle: #EBF3FB;
-    --allianz-blue-border: rgba(0, 55, 129, 0.2);
+    --allianz-blue-subtle: #E1EFFE;
+    --allianz-blue-border: rgba(0, 55, 129, 0.28);
 
     /* 2. Yash Technologies: Red & Navy Blue */
     --yash-red: #D32F2F;
-    --yash-red-subtle: #FEF2F2;
+    --yash-red-subtle: #FEE2E2;
     --yash-blue: #1E3A8A;
-    --yash-blue-subtle: #EFF6FF;
+    --yash-blue-subtle: #DBEAFE;
 
     /* 3. Persistent Systems: Amber / Warm Gold */
     --persistent-amber: #D97706;
     --persistent-amber-deep: #B45309;
     --persistent-amber-subtle: #FEF3C7;
-    --persistent-amber-border: rgba(217, 119, 6, 0.25);
+    --persistent-amber-border: rgba(217, 119, 6, 0.32);
 
     /* Universal Accents */
     --accent-emerald: #047857;
     --accent-emerald-light: #10B981;
-    --accent-emerald-subtle: #ECFDF5;
+    --accent-emerald-subtle: #D1FAE5;
     --accent-rose: #E11D48;
-    --accent-rose-subtle: #FFF1F2;
+    --accent-rose-subtle: #FFE4E6;
 
     /* High-Contrast Editorial Typography Hierarchy (WCAG AA Compliant >= 4.5:1) */
     --text-primary: #0F172A;
-    --text-secondary: #334155;
-    --text-muted: #475569;
-    --text-dim: #64748B;
+    --text-secondary: #1E293B;
+    --text-muted: #334155;
+    --text-dim: #475569;
 
-    /* Warm, Diffuse Editorial Shadows */
-    --shadow-card: 0 4px 20px -2px rgba(40, 30, 20, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
-    --shadow-card-hover: 0 12px 32px -4px rgba(40, 30, 20, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-    --glow-allianz: rgba(0, 55, 129, 0.2);
-    --glow-emerald: rgba(16, 185, 129, 0.2);
-    --glow-amber: rgba(217, 119, 6, 0.2);
+    /* Crisp Architectural Shadows & Glowing Accents */
+    --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.07), 0 1px 4px rgba(0, 55, 129, 0.04);
+    --shadow-card-hover: 0 16px 36px -4px rgba(0, 55, 129, 0.16), 0 2px 8px rgba(15, 23, 42, 0.06);
+    --glow-allianz: rgba(0, 55, 129, 0.28);
+    --glow-emerald: rgba(16, 185, 129, 0.25);
+    --glow-amber: rgba(217, 119, 6, 0.25);
 }
 
 /* Strict Major Third (1.250) Typography Scale & Heading Polish */
@@ -100,6 +100,63 @@ p, .body-copy {
 
 .prose-measure {
     max-width: 65ch;
+    line-height: 1.68;
+}
+
+/* Accessible Skip to Content Link (WCAG 2.1 AA) */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background: var(--allianz-blue);
+    color: #FFFFFF !important;
+    font-weight: 700;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 55, 129, 0.4);
+    transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 1rem;
+    outline: 3px solid #FFFFFF !important;
+    outline-offset: 2px !important;
+}
+
+/* Section Header Scroll Margin Offset (Prevents Sticky Navbar from Clipping Section Titles) */
+section,
+section[id],
+[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Standardized 8pt Spatial Grid Section Padding (clamp(4rem, 8vw, 7.5rem)) */
+.section-padding {
+    padding-top: clamp(4rem, 8vw, 7.5rem);
+    padding-bottom: clamp(4rem, 8vw, 7.5rem);
+}
+
+/* Accessible Minimum Interactive Touch Target (48x48px per Audit Recommendation) */
+.touch-target {
+    min-height: 48px;
+    min-width: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flex Column Layout with Equalized Footer Alignment for Grid Cards */
+.bento-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-footer,
+.bento-card > .mt-auto {
+    margin-top: auto !important;
 }
 
 /* Nav Link Scroll-Spy Active Indicator */
@@ -125,6 +182,12 @@ body {
     overflow-x: hidden;
     position: relative;
     letter-spacing: -0.011em;
+}
+
+/* Enhanced Tracking for Uppercase Taglines & Badges */
+.uppercase,
+[class*="uppercase"] {
+    letter-spacing: 0.055em;
 }
 
 /* Scroll Reveal & Stagger Animations */
@@ -159,10 +222,14 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
-[tabindex]:focus-visible {
-    outline: 2px solid var(--allianz-blue);
-    outline-offset: 3px;
-    border-radius: 6px;
+[tabindex]:focus-visible,
+.topo-node:focus-visible,
+.bento-card:focus-visible,
+.btn-shimmer-primary:focus-visible,
+.btn-outline-secondary:focus-visible {
+    outline: 2px solid var(--allianz-blue) !important;
+    outline-offset: 3px !important;
+    border-radius: 8px !important;
 }
 
 html.dark a:focus-visible,
@@ -170,34 +237,70 @@ html.dark button:focus-visible,
 html.dark input:focus-visible,
 html.dark select:focus-visible,
 html.dark textarea:focus-visible,
-html.dark [tabindex]:focus-visible {
-    outline: 2px solid #60a5fa;
-    outline-offset: 3px;
+html.dark [tabindex]:focus-visible,
+html.dark .topo-node:focus-visible,
+html.dark .bento-card:focus-visible,
+html.dark .btn-shimmer-primary:focus-visible,
+html.dark .btn-outline-secondary:focus-visible {
+    outline: 2px solid #38bdf8 !important;
+    outline-offset: 3px !important;
+    border-radius: 8px !important;
 }
 
-/* Atmospheric Ambient Warm Mesh (Cream Canvas with Allianz Blue & Amber Whispers) */
+/* Secondary Ghost / Outline Button (CTA Balance in Hero) */
+.btn-outline-secondary {
+    background-color: transparent;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    color: var(--text-secondary);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-secondary:hover {
+    background-color: rgba(0, 55, 129, 0.06);
+    border-color: var(--allianz-blue);
+    color: var(--allianz-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px -1px rgba(0, 55, 129, 0.12);
+}
+
+html.dark .btn-outline-secondary {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #e2e8f0;
+}
+
+html.dark .btn-outline-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: #38bdf8;
+    color: #38bdf8;
+    box-shadow: 0 2px 8px -1px rgba(56, 189, 248, 0.18);
+}
+
+/* Atmospheric Ambient High-Craft Mesh (Luminous Allianz Blue, Persistent Amber & Emerald Accents) */
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    background: radial-gradient(900px circle at 15% -8%, rgba(0, 55, 129, 0.035), transparent 60%),
-                radial-gradient(850px circle at 85% 8%, rgba(217, 119, 6, 0.03), transparent 55%),
-                radial-gradient(800px circle at 50% 65%, rgba(0, 55, 129, 0.02), transparent 65%);
+    inset: 0;
+    background: 
+        radial-gradient(1050px circle at 10% -6%, rgba(0, 86, 179, 0.16), transparent 65%),
+        radial-gradient(950px circle at 90% 8%, rgba(245, 158, 11, 0.14), transparent 60%),
+        radial-gradient(1100px circle at 50% 45%, rgba(0, 55, 129, 0.10), transparent 70%),
+        radial-gradient(900px circle at 88% 72%, rgba(16, 185, 129, 0.12), transparent 60%),
+        radial-gradient(950px circle at 12% 92%, rgba(37, 99, 235, 0.13), transparent 65%),
+        radial-gradient(850px circle at 65% 105%, rgba(217, 119, 6, 0.11), transparent 60%);
     pointer-events: none;
     z-index: 0;
+    opacity: 1;
 }
 
 body::after {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: radial-gradient(rgba(40, 30, 20, 0.06) 1px, transparent 1px);
-    background-size: 28px 28px;
-    mask-image: radial-gradient(ellipse 85% 75% at 50% 18%, #000 50%, transparent 95%);
-    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 18%, #000 50%, transparent 95%);
+    background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1.2px, transparent 1.2px);
+    background-size: 26px 26px;
+    mask-image: radial-gradient(ellipse 95% 85% at 50% 25%, #000 70%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 25%, #000 70%, transparent 100%);
     pointer-events: none;
     z-index: 0;
 }
@@ -253,8 +356,8 @@ body::after {
     border-radius: inherit;
     padding: 1px;
     background: radial-gradient(
-        420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(0, 55, 129, 0.08),
+        460px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 86, 179, 0.16),
         transparent 70%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -426,13 +529,13 @@ html.dark,
 [data-theme="dark"] {
     color-scheme: dark;
 
-    /* Deep Obsidian & Titanium Dark Mode Palette */
-    --bg-canvas: #07090E;
-    --bg-surface: #0E131F;
-    --bg-surface-inset: #090C14;
-    --bg-card: rgba(14, 19, 31, 0.9);
-    --bg-card-elevated: #131A2B;
-    --bg-card-hover: #182035;
+    /* Off-Black Architectural Dark Mode Palette (Zero OLED Eye Strain) */
+    --bg-canvas: #0F1117;
+    --bg-surface: #161B26;
+    --bg-surface-inset: #111520;
+    --bg-card: rgba(22, 27, 38, 0.92);
+    --bg-card-elevated: #1C2333;
+    --bg-card-hover: #242D40;
 
     /* Crisp Precision Dark Borders */
     --border-subtle: rgba(255, 255, 255, 0.08);
@@ -440,9 +543,9 @@ html.dark,
     --border-hover: rgba(96, 165, 250, 0.4);
     --border-active: rgba(96, 165, 250, 0.6);
 
-    /* Luminous High-Contrast Typography */
+    /* Luminous High-Contrast Typography (WCAG AA Compliant) */
     --text-primary: #F8FAFC;
-    --text-secondary: #CBD5E1;
+    --text-secondary: #E2E8F0;
     --text-muted: #94A3B8;
     --text-dim: #64748B;
 
@@ -1033,11 +1136,71 @@ html.dark .honor-badge-allianz,
    ========================================================================== */
 
 .glass-nav {
-    background: rgba(250, 248, 245, 0.88);
+    background: rgba(250, 248, 245, 0.94);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid rgba(40, 30, 20, 0.08);
     box-shadow: 0 4px 20px rgba(40, 30, 20, 0.03);
+}
+
+html.dark .glass-nav,
+[data-theme="dark"] .glass-nav,
+[data-recruiter-mode="true"] .glass-nav {
+    background: rgba(15, 23, 42, 0.94) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Body Scroll Lock for Mobile Navigation Drawer (Prevents Nested iOS Scroll Traps) */
+body.overflow-hidden {
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none !important;
+}
+
+/* Mobile Navigation Panel & Backdrop */
+.mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 45;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.mobile-nav-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #FAF9F6;
+    border-bottom: 1px solid rgba(40, 30, 20, 0.12);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    z-index: 50;
+    padding: 1.25rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+html.dark .mobile-nav-drawer,
+[data-theme="dark"] .mobile-nav-drawer {
+    background: #0F1117;
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+.mobile-nav-drawer.open {
+    transform: translateY(0);
 }
 
 .glass-pill {
@@ -1430,6 +1593,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus
     background: var(--allianz-blue-subtle);
     border: 1px solid var(--allianz-blue-border);
     color: var(--allianz-blue);
+    box-shadow: 0 1px 3px rgba(0, 55, 129, 0.08);
 }
 
 .brand-allianz-badge {
@@ -1439,9 +1603,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus
 
 /* Yash Technologies: Red & Navy Blue */
 .brand-yash-pill {
-    background: #FEF2F2;
-    border: 1px solid rgba(211, 47, 47, 0.25);
+    background: var(--yash-red-subtle);
+    border: 1px solid rgba(211, 47, 47, 0.28);
     color: #B91C1C;
+    box-shadow: 0 1px 3px rgba(211, 47, 47, 0.08);
 }
 
 .brand-yash-accent {
@@ -1453,10 +1618,93 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus
     background: var(--persistent-amber-subtle);
     border: 1px solid var(--persistent-amber-border);
     color: var(--persistent-amber-deep);
+    box-shadow: 0 1px 3px rgba(217, 119, 6, 0.08);
 }
 
 .brand-persistent-accent {
     border-left: 3px solid var(--persistent-amber);
+}
+
+/* Corporate Honor Badges - Rich Saturated Color in Light Mode */
+.honor-badge-persistent {
+    background: #FEF3C7;
+    border: 1px solid rgba(217, 119, 6, 0.35);
+    color: #B45309;
+    box-shadow: 0 1px 3px rgba(217, 119, 6, 0.08);
+}
+
+.honor-badge-yash {
+    background: #FEE2E2;
+    border: 1px solid rgba(211, 47, 47, 0.32);
+    color: #B91C1C;
+    box-shadow: 0 1px 3px rgba(211, 47, 47, 0.08);
+}
+
+.honor-badge-allianz {
+    background: #E1EFFE;
+    border: 1px solid rgba(0, 55, 129, 0.32);
+    color: #003781;
+    box-shadow: 0 1px 3px rgba(0, 55, 129, 0.08);
+}
+
+/* ==========================================================================
+   Section Background Atmosphere & Chromatic Depth
+   ========================================================================== */
+
+.scale-bar-strip {
+    background: linear-gradient(90deg, rgba(225, 239, 254, 0.95) 0%, rgba(254, 243, 199, 0.9) 50%, rgba(254, 226, 226, 0.9) 100%) !important;
+    border-color: rgba(0, 55, 129, 0.12) !important;
+}
+
+#case-study {
+    background: linear-gradient(180deg, rgba(225, 239, 254, 0.5) 0%, rgba(250, 249, 246, 0.25) 50%, rgba(225, 239, 254, 0.45) 100%);
+    border-color: rgba(0, 55, 129, 0.12) !important;
+}
+
+#capabilities {
+    background: radial-gradient(950px circle at 85% 20%, rgba(16, 185, 129, 0.07), transparent 60%),
+                radial-gradient(850px circle at 15% 80%, rgba(0, 55, 129, 0.08), transparent 60%);
+}
+
+#featured-systems {
+    background: radial-gradient(1000px circle at 50% 25%, rgba(217, 119, 6, 0.07), transparent 65%),
+                radial-gradient(900px circle at 90% 75%, rgba(0, 55, 129, 0.08), transparent 60%);
+}
+
+footer#contact {
+    background: linear-gradient(180deg, #FAF9F6 0%, #E8EEF5 100%) !important;
+    border-top-color: rgba(0, 55, 129, 0.12) !important;
+}
+
+/* Dark Mode Preservation for Section Backgrounds */
+html.dark .scale-bar-strip,
+[data-recruiter-mode="true"] .scale-bar-strip,
+[data-theme="dark"] .scale-bar-strip {
+    background: #111520 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark #case-study,
+[data-recruiter-mode="true"] #case-study,
+[data-theme="dark"] #case-study {
+    background: #0F1117 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark #capabilities,
+[data-recruiter-mode="true"] #capabilities,
+[data-theme="dark"] #capabilities,
+html.dark #featured-systems,
+[data-recruiter-mode="true"] #featured-systems,
+[data-theme="dark"] #featured-systems {
+    background: transparent !important;
+}
+
+html.dark footer#contact,
+[data-recruiter-mode="true"] footer#contact,
+[data-theme="dark"] footer#contact {
+    background: #0D0F15 !important;
+    border-top-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Bullet list precision alignment */

@@ -562,6 +562,7 @@ class EnterpriseClaimSafetyGate:
 
     commandPaletteItems: [
         { id: "case-study", label: "Flagship Case Study: Allianz Claims Lodgement Engine", category: "Jump to Section", icon: "layers", action: "scroll", target: "case-study" },
+        { id: "capabilities", label: "Contextual Capabilities Matrix: 4 Architecture Domains", category: "Jump to Section", icon: "cpu", action: "scroll", target: "capabilities" },
         { id: "featured-systems", label: "Featured Systems: FlowIQ, SASVA & Research Lab", category: "Jump to Section", icon: "folder-git-2", action: "scroll", target: "featured-systems" },
         { id: "pipeline", label: "Interactive Simulator: Claims Triage Graph", category: "Jump to Section", icon: "git-merge", action: "scroll", target: "pipeline" },
         { id: "timeline", label: "Work Experience: Allianz, Yash, Persistent", category: "Jump to Section", icon: "clock", action: "scroll", target: "career-timeline" },
