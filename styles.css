@@ -379,29 +379,13 @@ body::after {
 }
 
 /* ==========================================================================
-   Scrollytelling Sticky Pipeline Visuals
+   Pipeline Orchestration: Twin HUD Containers & Stage Cards
    ========================================================================== */
-
-.step-card {
-    position: relative;
-    background: #FFFFFF;
-    border: 1px solid var(--border-card);
-    box-shadow: var(--shadow-card);
-    border-radius: 1.125rem;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.step-card.active {
-    opacity: 1 !important;
-    border-color: var(--allianz-blue) !important;
-    box-shadow: 0 10px 30px -5px rgba(0, 55, 129, 0.12), inset 0 0 0 1px rgba(0, 55, 129, 0.1) !important;
-    transform: scale(1.01);
-}
 
 .hud-container {
     background: #FFFFFF;
-    border: 1px solid rgba(40, 30, 20, 0.1);
-    box-shadow: 0 16px 36px -8px rgba(0, 55, 129, 0.08), 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    box-shadow: 0 8px 30px -4px rgba(15, 23, 42, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
     border-radius: 1.25rem;
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -415,12 +399,341 @@ html.dark .hud-container,
     box-shadow: 0 20px 45px -10px rgba(10, 20, 40, 0.5);
 }
 
-.hud-node {
-    border: 1px solid rgba(40, 30, 20, 0.08);
-    background: #FAF8F5;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+/* Section 05: Panel Headers & Interactive Badges */
+.hud-panel-header {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.12) !important;
+}
+
+html.dark .hud-panel-header,
+[data-recruiter-mode="true"] .hud-panel-header,
+[data-theme="dark"] .hud-panel-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.hud-panel-title {
+    color: #0F172A !important;
+    font-weight: 800 !important;
+}
+
+html.dark .hud-panel-title,
+[data-recruiter-mode="true"] .hud-panel-title,
+[data-theme="dark"] .hud-panel-title {
+    color: #FFFFFF !important;
+}
+
+.hud-inspect-pill {
+    background: #F1F5F9 !important;
+    color: #334155 !important;
+    border: 1px solid rgba(15, 23, 42, 0.12) !important;
+    font-weight: 600 !important;
+}
+
+html.dark .hud-inspect-pill,
+[data-recruiter-mode="true"] .hud-inspect-pill,
+[data-theme="dark"] .hud-inspect-pill {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #CBD5E1 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.hud-terminal-uri {
+    color: #0F172A !important;
+    font-weight: 800 !important;
+}
+
+html.dark .hud-terminal-uri,
+[data-recruiter-mode="true"] .hud-terminal-uri,
+[data-theme="dark"] .hud-terminal-uri {
+    color: #FFFFFF !important;
+}
+
+/* Left Column: Lifecycle Stage Cards */
+.step-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
     border-radius: 0.875rem;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    cursor: pointer;
+}
+
+.step-card:hover {
+    border-color: rgba(0, 55, 129, 0.45);
+    background: #F8FAFC;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -2px rgba(0, 55, 129, 0.1);
+}
+
+.step-card .stage-badge {
+    background: #F1F5F9;
+    color: #003781;
+    border: 1px solid rgba(0, 55, 129, 0.18);
+    font-weight: 700;
+}
+
+.step-card .stage-tag {
+    background: #F8FAFC;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    color: #334155;
+    font-weight: 500;
+}
+
+.step-card.active {
+    border: 2px solid #003781 !important;
+    background: #F0F6FF !important;
+    box-shadow: 0 4px 16px -2px rgba(0, 55, 129, 0.18), inset 0 0 0 1px rgba(0, 55, 129, 0.15) !important;
+    opacity: 1 !important;
+}
+
+.step-card.active h3 {
+    color: #003781 !important;
+}
+
+.step-card.active .stage-badge {
+    background: #003781 !important;
+    color: #FFFFFF !important;
+    border-color: #003781 !important;
+}
+
+.step-card.active .stage-metric {
+    color: #003781 !important;
+    font-weight: 700 !important;
+}
+
+.step-card.active .stage-tag {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(0, 55, 129, 0.28) !important;
+    color: #003781 !important;
+    font-weight: 600 !important;
+    box-shadow: 0 1px 2px rgba(0, 55, 129, 0.06);
+}
+
+.step-card.card-alert-danger {
+    border: 2px solid #E11D48 !important;
+    background: #FFF1F2 !important;
+    box-shadow: 0 4px 16px -2px rgba(225, 29, 72, 0.18) !important;
+    opacity: 1 !important;
+}
+
+.step-card.card-alert-danger h3 {
+    color: #9F1239 !important;
+}
+
+.step-card.card-alert-danger .stage-badge {
+    background: #E11D48 !important;
+    color: #FFFFFF !important;
+    border-color: #E11D48 !important;
+}
+
+.step-card.card-alert-danger .stage-metric {
+    color: #E11D48 !important;
+    font-weight: 700 !important;
+}
+
+.step-card.card-alert-warning {
+    border: 2px solid #D97706 !important;
+    background: #FFFBEB !important;
+    box-shadow: 0 4px 16px -2px rgba(217, 119, 6, 0.18) !important;
+    opacity: 1 !important;
+}
+
+.step-card.card-alert-warning h3 {
+    color: #92400E !important;
+}
+
+.step-card.card-alert-warning .stage-badge {
+    background: #D97706 !important;
+    color: #FFFFFF !important;
+    border-color: #D97706 !important;
+}
+
+.step-card.card-alert-warning .stage-metric {
+    color: #D97706 !important;
+    font-weight: 700 !important;
+}
+
+html.dark .step-card,
+[data-recruiter-mode="true"] .step-card,
+[data-theme="dark"] .step-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+html.dark .step-card:hover,
+[data-recruiter-mode="true"] .step-card:hover,
+[data-theme="dark"] .step-card:hover {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+html.dark .step-card.active,
+[data-recruiter-mode="true"] .step-card.active,
+[data-theme="dark"] .step-card.active {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%) !important;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.15), 0 4px 16px -2px rgba(0, 0, 0, 0.5) !important;
+}
+
+html.dark .step-card.active h3,
+[data-recruiter-mode="true"] .step-card.active h3,
+[data-theme="dark"] .step-card.active h3 {
+    color: #FFFFFF !important;
+}
+
+html.dark .step-card.card-alert-danger,
+[data-recruiter-mode="true"] .step-card.card-alert-danger,
+[data-theme="dark"] .step-card.card-alert-danger {
+    border-color: rgba(244, 63, 94, 0.8) !important;
+    background: linear-gradient(90deg, rgba(244, 63, 94, 0.22) 0%, rgba(136, 19, 55, 0.28) 100%) !important;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 0 24px -4px rgba(244, 63, 94, 0.5) !important;
+}
+
+html.dark .step-card.card-alert-danger h3,
+[data-recruiter-mode="true"] .step-card.card-alert-danger h3,
+[data-theme="dark"] .step-card.card-alert-danger h3 {
+    color: #FDA4AF !important;
+}
+
+html.dark .step-card.card-alert-warning,
+[data-recruiter-mode="true"] .step-card.card-alert-warning,
+[data-theme="dark"] .step-card.card-alert-warning {
+    border-color: rgba(245, 158, 11, 0.8) !important;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.2) 0%, rgba(180, 83, 9, 0.25) 100%) !important;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 0 24px -4px rgba(245, 158, 11, 0.45) !important;
+}
+
+html.dark .step-card.card-alert-warning h3,
+[data-recruiter-mode="true"] .step-card.card-alert-warning h3,
+[data-theme="dark"] .step-card.card-alert-warning h3 {
+    color: #FCD34D !important;
+}
+
+html.dark .step-card .stage-badge,
+[data-recruiter-mode="true"] .step-card .stage-badge,
+[data-theme="dark"] .step-card .stage-badge {
+    background: rgba(255, 255, 255, 0.08);
+    color: #93C5FD;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+html.dark .step-card.active .stage-badge,
+[data-recruiter-mode="true"] .step-card.active .stage-badge,
+[data-theme="dark"] .step-card.active .stage-badge {
+    background: #2563EB !important;
+    color: #FFFFFF !important;
+    border-color: #3B82F6 !important;
+}
+
+html.dark .step-card .stage-tag,
+[data-recruiter-mode="true"] .step-card .stage-tag,
+[data-theme="dark"] .step-card .stage-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #CBD5E1;
+}
+
+html.dark .step-card.active .stage-tag,
+[data-recruiter-mode="true"] .step-card.active .stage-tag,
+[data-theme="dark"] .step-card.active .stage-tag {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #FFFFFF !important;
+}
+
+/* Right Column: Runtime Flow Graph Nodes */
+.hud-node {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    border-radius: 0.875rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hud-node:hover {
+    border-color: rgba(0, 55, 129, 0.35);
+    background: #F8FAFC;
+}
+
+.hud-node.active {
+    border: 2px solid #003781 !important;
+    background: #F0F6FF !important;
+    box-shadow: 0 4px 14px -2px rgba(0, 55, 129, 0.16) !important;
+    opacity: 1 !important;
+}
+
+.hud-node.node-alert-danger {
+    border: 2px solid #E11D48 !important;
+    background: #FFF1F2 !important;
+    box-shadow: 0 4px 14px -2px rgba(225, 29, 72, 0.18) !important;
+    opacity: 1 !important;
+}
+
+.hud-node.node-alert-danger div.flex-1 > div:first-child {
+    color: #881337 !important;
+}
+.hud-node.node-alert-danger div.flex-1 > div:last-child {
+    color: #BE123C !important;
+}
+.hud-node.node-alert-danger span:last-child {
+    color: #9F1239 !important;
+    font-weight: 700 !important;
+}
+
+.hud-node.node-alert-warning {
+    border: 2px solid #D97706 !important;
+    background: #FFFBEB !important;
+    box-shadow: 0 4px 14px -2px rgba(217, 119, 6, 0.18) !important;
+    opacity: 1 !important;
+}
+
+.hud-node.node-alert-warning div.flex-1 > div:first-child {
+    color: #78350F !important;
+}
+.hud-node.node-alert-warning div.flex-1 > div:last-child {
+    color: #B45309 !important;
+}
+.hud-node.node-alert-warning span:last-child {
+    color: #92400E !important;
+    font-weight: 700 !important;
+}
+
+.hud-node.node-alert-success {
+    border: 2px solid #059669 !important;
+    background: #ECFDF5 !important;
+    box-shadow: 0 4px 14px -2px rgba(5, 150, 105, 0.18) !important;
+    opacity: 1 !important;
+}
+
+.hud-node.node-alert-success div.flex-1 > div:first-child {
+    color: #064E3B !important;
+}
+.hud-node.node-alert-success div.flex-1 > div:last-child {
+    color: #047857 !important;
+}
+.hud-node.node-alert-success span:last-child {
+    color: #065F46 !important;
+    font-weight: 700 !important;
+}
+
+.hud-node.node-bypassed {
+    border: 1px dashed rgba(15, 23, 42, 0.25) !important;
+    background: #F8FAFC !important;
+    box-shadow: none !important;
+    opacity: 0.8 !important;
+}
+
+.hud-node.node-bypassed div.flex-1 > div:first-child {
+    color: #64748B !important;
+    text-decoration: line-through;
+}
+.hud-node.node-bypassed div.flex-1 > div:last-child {
+    color: #94A3B8 !important;
+}
+.hud-node.node-bypassed span:last-child {
+    color: #94A3B8 !important;
 }
 
 html.dark .hud-node,
@@ -431,26 +744,19 @@ html.dark .hud-node,
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 
-.hud-node.active {
-    border-color: rgba(0, 55, 129, 0.35) !important;
-    background: #EBF3FB !important;
-    box-shadow: 0 4px 12px -2px rgba(0, 55, 129, 0.1) !important;
-    opacity: 1 !important;
+html.dark .hud-node:hover,
+[data-recruiter-mode="true"] .hud-node:hover,
+[data-theme="dark"] .hud-node:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 html.dark .hud-node.active,
 [data-recruiter-mode="true"] .hud-node.active,
 [data-theme="dark"] .hud-node.active {
-    border-color: rgba(255, 255, 255, 0.22) !important;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%) !important;
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 4px 16px -2px rgba(0, 0, 0, 0.5) !important;
-    opacity: 1 !important;
-}
-
-.hud-node.node-alert-danger {
-    border-color: rgba(244, 63, 94, 0.6) !important;
-    background: #FFF1F2 !important;
-    box-shadow: 0 4px 14px -2px rgba(244, 63, 94, 0.15) !important;
     opacity: 1 !important;
 }
 
@@ -462,11 +768,20 @@ html.dark .hud-node.node-alert-danger,
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 0 24px -4px rgba(244, 63, 94, 0.5) !important;
 }
 
-.hud-node.node-alert-warning {
-    border-color: rgba(245, 158, 11, 0.6) !important;
-    background: #FFFBEB !important;
-    box-shadow: 0 4px 14px -2px rgba(245, 158, 11, 0.15) !important;
-    opacity: 1 !important;
+html.dark .hud-node.node-alert-danger div.flex-1 > div:first-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-danger div.flex-1 > div:first-child,
+[data-theme="dark"] .hud-node.node-alert-danger div.flex-1 > div:first-child {
+    color: #FFFFFF !important;
+}
+html.dark .hud-node.node-alert-danger div.flex-1 > div:last-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-danger div.flex-1 > div:last-child,
+[data-theme="dark"] .hud-node.node-alert-danger div.flex-1 > div:last-child {
+    color: #FDA4AF !important;
+}
+html.dark .hud-node.node-alert-danger span:last-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-danger span:last-child,
+[data-theme="dark"] .hud-node.node-alert-danger span:last-child {
+    color: #FDA4AF !important;
 }
 
 html.dark .hud-node.node-alert-warning,
@@ -477,11 +792,20 @@ html.dark .hud-node.node-alert-warning,
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 0 24px -4px rgba(245, 158, 11, 0.45) !important;
 }
 
-.hud-node.node-alert-success {
-    border-color: rgba(16, 185, 129, 0.6) !important;
-    background: #ECFDF5 !important;
-    box-shadow: 0 4px 14px -2px rgba(16, 185, 129, 0.15) !important;
-    opacity: 1 !important;
+html.dark .hud-node.node-alert-warning div.flex-1 > div:first-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-warning div.flex-1 > div:first-child,
+[data-theme="dark"] .hud-node.node-alert-warning div.flex-1 > div:first-child {
+    color: #FFFFFF !important;
+}
+html.dark .hud-node.node-alert-warning div.flex-1 > div:last-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-warning div.flex-1 > div:last-child,
+[data-theme="dark"] .hud-node.node-alert-warning div.flex-1 > div:last-child {
+    color: #FCD34D !important;
+}
+html.dark .hud-node.node-alert-warning span:last-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-warning span:last-child,
+[data-theme="dark"] .hud-node.node-alert-warning span:last-child {
+    color: #FCD34D !important;
 }
 
 html.dark .hud-node.node-alert-success,
@@ -492,11 +816,20 @@ html.dark .hud-node.node-alert-success,
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 0 24px -4px rgba(16, 185, 129, 0.45) !important;
 }
 
-.hud-node.node-bypassed {
-    border: 1px dashed rgba(40, 30, 20, 0.2) !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    opacity: 0.45 !important;
+html.dark .hud-node.node-alert-success div.flex-1 > div:first-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-success div.flex-1 > div:first-child,
+[data-theme="dark"] .hud-node.node-alert-success div.flex-1 > div:first-child {
+    color: #F1F5F9 !important;
+}
+html.dark .hud-node.node-alert-success div.flex-1 > div:last-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-success div.flex-1 > div:last-child,
+[data-theme="dark"] .hud-node.node-alert-success div.flex-1 > div:last-child {
+    color: #6EE7B7 !important;
+}
+html.dark .hud-node.node-alert-success span:last-child,
+[data-recruiter-mode="true"] .hud-node.node-alert-success span:last-child,
+[data-theme="dark"] .hud-node.node-alert-success span:last-child {
+    color: #6EE7B7 !important;
 }
 
 html.dark .hud-node.node-bypassed,
@@ -508,81 +841,20 @@ html.dark .hud-node.node-bypassed,
     opacity: 0.35 !important;
 }
 
-/* Pipeline Stage Cards (Twin HUD Panel) */
-.step-card {
-    border: 1px solid rgba(40, 30, 20, 0.08);
-    background: #FAF8F5;
-    border-radius: 0.875rem;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    outline: none;
+html.dark .hud-node.node-bypassed div.flex-1 > div:first-child,
+[data-recruiter-mode="true"] .hud-node.node-bypassed div.flex-1 > div:first-child,
+[data-theme="dark"] .hud-node.node-bypassed div.flex-1 > div:first-child {
+    color: #94A3B8 !important;
 }
-
-html.dark .step-card,
-[data-recruiter-mode="true"] .step-card,
-[data-theme="dark"] .step-card {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.02);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+html.dark .hud-node.node-bypassed div.flex-1 > div:last-child,
+[data-recruiter-mode="true"] .hud-node.node-bypassed div.flex-1 > div:last-child,
+[data-theme="dark"] .hud-node.node-bypassed div.flex-1 > div:last-child {
+    color: #64748B !important;
 }
-
-.step-card:hover {
-    border-color: rgba(0, 55, 129, 0.3);
-    background: #F4F7FC;
-}
-
-html.dark .step-card:hover,
-[data-recruiter-mode="true"] .step-card:hover,
-[data-theme="dark"] .step-card:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-.step-card.active {
-    border-color: rgba(0, 55, 129, 0.35) !important;
-    background: #EBF3FB !important;
-    box-shadow: 0 4px 14px -2px rgba(0, 55, 129, 0.12) !important;
-    opacity: 1 !important;
-}
-
-html.dark .step-card.active,
-[data-recruiter-mode="true"] .step-card.active,
-[data-theme="dark"] .step-card.active {
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%) !important;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.12), 0 4px 16px -2px rgba(0, 0, 0, 0.5) !important;
-    opacity: 1 !important;
-}
-
-.step-card.card-alert-danger {
-    border-color: rgba(244, 63, 94, 0.6) !important;
-    background: #FFF1F2 !important;
-    box-shadow: 0 4px 14px -2px rgba(244, 63, 94, 0.15) !important;
-    opacity: 1 !important;
-}
-
-html.dark .step-card.card-alert-danger,
-[data-recruiter-mode="true"] .step-card.card-alert-danger,
-[data-theme="dark"] .step-card.card-alert-danger {
-    border-color: rgba(244, 63, 94, 0.8) !important;
-    background: linear-gradient(90deg, rgba(244, 63, 94, 0.22) 0%, rgba(136, 19, 55, 0.28) 100%) !important;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 0 24px -4px rgba(244, 63, 94, 0.5) !important;
-    opacity: 1 !important;
-}
-
-.step-card.card-alert-warning {
-    border-color: rgba(245, 158, 11, 0.6) !important;
-    background: #FFFBEB !important;
-    box-shadow: 0 4px 14px -2px rgba(245, 158, 11, 0.15) !important;
-    opacity: 1 !important;
-}
-
-html.dark .step-card.card-alert-warning,
-[data-recruiter-mode="true"] .step-card.card-alert-warning,
-[data-theme="dark"] .step-card.card-alert-warning {
-    border-color: rgba(245, 158, 11, 0.8) !important;
-    background: linear-gradient(90deg, rgba(245, 158, 11, 0.2) 0%, rgba(180, 83, 9, 0.25) 100%) !important;
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.2), 0 0 24px -4px rgba(245, 158, 11, 0.45) !important;
-    opacity: 1 !important;
+html.dark .hud-node.node-bypassed span:last-child,
+[data-recruiter-mode="true"] .hud-node.node-bypassed span:last-child,
+[data-theme="dark"] .hud-node.node-bypassed span:last-child {
+    color: #64748B !important;
 }
 
 /* Simulator Payload Toggle Buttons */
@@ -617,18 +889,163 @@ html.dark .step-card.card-alert-warning,
     box-shadow: 0 2px 8px rgba(0, 55, 129, 0.12);
 }
 
-.sim-payload-btn.active.threat-active {
-    background: #FFF1F2;
-    border-color: var(--accent-rose);
-    color: #9F1239;
-    box-shadow: 0 2px 8px rgba(225, 29, 72, 0.12);
+.sim-payload-btn.active.valid-active,
+.sim-payload-btn.active[data-sim-payload="valid"] {
+    background: #ECFDF5 !important;
+    border-color: #059669 !important;
+    color: #065F46 !important;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.15) !important;
 }
 
-.sim-payload-btn.active.pii-active {
-    background: var(--persistent-amber-subtle);
-    border-color: var(--persistent-amber);
-    color: var(--persistent-amber-deep);
-    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.12);
+.sim-payload-btn.active.threat-active,
+.sim-payload-btn.active[data-sim-payload="injection"] {
+    background: #FFF1F2 !important;
+    border-color: var(--accent-rose) !important;
+    color: #9F1239 !important;
+    box-shadow: 0 2px 8px rgba(225, 29, 72, 0.12) !important;
+}
+
+.sim-payload-btn.active.pii-active,
+.sim-payload-btn.active[data-sim-payload="pii"] {
+    background: var(--persistent-amber-subtle) !important;
+    border-color: var(--persistent-amber) !important;
+    color: var(--persistent-amber-deep) !important;
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.12) !important;
+}
+
+/* ==========================================================================
+   Syntax Highlighting (Telemetry HUD & Code Block Viewers)
+   High-Contrast WCAG AAA Palette for Light Mode & Cyber Neon for Dark Mode
+   ========================================================================== */
+
+.syn-key {
+    color: #003781; /* Allianz Deep Navy Blue - WCAG AAA */
+    font-weight: 600;
+}
+
+.syn-string {
+    color: #047857; /* Deep Forest Emerald - WCAG AAA */
+}
+
+.syn-number {
+    color: #B45309; /* Deep Bronze / Amber - WCAG AAA */
+    font-weight: 600;
+}
+
+.syn-boolean {
+    color: #BE123C; /* Deep Crimson Rose - WCAG AAA */
+    font-weight: 600;
+}
+
+.syn-keyword {
+    color: #6B21A8; /* Deep Royal Purple - WCAG AAA */
+    font-weight: 600;
+}
+
+.syn-comment {
+    color: #64748B; /* Slate 500 */
+    font-style: italic;
+}
+
+.syn-func {
+    color: #0369A1; /* Deep Sky Blue */
+    font-weight: 600;
+}
+
+.syn-type {
+    color: #0F766E; /* Deep Teal */
+    font-weight: 600;
+}
+
+/* Live Telemetry Console Window: High-Contrast Cyber Console in Light & Dark Mode */
+.hud-console {
+    background: #090D17 !important;
+    border: 1px solid rgba(15, 23, 42, 0.4) !important;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.hud-console pre {
+    color: #E2E8F0 !important;
+}
+
+.hud-console .syn-key {
+    color: #7DD3FC !important; /* Luminous Sky Blue */
+    font-weight: 600 !important;
+}
+
+.hud-console .syn-string {
+    color: #34D399 !important; /* Luminous Emerald */
+}
+
+.hud-console .syn-number {
+    color: #FBBF24 !important; /* Luminous Amber */
+    font-weight: 600 !important;
+}
+
+.hud-console .syn-boolean {
+    color: #F472B6 !important; /* Luminous Rose */
+    font-weight: 600 !important;
+}
+
+.hud-console .syn-keyword {
+    color: #C084FC !important; /* Luminous Purple */
+    font-weight: 600 !important;
+}
+
+html.dark .hud-console,
+[data-recruiter-mode="true"] .hud-console,
+[data-theme="dark"] .hud-console {
+    background: #07090F !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Dark Mode Syntax Highlighting Tokens */
+html.dark .syn-key,
+[data-recruiter-mode="true"] .syn-key,
+[data-theme="dark"] .syn-key {
+    color: #93C5FD; /* Light Blue */
+}
+
+html.dark .syn-string,
+[data-recruiter-mode="true"] .syn-string,
+[data-theme="dark"] .syn-string {
+    color: #6EE7B7; /* Light Mint */
+}
+
+html.dark .syn-number,
+[data-recruiter-mode="true"] .syn-number,
+[data-theme="dark"] .syn-number {
+    color: #FCD34D; /* Light Amber */
+}
+
+html.dark .syn-boolean,
+[data-recruiter-mode="true"] .syn-boolean,
+[data-theme="dark"] .syn-boolean {
+    color: #FDA4AF; /* Light Rose */
+}
+
+html.dark .syn-keyword,
+[data-recruiter-mode="true"] .syn-keyword,
+[data-theme="dark"] .syn-keyword {
+    color: #C084FC; /* Light Purple */
+}
+
+html.dark .syn-comment,
+[data-recruiter-mode="true"] .syn-comment,
+[data-theme="dark"] .syn-comment {
+    color: #94A3B8; /* Slate 400 */
+}
+
+html.dark .syn-func,
+[data-recruiter-mode="true"] .syn-func,
+[data-theme="dark"] .syn-func {
+    color: #38BDF8; /* Sky 400 */
+}
+
+html.dark .syn-type,
+[data-recruiter-mode="true"] .syn-type,
+[data-theme="dark"] .syn-type {
+    color: #2DD4BF; /* Teal 400 */
 }
 
 /* ==========================================================================
@@ -812,39 +1229,12 @@ html.dark .persona-btn:hover,
 html.dark .bento-card,
 [data-recruiter-mode="true"] .bento-card,
 [data-theme="dark"] .bento-card,
-html.dark .step-card,
-[data-recruiter-mode="true"] .step-card,
-[data-theme="dark"] .step-card,
 html.dark .bg-white,
 [data-recruiter-mode="true"] .bg-white,
 [data-theme="dark"] .bg-white {
     background: #0E1320 !important;
     border-color: rgba(255, 255, 255, 0.09) !important;
     box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.55) !important;
-}
-
-/* Scrollytelling Step Cards Specific States in Dark Mode */
-html.dark .step-card,
-[data-recruiter-mode="true"] .step-card,
-[data-theme="dark"] .step-card {
-    background: #0E1320 !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    color: #F8FAFC !important;
-}
-
-html.dark .step-card.active,
-[data-recruiter-mode="true"] .step-card.active,
-[data-theme="dark"] .step-card.active {
-    background: #141C2E !important;
-    border-color: #3B82F6 !important;
-    box-shadow: 0 0 30px -4px rgba(59, 130, 246, 0.35) !important;
-    opacity: 1 !important;
-}
-
-html.dark .step-card.opacity-40,
-[data-recruiter-mode="true"] .step-card.opacity-40,
-[data-theme="dark"] .step-card.opacity-40 {
-    opacity: 0.65 !important;
 }
 
 html.dark .bg-\[\#FAF8F5\],
@@ -1027,7 +1417,18 @@ html.dark .sim-payload-btn.active,
     color: #60A5FA !important;
 }
 
+html.dark .sim-payload-btn.active.valid-active,
+html.dark .sim-payload-btn.active[data-sim-payload="valid"],
+[data-recruiter-mode="true"] .sim-payload-btn.active.valid-active,
+[data-theme="dark"] .sim-payload-btn.active.valid-active {
+    background: rgba(16, 185, 129, 0.2) !important;
+    border-color: #10B981 !important;
+    color: #6EE7B7 !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25) !important;
+}
+
 html.dark .sim-payload-btn.active.threat-active,
+html.dark .sim-payload-btn.active[data-sim-payload="injection"],
 [data-recruiter-mode="true"] .sim-payload-btn.active.threat-active,
 [data-theme="dark"] .sim-payload-btn.active.threat-active {
     background: rgba(244, 63, 94, 0.2) !important;
@@ -1036,6 +1437,7 @@ html.dark .sim-payload-btn.active.threat-active,
 }
 
 html.dark .sim-payload-btn.active.pii-active,
+html.dark .sim-payload-btn.active[data-sim-payload="pii"],
 [data-recruiter-mode="true"] .sim-payload-btn.active.pii-active,
 [data-theme="dark"] .sim-payload-btn.active.pii-active {
     background: rgba(245, 158, 11, 0.2) !important;
@@ -1406,17 +1808,28 @@ html.dark .mobile-nav-drawer,
 }
 
 /* ==========================================================================
-   Syntax Highlighting Colors for Terminal Code Blocks (Tokyo Night / Vercel Pro)
+   Syntax Highlighting Colors for Terminal Code Blocks
    ========================================================================== */
 
-.syn-keyword { color: #C084FC; font-weight: 600; }
-.syn-string  { color: #34D399; }
-.syn-number  { color: #FBBF24; }
-.syn-boolean { color: #F472B6; font-weight: 600; }
-.syn-key     { color: #7DD3FC; font-weight: 500; }
-.syn-type    { color: #38BDF8; }
-.syn-comment { color: #64748B; font-style: italic; }
-.syn-func    { color: #818CF8; font-weight: 600; }
+/* Light Mode: High-Contrast Corporate Architectural Palette (WCAG AAA >= 7:1) */
+.syn-keyword { color: #6B21A8; font-weight: 600; }
+.syn-string  { color: #047857; font-weight: 500; }
+.syn-number  { color: #B45309; font-weight: 600; }
+.syn-boolean { color: #BE123C; font-weight: 600; }
+.syn-key     { color: #003781; font-weight: 700; }
+.syn-type    { color: #1D4ED8; font-weight: 600; }
+.syn-comment { color: #475569; font-style: italic; }
+.syn-func    { color: #4338CA; font-weight: 600; }
+
+/* Dark Mode & Recruiter Mode: Neon / Tokyo Night Terminal */
+html.dark .syn-keyword, [data-recruiter-mode="true"] .syn-keyword, [data-theme="dark"] .syn-keyword { color: #C084FC; font-weight: 600; }
+html.dark .syn-string, [data-recruiter-mode="true"] .syn-string, [data-theme="dark"] .syn-string { color: #34D399; }
+html.dark .syn-number, [data-recruiter-mode="true"] .syn-number, [data-theme="dark"] .syn-number { color: #FBBF24; }
+html.dark .syn-boolean, [data-recruiter-mode="true"] .syn-boolean, [data-theme="dark"] .syn-boolean { color: #F472B6; font-weight: 600; }
+html.dark .syn-key, [data-recruiter-mode="true"] .syn-key, [data-theme="dark"] .syn-key { color: #7DD3FC; font-weight: 500; }
+html.dark .syn-type, [data-recruiter-mode="true"] .syn-type, [data-theme="dark"] .syn-type { color: #38BDF8; }
+html.dark .syn-comment, [data-recruiter-mode="true"] .syn-comment, [data-theme="dark"] .syn-comment { color: #94A3B8; font-style: italic; }
+html.dark .syn-func, [data-recruiter-mode="true"] .syn-func, [data-theme="dark"] .syn-func { color: #818CF8; font-weight: 600; }
 
 /* ==========================================================================
    Command Palette (⌘K) Modal Styling

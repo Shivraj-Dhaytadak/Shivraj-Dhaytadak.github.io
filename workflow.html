@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Bluey-AI Lodgement | Interactive Animated Architecture</title>
+    <title>Project Bluey-AI Lodgement | Architecture Blueprint & Interactive Simulator</title>
+    <meta name="description" content="Project Bluey: Enterprise Multi-Agent Claims Lodgement Engine Architecture Blueprint and Interactive Event-Driven Topology Simulation.">
     
     <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Preload Blueprint Image for Instant Rendering Once Opened -->
+    <link rel="preload" as="image" href="ProjectBluey.webp" type="image/webp">
 
     <!-- Compiled Production CSS (Tailwind CSS v4 + Custom Styles) -->
     <link rel="stylesheet" href="dist/output.css">
@@ -25,7 +29,7 @@
                 <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Portfolio
             </a>
             <div id="nav-divider" class="h-4 w-px bg-slate-800 hidden sm:block"></div>
-            <a href="index.html" class="flex items-center gap-2.5 group">
+            <a href="index.html" target="_top" class="flex items-center gap-2.5 group">
                 <div class="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-xs font-bold text-indigo-400 group-hover:border-indigo-400 transition-colors">SD</div>
                 <div>
                     <div class="flex items-center gap-2">
@@ -38,42 +42,79 @@
             </a>
         </div>
 
-        <!-- SIMULATION CONTROLS -->
-        <div class="flex items-center gap-2.5">
-            <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs font-medium">
-                <button id="btn-play" onclick="toggleSimulation()" aria-label="Toggle simulation live playback" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 flex items-center gap-1 transition-colors cursor-pointer">
-                    <i id="play-icon" data-lucide="pause" class="w-3.5 h-3.5 text-emerald-400"></i>
-                    <span id="play-text">LIVE</span>
+        <!-- VIEW MODE & SIMULATION CONTROLS -->
+        <div class="flex items-center flex-wrap gap-2.5">
+            <!-- Segmented View Mode Tabs -->
+            <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs font-medium" role="tablist" aria-label="Diagram View Mode">
+                <button id="view-blueprint-btn" onclick="setViewMode('blueprint')" role="tab" aria-selected="false" class="px-3 py-1.5 rounded-md hover:bg-slate-800 text-slate-300 hover:text-white flex items-center gap-1.5 transition-all cursor-pointer" title="View full-resolution architecture blueprint image">
+                    <i data-lucide="image" class="w-3.5 h-3.5"></i>
+                    <span>Architecture Blueprint</span>
                 </button>
-                <div class="h-3.5 w-px bg-slate-800 mx-0.5"></div>
-                <button onclick="setSpeed(0.5)" id="speed-05" aria-label="Set simulation speed to 0.5x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 transition-colors cursor-pointer">0.5x</button>
-                <button onclick="setSpeed(1.0)" id="speed-10" aria-label="Set simulation speed to 1.0x" class="px-2 py-1 rounded bg-slate-800 text-white font-medium transition-colors cursor-pointer">1.0x</button>
-                <button onclick="setSpeed(2.0)" id="speed-20" aria-label="Set simulation speed to 2.0x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 transition-colors cursor-pointer">2.0x</button>
+                <button id="view-simulation-btn" onclick="setViewMode('simulation')" role="tab" aria-selected="true" class="px-3 py-1.5 rounded-md bg-indigo-600 text-white font-semibold flex items-center gap-1.5 transition-all shadow-sm cursor-pointer" title="Switch to live animated state machine simulation">
+                    <i data-lucide="activity" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>Interactive Simulation</span>
+                </button>
             </div>
 
-            <button onclick="toggleThemeView()" id="btn-theme" aria-label="Switch diagram theme" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
-                <i data-lucide="palette" class="w-3.5 h-3.5 text-slate-300"></i>
-                <span id="theme-text">Eraser Schematic</span>
-            </button>
+            <!-- Blueprint Image Controls (Active in Blueprint Mode) -->
+            <div id="blueprint-controls" class="hidden items-center gap-1.5">
+                <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs font-medium">
+                    <button onclick="zoomBlueprint(-0.15)" aria-label="Zoom out blueprint" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer" title="Zoom Out">
+                        <i data-lucide="zoom-out" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <span id="blueprint-zoom-level" class="px-1.5 text-xs font-mono text-slate-300 min-w-[42px] text-center select-none">100%</span>
+                    <button onclick="zoomBlueprint(0.15)" aria-label="Zoom in blueprint" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer" title="Zoom In">
+                        <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <div class="h-3.5 w-px bg-slate-800 mx-0.5"></div>
+                    <button onclick="resetBlueprintZoom()" aria-label="Reset zoom" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer text-xs">
+                        Reset
+                    </button>
+                </div>
+                <button onclick="openLightbox()" aria-label="Open fullscreen blueprint lightbox" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer" title="Click to view full-resolution blueprint in interactive lightbox">
+                    <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-indigo-400"></i>
+                    <span>Enlarge</span>
+                </button>
+            </div>
+
+            <!-- Simulation Controls (Active in Simulation Mode) -->
+            <div id="simulation-controls" class="flex items-center gap-1.5">
+                <div class="bg-slate-900 border border-slate-800 rounded-lg p-1 flex items-center gap-1 text-xs font-medium">
+                    <button id="btn-play" onclick="toggleSimulation()" aria-label="Toggle simulation live playback" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 flex items-center gap-1 transition-colors cursor-pointer">
+                        <i id="play-icon" data-lucide="pause" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        <span id="play-text">LIVE</span>
+                    </button>
+                    <div class="h-3.5 w-px bg-slate-800 mx-0.5"></div>
+                    <button onclick="setSpeed(0.5)" id="speed-05" aria-label="Set simulation speed to 0.5x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 transition-colors cursor-pointer">0.5x</button>
+                    <button onclick="setSpeed(1.0)" id="speed-10" aria-label="Set simulation speed to 1.0x" class="px-2 py-1 rounded bg-slate-800 text-white font-medium transition-colors cursor-pointer">1.0x</button>
+                    <button onclick="setSpeed(2.0)" id="speed-20" aria-label="Set simulation speed to 2.0x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 transition-colors cursor-pointer">2.0x</button>
+                </div>
+            </div>
 
             <button onclick="toggleLogDrawer()" aria-label="Toggle live telemetry log drawer" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
                 <i data-lucide="terminal" class="w-3.5 h-3.5 text-slate-300"></i>
                 <span id="log-count" class="text-xs">Live Logs</span>
             </button>
+
+            <a id="nav-standalone-btn" href="workflow.html" target="_blank" class="hidden px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold items-center gap-1.5 transition-colors shadow-sm cursor-pointer" title="Open full-resolution canvas in new window">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                <span class="hidden sm:inline">Open Standalone ↗</span>
+            </a>
         </div>
     </header>
 
     <!-- MAIN INTERACTIVE WORKSPACE -->
     <main class="flex-1 max-w-[1600px] w-full mx-auto p-4 lg:p-6 grid grid-cols-1 xl:grid-cols-12 gap-6 relative">
         
-        <!-- DIAGRAM CANVAS CONTAINER (SVG WORKFLOW) -->
+        <!-- DIAGRAM CANVAS CONTAINER -->
         <div class="xl:col-span-9 bg-slate-900/60 border border-slate-800 rounded-2xl p-3 lg:p-5 flex flex-col justify-between relative overflow-hidden shadow-2xl">
-            <div class="flex justify-between items-center mb-2 px-2 text-xs">
+            <div class="flex flex-wrap justify-between items-center gap-2 mb-2 px-2 text-xs">
                 <div class="flex items-center gap-2">
-                    <span class="text-xs font-mono text-slate-300 uppercase tracking-wider">Topology Model:</span>
+                    <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">Topology Model:</span>
                     <span class="text-xs font-bold text-indigo-300 code-font">Azure-Durable-LangGraph-Pipeline</span>
+                    <span id="canvas-badge" class="px-2 py-0.5 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Live Event Mesh Simulator</span>
                 </div>
-                <div class="flex items-center gap-4 text-xs text-slate-300 code-font">
+                <div id="canvas-legend" class="flex items-center gap-3 sm:gap-4 text-xs text-slate-300 code-font">
                     <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-amber-400"></span> Ingestion</span>
                     <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-sky-400"></span> Orchestration</span>
                     <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-indigo-400"></span> Multi-Agent Loop</span>
@@ -81,8 +122,31 @@
                 </div>
             </div>
 
-            <!-- THE INTERACTIVE VECTOR SVG WORKFLOW -->
-            <div id="svg-canvas-wrapper" class="w-full flex-1 flex justify-center items-center overflow-x-auto min-h-[640px] bg-slate-950/80 rounded-xl border border-slate-850 p-2 relative">
+            <!-- CANVAS WRAPPER (HOUSES BOTH BLUEPRINT IMAGE & INTERACTIVE SVG) -->
+            <div id="svg-canvas-wrapper" class="w-full flex-1 flex justify-center items-center overflow-auto min-h-[640px] bg-slate-950/80 rounded-xl border border-slate-850 p-2 sm:p-4 relative">
+                
+                <!-- 1. BLUEPRINT IMAGE VIEW (SWITCHABLE VIA TAB) -->
+                <div id="blueprint-image-container" class="w-full h-full flex flex-col items-center justify-center relative cursor-pointer group hidden" onclick="openLightbox()" title="Click to open full-resolution blueprint in interactive lightbox">
+                    <div class="w-full flex justify-center items-center overflow-hidden rounded-xl bg-slate-900/90 border border-slate-800 p-2 sm:p-4 shadow-inner">
+                        <picture class="w-full flex justify-center items-center">
+                            <source srcset="ProjectBluey.webp" type="image/webp">
+                            <img id="blueprint-img" 
+                                 src="ProjectBluey.png" 
+                                 alt="Enterprise Multi-Agent Claims Lodgement Engine Architecture Blueprint showing Kafka stream buffer ingestion, Azure Content Safety and LangChain PII redaction filter, declarative JSON state graph orchestrating 19 journeys, Pydantic runtime schema verification, and dual-emit observability to LangFuse and Azure Application Insights." 
+                                 width="1890" 
+                                 height="1119" 
+                                 class="max-w-full h-auto max-h-[720px] object-contain rounded-lg shadow-2xl transition-transform duration-300 group-hover:scale-[1.01]" 
+                                 loading="eager" 
+                                 decoding="async">
+                        </picture>
+                    </div>
+                    <div class="absolute bottom-4 right-4 px-3 py-1.5 rounded-lg bg-slate-950/90 border border-slate-700/80 text-xs font-mono text-slate-200 flex items-center gap-2 pointer-events-none backdrop-blur-sm group-hover:bg-indigo-950/90 group-hover:border-indigo-500/50 group-hover:text-white transition-all shadow-lg">
+                        <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-indigo-400"></i>
+                        <span>Click to Enlarge Lightbox (1890×1119)</span>
+                    </div>
+                </div>
+
+                <!-- 2. INTERACTIVE VECTOR SVG WORKFLOW (VISIBLE BY DEFAULT) -->
                 <svg id="architecture-svg" viewBox="0 0 1420 850" class="w-full h-auto max-w-[1380px] select-none" xmlns="http://www.w3.org/2000/svg">
                     
                     <defs>
@@ -540,6 +604,17 @@
                         <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-xs code-font">Foundry GPT-5.4 mini</span>
                     </div>
                 </div>
+
+                <div class="border-t border-slate-800 pt-3">
+                    <span class="text-xs font-bold text-slate-300 uppercase tracking-wide block mb-1.5">Inspect Subsystems</span>
+                    <div class="flex flex-wrap gap-1.5">
+                        <button onclick="inspectNode('kafka')" class="px-2 py-1 bg-slate-950 hover:bg-slate-800 text-amber-300 hover:text-white border border-amber-800/40 rounded text-xs font-mono transition-colors cursor-pointer" title="Inspect Kafka Ingestion">Kafka</button>
+                        <button onclick="inspectNode('orchestrator')" class="px-2 py-1 bg-slate-950 hover:bg-slate-800 text-sky-300 hover:text-white border border-sky-800/40 rounded text-xs font-mono transition-colors cursor-pointer" title="Inspect Durable Orchestrator">Orchestrator</button>
+                        <button onclick="inspectNode('guardrails')" class="px-2 py-1 bg-slate-950 hover:bg-slate-800 text-indigo-300 hover:text-white border border-indigo-800/40 rounded text-xs font-mono transition-colors cursor-pointer" title="Inspect Guardrails Node">Guardrails</button>
+                        <button onclick="inspectNode('triage')" class="px-2 py-1 bg-slate-950 hover:bg-slate-800 text-indigo-300 hover:text-white border border-indigo-800/40 rounded text-xs font-mono transition-colors cursor-pointer" title="Inspect Triage Supervisor">Supervisor</button>
+                        <button onclick="inspectNode('appinsights')" class="px-2 py-1 bg-slate-950 hover:bg-slate-800 text-rose-300 hover:text-white border border-rose-800/40 rounded text-xs font-mono transition-colors cursor-pointer" title="Inspect Telemetry Pipeline">Observability</button>
+                    </div>
+                </div>
             </div>
 
             <!-- LIVE STREAM EVENT BUS LOGS -->
@@ -925,20 +1000,120 @@
             });
         }
 
-        function toggleThemeView() {
-            isClassicTheme = !isClassicTheme;
-            const wrapper = document.getElementById("svg-canvas-wrapper");
-            const btnText = document.getElementById("theme-text");
+        let currentViewMode = 'simulation';
+        let blueprintZoom = 1.0;
 
-            if (isClassicTheme) {
-                wrapper.classList.remove("bg-slate-950/80");
-                wrapper.classList.add("bg-[#F8FAFC]");
-                btnText.innerText = "Cyber Dark";
+        function setViewMode(mode) {
+            currentViewMode = mode;
+            const blueprintContainer = document.getElementById("blueprint-image-container");
+            const svgEl = document.getElementById("architecture-svg");
+            const blueprintBtn = document.getElementById("view-blueprint-btn");
+            const simBtn = document.getElementById("view-simulation-btn");
+            const blueprintControls = document.getElementById("blueprint-controls");
+            const simControls = document.getElementById("simulation-controls");
+            const canvasBadge = document.getElementById("canvas-badge");
+
+            if (mode === 'blueprint') {
+                if (blueprintContainer) blueprintContainer.classList.remove("hidden");
+                if (svgEl) svgEl.classList.add("hidden");
+                
+                if (blueprintBtn) {
+                    blueprintBtn.classList.add("bg-indigo-600", "text-white", "font-semibold");
+                    blueprintBtn.classList.remove("hover:bg-slate-800", "text-slate-300");
+                    blueprintBtn.setAttribute("aria-selected", "true");
+                }
+                if (simBtn) {
+                    simBtn.classList.remove("bg-indigo-600", "text-white", "font-semibold");
+                    simBtn.classList.add("hover:bg-slate-800", "text-slate-300");
+                    simBtn.setAttribute("aria-selected", "false");
+                }
+                if (blueprintControls) {
+                    blueprintControls.classList.remove("hidden");
+                    blueprintControls.classList.add("flex");
+                }
+                if (simControls) {
+                    simControls.classList.add("hidden");
+                    simControls.classList.remove("flex");
+                }
+                if (canvasBadge) {
+                    canvasBadge.innerText = "Eraser Blueprint (1890×1119)";
+                    canvasBadge.className = "px-2 py-0.5 rounded text-xs font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/30";
+                }
             } else {
-                wrapper.classList.remove("bg-[#F8FAFC]");
-                wrapper.classList.add("bg-slate-950/80");
-                btnText.innerText = "Eraser Schematic";
+                if (blueprintContainer) blueprintContainer.classList.add("hidden");
+                if (svgEl) svgEl.classList.remove("hidden");
+
+                if (simBtn) {
+                    simBtn.classList.add("bg-indigo-600", "text-white", "font-semibold");
+                    simBtn.classList.remove("hover:bg-slate-800", "text-slate-300");
+                    simBtn.setAttribute("aria-selected", "true");
+                }
+                if (blueprintBtn) {
+                    blueprintBtn.classList.remove("bg-indigo-600", "text-white", "font-semibold");
+                    blueprintBtn.classList.add("hover:bg-slate-800", "text-slate-300");
+                    blueprintBtn.setAttribute("aria-selected", "false");
+                }
+                if (blueprintControls) {
+                    blueprintControls.classList.add("hidden");
+                    blueprintControls.classList.remove("flex");
+                }
+                if (simControls) {
+                    simControls.classList.remove("hidden");
+                    simControls.classList.add("flex");
+                }
+                if (canvasBadge) {
+                    canvasBadge.innerText = "Live Event Mesh Simulator";
+                    canvasBadge.className = "px-2 py-0.5 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30";
+                }
             }
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
+        }
+
+        function zoomBlueprint(delta) {
+            blueprintZoom = Math.min(2.5, Math.max(0.5, Math.round((blueprintZoom + delta) * 100) / 100));
+            const img = document.getElementById("blueprint-img");
+            const label = document.getElementById("blueprint-zoom-level");
+            if (img) img.style.transform = `scale(${blueprintZoom})`;
+            if (label) label.innerText = `${Math.round(blueprintZoom * 100)}%`;
+        }
+
+        function resetBlueprintZoom() {
+            blueprintZoom = 1.0;
+            const img = document.getElementById("blueprint-img");
+            const label = document.getElementById("blueprint-zoom-level");
+            if (img) img.style.transform = "scale(1)";
+            if (label) label.innerText = "100%";
+        }
+
+        function openLightbox() {
+            const modal = document.getElementById("lightbox-modal");
+            if (!modal) return;
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            document.body.classList.add("overflow-hidden");
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons({ root: modal });
+            }
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById("lightbox-modal");
+            if (!modal) return;
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                closeLightbox();
+            }
+        });
+
+        function toggleThemeView() {
+            setViewMode(currentViewMode === 'blueprint' ? 'simulation' : 'blueprint');
         }
 
         function toggleLogDrawer() {
@@ -948,11 +1123,25 @@
 
         window.onload = () => {
             const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('embed') === 'true') {
+            const isEmbed = urlParams.get('embed') === 'true' || window.self !== window.top;
+            if (isEmbed) {
                 const backBtn = document.getElementById('nav-back-btn');
                 const navDivider = document.getElementById('nav-divider');
+                const standaloneBtn = document.getElementById('nav-standalone-btn');
                 if (backBtn) backBtn.classList.add('hidden');
                 if (navDivider) navDivider.classList.add('hidden');
+                if (standaloneBtn) {
+                    standaloneBtn.classList.remove('hidden');
+                    standaloneBtn.classList.add('inline-flex');
+                }
+            }
+
+            // Determine initial view: default to 'simulation' (Interactive Mode)
+            const viewParam = (urlParams.get('view') || '').toLowerCase();
+            if (viewParam === 'blueprint' || viewParam === 'image' || viewParam === 'img') {
+                setViewMode('blueprint');
+            } else {
+                setViewMode('simulation');
             }
 
             // Make all SVG diagram nodes keyboard-navigable and accessible
@@ -972,12 +1161,45 @@
                 });
             });
 
-            lucide.createIcons();
+            if (window.lucide && typeof lucide.createIcons === 'function') {
+                lucide.createIcons();
+            }
             // Seed initial 5 logs
             for (let i = 0; i < 5; i++) {
                 addTelemetryLog();
             }
         };
     </script>
+
+    <!-- FULL-SCREEN LIGHTBOX MODAL FOR ARCHITECTURE BLUEPRINT IMAGE -->
+    <div id="lightbox-modal"
+        class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 transition-opacity duration-300"
+        role="dialog" aria-modal="true" aria-label="Architecture Blueprint Fullscreen View" onclick="if(event.target===this) closeLightbox();">
+        <div class="relative max-w-[96vw] max-h-[96vh] w-full flex flex-col items-center justify-center">
+            <div class="w-full flex justify-between items-center mb-2 px-2">
+                <div class="flex items-center gap-2">
+                    <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                    <span class="text-xs font-mono text-slate-200">Project Bluey &bull; High-Resolution Architecture Blueprint (1890×1119)</span>
+                </div>
+                <button onclick="closeLightbox()"
+                    class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-mono"
+                    aria-label="Close Lightbox (Press Escape)">
+                    <span>Close [ESC]</span>
+                    <i data-lucide="x" class="w-4 h-4" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="overflow-auto max-h-[85vh] w-full rounded-2xl border border-white/15 bg-slate-900 shadow-2xl p-2 flex justify-center items-center">
+                <picture>
+                    <source srcset="ProjectBluey.webp" type="image/webp">
+                    <img id="lightbox-img" src="ProjectBluey.png"
+                        alt="Full resolution architecture diagram for Project Bluey Claims Lodgement Engine"
+                        width="1890" height="1119" class="w-full h-auto min-w-[800px] object-contain rounded-xl" />
+                </picture>
+            </div>
+            <div class="mt-2 text-xs font-mono text-slate-400 text-center">
+                Scroll or pinch to pan across nodes &bull; Press ESC or click Close to exit
+            </div>
+        </div>
+    </div>
 </body>
 </html>

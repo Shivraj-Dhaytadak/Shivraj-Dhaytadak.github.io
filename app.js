@@ -560,28 +560,32 @@ function initPipelineScrollytelling() {
     const telemetryData = {
         "1": {
             status: "INGESTION_ACTIVE",
-            statusClass: "text-[#003781] dark:text-indigo-300 bg-[#EBF3FB] dark:bg-indigo-500/15 border-[#003781]/20 dark:border-indigo-500/30",
+            statusClass: "text-[#003781] dark:text-sky-300 bg-[#EBF3FB] dark:bg-blue-500/15 border-[#003781]/30 dark:border-blue-500/30",
+            statusDot: "bg-[#003781] dark:bg-sky-400",
             telemetryLabel: "// Real-time state schema snapshot (Ingestion)",
             latency: "2.1ms",
             json: '{\n  "event_id": "ev_98241a",\n  "status": "STREAM_INGEST",\n  "partition": "kafka-node-0",\n  "throughput": "3,400 msg/sec"\n}'
         },
         "2": {
             status: "GUARDRAILS_VALIDATING",
-            statusClass: "text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-500/15 border-emerald-300 dark:border-emerald-500/30",
+            statusClass: "text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-500/15 border-emerald-300 dark:border-emerald-500/30",
+            statusDot: "bg-emerald-600 dark:bg-emerald-400",
             telemetryLabel: "// Content safety & PII redaction schema",
             latency: "18ms",
             json: '{\n  "pii_redacted": true,\n  "content_safety": "PASSED",\n  "compliance": "AU_PRIVACY_OK",\n  "injection_score": 0.001\n}'
         },
         "3": {
             status: "LANGGRAPH_EVALUATION",
-            statusClass: "text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-500/15 border-purple-300 dark:border-purple-500/30",
+            statusClass: "text-purple-800 dark:text-purple-300 bg-purple-50 dark:bg-purple-500/15 border-purple-300 dark:border-purple-500/30",
+            statusDot: "bg-purple-600 dark:bg-purple-400",
             telemetryLabel: "// LangGraph multi-agent state evaluation",
             latency: "1.8s",
             json: '{\n  "graph_id": "motor_claim_v4",\n  "active_nodes": ["policy_val", "coverage_chk"],\n  "confidence": 0.984,\n  "schema": "VALID"\n}'
         },
         "4": {
             status: "RESOLVED_&_DISPATCHED",
-            statusClass: "text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-500/15 border-amber-300 dark:border-amber-500/30",
+            statusClass: "text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-500/15 border-amber-300 dark:border-amber-500/30",
+            statusDot: "bg-amber-600 dark:bg-amber-400",
             telemetryLabel: "// Settlement dispatch & dual-emit telemetry",
             latency: "142ms",
             json: '{\n  "decision": "LODGE_APPROVED",\n  "latency": "142ms",\n  "trace_id": "dt_trace_9824",\n  "telemetry": "DYNATRACE_ACK"\n}'
@@ -591,16 +595,16 @@ function initPipelineScrollytelling() {
     function activatePipelineStep(stepNum) {
         // Reset payload simulator buttons active highlight if manual step was selected
         document.querySelectorAll("[data-sim-payload]").forEach(btn => {
-            btn.classList.remove("active", "threat-active", "pii-active");
+            btn.classList.remove("active", "valid-active", "threat-active", "pii-active");
             btn.setAttribute("aria-checked", "false");
             btn.setAttribute("tabindex", "-1");
         });
 
-        // Highlight selected step card, dim others
+        // Highlight selected step card, remove active from others (no opacity-70 dimming)
         steps.forEach(card => {
             const isTarget = card.getAttribute("data-step") === stepNum;
             card.classList.toggle("active", isTarget);
-            card.classList.toggle("opacity-70", !isTarget);
+            card.classList.remove("opacity-70");
             card.setAttribute("aria-selected", isTarget ? "true" : "false");
             card.setAttribute("tabindex", isTarget ? "0" : "-1");
             card.classList.remove("card-alert-danger", "card-alert-warning");
@@ -610,26 +614,34 @@ function initPipelineScrollytelling() {
         Object.keys(nodes).forEach(num => {
             const el = nodes[num];
             if (!el) return;
-            const dot = el.querySelector(".rounded-full");
+            const dotContainer = el.querySelector(".hud-node-dot") || el.querySelector(".rounded-full")?.parentElement;
             const latencySpan = el.querySelector("span:last-child");
             const title = el.querySelector("div.flex-1 > div:first-child");
             const sub = el.querySelector("div.flex-1 > div:last-child");
 
-            // Reset node base classes
+            // Reset node base classes (crisp solid standby, no washed-out opacity-40)
             el.className = num === stepNum
                 ? "hud-node active flex items-center gap-3 p-3 transition-all cursor-pointer"
-                : "hud-node flex items-center gap-3 p-3 opacity-40 transition-all cursor-pointer";
+                : "hud-node flex items-center gap-3 p-3 transition-all cursor-pointer bg-slate-50/50 dark:bg-transparent";
 
             if (num === stepNum) {
-                if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-[#003781] dark:bg-indigo-400 animate-ping shrink-0";
+                if (dotContainer) {
+                    dotContainer.className = "hud-node-dot relative flex h-2.5 w-2.5 items-center justify-center shrink-0";
+                    dotContainer.innerHTML = '<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#003781] dark:bg-sky-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-[#003781] dark:bg-sky-400"></span>';
+                }
+                if (title) title.className = "text-[#003781] dark:text-sky-300 font-bold text-xs";
                 if (latencySpan) {
-                    latencySpan.className = "text-xs text-[#003781] dark:text-indigo-300 font-mono font-semibold";
+                    latencySpan.className = "text-xs text-[#003781] dark:text-sky-300 font-mono font-bold";
                     latencySpan.textContent = telemetryData[num].latency;
                 }
             } else {
-                if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600 shrink-0";
+                if (dotContainer) {
+                    dotContainer.className = "hud-node-dot relative flex h-2.5 w-2.5 items-center justify-center shrink-0";
+                    dotContainer.innerHTML = '<span class="w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-600 shrink-0 inline-block"></span>';
+                }
+                if (title) title.className = "text-slate-800 dark:text-slate-200 font-semibold text-xs";
                 if (latencySpan) {
-                    latencySpan.className = "text-xs text-slate-500 font-mono";
+                    latencySpan.className = "text-xs text-slate-500 dark:text-slate-400 font-mono font-medium";
                     latencySpan.textContent = "Standby";
                 }
             }
@@ -639,19 +651,19 @@ function initPipelineScrollytelling() {
                 if (num === "1") {
                     title.textContent = "Kafka Event Hub Broker";
                     sub.textContent = "Stream: claims.ingest.v4 [Partition 02]";
-                    sub.className = "text-slate-500 dark:text-slate-400 text-xs";
+                    sub.className = "text-slate-600 dark:text-slate-400 text-xs";
                 } else if (num === "2") {
                     title.textContent = "Guardrail & PII Filter";
                     sub.textContent = "Australia Privacy Invariant Gate";
-                    sub.className = "text-slate-500 dark:text-slate-500 text-xs";
+                    sub.className = "text-slate-600 dark:text-slate-400 text-xs";
                 } else if (num === "3") {
                     title.textContent = "LangGraph State Machine";
                     sub.textContent = "Route: motor_comprehensive_v4";
-                    sub.className = "text-slate-500 dark:text-slate-500 text-xs";
+                    sub.className = "text-slate-600 dark:text-slate-400 text-xs";
                 } else if (num === "4") {
                     title.textContent = "Claim Lodgement Gate";
                     sub.textContent = "Trace: LangFuse Trace";
-                    sub.className = "text-slate-500 dark:text-slate-500 text-xs";
+                    sub.className = "text-slate-600 dark:text-slate-400 text-xs";
                 }
             }
         });
@@ -659,8 +671,9 @@ function initPipelineScrollytelling() {
         // Update HUD Status Badge & Telemetry with Syntax Highlighting
         const data = telemetryData[stepNum];
         if (data && statusLabel) {
-            statusLabel.textContent = data.status;
-            statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${data.statusClass}`;
+            const dotColor = data.statusDot || 'bg-emerald-600 dark:bg-emerald-400';
+            statusLabel.innerHTML = `<span class="w-1.5 h-1.5 rounded-full ${dotColor} animate-pulse shrink-0"></span><span>${data.status}</span>`;
+            statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border inline-flex items-center gap-1.5 shadow-2xs ${data.statusClass}`;
         }
         if (data && telemetryLabel) {
             telemetryLabel.textContent = data.telemetryLabel;
@@ -713,7 +726,8 @@ const swarmSimulations = {
         key: "valid",
         label: "Standard Valid Insurance Claim",
         statusBadge: "LIVE // VALID_CLAIM_ROUTED",
-        statusClass: "text-emerald-300 bg-emerald-500/15 border-emerald-500/30",
+        statusClass: "text-emerald-800 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-500/15 border-emerald-300 dark:border-emerald-500/30",
+        statusDot: "bg-emerald-600 dark:bg-emerald-400",
         telemetryLabel: "// Pydantic-validated claim state schema",
         toastMsg: "Simulated: Standard Valid Claim — Auto-Approved in 1.49s",
         toastIcon: "check-circle",
@@ -721,46 +735,46 @@ const swarmSimulations = {
             {
                 id: "hud-node-1",
                 cls: "hud-node active node-alert-success flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-ping shrink-0",
                 title: "Kafka Event Hub Broker",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "Stream: claims.ingest.v4 [Partition 02] • Ingested",
-                subCls: "text-emerald-400/90 text-xs",
+                subCls: "text-emerald-700 dark:text-emerald-400 text-xs font-medium",
                 latency: "2.1ms",
-                latencyCls: "text-xs text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-800 dark:text-emerald-300 font-mono font-bold"
             },
             {
                 id: "hud-node-2",
                 cls: "hud-node node-alert-success flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shrink-0",
                 title: "Azure Content Safety & Guardrails",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "Content Safety: PASSED (Score: 0.001) • 0 PII flags",
-                subCls: "text-emerald-400/90 text-xs",
+                subCls: "text-emerald-700 dark:text-emerald-400 text-xs font-medium",
                 latency: "11ms",
-                latencyCls: "text-xs text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-800 dark:text-emerald-300 font-mono font-bold"
             },
             {
                 id: "hud-node-3",
                 cls: "hud-node node-alert-success flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shrink-0",
                 title: "LangGraph Multi-Agent Swarm",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "Swarm: 4 micro-agents evaluated • Pydantic Typed",
-                subCls: "text-emerald-400/90 text-xs",
+                subCls: "text-emerald-700 dark:text-emerald-400 text-xs font-medium",
                 latency: "1.4s",
-                latencyCls: "text-xs text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-800 dark:text-emerald-300 font-mono font-bold"
             },
             {
                 id: "hud-node-4",
                 cls: "hud-node node-alert-success flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shrink-0",
                 title: "Auto-Settlement Dispatched",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "Approved • Dynatrace trace: dt_trace_9824",
-                subCls: "text-emerald-400/90 text-xs",
+                subCls: "text-emerald-700 dark:text-emerald-400 text-xs font-medium",
                 latency: "86ms",
-                latencyCls: "text-xs text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-800 dark:text-emerald-300 font-mono font-bold"
             }
         ],
         json: JSON.stringify({
@@ -787,7 +801,8 @@ const swarmSimulations = {
         key: "injection",
         label: "Adversarial Prompt Injection Attempt",
         statusBadge: "CRITICAL // JAILBREAK_ATTEMPT_HALTED",
-        statusClass: "text-rose-300 bg-rose-500/20 border-rose-500/40",
+        statusClass: "text-rose-800 dark:text-rose-300 bg-rose-100 dark:bg-rose-500/20 border-rose-300 dark:border-rose-500/40",
+        statusDot: "bg-rose-600 dark:bg-rose-400",
         telemetryLabel: "// Perimeter security threat intercept log",
         toastMsg: "Halted: Adversarial Prompt Injection Blocked at Safety Gate (0 Tokens Wasted)",
         toastIcon: "shield-alert",
@@ -795,46 +810,46 @@ const swarmSimulations = {
             {
                 id: "hud-node-1",
                 cls: "hud-node active flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-sky-400 animate-ping shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-sky-500 dark:bg-sky-400 animate-ping shrink-0",
                 title: "Kafka Event Hub Broker",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "Stream: claims.ingest.v4 [Partition 02] • Buffered",
-                subCls: "text-slate-400 text-xs",
+                subCls: "text-slate-600 dark:text-slate-400 text-xs",
                 latency: "1.7ms",
-                latencyCls: "text-xs text-sky-300 font-mono"
+                latencyCls: "text-xs text-[#003781] dark:text-sky-300 font-mono font-bold"
             },
             {
                 id: "hud-node-2",
                 cls: "hud-node node-alert-danger flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-rose-600 dark:bg-rose-500 animate-ping shrink-0",
                 title: "Azure Content Safety Jailbreak Shield",
-                titleCls: "text-white font-bold text-xs",
+                titleCls: "text-rose-950 dark:text-white font-bold text-xs",
                 sub: "CRITICAL HALT: Jailbreak Detected (Score: 0.994)",
-                subCls: "text-rose-300 font-semibold text-xs",
+                subCls: "text-rose-700 dark:text-rose-300 font-semibold text-xs",
                 latency: "6ms",
-                latencyCls: "text-xs text-rose-300 font-mono font-bold"
+                latencyCls: "text-xs text-rose-800 dark:text-rose-300 font-mono font-bold"
             },
             {
                 id: "hud-node-3",
                 cls: "hud-node node-bypassed flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-slate-600 shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600 shrink-0",
                 title: "LangGraph State Machine",
-                titleCls: "text-slate-400 font-bold text-xs line-through",
+                titleCls: "text-slate-500 dark:text-slate-400 font-bold text-xs line-through",
                 sub: "BYPASSED: Circuit breaker tripped • 0 LLM Tokens Wasted",
-                subCls: "text-slate-500 text-xs",
+                subCls: "text-slate-500 dark:text-slate-400 text-xs",
                 latency: "0ms",
-                latencyCls: "text-xs text-slate-500 font-mono"
+                latencyCls: "text-xs text-slate-500 dark:text-slate-400 font-mono"
             },
             {
                 id: "hud-node-4",
                 cls: "hud-node node-alert-danger flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-rose-500 shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-rose-600 dark:bg-rose-500 shrink-0",
                 title: "SIEM Security Incident Quarantine",
-                titleCls: "text-white font-bold text-xs",
+                titleCls: "text-rose-950 dark:text-white font-bold text-xs",
                 sub: "QUARANTINED: Forensic snapshot recorded • Ref: SEC-88192",
-                subCls: "text-rose-300 text-xs",
+                subCls: "text-rose-700 dark:text-rose-300 text-xs font-medium",
                 latency: "12ms",
-                latencyCls: "text-xs text-rose-300 font-mono"
+                latencyCls: "text-xs text-rose-800 dark:text-rose-300 font-mono font-bold"
             }
         ],
         json: JSON.stringify({
@@ -854,7 +869,8 @@ const swarmSimulations = {
         key: "pii",
         label: "Unstructured Citizen PII Payload",
         statusBadge: "PROTECTED // PII_REDACTED_APP11",
-        statusClass: "text-amber-300 bg-amber-500/15 border-amber-500/30",
+        statusClass: "text-amber-800 dark:text-amber-300 bg-amber-100 dark:bg-amber-500/15 border-amber-300 dark:border-amber-500/30",
+        statusDot: "bg-amber-600 dark:bg-amber-400",
         telemetryLabel: "// Sanitized state payload (zero raw citizen PII)",
         toastMsg: "Protected: Australian Citizen PII Redacted prior to LLM transit (APP-11 Safe)",
         toastIcon: "lock",
@@ -862,46 +878,46 @@ const swarmSimulations = {
             {
                 id: "hud-node-1",
                 cls: "hud-node active flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-indigo-400 animate-ping shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-indigo-500 dark:bg-indigo-400 animate-ping shrink-0",
                 title: "Kafka Event Hub Broker",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "Stream: claims.ingest.v4 [Partition 02] • Buffered",
-                subCls: "text-slate-400 text-xs",
+                subCls: "text-slate-600 dark:text-slate-400 text-xs",
                 latency: "2.4ms",
-                latencyCls: "text-xs text-indigo-300 font-mono"
+                latencyCls: "text-xs text-[#003781] dark:text-indigo-300 font-mono font-bold"
             },
             {
                 id: "hud-node-2",
                 cls: "hud-node node-alert-warning flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-amber-500 dark:bg-amber-400 animate-ping shrink-0",
                 title: "LangChain PII Redaction Middleware",
-                titleCls: "text-white font-bold text-xs",
+                titleCls: "text-amber-950 dark:text-white font-bold text-xs",
                 sub: "SANITIZED: AU Driver License & TFN masked to [REDACTED]",
-                subCls: "text-amber-300 font-medium text-xs",
+                subCls: "text-amber-800 dark:text-amber-300 font-medium text-xs",
                 latency: "24ms",
-                latencyCls: "text-xs text-amber-300 font-mono"
+                latencyCls: "text-xs text-amber-800 dark:text-amber-300 font-mono font-bold"
             },
             {
                 id: "hud-node-3",
                 cls: "hud-node node-alert-success flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shrink-0",
                 title: "LangGraph State Machine",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "State Machine: Sanitized payload evaluated cleanly",
-                subCls: "text-emerald-400/90 text-xs",
+                subCls: "text-emerald-700 dark:text-emerald-400 text-xs font-medium",
                 latency: "1.6s",
-                latencyCls: "text-xs text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-800 dark:text-emerald-300 font-mono font-bold"
             },
             {
                 id: "hud-node-4",
                 cls: "hud-node node-alert-success flex items-center gap-3 p-3 transition-all",
-                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-400 shrink-0",
+                dotCls: "w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400 shrink-0",
                 title: "Blob Hot Storage Persistence",
-                titleCls: "text-slate-100 font-bold text-xs",
+                titleCls: "text-slate-900 dark:text-slate-100 font-bold text-xs",
                 sub: "Persisted to Hot Blob Cache • Zero PII at rest",
-                subCls: "text-emerald-400/90 text-xs",
+                subCls: "text-emerald-700 dark:text-emerald-400 text-xs font-medium",
                 latency: "104ms",
-                latencyCls: "text-xs text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-800 dark:text-emerald-300 font-mono font-bold"
             }
         ],
         json: JSON.stringify({
@@ -929,8 +945,9 @@ function simulateSwarmPayload(payloadKey) {
         btn.classList.toggle("active", isSelected);
         btn.setAttribute("aria-checked", isSelected ? "true" : "false");
         btn.setAttribute("tabindex", isSelected ? "0" : "-1");
-        btn.classList.remove("threat-active", "pii-active");
+        btn.classList.remove("valid-active", "threat-active", "pii-active");
         if (isSelected) {
+            if (payloadKey === "valid") btn.classList.add("valid-active");
             if (payloadKey === "injection") btn.classList.add("threat-active");
             if (payloadKey === "pii") btn.classList.add("pii-active");
         }
@@ -939,8 +956,9 @@ function simulateSwarmPayload(payloadKey) {
     // Update status badge
     const statusLabel = document.getElementById("pipeline-status");
     if (statusLabel) {
-        statusLabel.textContent = sim.statusBadge;
-        statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${sim.statusClass}`;
+        const dotColor = sim.statusDot || 'bg-emerald-600 dark:bg-emerald-400';
+        statusLabel.innerHTML = `<span class="w-1.5 h-1.5 rounded-full ${dotColor} animate-pulse shrink-0"></span><span>${sim.statusBadge}</span>`;
+        statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border inline-flex items-center gap-1.5 shadow-2xs ${sim.statusClass}`;
     }
 
     // Update telemetry window
@@ -980,60 +998,35 @@ function simulateSwarmPayload(payloadKey) {
         }
     });
 
-    // Update lifecycle stage cards on the left to mirror simulated payload state
+    // Update lifecycle stage cards on the left to mirror simulated payload state (without opacity-70 dimming)
     const stageCards = document.querySelectorAll(".step-card");
     if (stageCards.length > 0) {
         stageCards.forEach(card => {
-            card.classList.remove("card-alert-danger", "card-alert-warning");
+            card.classList.remove("active", "card-alert-danger", "card-alert-warning", "opacity-70");
+            card.setAttribute("aria-selected", "false");
+            card.setAttribute("tabindex", "-1");
         });
         if (payloadKey === "injection") {
             const card2 = document.querySelector('.step-card[data-step="2"]');
             if (card2) {
                 card2.classList.add("card-alert-danger", "active");
-                card2.classList.remove("opacity-70");
                 card2.setAttribute("aria-selected", "true");
                 card2.setAttribute("tabindex", "0");
             }
-            stageCards.forEach(c => {
-                if (c.getAttribute("data-step") !== "2") {
-                    c.classList.remove("active");
-                    c.classList.add("opacity-70");
-                    c.setAttribute("aria-selected", "false");
-                    c.setAttribute("tabindex", "-1");
-                }
-            });
         } else if (payloadKey === "pii") {
             const card2 = document.querySelector('.step-card[data-step="2"]');
             if (card2) {
                 card2.classList.add("card-alert-warning", "active");
-                card2.classList.remove("opacity-70");
                 card2.setAttribute("aria-selected", "true");
                 card2.setAttribute("tabindex", "0");
             }
-            stageCards.forEach(c => {
-                if (c.getAttribute("data-step") !== "2") {
-                    c.classList.remove("active");
-                    c.classList.add("opacity-70");
-                    c.setAttribute("aria-selected", "false");
-                    c.setAttribute("tabindex", "-1");
-                }
-            });
         } else if (payloadKey === "valid") {
             const card4 = document.querySelector('.step-card[data-step="4"]');
             if (card4) {
                 card4.classList.add("active");
-                card4.classList.remove("opacity-70");
                 card4.setAttribute("aria-selected", "true");
                 card4.setAttribute("tabindex", "0");
             }
-            stageCards.forEach(c => {
-                if (c.getAttribute("data-step") !== "4") {
-                    c.classList.remove("active");
-                    c.classList.add("opacity-70");
-                    c.setAttribute("aria-selected", "false");
-                    c.setAttribute("tabindex", "-1");
-                }
-            });
         }
     }
 
