@@ -30,7 +30,7 @@
     <header class="sticky top-0 z-40 glass-nav px-4 lg:px-8 py-3.5 transition-all border-b border-[rgba(40,30,20,0.08)] bg-white/85 backdrop-blur-md">
         <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <a href="index.html" class="flex items-center gap-2 group text-xs font-semibold text-slate-700 hover:text-[#003781] transition-colors">
+                <a href="index.html" class="flex items-center gap-2 group text-xs font-semibold text-slate-700 hover:text-[#003781] transition-colors" aria-label="Return to portfolio home">
                     <i data-lucide="arrow-left" class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" aria-hidden="true"></i>
                     <span>Back to Portfolio</span>
                 </a>
@@ -40,6 +40,7 @@
 
             <div class="flex items-center gap-2.5">
                 <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+                    data-resume-source="case_study_header"
                     class="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 hover:text-[#003781] text-xs font-medium transition-all shadow-xs flex items-center gap-1.5"
                     title="View Resume in new tab">
                     <i data-lucide="file-text" class="w-3.5 h-3.5 text-emerald-700" aria-hidden="true"></i>
@@ -352,6 +353,7 @@
                     <span>Schedule Intro</span>
                 </a>
                 <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+                    data-resume-source="case_study_footer"
                     class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 text-sm font-medium transition-all shadow-xs flex items-center gap-2">
                     <i data-lucide="file-text" class="w-4 h-4 text-emerald-700" aria-hidden="true"></i>
                     <span>View Resume (PDF)</span>
@@ -389,7 +391,7 @@
         Shivraj Dhaytadak &bull; Agentic AI Consultant &bull; Allianz Services &bull; Pune, IN
     </footer>
 
-    <!-- Script for Lightbox & Icons -->
+    <!-- Script for Lightbox, Icons & Analytics -->
     <script>
         function openLightbox() {
             const lb = document.getElementById('blueprint-lightbox');
@@ -411,6 +413,20 @@
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
+        });
+
+        document.addEventListener('click', (e) => {
+            const resumeLink = e.target.closest('a[href*="resume.pdf"]');
+            if (resumeLink) {
+                const src = resumeLink.getAttribute('data-resume-source') || 'case_study';
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'file_download', { file_name: 'Shivraj_Dhaytadak_Resume.pdf', source: src });
+                }
+                if (typeof window.plausible === 'function') {
+                    window.plausible('Resume Download', { props: { source: src } });
+                }
+                console.info('[Telemetry] Tracked resume download from case-study:', src);
+            }
         });
 
         document.addEventListener('DOMContentLoaded', () => {

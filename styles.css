@@ -99,7 +99,7 @@ p, .body-copy {
 }
 
 .prose-measure {
-    max-width: 68ch;
+    max-width: 65ch;
 }
 
 /* Nav Link Scroll-Spy Active Indicator */
@@ -110,9 +110,10 @@ p, .body-copy {
     box-shadow: 0 1px 2px rgba(0, 55, 129, 0.08);
 }
 
-/* Base Document Styling */
+/* Base Document Styling & Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
     color-scheme: light;
 }
 
@@ -124,6 +125,54 @@ body {
     overflow-x: hidden;
     position: relative;
     letter-spacing: -0.011em;
+}
+
+/* Scroll Reveal & Stagger Animations */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stagger-1 { transition-delay: 0.06s; }
+.stagger-2 { transition-delay: 0.12s; }
+.stagger-3 { transition-delay: 0.18s; }
+.stagger-4 { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* Accessible Keyboard Navigation Focus Rings (WCAG 2.1 AA Compliant) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--allianz-blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+html.dark a:focus-visible,
+html.dark button:focus-visible,
+html.dark input:focus-visible,
+html.dark select:focus-visible,
+html.dark textarea:focus-visible,
+html.dark [tabindex]:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
 }
 
 /* Atmospheric Ambient Warm Mesh (Cream Canvas with Allianz Blue & Amber Whispers) */

@@ -270,13 +270,13 @@ function executeCmdkAction(item) {
             target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
     } else if (item.action === "download-resume") {
+        trackResumeDownload("cmdk");
         const link = document.createElement("a");
         link.href = portfolioData.profile.resumeUrl;
         link.download = "Shivraj_Dhaytadak_Resume.pdf";
         document.body.appendChild(link);
         link.click();
         link.remove();
-        showToast("Initiated Resume PDF download", "file-text");
     } else if (item.action === "toggle-recruiter-mode") {
         toggleRecruiterMode();
     } else if (item.action === "copy-email") {
@@ -458,6 +458,70 @@ function animateCounter(element, target, suffix = "", duration = 1200) {
     }
 
     requestAnimationFrame(update);
+}
+
+// ==========================================================================
+// 5B. Scroll Reveal & Stagger Animation Engine (IntersectionObserver)
+// ==========================================================================
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll(".reveal-on-scroll");
+    if (revealElements.length === 0) return;
+
+    if (!("IntersectionObserver" in window)) {
+        revealElements.forEach(el => el.classList.add("revealed"));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("revealed");
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: "0px 0px -40px 0px",
+        threshold: 0.15
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+}
+
+// ==========================================================================
+// 5C. Resume Download Telemetry & Analytics Tracker
+// ==========================================================================
+function trackResumeDownload(source = "unknown", event = null) {
+    try {
+        const payload = {
+            event: "resume_download",
+            source: source,
+            timestamp: new Date().toISOString(),
+            url: window.location.href,
+            referrer: document.referrer || "direct"
+        };
+
+        // 1. Dispatch custom event for telemetry listeners (GA4, Plausible, PostHog)
+        window.dispatchEvent(new CustomEvent("portfolio:telemetry", { detail: payload }));
+
+        // 2. Google Analytics (gtag.js) event hook if present
+        if (typeof window.gtag === "function") {
+            window.gtag("event", "file_download", {
+                file_name: "Shivraj_Dhaytadak_Resume.pdf",
+                link_text: "Download Resume",
+                source: source
+            });
+        }
+
+        // 3. Plausible Analytics hook if present
+        if (typeof window.plausible === "function") {
+            window.plausible("Resume Download", { props: { source: source } });
+        }
+
+        console.info("[Telemetry] Tracked resume download:", payload);
+        showToast("Opening Shivraj Dhaytadak Resume PDF", "file-text", 3000, "Verified Candidate", "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30");
+    } catch (err) {
+        console.warn("[Telemetry] Resume tracking warning:", err);
+    }
 }
 
 // ==========================================================================
@@ -1132,6 +1196,13 @@ function copyActiveCode() {
 // ==========================================================================
 function setupDelegatedListeners() {
     document.addEventListener("click", (e) => {
+        // Resume Download tracking
+        const resumeLink = e.target.closest('a[href*="resume.pdf"], a[href*="Shivraj_Dhaytadak_Resume.pdf"], [data-track-resume]');
+        if (resumeLink) {
+            const source = resumeLink.getAttribute("data-resume-source") || resumeLink.getAttribute("id") || "portfolio_cta";
+            trackResumeDownload(source, e);
+        }
+
         // Career Act tab switcher
         const careerBtn = e.target.closest("[data-career-tab]");
         if (careerBtn) {
@@ -1281,6 +1352,7 @@ function initPortfolio() {
     initBentoCardGlow();
     initPipelineScrollytelling();
     initScrollSpy();
+    initScrollReveal();
     setupCmdkListeners();
     setupDelegatedListeners();
 
@@ -1301,6 +1373,8 @@ window.copyToClipboard = copyToClipboard;
 window.downloadVCard = downloadVCard;
 window.copyActiveCode = copyActiveCode;
 window.simulateSwarmPayload = simulateSwarmPayload;
+window.trackResumeDownload = trackResumeDownload;
+window.initScrollReveal = initScrollReveal;
 
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initPortfolio);

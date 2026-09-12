@@ -65,7 +65,7 @@
 
             <!-- Brand Mark & Identity -->
             <div class="flex items-center gap-3">
-                <a href="#hero" class="flex items-center gap-2.5 group">
+                <a href="#hero" class="flex items-center gap-2.5 group" aria-label="Return to top of page (Hero)">
                     <div
                         class="w-8 h-8 rounded-lg bg-[#003781] border border-[#003781]/20 flex items-center justify-center font-mono font-bold text-xs text-white group-hover:scale-105 transition-all shadow-sm">
                         SD
@@ -124,6 +124,7 @@
 
                 <!-- Secondary Resume Button -->
                 <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+                    data-resume-source="header_nav"
                     class="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 border border-[rgba(40,30,20,0.14)] text-slate-800 hover:text-[#003781] text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
                     title="View Resume in new tab (PDF)">
                     <i data-lucide="file-text" class="w-3.5 h-3.5 text-emerald-700 shrink-0" aria-hidden="true"></i>
@@ -178,6 +179,7 @@
 
                     <!-- Secondary Action: Open Resume in New Tab -->
                     <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+                        data-resume-source="hero_cta"
                         class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 hover:text-[#003781] border border-[rgba(40,30,20,0.14)] font-medium text-sm flex items-center gap-2 transition-all shadow-xs touch-target"
                         title="View Shivraj Dhaytadak Resume PDF in new tab">
                         <i data-lucide="file-text" class="w-4 h-4 text-emerald-700 shrink-0" aria-hidden="true"></i>
@@ -200,39 +202,48 @@
                         PRODUCTION</span>
                 </div>
 
-                <!-- Mini Flow Pipeline Graphic -->
-                <div class="space-y-2 font-mono text-xs">
+                <!-- Mini Flow Pipeline Graphic with Directional Flow & Mobile Stack Guard -->
+                <div class="space-y-1.5 font-mono text-xs">
                     <div
-                        class="p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
+                        class="p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] flex flex-col xs:flex-row xs:items-center justify-between gap-1 transition-colors hover:border-[#003781]/30">
+                        <div class="flex items-center gap-2.5 min-w-0">
                             <span class="text-slate-400 text-xs w-4 text-center font-bold shrink-0">01</span>
-                            <span class="text-slate-700 font-medium">Kafka Buffer Ingest</span>
+                            <span class="text-slate-700 font-medium truncate">Kafka Buffer Ingest</span>
                         </div>
-                        <span class="text-xs text-slate-600 font-semibold font-mono">High Volume</span>
+                        <span class="text-xs text-slate-600 font-semibold font-mono shrink-0">High Volume</span>
+                    </div>
+                    <div class="flex justify-center -my-0.5 text-slate-400" aria-hidden="true">
+                        <i data-lucide="arrow-down" class="w-3 h-3"></i>
                     </div>
                     <div
-                        class="p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
+                        class="p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] flex flex-col xs:flex-row xs:items-center justify-between gap-1 transition-colors hover:border-[#003781]/30">
+                        <div class="flex items-center gap-2.5 min-w-0">
                             <span class="text-slate-400 text-xs w-4 text-center font-bold shrink-0">02</span>
-                            <span class="text-slate-700 font-medium">Safety &amp; PII Filter</span>
+                            <span class="text-slate-700 font-medium truncate">Safety &amp; PII Filter</span>
                         </div>
-                        <span class="text-xs text-slate-600 font-semibold font-mono">Instant Halt</span>
+                        <span class="text-xs text-slate-600 font-semibold font-mono shrink-0">Instant Halt</span>
+                    </div>
+                    <div class="flex justify-center -my-0.5 text-[#003781]" aria-hidden="true">
+                        <i data-lucide="arrow-down" class="w-3 h-3"></i>
                     </div>
                     <div
-                        class="p-2.5 rounded-lg bg-[#EBF3FB] border border-[#003781]/25 flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
+                        class="p-2.5 rounded-lg bg-[#EBF3FB] border border-[#003781]/25 flex flex-col xs:flex-row xs:items-center justify-between gap-1 shadow-xs transition-colors hover:border-[#003781]/50">
+                        <div class="flex items-center gap-2.5 min-w-0">
                             <span class="text-[#003781] text-xs w-4 text-center font-bold shrink-0">03</span>
-                            <span class="text-[#003781] font-bold">LangGraph Graph</span>
+                            <span class="text-[#003781] font-bold truncate">LangGraph Engine</span>
                         </div>
-                        <span class="text-xs text-[#003781] font-bold font-mono">19 Claim Journeys</span>
+                        <span class="text-xs text-[#003781] font-bold font-mono shrink-0">19 Claim Journeys</span>
+                    </div>
+                    <div class="flex justify-center -my-0.5 text-slate-400" aria-hidden="true">
+                        <i data-lucide="arrow-down" class="w-3 h-3"></i>
                     </div>
                     <div
-                        class="p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
+                        class="p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] flex flex-col xs:flex-row xs:items-center justify-between gap-1 transition-colors hover:border-[#003781]/30">
+                        <div class="flex items-center gap-2.5 min-w-0">
                             <span class="text-slate-400 text-xs w-4 text-center font-bold shrink-0">04</span>
-                            <span class="text-slate-700 font-medium">Dual-Emit Telemetry</span>
+                            <span class="text-slate-700 font-medium truncate">Dual-Emit Telemetry</span>
                         </div>
-                        <span class="text-xs text-slate-600 font-semibold font-mono">LangFuse Trace</span>
+                        <span class="text-xs text-slate-600 font-semibold font-mono shrink-0">LangFuse Trace</span>
                     </div>
                 </div>
 
@@ -315,8 +326,8 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-1">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-mono font-semibold text-slate-600">Claims Intake</span>
                     <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
@@ -330,7 +341,7 @@
                 <div class="text-xs text-slate-600 mt-0.5">Automated screening across 19 journeys</div>
             </div>
 
-            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all">
+            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-2">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-mono font-semibold text-slate-600">Micro-Agents</span>
                     <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
@@ -344,7 +355,7 @@
                 <div class="text-xs text-slate-600 mt-0.5">Stateful LangGraph &amp; CrewAI topologies</div>
             </div>
 
-            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all">
+            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-3">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-mono font-semibold text-slate-600">Rollout Velocity</span>
                     <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
@@ -358,7 +369,7 @@
                 <div class="text-xs text-slate-600 mt-0.5">Slashed from 3-week code cycles via JSON</div>
             </div>
 
-            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all">
+            <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-4">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-mono font-semibold text-slate-600">Safety &amp; Compliance</span>
                     <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
@@ -442,10 +453,10 @@
                 </div>
             </div>
 
-            <!-- STAR Story Narrative Breakdown (First-Person Authentic Storytelling) -->
+            <!-- STAR Story Narrative Breakdown (Recruiter-Scannable Architecture Delivery) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div
-                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 flex flex-col justify-between gap-4 shadow-xs">
+                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 flex flex-col justify-between gap-4 shadow-xs reveal-on-scroll stagger-1">
                     <div>
                         <div
                             class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-800">
@@ -455,11 +466,18 @@
                         <h4 class="text-base font-bold text-slate-900 mt-2">14-Day Release Cycle &amp; LLM Compliance
                             Risk</h4>
                         <p class="text-xs text-slate-700 leading-relaxed mt-2">
-                            When I joined Allianz Services, insurance claim lodgement was bottlenecked by legacy release cycles. Modifying business rules or launching a new claim journey required 3 weeks of backend developer engineering, schema re-compilation, and full CI/CD deployment cycles.
+                            When I joined Allianz Services, insurance claim lodgement was bottlenecked by legacy release cycles and strict regulatory oversight:
                         </p>
-                        <p class="text-xs text-slate-700 leading-relaxed mt-2">
-                            Simultaneously, LLM non-determinism introduced severe regulatory liability under Australia Corporate Privacy Standards. Any hallucinated policy term or leaked citizen PII would compromise our operating compliance.
-                        </p>
+                        <ul class="mt-3 space-y-2 text-xs text-slate-700">
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" aria-hidden="true"></span>
+                                <span><strong>3-Week Developer Bottleneck:</strong> Modifying business rules or launching a new claim journey required full backend developer refactors, schema re-compilation, and lengthy CI/CD runs.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0" aria-hidden="true"></span>
+                                <span><strong>Regulatory Compliance Liability:</strong> LLM non-determinism under Australia Corporate Privacy Standards meant any hallucinated policy term or leaked citizen PII could jeopardize operating licensing.</span>
+                            </li>
+                        </ul>
                     </div>
                     <div
                         class="p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-lg text-xs text-slate-800">
@@ -468,7 +486,7 @@
                 </div>
 
                 <div
-                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 flex flex-col justify-between gap-4 shadow-xs">
+                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-6 flex flex-col justify-between gap-4 shadow-xs reveal-on-scroll stagger-2">
                     <div>
                         <div
                             class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#003781]">
@@ -477,11 +495,18 @@
                         <h4 class="text-base font-bold text-slate-900 mt-2">Declarative JSON Engine &amp; LangGraph
                             State Machine</h4>
                         <p class="text-xs text-slate-700 leading-relaxed mt-2">
-                            I architected a Declarative JSON Workflow Engine that decoupled prompt configurations, state transition routes, and tool schemas from the execution binary. Claim specialists can author and version entire journeys as single JSON documents in Git.
+                            I architected a Declarative JSON Workflow Engine that decoupled prompt configurations, state transition routes, and tool schemas from the execution binary:
                         </p>
-                        <p class="text-xs text-slate-700 leading-relaxed mt-2">
-                            Incoming stream payloads from Kafka and Azure Event Hubs are ingested through Azure Durable Functions, pre-screened by Azure Content Safety and LangChain PII redaction, and orchestrated across cyclical LangGraph state machines with strict Pydantic runtime typing.
-                        </p>
+                        <ul class="mt-3 space-y-2 text-xs text-slate-700">
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0" aria-hidden="true"></span>
+                                <span><strong>Declarative GitOps Delivery:</strong> Claim specialists author and version entire journeys as single JSON documents in Git &mdash; slashing rollout cycles from 3 weeks to under 24 hours.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0" aria-hidden="true"></span>
+                                <span><strong>Pre-Screened State Graph:</strong> Ingests Kafka and Azure Event Hub streams through Azure Content Safety and LangChain PII redaction, feeding cyclical LangGraph state machines with strict Pydantic runtime typing.</span>
+                            </li>
+                        </ul>
                     </div>
                     <div
                         class="p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-lg text-xs text-slate-800">
@@ -1938,6 +1963,7 @@
                         <span>Copy Email</span>
                     </button>
                     <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+                        data-resume-source="footer_contact"
                         class="px-4 py-2.5 rounded-xl bg-[#FAF8F5] hover:bg-[#F2ECE4] text-slate-700 font-medium text-xs sm:text-sm flex items-center gap-2 border border-[rgba(40,30,20,0.08)] transition-colors shadow-sm"
                         title="Download resume PDF">
                         <i data-lucide="file-text" class="w-4 h-4 text-emerald-700" aria-hidden="true"></i>
