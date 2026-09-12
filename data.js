@@ -176,7 +176,7 @@ const portfolioData = {
                 { label: "AST Parse Cache", value: "< 0.4ms" },
                 { label: "Cold Start Latency", value: "0ms (Warm)" },
                 { label: "Privacy Compliance", value: "APP 11 Pass" },
-                { label: "Prompt Duplication", value: "Zero Redundancy" }
+                { label: "Prompt Redundancy", value: "100% Eliminated" }
             ],
             narrative: {
                 challenge: "Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.",

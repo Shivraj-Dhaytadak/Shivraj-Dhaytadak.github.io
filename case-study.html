@@ -13,14 +13,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Compiled Production CSS (Tailwind CSS v4 + Design System) -->
     <link rel="stylesheet" href="dist/output.css">
 
-    <!-- Lucide Icons CDN (Pinned Version) -->
-    <script src="https://unpkg.com/lucide@0.462.0" defer></script>
+    <!-- Lucide Icons CDN with Fallback -->
+    <script src="https://unpkg.com/lucide@0.462.0" defer onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js'"></script>
 </head>
 
 <body
@@ -41,6 +41,17 @@
                 <span class="text-slate-300 hidden sm:inline" aria-hidden="true">/</span>
                 <span class="text-xs text-slate-500 font-mono hidden sm:inline">Case Study: Allianz Services</span>
             </div>
+
+            <!-- Persistent Jump Links to Other Portfolio Sections -->
+            <nav class="hidden md:flex items-center gap-2.5 text-xs font-mono text-slate-500">
+                <a href="index.html#capabilities" class="hover:text-[#003781] transition-colors">Capabilities</a>
+                <span class="text-slate-300">&bull;</span>
+                <a href="index.html#featured-systems" class="hover:text-[#003781] transition-colors">Featured Systems</a>
+                <span class="text-slate-300">&bull;</span>
+                <a href="index.html#career-timeline" class="hover:text-[#003781] transition-colors">Experience</a>
+                <span class="text-slate-300">&bull;</span>
+                <a href="workflow.html" class="text-[#003781] font-semibold hover:underline">Interactive Canvas ↗</a>
+            </nav>
 
             <div class="flex items-center gap-2.5">
                 <a href="resume.pdf" target="_blank" rel="noopener noreferrer" data-resume-source="case_study_header"
@@ -113,8 +124,8 @@
                     class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl text-center sm:text-left">
                     <div class="text-xs font-mono text-slate-500 font-semibold uppercase tracking-wider">Prompt
                         Redundancy</div>
-                    <div class="text-2xl sm:text-3xl font-extrabold text-indigo-700 font-mono mt-1">-100%</div>
-                    <div class="text-xs text-slate-600 mt-1">Two-tier decoupled prompt architecture</div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-indigo-700 font-mono mt-1">100% Cut</div>
+                    <div class="text-xs text-slate-600 mt-1">100% Redundancy Eliminated via Two-Tier Prompts</div>
                 </div>
             </div>
         </div>

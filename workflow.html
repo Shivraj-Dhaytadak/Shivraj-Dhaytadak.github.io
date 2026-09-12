@@ -9,7 +9,7 @@
     <!-- Preconnect Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Preload Blueprint Image for Instant Rendering Once Opened -->
     <link rel="preload" as="image" href="ProjectBluey.webp" type="image/webp">
@@ -17,30 +17,41 @@
     <!-- Compiled Production CSS (Tailwind CSS v4 + Custom Styles) -->
     <link rel="stylesheet" href="dist/output.css">
 
-    <!-- Pinned Lucide Icons CDN -->
-    <script src="https://unpkg.com/lucide@0.462.0"></script>
+    <!-- Pinned Lucide Icons CDN with Fallback -->
+    <script src="https://unpkg.com/lucide@0.462.0" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js'"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-slate-700 selection:text-white">
 
     <!-- TOP CONTROL NAVIGATION BAR -->
-    <header class="border-b border-slate-800 bg-slate-950/70 backdrop-blur sticky top-0 z-40 px-4 lg:px-8 py-3 flex flex-wrap justify-between items-center gap-4">
-        <div class="flex items-center gap-3">
-            <a id="nav-back-btn" href="index.html" class="px-2.5 py-1.5 bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white rounded-lg border border-slate-700 text-xs font-medium flex items-center gap-1.5 transition-colors">
-                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Portfolio
+    <header class="border-b border-slate-800 bg-slate-950/70 backdrop-blur sticky top-0 z-40 px-3 sm:px-4 lg:px-8 py-2.5 sm:py-3 flex flex-wrap justify-between items-center gap-3 sm:gap-4 max-w-full overflow-hidden">
+        <div class="flex items-center flex-wrap gap-2 sm:gap-3 min-w-0 max-w-full">
+            <a id="nav-back-btn" href="index.html" class="px-2.5 py-1.5 bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white rounded-lg border border-slate-700 text-xs font-medium flex items-center gap-1.5 transition-colors shrink-0">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> <span class="hidden xs:inline">Back to Portfolio</span><span class="xs:hidden">Back</span>
             </a>
             <div id="nav-divider" class="h-4 w-px bg-slate-800 hidden sm:block"></div>
-            <a href="index.html" target="_top" class="flex items-center gap-2.5 group">
-                <div class="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-xs font-bold text-indigo-400 group-hover:border-indigo-400 transition-colors">SD</div>
-                <div>
-                    <div class="flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-                        <h1 class="text-sm font-semibold text-white tracking-tight">Project Bluey-AI Lodgement</h1>
-                        <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded text-xs font-medium">Interactive Diagram</span>
+            <a href="index.html" target="_top" class="flex items-center gap-2 group min-w-0">
+                <div class="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-xs font-bold text-indigo-400 group-hover:border-indigo-400 transition-colors shrink-0">SD</div>
+                <div class="min-w-0">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="h-2 w-2 rounded-full bg-emerald-400 shrink-0"></span>
+                        <h1 class="text-xs sm:text-sm font-semibold text-white tracking-tight truncate">Project Bluey-AI</h1>
+                        <span class="hidden sm:inline-block px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded text-[11px] font-medium">Interactive Diagram</span>
                     </div>
-                    <p class="text-xs text-slate-300 mt-0.5">Shivraj Dhaytadak &bull; Enterprise Multi-Agent Event-Driven Topology</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5 truncate hidden sm:block">Shivraj Dhaytadak &bull; Enterprise Multi-Agent Event-Driven Topology</p>
                 </div>
             </a>
         </div>
+
+        <!-- Secondary Persistent Nav Jump Links to Portfolio Sections -->
+        <nav class="hidden md:flex items-center gap-2.5 text-xs font-mono text-slate-400">
+            <a href="index.html#case-study" class="hover:text-indigo-300 transition-colors">Case Study</a>
+            <span class="text-slate-700">&bull;</span>
+            <a href="index.html#capabilities" class="hover:text-indigo-300 transition-colors">Capabilities</a>
+            <span class="text-slate-700">&bull;</span>
+            <a href="index.html#featured-systems" class="hover:text-indigo-300 transition-colors">Featured Systems</a>
+            <span class="text-slate-700">&bull;</span>
+            <a href="index.html#contact" class="hover:text-indigo-300 transition-colors">Contact</a>
+        </nav>
 
         <!-- VIEW MODE & SIMULATION CONTROLS -->
         <div class="flex items-center flex-wrap gap-2.5">
@@ -108,17 +119,17 @@
         
         <!-- DIAGRAM CANVAS CONTAINER -->
         <div class="xl:col-span-9 bg-slate-900/60 border border-slate-800 rounded-2xl p-3 lg:p-5 flex flex-col justify-between relative overflow-hidden shadow-2xl">
-            <div class="flex flex-wrap justify-between items-center gap-2 mb-2 px-2 text-xs">
-                <div class="flex items-center gap-2">
+            <div class="flex flex-wrap justify-between items-center gap-2 mb-2 px-1 sm:px-2 text-xs max-w-full">
+                <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 min-w-0">
                     <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">Topology Model:</span>
-                    <span class="text-xs font-bold text-indigo-300 code-font">Azure-Durable-LangGraph-Pipeline</span>
-                    <span id="canvas-badge" class="px-2 py-0.5 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Live Event Mesh Simulator</span>
+                    <span class="text-xs font-bold text-indigo-300 code-font truncate max-w-[180px] sm:max-w-none">Azure-Durable-LangGraph-Pipeline</span>
+                    <span id="canvas-badge" class="px-2 py-0.5 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Live Simulator</span>
                 </div>
-                <div id="canvas-legend" class="flex items-center gap-3 sm:gap-4 text-xs text-slate-300 code-font">
-                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-amber-400"></span> Ingestion</span>
-                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-sky-400"></span> Orchestration</span>
-                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-indigo-400"></span> Multi-Agent Loop</span>
-                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-rose-400"></span> Telemetry</span>
+                <div id="canvas-legend" class="flex flex-wrap items-center gap-2 sm:gap-4 text-xs text-slate-300 code-font">
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-amber-400 shrink-0"></span> Ingestion</span>
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-sky-400 shrink-0"></span> Orchestration</span>
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-indigo-400 shrink-0"></span> Multi-Agent</span>
+                    <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-rose-400 shrink-0"></span> Telemetry</span>
                 </div>
             </div>
 

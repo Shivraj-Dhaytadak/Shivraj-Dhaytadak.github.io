@@ -139,13 +139,10 @@ section[id],
     padding-bottom: clamp(4rem, 8vw, 7.5rem);
 }
 
-/* Accessible Minimum Interactive Touch Target (48x48px per Audit Recommendation) */
+/* Accessible Minimum Interactive Touch Target (44x44px per WCAG) */
 .touch-target {
-    min-height: 48px;
-    min-width: 48px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 /* Flex Column Layout with Equalized Footer Alignment for Grid Cards */
@@ -1356,6 +1353,134 @@ html.dark .bg-\[\#EBF3FB\],
     color: #60A5FA !important;
 }
 
+/* ==========================================================================
+   Dark Mode Pill & Badge Background Overrides (WCAG AA/AAA Contrast >= 4.5:1)
+   ========================================================================== */
+html.dark .bg-slate-100,
+[data-recruiter-mode="true"] .bg-slate-100,
+[data-theme="dark"] .bg-slate-100 {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #E2E8F0 !important;
+}
+
+html.dark .bg-slate-50,
+[data-recruiter-mode="true"] .bg-slate-50,
+[data-theme="dark"] .bg-slate-50 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.09) !important;
+    color: #CBD5E1 !important;
+}
+
+html.dark .bg-emerald-50,
+[data-recruiter-mode="true"] .bg-emerald-50,
+[data-theme="dark"] .bg-emerald-50,
+html.dark .bg-emerald-100,
+[data-recruiter-mode="true"] .bg-emerald-100,
+[data-theme="dark"] .bg-emerald-100 {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    color: #6EE7B7 !important;
+}
+
+html.dark .bg-amber-50,
+[data-recruiter-mode="true"] .bg-amber-50,
+[data-theme="dark"] .bg-amber-50,
+html.dark .bg-amber-100,
+[data-recruiter-mode="true"] .bg-amber-100,
+[data-theme="dark"] .bg-amber-100,
+html.dark .bg-\[\#FEF3C7\],
+[data-recruiter-mode="true"] .bg-\[\#FEF3C7\],
+[data-theme="dark"] .bg-\[\#FEF3C7\] {
+    background-color: rgba(245, 158, 11, 0.15) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    color: #FCD34D !important;
+}
+
+html.dark .bg-red-50,
+[data-recruiter-mode="true"] .bg-red-50,
+[data-theme="dark"] .bg-red-50,
+html.dark .bg-red-100,
+[data-recruiter-mode="true"] .bg-red-100,
+[data-theme="dark"] .bg-red-100,
+html.dark .bg-rose-50,
+[data-recruiter-mode="true"] .bg-rose-50,
+[data-theme="dark"] .bg-rose-50,
+html.dark .bg-\[\#FEF2F2\],
+[data-recruiter-mode="true"] .bg-\[\#FEF2F2\],
+[data-theme="dark"] .bg-\[\#FEF2F2\],
+html.dark .bg-\[\#FFF1F2\],
+[data-recruiter-mode="true"] .bg-\[\#FFF1F2\],
+[data-theme="dark"] .bg-\[\#FFF1F2\] {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #FCA5A5 !important;
+}
+
+html.dark .bg-blue-50,
+[data-recruiter-mode="true"] .bg-blue-50,
+[data-theme="dark"] .bg-blue-50,
+html.dark .bg-indigo-50,
+[data-recruiter-mode="true"] .bg-indigo-50,
+[data-theme="dark"] .bg-indigo-50 {
+    background-color: rgba(59, 130, 246, 0.15) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    color: #93C5FD !important;
+}
+
+html.dark .scale-bar-strip,
+[data-recruiter-mode="true"] .scale-bar-strip,
+[data-theme="dark"] .scale-bar-strip,
+html.dark .bg-\[\#F5F0E8\],
+[data-recruiter-mode="true"] .bg-\[\#F5F0E8\],
+[data-theme="dark"] .bg-\[\#F5F0E8\],
+html.dark .bg-\[\#F5F0E8\]\/80,
+[data-recruiter-mode="true"] .bg-\[\#F5F0E8\]\/80,
+[data-theme="dark"] .bg-\[\#F5F0E8\]\/80 {
+    background-color: #0c0f17 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Badge Text Contrast Overrides in Dark Mode */
+html.dark .text-emerald-700,
+[data-recruiter-mode="true"] .text-emerald-700,
+[data-theme="dark"] .text-emerald-700,
+html.dark .text-emerald-800,
+[data-recruiter-mode="true"] .text-emerald-800,
+[data-theme="dark"] .text-emerald-800 {
+    color: #6EE7B7 !important;
+}
+
+html.dark .text-amber-700,
+[data-recruiter-mode="true"] .text-amber-700,
+[data-theme="dark"] .text-amber-700,
+html.dark .text-amber-800,
+[data-recruiter-mode="true"] .text-amber-800,
+[data-theme="dark"] .text-amber-800,
+html.dark .text-\[\#B45309\],
+[data-recruiter-mode="true"] .text-\[\#B45309\],
+[data-theme="dark"] .text-\[\#B45309\] {
+    color: #FCD34D !important;
+}
+
+html.dark .text-rose-700,
+[data-recruiter-mode="true"] .text-rose-700,
+[data-theme="dark"] .text-rose-700,
+html.dark .text-rose-800,
+[data-recruiter-mode="true"] .text-rose-800,
+[data-theme="dark"] .text-rose-800,
+html.dark .text-red-700,
+[data-recruiter-mode="true"] .text-red-700,
+[data-theme="dark"] .text-red-700,
+html.dark .text-red-800,
+[data-recruiter-mode="true"] .text-red-800,
+[data-theme="dark"] .text-red-800,
+html.dark .text-\[\#B91C1C\],
+[data-recruiter-mode="true"] .text-\[\#B91C1C\],
+[data-theme="dark"] .text-\[\#B91C1C\] {
+    color: #FCA5A5 !important;
+}
+
 /* Inset Containers in Bento & Step Cards */
 html.dark .p-3.rounded-lg.bg-\[\#FAF8F5\],
 [data-recruiter-mode="true"] .p-3.rounded-lg.bg-\[\#FAF8F5\],
@@ -1552,7 +1677,9 @@ html.dark .cmdk-item.selected,
 
 /* Dark Mode Button State */
 [data-recruiter-mode="true"] #recruiter-toggle-btn,
-html.dark #recruiter-toggle-btn {
+html.dark #recruiter-toggle-btn,
+[data-recruiter-mode="true"] #theme-toggle-btn,
+html.dark #theme-toggle-btn {
     background: #182033 !important;
     border-color: rgba(245, 158, 11, 0.4) !important;
     color: #FDE047 !important;
@@ -1560,7 +1687,9 @@ html.dark #recruiter-toggle-btn {
 }
 
 [data-recruiter-mode="true"] #recruiter-mode-indicator,
-html.dark #recruiter-mode-indicator {
+html.dark #recruiter-mode-indicator,
+[data-recruiter-mode="true"] #theme-mode-indicator,
+html.dark #theme-mode-indicator {
     background-color: #FBBF24 !important;
     box-shadow: 0 0 10px #FBBF24 !important;
 }
@@ -1954,9 +2083,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus
 .touch-target {
     min-height: 44px;
     min-width: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* ==========================================================================
@@ -2041,9 +2167,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus
 }
 
 .btn-shimmer-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     background: linear-gradient(180deg, #003781 0%, #002659 100%);
     color: #FFFFFF !important;
     border: 1px solid rgba(0, 55, 129, 0.4);

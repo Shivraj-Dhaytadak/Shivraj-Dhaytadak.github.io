@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <!-- Compiled Production CSS (Tailwind CSS v4 + Design System) -->
     <link rel="stylesheet" href="dist/output.css">
 
-    <!-- Lucide Icons CDN (Pinned Version) -->
-    <script src="https://unpkg.com/lucide@0.462.0" defer></script>
+    <!-- Lucide Icons CDN with Fallback -->
+    <script src="https://unpkg.com/lucide@0.462.0" defer onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js'"></script>
 </head>
 
 <body

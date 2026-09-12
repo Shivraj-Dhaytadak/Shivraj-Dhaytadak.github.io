@@ -203,10 +203,10 @@ function setRecruiterMode(state) {
     localStorage.setItem("portfolio_recruiter_mode", state ? "true" : "false");
     localStorage.setItem("portfolio_theme", state ? "dark" : "light");
 
-    const toggleText = document.getElementById("recruiter-toggle-text");
-    const indicator = document.getElementById("recruiter-mode-indicator");
+    const toggleText = document.getElementById("recruiter-toggle-text") || document.getElementById("theme-toggle-text");
+    const indicator = document.getElementById("recruiter-mode-indicator") || document.getElementById("theme-mode-indicator");
     const toggleIcon = document.getElementById("theme-toggle-icon");
-    const toggleBtn = document.getElementById("recruiter-toggle-btn");
+    const toggleBtn = document.getElementById("theme-toggle-btn") || document.getElementById("recruiter-toggle-btn");
 
     if (toggleText) {
         toggleText.innerText = state ? "Light Mode" : "Dark Mode";
@@ -239,6 +239,7 @@ function toggleRecruiterMode() {
         showToast("Light Mode Active: Editorial warm cream theme", "sun");
     }
 }
+const toggleTheme = toggleRecruiterMode;
 
 // ==========================================================================
 // 4. Command Palette (⌘K) Engine
@@ -1153,19 +1154,19 @@ function renderCareerAct(actId) {
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800">
                         <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-slate-500"></i> The Friction / Problem
                     </div>
-                    <p class="text-xs text-slate-600 leading-relaxed">${act.narrative.challenge}</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">${act.narrative.challenge}</p>
                 </div>
                 <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-4 rounded-xl flex flex-col gap-2">
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800">
                         <i data-lucide="cpu" class="w-3.5 h-3.5 text-slate-500"></i> The Architectural Solution
                     </div>
-                    <p class="text-xs text-slate-600 leading-relaxed">${act.narrative.solution}</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">${act.narrative.solution}</p>
                 </div>
                 <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-4 rounded-xl flex flex-col gap-2">
                     <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800">
                         <i data-lucide="trending-up" class="w-3.5 h-3.5 text-slate-500"></i> Proven Impact
                     </div>
-                    <p class="text-xs text-slate-600 leading-relaxed">${act.narrative.impact}</p>
+                    <p class="text-sm text-slate-600 leading-relaxed">${act.narrative.impact}</p>
                 </div>
             </div>
 
@@ -1177,8 +1178,8 @@ function renderCareerAct(actId) {
                 </div>
                 <ul class="space-y-2.5">
                     ${act.deliverables.map(d => `
-                        <li class="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
-                            <span class="w-1.5 h-1.5 rounded-full ${brandTheme.bulletDot} mt-1.5 shrink-0"></span>
+                        <li class="flex items-start gap-2.5 text-sm text-slate-600 leading-relaxed">
+                            <span class="w-1.5 h-1.5 rounded-full ${brandTheme.bulletDot} mt-2 shrink-0"></span>
                             <span>${d}</span>
                         </li>
                     `).join('')}
@@ -1348,8 +1349,8 @@ function setupDelegatedListeners() {
             return;
         }
 
-        // Recruiter Mode button
-        if (e.target.closest("#recruiter-toggle-btn")) {
+        // Theme Toggle / Recruiter Mode button
+        if (e.target.closest("#theme-toggle-btn") || e.target.closest("#recruiter-toggle-btn")) {
             toggleRecruiterMode();
             return;
         }
@@ -1566,7 +1567,9 @@ window.openCmdk = openCmdk;
 window.closeCmdk = closeCmdk;
 window.toggleRecruiterMode = toggleRecruiterMode;
 window.toggleDarkMode = toggleRecruiterMode;
+window.toggleTheme = toggleRecruiterMode;
 window.setDarkMode = setRecruiterMode;
+window.setTheme = setRecruiterMode;
 window.switchPersona = switchPersona;
 window.copyToClipboard = copyToClipboard;
 window.downloadVCard = downloadVCard;
