@@ -80,24 +80,24 @@
             <!-- Verified Outcome Metrics Strip -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl text-center sm:text-left">
-                    <div class="text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">Rollout Speed</div>
+                    <div class="text-xs font-mono text-slate-500 font-semibold uppercase tracking-wider">Rollout Speed</div>
                     <div class="text-2xl sm:text-3xl font-extrabold text-emerald-700 font-mono mt-1">&lt; 24h</div>
-                    <div class="text-[11px] text-slate-600 mt-1">From 3-week code cycles (21x acceleration)</div>
+                    <div class="text-xs text-slate-600 mt-1">From 3-week code cycles (21x acceleration)</div>
                 </div>
                 <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl text-center sm:text-left">
-                    <div class="text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">Annual Volume</div>
+                    <div class="text-xs font-mono text-slate-500 font-semibold uppercase tracking-wider">Annual Volume</div>
                     <div class="text-2xl sm:text-3xl font-extrabold text-[#003781] font-mono mt-1">100k+</div>
-                    <div class="text-[11px] text-slate-600 mt-1">Claims screened across 19 journeys</div>
+                    <div class="text-xs text-slate-600 mt-1">Claims screened across 19 journeys</div>
                 </div>
                 <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl text-center sm:text-left">
-                    <div class="text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">PII Compliance</div>
+                    <div class="text-xs font-mono text-slate-500 font-semibold uppercase tracking-wider">PII Compliance</div>
                     <div class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-mono mt-1">100%</div>
-                    <div class="text-[11px] text-slate-600 mt-1">0 breaches &bull; Australia Privacy Standards</div>
+                    <div class="text-xs text-slate-600 mt-1">0 breaches &bull; Australia Privacy Standards</div>
                 </div>
                 <div class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl text-center sm:text-left">
-                    <div class="text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">Prompt Redundancy</div>
+                    <div class="text-xs font-mono text-slate-500 font-semibold uppercase tracking-wider">Prompt Redundancy</div>
                     <div class="text-2xl sm:text-3xl font-extrabold text-indigo-700 font-mono mt-1">-100%</div>
-                    <div class="text-[11px] text-slate-600 mt-1">Two-tier decoupled prompt architecture</div>
+                    <div class="text-xs text-slate-600 mt-1">Two-tier decoupled prompt architecture</div>
                 </div>
             </div>
         </div>
@@ -166,7 +166,7 @@
                 <summary class="font-bold text-slate-900 cursor-pointer font-mono hover:text-[#003781]">
                     &blacktriangleright; Accessible Text Dataflow Summary (Screen Reader &amp; Spec Table)
                 </summary>
-                <div class="mt-3 space-y-2 font-mono text-[11px] leading-relaxed">
+                <div class="mt-3 space-y-2 font-mono text-xs leading-relaxed">
                     <p><strong>Stage 1 (Ingestion):</strong> Insurance claim payload received via Azure API Management gateway &rarr; queued into Kafka event buffer.</p>
                     <p><strong>Stage 2 (Multi-Layer Guardrails):</strong> Azure Content Safety screens injection attacks &rarr; LangChain PII redaction middleware sanitizes citizen data prior to persistence.</p>
                     <p><strong>Stage 3 (Declarative Graph Engine):</strong> JSON execution engine resolves 1 of 19 claim journey state graphs &rarr; LangGraph orchestrates cyclic agent nodes.</p>
@@ -192,8 +192,8 @@
                 <div class="bento-card p-6 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-001</span>
-                            <span class="text-[10px] font-mono text-emerald-700 font-semibold">ACCEPTED</span>
+                            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-001</span>
+                            <span class="text-xs font-mono text-emerald-700 font-semibold">ACCEPTED</span>
                         </div>
                         <h3 class="text-base font-bold text-slate-900 font-display">
                             LangGraph Cyclical State Machine vs. Linear DAGs
@@ -205,7 +205,7 @@
                             <strong>Rationale:</strong> Real insurance intake requires cyclic evaluation loops: when a claim statement lacks required evidence (e.g., photo of vehicle damage), the agent must dynamically loop back to prompt the claimant, evaluate clarification, and retry without resetting conversation context.
                         </p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-[11px] font-mono text-slate-500">
+                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-xs font-mono text-slate-500">
                         Outcome: Enabled resilient conversational recovery without pipeline failure.
                     </div>
                 </div>
@@ -214,8 +214,8 @@
                 <div class="bento-card p-6 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-002</span>
-                            <span class="text-[10px] font-mono text-emerald-700 font-semibold">ACCEPTED</span>
+                            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-002</span>
+                            <span class="text-xs font-mono text-emerald-700 font-semibold">ACCEPTED</span>
                         </div>
                         <h3 class="text-base font-bold text-slate-900 font-display">
                             Pydantic Runtime Validation at Node Boundaries
@@ -227,7 +227,7 @@
                             <strong>Rationale:</strong> LLM non-determinism frequently produces subtly mutated JSON keys. Without runtime schema enforcement, type errors propagate downstream to enterprise relational databases, corrupting state records.
                         </p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-[11px] font-mono text-slate-500">
+                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-xs font-mono text-slate-500">
                         Outcome: Zero downstream schema drift or database ingestion crashes.
                     </div>
                 </div>
@@ -236,8 +236,8 @@
                 <div class="bento-card p-6 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-003</span>
-                            <span class="text-[10px] font-mono text-emerald-700 font-semibold">ACCEPTED</span>
+                            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-003</span>
+                            <span class="text-xs font-mono text-emerald-700 font-semibold">ACCEPTED</span>
                         </div>
                         <h3 class="text-base font-bold text-slate-900 font-display">
                             Pre-Persistence PII Redaction &amp; Content Safety
@@ -249,7 +249,7 @@
                             <strong>Rationale:</strong> Under Australia corporate privacy standards, un-redacted citizen data written to application logs constitutes a regulatory violation. Pre-model filtering halts injection payloads and strips citizen PII upfront.
                         </p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-[11px] font-mono text-slate-500">
+                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-xs font-mono text-slate-500">
                         Outcome: 100% compliance across 100k+ annual insurance claims.
                     </div>
                 </div>
@@ -258,8 +258,8 @@
                 <div class="bento-card p-6 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between mb-2">
-                            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-004</span>
-                            <span class="text-[10px] font-mono text-emerald-700 font-semibold">ACCEPTED</span>
+                            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700">ADR-004</span>
+                            <span class="text-xs font-mono text-emerald-700 font-semibold">ACCEPTED</span>
                         </div>
                         <h3 class="text-base font-bold text-slate-900 font-display">
                             Declarative JSON Workflow Engine &amp; Two-Tier Prompts
@@ -271,7 +271,7 @@
                             <strong>Rationale:</strong> Rather than compiling Python binaries for every new policy journey, claim paths are defined in JSON contracts. Prompt engineers configure transitions, required documents, and question sequences in JSON.
                         </p>
                     </div>
-                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-[11px] font-mono text-slate-500">
+                    <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-xs font-mono text-slate-500">
                         Outcome: Slashed journey onboarding deployment from 3 weeks to 1 day.
                     </div>
                 </div>
@@ -293,7 +293,7 @@
             </p>
 
             <div class="bento-card bg-slate-900 text-slate-200 p-5 rounded-2xl font-mono text-xs overflow-x-auto shadow-lg border border-slate-800">
-                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-slate-400 text-[11px]">
+                <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-slate-400 text-xs">
                     <span class="flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                         <span>motor_claim_journey_v4.json</span>

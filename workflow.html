@@ -31,9 +31,9 @@
                     <div class="flex items-center gap-2">
                         <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
                         <h1 class="text-sm font-semibold text-white tracking-tight">Project Bluey-AI Lodgement</h1>
-                        <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded text-[11px] font-medium">Interactive Diagram</span>
+                        <span class="px-2 py-0.5 bg-slate-800 text-slate-300 border border-slate-700 rounded text-xs font-medium">Interactive Diagram</span>
                     </div>
-                    <p class="text-[11px] text-slate-400 mt-0.5">Shivraj Dhaytadak &bull; Enterprise Multi-Agent Event-Driven Topology</p>
+                    <p class="text-xs text-slate-300 mt-0.5">Shivraj Dhaytadak &bull; Enterprise Multi-Agent Event-Driven Topology</p>
                 </div>
             </a>
         </div>
@@ -46,18 +46,18 @@
                     <span id="play-text">LIVE</span>
                 </button>
                 <div class="h-3.5 w-px bg-slate-800 mx-0.5"></div>
-                <button onclick="setSpeed(0.5)" id="speed-05" aria-label="Set simulation speed to 0.5x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">0.5x</button>
+                <button onclick="setSpeed(0.5)" id="speed-05" aria-label="Set simulation speed to 0.5x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 transition-colors cursor-pointer">0.5x</button>
                 <button onclick="setSpeed(1.0)" id="speed-10" aria-label="Set simulation speed to 1.0x" class="px-2 py-1 rounded bg-slate-800 text-white font-medium transition-colors cursor-pointer">1.0x</button>
-                <button onclick="setSpeed(2.0)" id="speed-20" aria-label="Set simulation speed to 2.0x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-400 transition-colors cursor-pointer">2.0x</button>
+                <button onclick="setSpeed(2.0)" id="speed-20" aria-label="Set simulation speed to 2.0x" class="px-2 py-1 rounded hover:bg-slate-800 text-slate-300 transition-colors cursor-pointer">2.0x</button>
             </div>
 
             <button onclick="toggleThemeView()" id="btn-theme" aria-label="Switch diagram theme" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
-                <i data-lucide="palette" class="w-3.5 h-3.5 text-slate-400"></i>
+                <i data-lucide="palette" class="w-3.5 h-3.5 text-slate-300"></i>
                 <span id="theme-text">Eraser Schematic</span>
             </button>
 
             <button onclick="toggleLogDrawer()" aria-label="Toggle live telemetry log drawer" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-slate-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer">
-                <i data-lucide="terminal" class="w-3.5 h-3.5 text-slate-400"></i>
+                <i data-lucide="terminal" class="w-3.5 h-3.5 text-slate-300"></i>
                 <span id="log-count" class="text-xs">Live Logs</span>
             </button>
         </div>
@@ -70,10 +70,10 @@
         <div class="xl:col-span-9 bg-slate-900/60 border border-slate-800 rounded-2xl p-3 lg:p-5 flex flex-col justify-between relative overflow-hidden shadow-2xl">
             <div class="flex justify-between items-center mb-2 px-2 text-xs">
                 <div class="flex items-center gap-2">
-                    <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider">Topology Model:</span>
-                    <span class="text-[11px] font-bold text-indigo-300 code-font">Azure-Durable-LangGraph-Pipeline</span>
+                    <span class="text-xs font-mono text-slate-300 uppercase tracking-wider">Topology Model:</span>
+                    <span class="text-xs font-bold text-indigo-300 code-font">Azure-Durable-LangGraph-Pipeline</span>
                 </div>
-                <div class="flex items-center gap-4 text-[11px] text-slate-400 code-font">
+                <div class="flex items-center gap-4 text-xs text-slate-300 code-font">
                     <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-amber-400"></span> Ingestion</span>
                     <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-sky-400"></span> Orchestration</span>
                     <span class="flex items-center gap-1.5"><span class="h-2 w-2 rounded-full bg-indigo-400"></span> Multi-Agent Loop</span>
@@ -518,26 +518,26 @@
 
                 <div class="space-y-2 text-xs">
                     <div class="bg-slate-950/80 p-2.5 rounded-lg border border-slate-850">
-                        <span class="text-[10px] text-slate-500 uppercase font-bold code-font block mb-1">Execution Contract</span>
-                        <div id="inspect-contract" class="text-[11px] text-indigo-300 font-mono">AgenticGraphState -> PydanticScheme</div>
+                        <span class="text-xs text-slate-400 uppercase font-bold code-font block mb-1">Execution Contract</span>
+                        <div id="inspect-contract" class="text-xs text-indigo-300 font-mono">AgenticGraphState -> PydanticScheme</div>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                    <div class="grid grid-cols-2 gap-2 text-xs">
                         <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
-                            <span class="text-[9px] text-slate-500 uppercase font-bold code-font block">Avg Latency</span>
+                            <span class="text-xs text-slate-400 uppercase font-bold code-font block">Avg Latency</span>
                             <span id="inspect-latency" class="font-bold text-slate-200 code-font">Instant</span>
                         </div>
                         <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
-                            <span class="text-[9px] text-slate-500 uppercase font-bold code-font block">Throughput</span>
+                            <span class="text-xs text-slate-400 uppercase font-bold code-font block">Throughput</span>
                             <span id="inspect-throughput" class="font-bold text-emerald-400 code-font">1.2k req/min</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="border-t border-slate-800 pt-3">
-                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wide block mb-1.5">Downstream Dependencies</span>
+                    <span class="text-xs font-bold text-slate-300 uppercase tracking-wide block mb-1.5">Downstream Dependencies</span>
                     <div id="inspect-deps" class="flex flex-wrap gap-1.5">
-                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-[10px] code-font">Weather</span>
-                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-[10px] code-font">Foundry GPT-5.4 mini</span>
+                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-xs code-font">Weather</span>
+                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-xs code-font">Foundry GPT-5.4 mini</span>
                     </div>
                 </div>
             </div>
@@ -549,10 +549,10 @@
                         <i data-lucide="terminal" class="w-4 h-4 text-emerald-400"></i>
                         <span class="text-xs font-bold uppercase tracking-wider text-slate-300">Live Telemetry Bus</span>
                     </div>
-                    <span class="text-[9px] text-slate-500 code-font">FIFO Buffer</span>
+                    <span class="text-xs text-slate-400 code-font">FIFO Buffer</span>
                 </div>
 
-                <div id="telemetry-log" class="telemetry-feed flex-1 overflow-y-auto max-h-[300px] flex flex-col gap-1.5 text-[11px] code-font text-slate-300 leading-snug pr-1">
+                <div id="telemetry-log" class="telemetry-feed flex-1 overflow-y-auto max-h-[300px] flex flex-col gap-1.5 text-xs code-font text-slate-300 leading-snug pr-1">
                     <!-- Dynamic logs inserted via JS -->
                 </div>
             </div>
@@ -829,7 +829,7 @@
 
             const depsContainer = document.getElementById("inspect-deps");
             depsContainer.innerHTML = data.deps.map(dep => `
-                <span class="px-2 py-0.5 bg-slate-950 text-indigo-300 border border-indigo-900/50 rounded text-[10px] code-font font-medium">${dep}</span>
+                <span class="px-2 py-0.5 bg-slate-950 text-indigo-300 border border-indigo-900/50 rounded text-xs code-font font-medium">${dep}</span>
             `).join('');
 
             addTelemetryLog(`[INSPECT_NODE] Queried telemetry profile for ${data.title}`);
@@ -866,7 +866,7 @@
             const time = new Date().toISOString().substring(11, 19);
             const p = document.createElement("div");
             p.className = "flex items-start gap-1.5 py-0.5 border-b border-slate-900";
-            p.innerHTML = `<span class="text-slate-500 shrink-0 text-[10px]">${time}</span> <span class="${message.includes('INSPECT') ? 'text-indigo-400 font-bold' : message.includes('PASSED') || message.includes('HIT') ? 'text-emerald-400' : 'text-slate-300'}">${message}</span>`;
+            p.innerHTML = `<span class="text-slate-500 shrink-0 text-xs">${time}</span> <span class="${message.includes('INSPECT') ? 'text-indigo-400 font-bold' : message.includes('PASSED') || message.includes('HIT') ? 'text-emerald-400' : 'text-slate-300'}">${message}</span>`;
             
             container.appendChild(p);
             container.scrollTop = container.scrollHeight;

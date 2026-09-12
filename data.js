@@ -117,7 +117,7 @@ const portfolioData = {
             },
             {
                 title: "LangChain Automated PII Redaction",
-                description: "100% compliance with Australia Corporate Privacy Standards prior to data persistence.",
+                description: "Strict compliance with Australian Privacy Principles (APP-19) prior to data persistence.",
                 icon: "lock"
             },
             {
@@ -162,19 +162,19 @@ const portfolioData = {
             metrics: [
                 { label: "AST Parse Cache", value: "< 0.4ms" },
                 { label: "Cold Start Latency", value: "0ms (Warm)" },
-                { label: "Australia Privacy Standards", value: "100% Pass" },
-                { label: "Prompt Duplication", value: "0%" }
+                { label: "Privacy Compliance", value: "APP-19 Pass" },
+                { label: "Prompt Duplication", value: "Zero Redundancy" }
             ],
             narrative: {
                 challenge: "Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.",
                 solution: "Architected a Declarative JSON Workflow Engine separating prompt configurations and route logic from execution binaries. Incoming stream payloads from Kafka and Event Hubs are orchestrated through Azure Durable Functions and passed through Azure Content Safety and LangChain PII redaction before entering the LangGraph state machine.",
-                impact: "Slashed new claim journey launch time from 3 weeks to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and 100% regulatory compliance."
+                impact: "Slashed new claim journey launch time from 3 weeks to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and validated APP-19 compliance."
             },
             deliverables: [
                 "<strong>[Architecture]</strong> Declarative JSON workflow engine driving 19 claim types, allowing business & prompt engineers to launch new claim journeys in 24 hours without backend redeployment.",
-                "<strong>[Guardrails]</strong> Multi-tier Azure Content Safety & LangChain PII redaction middleware ensuring 100% compliance with Australian corporate privacy standards (APP).",
+                "<strong>[Guardrails]</strong> Multi-tier Azure Content Safety & LangChain PII redaction middleware ensuring compliance with Australian Privacy Principles (APP-19).",
                 "<strong>[Orchestration]</strong> Synchronized LangGraph node transitions with Azure Durable Functions and warm Kafka consumer pools to prevent cold-start bottlenecks.",
-                "<strong>[Prompt Decoupling]</strong> Two-tier prompt architecture combining generalized agent directives with journey-specific rules, eliminating 100% of prompt duplication."
+                "<strong>[Prompt Decoupling]</strong> Two-tier prompt architecture combining generalized agent directives with journey-specific rules, eliminating redundant prompt duplication."
             ]
         },
         {
@@ -252,7 +252,7 @@ const portfolioData = {
         ],
         starNarrative: {
             situation: "Insurance claim lodgement is a high-stakes, legally audited domain. Historically, modifying or adding a claim journey required 3 weeks of backend developer engineering, hardcoded business rule changes, schema re-validation, and full CI/CD deployment cycles. Meanwhile, the inherent non-determinism of LLMs created legal, compliance, and hallucination risks under Australian regulatory frameworks.",
-            task: "Engineer a production-grade multi-agent architecture that empowers non-developer prompt engineers to ship new claim journeys in under 24 hours without backend binary redeployments, while guaranteeing 100% compliance with privacy mandates and zero corrupted agent state transitions.",
+            task: "Engineer a production-grade multi-agent architecture that empowers non-developer prompt engineers to ship new claim journeys in under 24 hours without backend binary redeployments, while guaranteeing strict compliance with Australian privacy mandates and zero corrupted agent state transitions.",
             action: [
                 "Declarative JSON Workflow Engine: Completely decoupled prompt definitions, state transition routes, and tool schemas from the execution binary. Each claim journey is configured via a single declarative JSON document.",
                 "Dual-Tier Guardrail Pipeline: Inbound payloads from Managed Kafka and Azure Event Hubs are immediately processed by Azure Content Safety (blocking prompt injection) and LangChain PII redaction middleware (anonymizing citizen data).",
@@ -312,7 +312,7 @@ const portfolioData = {
                 label: "Dual-Tier Safety & PII Guardrail",
                 category: "AI Safety & Compliance",
                 tech: "Azure Content Safety + LangChain PII",
-                badge: "100% APP Compliant",
+                badge: "APP-19 Compliant",
                 description: "Screens prompt injection attacks, detects toxic inputs, and anonymizes personal data before LLM reasoning.",
                 payloadSample: `{
   "injectionCheck": { "flagged": false, "confidence": 0.998 },
@@ -504,7 +504,7 @@ class EnterpriseClaimSafetyGate:
                 "sanitized_payload": None
             }
 
-        # Step 2: LangChain PII Redaction (Australian Privacy Principles 100% compliant)
+        # Step 2: LangChain PII Redaction (Australian Privacy Principles APP-19 compliance)
         sanitized = self.pii_redactor.transform_text(raw_text)
         return {
             "decision": "PERMITTED",

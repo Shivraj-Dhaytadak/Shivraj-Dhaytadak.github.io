@@ -99,7 +99,7 @@ function showToast(message, icon = "check-circle", duration = 2800, badge = null
     let badgeHtml = "";
     if (badge) {
         const bCls = badgeClass || "bg-blue-500/20 text-blue-300 border-blue-500/30";
-        badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider border shrink-0 ${bCls}">${badge}</span>`;
+        badgeHtml = `<span class="px-2 py-0.5 rounded text-xs font-mono font-bold uppercase tracking-wider border shrink-0 ${bCls}">${badge}</span>`;
     }
 
     toast.innerHTML = `
@@ -323,7 +323,7 @@ function renderCmdkList(filterText = "") {
     let html = "";
     Object.keys(categories).forEach(cat => {
         html += `
-            <div class="px-3 pt-3 pb-1 text-[10px] font-mono uppercase tracking-wider text-slate-500 font-semibold">
+            <div class="px-3 pt-3 pb-1 text-xs font-mono uppercase tracking-wider text-slate-500 font-semibold">
                 ${cat}
             </div>
         `;
@@ -335,7 +335,7 @@ function renderCmdkList(filterText = "") {
                         <i data-lucide="${item.icon}" class="w-3.5 h-3.5 text-[#003781]"></i>
                         <span class="text-xs text-slate-800 font-medium">${item.label}</span>
                     </div>
-                    <span class="text-[10px] font-mono text-slate-400">↵</span>
+                    <span class="text-xs font-mono text-slate-400">↵</span>
                 </div>
             `;
         });
@@ -543,7 +543,7 @@ function initPipelineScrollytelling() {
                         el.className = "hud-node active flex items-center gap-3 p-3 transition-all";
                         if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-indigo-400 animate-ping shrink-0";
                         if (latencySpan) {
-                            latencySpan.className = "text-[10px] text-indigo-300 font-mono";
+                            latencySpan.className = "text-xs text-indigo-300 font-mono";
                             if (num === "1") latencySpan.textContent = "2.1ms";
                             else if (num === "2") latencySpan.textContent = "18ms";
                             else if (num === "3") latencySpan.textContent = "1.8s";
@@ -553,7 +553,7 @@ function initPipelineScrollytelling() {
                         el.className = "hud-node flex items-center gap-3 p-3 opacity-40 transition-all";
                         if (dot) dot.className = "w-2.5 h-2.5 rounded-full bg-slate-600 shrink-0";
                         if (latencySpan) {
-                            latencySpan.className = "text-[10px] text-slate-500 font-mono";
+                            latencySpan.className = "text-xs text-slate-500 font-mono";
                             latencySpan.textContent = "Standby";
                         }
                     }
@@ -563,7 +563,7 @@ function initPipelineScrollytelling() {
                 const data = telemetryData[stepNum];
                 if (data && statusLabel) {
                     statusLabel.textContent = data.status;
-                    statusLabel.className = `px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold border ${data.statusClass}`;
+                    statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${data.statusClass}`;
                 }
                 if (data && telemetryWindow) {
                     telemetryWindow.innerHTML = `<code>${highlightSyntax(data.json, "json")}</code>`;
@@ -598,9 +598,9 @@ const swarmSimulations = {
                 title: "Kafka Event Hub Broker",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "Stream: claims.ingest.v4 [Partition 02] • Ingested",
-                subCls: "text-emerald-400/90 text-[11px]",
+                subCls: "text-emerald-400/90 text-xs",
                 latency: "2.1ms",
-                latencyCls: "text-[10px] text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-300 font-mono"
             },
             {
                 id: "hud-node-2",
@@ -609,9 +609,9 @@ const swarmSimulations = {
                 title: "Azure Content Safety & Guardrails",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "Content Safety: PASSED (Score: 0.001) • 0 PII flags",
-                subCls: "text-emerald-400/90 text-[11px]",
+                subCls: "text-emerald-400/90 text-xs",
                 latency: "11ms",
-                latencyCls: "text-[10px] text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-300 font-mono"
             },
             {
                 id: "hud-node-3",
@@ -620,9 +620,9 @@ const swarmSimulations = {
                 title: "LangGraph Multi-Agent Swarm",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "Swarm: 4 micro-agents evaluated • Pydantic Typed",
-                subCls: "text-emerald-400/90 text-[11px]",
+                subCls: "text-emerald-400/90 text-xs",
                 latency: "1.4s",
-                latencyCls: "text-[10px] text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-300 font-mono"
             },
             {
                 id: "hud-node-4",
@@ -631,9 +631,9 @@ const swarmSimulations = {
                 title: "Auto-Settlement Dispatched",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "Approved • Dynatrace trace: dt_trace_9824",
-                subCls: "text-emerald-400/90 text-[11px]",
+                subCls: "text-emerald-400/90 text-xs",
                 latency: "86ms",
-                latencyCls: "text-[10px] text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-300 font-mono"
             }
         ],
         json: JSON.stringify({
@@ -672,9 +672,9 @@ const swarmSimulations = {
                 title: "Kafka Event Hub Broker",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "Stream: claims.ingest.v4 [Partition 02] • Buffered",
-                subCls: "text-slate-400 text-[11px]",
+                subCls: "text-slate-400 text-xs",
                 latency: "1.7ms",
-                latencyCls: "text-[10px] text-sky-300 font-mono"
+                latencyCls: "text-xs text-sky-300 font-mono"
             },
             {
                 id: "hud-node-2",
@@ -683,9 +683,9 @@ const swarmSimulations = {
                 title: "Azure Content Safety Jailbreak Shield",
                 titleCls: "text-white font-bold text-xs",
                 sub: "CRITICAL HALT: Jailbreak Detected (Score: 0.994)",
-                subCls: "text-rose-300 font-semibold text-[11px]",
+                subCls: "text-rose-300 font-semibold text-xs",
                 latency: "6ms",
-                latencyCls: "text-[10px] text-rose-300 font-mono font-bold"
+                latencyCls: "text-xs text-rose-300 font-mono font-bold"
             },
             {
                 id: "hud-node-3",
@@ -694,9 +694,9 @@ const swarmSimulations = {
                 title: "LangGraph State Machine",
                 titleCls: "text-slate-400 font-bold text-xs line-through",
                 sub: "BYPASSED: Circuit breaker tripped • 0 LLM Tokens Wasted",
-                subCls: "text-slate-500 text-[11px]",
+                subCls: "text-slate-500 text-xs",
                 latency: "0ms",
-                latencyCls: "text-[10px] text-slate-500 font-mono"
+                latencyCls: "text-xs text-slate-500 font-mono"
             },
             {
                 id: "hud-node-4",
@@ -705,9 +705,9 @@ const swarmSimulations = {
                 title: "SIEM Security Incident Quarantine",
                 titleCls: "text-white font-bold text-xs",
                 sub: "QUARANTINED: Forensic snapshot recorded • Ref: SEC-88192",
-                subCls: "text-rose-300 text-[11px]",
+                subCls: "text-rose-300 text-xs",
                 latency: "12ms",
-                latencyCls: "text-[10px] text-rose-300 font-mono"
+                latencyCls: "text-xs text-rose-300 font-mono"
             }
         ],
         json: JSON.stringify({
@@ -739,9 +739,9 @@ const swarmSimulations = {
                 title: "Kafka Event Hub Broker",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "Stream: claims.ingest.v4 [Partition 02] • Buffered",
-                subCls: "text-slate-400 text-[11px]",
+                subCls: "text-slate-400 text-xs",
                 latency: "2.4ms",
-                latencyCls: "text-[10px] text-indigo-300 font-mono"
+                latencyCls: "text-xs text-indigo-300 font-mono"
             },
             {
                 id: "hud-node-2",
@@ -750,9 +750,9 @@ const swarmSimulations = {
                 title: "LangChain PII Redaction Middleware",
                 titleCls: "text-white font-bold text-xs",
                 sub: "SANITIZED: AU Driver License & TFN masked to [REDACTED]",
-                subCls: "text-amber-300 font-medium text-[11px]",
+                subCls: "text-amber-300 font-medium text-xs",
                 latency: "24ms",
-                latencyCls: "text-[10px] text-amber-300 font-mono"
+                latencyCls: "text-xs text-amber-300 font-mono"
             },
             {
                 id: "hud-node-3",
@@ -761,9 +761,9 @@ const swarmSimulations = {
                 title: "LangGraph State Machine",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "State Machine: Sanitized payload evaluated cleanly",
-                subCls: "text-emerald-400/90 text-[11px]",
+                subCls: "text-emerald-400/90 text-xs",
                 latency: "1.6s",
-                latencyCls: "text-[10px] text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-300 font-mono"
             },
             {
                 id: "hud-node-4",
@@ -772,9 +772,9 @@ const swarmSimulations = {
                 title: "Blob Hot Storage Persistence",
                 titleCls: "text-slate-100 font-bold text-xs",
                 sub: "Persisted to Hot Blob Cache • Zero PII at rest",
-                subCls: "text-emerald-400/90 text-[11px]",
+                subCls: "text-emerald-400/90 text-xs",
                 latency: "104ms",
-                latencyCls: "text-[10px] text-emerald-300 font-mono"
+                latencyCls: "text-xs text-emerald-300 font-mono"
             }
         ],
         json: JSON.stringify({
@@ -811,7 +811,7 @@ function simulateSwarmPayload(payloadKey) {
     const statusLabel = document.getElementById("pipeline-status");
     if (statusLabel) {
         statusLabel.textContent = sim.statusBadge;
-        statusLabel.className = `px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold border ${sim.statusClass}`;
+        statusLabel.className = `px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${sim.statusClass}`;
     }
 
     // Update telemetry window
@@ -938,7 +938,7 @@ function renderCareerAct(actId) {
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[rgba(40,30,20,0.08)] pb-5">
                 <div>
                     <div class="flex items-center gap-2">
-                        <span class="px-2.5 py-0.5 rounded-full ${brandTheme.badgeClass} font-mono text-[11px] font-semibold">${act.act}</span>
+                        <span class="px-2.5 py-0.5 rounded-full ${brandTheme.badgeClass} font-mono text-xs font-semibold">${act.act}</span>
                         <span class="text-xs font-mono text-slate-500">${act.period}</span>
                         <span class="text-xs text-slate-400">&bull;</span>
                         <span class="text-xs text-slate-500">${act.location}</span>
@@ -962,7 +962,7 @@ function renderCareerAct(actId) {
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 ${act.metrics.map(m => `
                     <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-3.5 rounded-xl">
-                        <div class="text-[10px] uppercase font-mono tracking-wider text-slate-500 font-medium">${m.label}</div>
+                        <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">${m.label}</div>
                         <div class="text-xl font-bold font-mono text-slate-900 mt-1">${m.value}</div>
                     </div>
                 `).join('')}
@@ -1048,21 +1048,21 @@ function renderTopologyNodeDetails(nodeId) {
             <div>
                 <div class="flex items-center justify-between gap-2 border-b border-[rgba(40,30,20,0.08)] pb-3">
                     <div>
-                        <span class="text-[10px] font-mono text-[#003781] font-semibold uppercase tracking-wider">${node.category}</span>
+                        <span class="text-xs font-mono text-[#003781] font-semibold uppercase tracking-wider">${node.category}</span>
                         <h4 class="text-base font-bold text-slate-900 mt-0.5">${node.label}</h4>
                     </div>
-                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold bg-[#EBF3FB] border border-[#003781]/25 text-[#003781]">${node.badge}</span>
+                    <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold bg-[#EBF3FB] border border-[#003781]/25 text-[#003781]">${node.badge}</span>
                 </div>
 
                 <p class="text-xs text-slate-600 mt-3 leading-relaxed">${node.description}</p>
 
                 <div class="mt-4 grid grid-cols-2 gap-2 text-xs">
                     <div class="bg-[#FAF8F5] p-2.5 rounded-xl border border-[rgba(40,30,20,0.08)]">
-                        <div class="text-[10px] text-slate-500 uppercase tracking-wider">Performance SLA</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider">Performance SLA</div>
                         <div class="text-xs font-mono font-semibold text-slate-800 mt-0.5">${node.sla}</div>
                     </div>
                     <div class="bg-[#FAF8F5] p-2.5 rounded-xl border border-[rgba(40,30,20,0.08)]">
-                        <div class="text-[10px] text-slate-500 uppercase tracking-wider">System Invariant</div>
+                        <div class="text-xs text-slate-500 uppercase tracking-wider">System Invariant</div>
                         <div class="text-xs font-mono font-semibold text-slate-800 mt-0.5">${node.invariant}</div>
                     </div>
                 </div>
@@ -1070,17 +1070,17 @@ function renderTopologyNodeDetails(nodeId) {
                 <!-- Live Schema / Payload Inspector with Syntax Highlighting -->
                 <div class="mt-4">
                     <div class="flex items-center justify-between text-xs mb-1.5">
-                        <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-semibold">Inspected State Payload</span>
-                        <button onclick="copyToClipboard(\`${node.payloadSample.replace(/`/g, '\\`')}\`, 'Payload JSON')" class="text-[10px] text-slate-500 hover:text-[#003781] flex items-center gap-1 font-mono transition-colors cursor-pointer">
+                        <span class="text-xs font-mono text-slate-500 uppercase tracking-wider font-semibold">Inspected State Payload</span>
+                        <button onclick="copyToClipboard(\`${node.payloadSample.replace(/`/g, '\\`')}\`, 'Payload JSON')" class="text-xs text-slate-500 hover:text-[#003781] flex items-center gap-1 font-mono transition-colors cursor-pointer">
                             <i data-lucide="copy" class="w-3 h-3"></i> Copy
                         </button>
                     </div>
-                    <pre class="p-3 bg-[#0B0F19] border border-slate-800 rounded-xl text-[11px] font-mono text-slate-200 overflow-x-auto max-h-[190px] leading-relaxed"><code>${highlightedPayload}</code></pre>
+                    <pre class="p-3 bg-[#0B0F19] border border-slate-800 rounded-xl text-xs font-mono text-slate-200 overflow-x-auto max-h-[190px] leading-relaxed"><code>${highlightedPayload}</code></pre>
                 </div>
             </div>
 
             <div class="pt-3 border-t border-[rgba(40,30,20,0.08)] flex items-center justify-between text-xs">
-                <span class="text-[11px] text-slate-500 font-mono">Tech: ${node.tech}</span>
+                <span class="text-xs text-slate-500 font-mono">Tech: ${node.tech}</span>
                 <a href="workflow.html" target="_blank" class="text-[#003781] hover:text-[#002659] font-medium flex items-center gap-1 text-xs transition-colors">
                     <span>Launch Interactive Simulator</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
                 </a>
