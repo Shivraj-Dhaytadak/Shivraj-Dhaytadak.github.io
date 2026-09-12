@@ -1,12 +1,13 @@
 <div align="center">
 
 # Shivraj Dhaytadak
-### AI Strategy Consultant & Agentic Systems Architect
+### Agentic AI Consultant & Enterprise Systems Architect
 
 Pune, India &bull; `+91 7972476081` &bull; `shivraj.25d@gmail.com`
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-shivraj--dhaytadak.github.io-0F172A?style=flat-square&logo=googlechrome&logoColor=white)](https://shivraj-dhaytadak.github.io/)
 [![Architecture Simulator](https://img.shields.io/badge/Simulator-Interactive_Topology-2563EB?style=flat-square&logo=azurefunctions&logoColor=white)](https://shivraj-dhaytadak.github.io/workflow.html)
+[![Case Study](https://img.shields.io/badge/Case_Study-Allianz_Lodgement_Engine-003781?style=flat-square&logo=gitbook&logoColor=white)](https://shivraj-dhaytadak.github.io/case-study.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-shivraj--dhaytadak7-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shivraj-dhaytadak7)
 [![GitHub](https://img.shields.io/badge/GitHub-Shivraj--Dhaytadak-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Shivraj-Dhaytadak)
 
@@ -16,12 +17,12 @@ Pune, India &bull; `+91 7972476081` &bull; `shivraj.25d@gmail.com`
 
 ### 💼 Executive Profile
 
-Dynamic **AI Strategy Consultant** with **4+ years of experience** in designing and deploying enterprise Gen AI solutions. Proven track record in optimizing high-throughput workflows and reducing operational costs. Skilled in **Context Engineering**, **RAG**, and **Agentic AI** to automate complex pipelines and generate certified, high-quality outcomes.
+Agentic AI Systems Engineer with **4+ years of experience** designing and scaling production multi-agent architectures for regulated global enterprises (Allianz Services, Yash Technologies, Persistent Systems). Proven track record orchestrating 19 production claim journeys handling 100k+ annual claims with 1-day rollouts and sub-2.5s composite graph latency.
 
-- 🧠 **Multi-Agent Orchestration**: Designing state machines, multi-agent supervisor loops, and runtime validation layers using **LangGraph**, **CrewAI**, **MCP**, and **A2A**.
+- 🧠 **Multi-Agent Orchestration**: Designing deterministic state machines, supervisor loops, and runtime validation layers using **LangGraph**, **CrewAI**, **MCP**, and **A2A**.
 - ⚙️ **Declarative Pipelines**: Replacing brittle prompt chains with schema-governed, declarative JSON workflows processing 100k+ transactions/year.
-- 🛡️ **Defensive Engineering & Privacy**: Halting prompt injection attacks via **Azure Content Safety** and automating **LangChain PII redaction** ensuring 100% compliance with Australian corporate privacy standards.
-- 🚀 **High-Throughput Model Serving**: Fine-tuning via **TRL (LoRA/QLoRA)** and serving via **FastAPI** & **vLLM** with -50% latency reduction.
+- 🛡️ **Defensive Engineering & Privacy**: Halting prompt injection attacks via **Azure Content Safety** and automating **LangChain PII redaction** to meet Australian Privacy Principle (APP-19) compliance mandates.
+- 🚀 **High-Throughput Model Serving**: Fine-tuning via **TRL (LoRA/QLoRA)** and serving via **FastAPI** & **vLLM** with significant latency reductions.
 
 ---
 
@@ -64,14 +65,15 @@ Dynamic **AI Strategy Consultant** with **4+ years of experience** in designing 
         <b>Project Bluey</b><br>
         <sub>Enterprise AI Claims Lodgement Engine</sub><br><br>
         <a href="https://shivraj-dhaytadak.github.io/workflow.html"><b>⚡ Launch Live Simulator &rarr;</b></a><br>
+        <a href="https://shivraj-dhaytadak.github.io/case-study.html"><b>📖 Deep-Dive Case Study &rarr;</b></a><br>
         <a href="https://shivraj-dhaytadak.github.io/"><b>View Portfolio &rarr;</b></a>
       </td>
       <td>
-        • Engineered multi-layer <b>Guardrails agent using Azure Content Safety</b> to screen 100k+ annual claims, halting malicious payloads and prompt injection vulnerabilities.<br>
-        • Integrated <b>LangChain PII redaction middleware</b> with Azure Content Safety, ensuring 100% compliance with Australian corporate privacy standards.<br>
-        • Architected a <b>declarative JSON workflow engine covering 19 claim journeys</b> (100k+ claims/yr), slashing onboarding deployment time from <b>3 weeks to 1 day</b>.<br>
-        • Designed a <b>two-tier prompt architecture</b> eliminating 100% prompt duplication while cutting agent configuration latency.<br>
-        • Enforced runtime type-safety via Pydantic classes in each agent node, eliminating LLM non-determinism.
+        • Engineered multi-layer <b>Guardrails agent using Azure Content Safety</b> to screen 100k+ annual claims with zero reported security breaches.<br>
+        • Integrated <b>LangChain PII redaction middleware</b> with Azure Content Safety, adhering strictly to Australian Privacy Principle (APP-19) standards.<br>
+        • Architected a <b>declarative JSON workflow engine covering 19 claim journeys</b>, slashing journey rollout time from <b>3 weeks to 1 day</b>.<br>
+        • Designed a <b>two-tier prompt architecture</b> eliminating redundant prompt duplication and cutting configuration latency.<br>
+        • Enforced runtime type-safety via Pydantic v2 schemas at each graph node boundary, guaranteeing deterministic state validation.
       </td>
       <td>
         <code>LangGraph</code><br>
@@ -127,6 +129,42 @@ Dynamic **AI Strategy Consultant** with **4+ years of experience** in designing 
     </tr>
   </tbody>
 </table>
+
+---
+
+### 🏗️ Portfolio Architecture & Local Development
+
+This portfolio is built as a high-performance, accessible static web application hosted on **GitHub Pages** with an automated **Tailwind CSS v4** build pipeline:
+
+- **Zero-Runtime CDN**: Pre-compiled, minified production CSS (`dist/output.css`) with zero layout shift and no client-side JIT script tags.
+- **Accessibility & Contrast**: Built to meet WCAG 2.1 AA contrast standards (≥4.5:1), 12px+ minimum font sizes, and `prefers-reduced-motion` guards.
+- **Interactive Topologies**: Pure client-side SVG state machine visualizer (`workflow.html`) with dual-emit telemetry feeds and interactive node inspectors.
+
+#### Prerequisites
+- [Node.js](https://nodejs.org/) (v20 or higher)
+- npm (v10 or higher)
+
+#### Quickstart & Commands
+```bash
+# 1. Clone repository
+git clone https://github.com/Shivraj-Dhaytadak/Shivraj-Dhaytadak.github.io.git
+cd Shivraj-Dhaytadak.github.io
+
+# 2. Install dependencies
+npm install
+
+# 3. Build minified production CSS
+npm run build:css
+
+# 4. Watch for CSS changes during local development
+npm run watch:css
+
+# 5. Preview locally via static server
+npx serve .
+```
+
+#### Automated Deployment
+Pushes to the `main` branch automatically trigger [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), which compiles the production stylesheet via Tailwind CLI and deploys the static bundle directly to GitHub Pages.
 
 ---
 
