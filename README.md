@@ -1,7 +1,7 @@
 <div align="center">
 
 # Shivraj Dhaytadak
-### Senior Agentic AI Engineer & Architect
+### Agentic AI Consultant • Enterprise Multi-Agent Systems
 
 Pune, India &bull; `+91 7972476081` &bull; `shivraj.25d@gmail.com`
 
@@ -17,7 +17,7 @@ Pune, India &bull; `+91 7972476081` &bull; `shivraj.25d@gmail.com`
 
 ### 💼 Executive Profile
 
-Agentic AI Systems Engineer with **4+ years of experience** designing and scaling production multi-agent architectures for regulated global enterprises (Allianz Services, Yash Technologies, Persistent Systems). Proven track record orchestrating 19 production claim journeys handling 100k+ annual claims with 1-day rollouts and sub-2.5s composite graph latency.
+Agentic AI Consultant with **4+ years of experience** designing and scaling production multi-agent architectures for regulated global enterprises (Allianz Services, Yash Technologies, Persistent Systems). Proven track record orchestrating 19 production claim journeys handling 100k+ annual claims with 21x rollout acceleration (< 24h) and sub-2.5s composite graph latency.
 
 - 🧠 **Multi-Agent Orchestration**: Designing deterministic state machines, supervisor loops, and runtime validation layers using **LangGraph**, **CrewAI**, **MCP**, and **A2A**.
 - ⚙️ **Declarative Pipelines**: Replacing brittle prompt chains with schema-governed, declarative JSON workflows processing 100k+ transactions/year.

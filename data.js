@@ -8,11 +8,11 @@
 const portfolioData = {
     profile: {
         name: "Shivraj Dhaytadak",
-        title: "Senior Agentic AI Engineer & Architect",
-        headline: "Architecting Resilient Multi-Agent Workflows for Enterprise Scale.",
-        bio: "I'm Shivraj Dhaytadak—Senior Agentic AI Engineer & Architect at Allianz Services. I bridge stochastic large language models with deterministic, mission-critical distributed pipelines. 4+ years engineering production LangGraph engines, Azure event-driven architectures, and high-throughput agent swarms.",
+        title: "Agentic AI Consultant",
+        headline: "I architect production-grade multi-agent systems for regulated enterprises.",
+        bio: "I'm Shivraj Dhaytadak — Agentic AI Consultant at Allianz Services. I bridge stochastic large language models with deterministic, mission-critical distributed pipelines. 4+ years engineering production LangGraph engines, Azure event-driven architectures, and high-throughput agent swarms.",
         location: "Pune, IN",
-        status: "Open to Relocation & High-Impact Agentic AI Roles",
+        status: "Open to High-Impact Agentic AI Roles & Strategic Consulting",
         experienceYears: "4+ Years",
         email: "shivraj.25d@gmail.com",
         phone: "+91 7972476081",
@@ -40,6 +40,19 @@ const portfolioData = {
                 icon: "cloud"
             }
         ]
+    },
+
+    canonicalMetrics: {
+        claimsVolume: "100k+",
+        activeJourneys: "19",
+        rolloutSpeed: "< 24 Hours",
+        velocityGain: "21x",
+        releaseBaseline: "3 Weeks",
+        complianceBreaches: "0 Breaches",
+        privacyStandard: "APP 11",
+        astCacheHit: "< 0.4ms",
+        kafkaThroughput: "3,400 msg/sec",
+        graphLatencyP95: "Sub-2.5s"
     },
 
     recruiterSnapshot: {
@@ -153,7 +166,7 @@ const portfolioData = {
             id: "allianz",
             period: "Jan 2026 – Present",
             company: "Allianz Services",
-            role: "Senior Agentic AI Engineer & Architect",
+            role: "Agentic AI Consultant",
             location: "Pune, IN",
             theme: "Enterprise Autonomy & Production Resiliency",
             context: "Insurance Captive / GCC handling massive claim workflows across Asia-Pacific.",

@@ -161,7 +161,7 @@ EMAIL;type=INTERNET;type=WORK:${p.email}
 TEL;type=CELL:${p.phone}
 ADR;type=WORK:;;Pune;Maharashtra;;India
 URL:${p.linkedin}
-NOTE:Senior Agentic AI Engineer & Architect specializing in Multi-Agent Workflows, LangGraph, and Distributed Cloud Pipelines.
+NOTE:Agentic AI Consultant specializing in Multi-Agent Workflows, LangGraph, and Distributed Cloud Pipelines.
 END:VCARD`;
 
     const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8;" });
