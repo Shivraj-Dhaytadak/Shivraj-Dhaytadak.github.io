@@ -95,6 +95,8 @@
                 aria-label="Main Navigation">
                 <a href="#case-study"
                     class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Work</a>
+                <a href="#skills"
+                    class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Skills</a>
                 <a href="#capabilities"
                     class="px-3 py-1 text-slate-700 hover:text-[#003781] transition-colors rounded-full hover:bg-[#EBF3FB] font-medium">Architecture</a>
                 <a href="#career-timeline"
@@ -175,6 +177,8 @@
         <nav class="py-4 flex flex-col gap-1.5 font-sans" aria-label="Mobile Menu Links">
             <a href="#case-study"
                 class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Work</a>
+            <a href="#skills"
+                class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Skills</a>
             <a href="#capabilities"
                 class="mobile-nav-link py-2.5 px-3 rounded-xl font-medium text-slate-800 dark:text-slate-200 hover:bg-[#EBF3FB] dark:hover:bg-slate-800/60 transition-colors">Architecture</a>
             <a href="#career-timeline"
@@ -225,8 +229,8 @@
                         </h1>
                         <p
                             class="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl font-normal prose-measure">
-                            Architecting autonomous, compliant agent workflows at Allianz Services &mdash; powering 19
-                            production journeys handling 100k+ claims/year with sub-2.5s graph latency and zero reported
+                            Architecting autonomous, compliant agent workflows at Allianz Services &mdash; powering 18
+                            production journeys handling 100k+ claims/year with under 120s median completion latency and zero reported
                             security breaches.
                         </p>
                     </div>
@@ -358,11 +362,13 @@
 
                 <!-- Subtle Proven Domain Scope -->
                 <div class="flex items-center gap-3 text-slate-500 text-xs font-mono">
-                    <span>19 Production Journeys</span>
+                    <span>18 Production Journeys</span>
+                    <span class="text-slate-300 dark:text-slate-700">&bull;</span>
+                    <span>&lt; 120s Median (p95 155s)</span>
                     <span class="text-slate-300 dark:text-slate-700">&bull;</span>
                     <span>100k+ Claims/Year</span>
                     <span class="text-slate-300 dark:text-slate-700">&bull;</span>
-                    <span class="text-emerald-700 dark:text-emerald-400 font-semibold">Regulated GCCs</span>
+                    <span class="text-emerald-700 dark:text-emerald-400 font-semibold">APP 11 Compliant</span>
                 </div>
             </div>
         </section>
@@ -402,23 +408,23 @@
                         100k+
                     </div>
                     <div class="text-xs font-semibold text-slate-900 mt-1">Annual Claims Volume</div>
-                    <div class="text-xs text-slate-600 mt-0.5">Automated screening across 19 journeys</div>
+                    <div class="text-xs text-slate-600 mt-0.5">Automated screening across 18 journeys</div>
                 </div>
 
                 <div
                     class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-2">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono font-semibold text-slate-600">Micro-Agents</span>
+                        <span class="text-xs font-mono font-semibold text-slate-600">Completion Latency</span>
                         <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
-                            <i data-lucide="bot" class="w-4 h-4" aria-hidden="true"></i>
+                            <i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i>
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3"
-                        data-counter-target="19" data-counter-suffix="">
-                        19
+                        data-counter-target="120" data-counter-suffix="s">
+                        &lt; 120s
                     </div>
-                    <div class="text-xs font-semibold text-slate-900 mt-1">Production Claim Journeys</div>
-                    <div class="text-xs text-slate-600 mt-0.5">Automated via declarative LangGraph engines</div>
+                    <div class="text-xs font-semibold text-slate-900 mt-1">Median Completion (p95: 155s)</div>
+                    <div class="text-xs text-slate-600 mt-0.5">2s Ingest &bull; 50s Data Pulls &bull; ~10 Agents</div>
                 </div>
 
                 <div
@@ -430,11 +436,11 @@
                         </div>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-mono mt-3"
-                        data-counter-target="21" data-counter-suffix="x">
-                        21x
+                        data-counter-target="1" data-counter-suffix=" Day">
+                        1 Day
                     </div>
-                    <div class="text-xs font-semibold text-slate-900 mt-1">Rollout Velocity Gain</div>
-                    <div class="text-xs text-slate-600 mt-0.5">Slashed from 3 weeks to &lt; 24h via JSON</div>
+                    <div class="text-xs font-semibold text-slate-900 mt-1">Journey Rollout (from 3 wks)</div>
+                    <div class="text-xs text-slate-600 mt-0.5">Runtime compiled declarative JSON engine</div>
                 </div>
 
                 <div
@@ -449,7 +455,197 @@
                         0 Breaches
                     </div>
                     <div class="text-xs font-semibold text-slate-900 mt-1">APP 11 Privacy Adherence</div>
-                    <div class="text-xs text-slate-600 mt-0.5">Zero reported breaches across 100k+ claims</div>
+                    <div class="text-xs text-slate-600 mt-0.5">Pydantic validation &bull; 0 injection leaks</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+         SKILLS & TECHNOLOGY STACK (Resume-Aligned Categorized Breakdown)
+         ========================================================================== -->
+        <section id="skills" aria-labelledby="skills-title"
+            class="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+                <div>
+                    <div
+                        class="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#003781] uppercase tracking-wider mb-2">
+                        <i data-lucide="code-2" class="w-3.5 h-3.5 text-[#003781]" aria-hidden="true"></i>
+                        <span>Technical Skills &amp; Stack</span>
+                    </div>
+                    <h2 id="skills-title"
+                        class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                        Core Technology Stack
+                    </h2>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 max-w-md">
+                    Production-verified tools and frameworks across 5 engineering domains, aligned with hands-on
+                    enterprise experience at Allianz, Yash, and Persistent.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Languages & Databases -->
+                <div
+                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-5 rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
+                            <i data-lucide="database" class="w-4 h-4" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Languages &amp;
+                            Databases</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Python</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">SQL</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">PostgreSQL</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">MySQL</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Agentic AI & LLM Frameworks -->
+                <div
+                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-5 rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-2">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
+                            <i data-lucide="bot" class="w-4 h-4" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Agentic AI &amp; LLM
+                            Frameworks</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#EBF3FB] border border-[#003781]/15 text-[#003781] text-xs font-mono font-semibold">LangChain</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#EBF3FB] border border-[#003781]/15 text-[#003781] text-xs font-mono font-semibold">LangGraph</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#EBF3FB] border border-[#003781]/15 text-[#003781] text-xs font-mono font-semibold">CrewAI</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">MCP</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">A2A</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">RAG</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Context
+                            Engineering</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Guardrails</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">LangFuse</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Prompt
+                            Engineering</span>
+                    </div>
+                </div>
+
+                <!-- Model Serving & ML -->
+                <div
+                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-5 rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-3">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
+                            <i data-lucide="cpu" class="w-4 h-4" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Model Serving &amp;
+                            ML</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">FastAPI</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">vLLM</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">PyTorch</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Hugging
+                            Face Transformers</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">TRL
+                            (LoRA/QLoRA)</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Pydantic</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Scikit-learn</span>
+                    </div>
+                </div>
+
+                <!-- Cloud & MLOps -->
+                <div
+                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-5 rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-4 sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
+                            <i data-lucide="cloud" class="w-4 h-4" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">Cloud &amp;
+                            MLOps</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#EBF3FB] border border-[#003781]/15 text-[#003781] text-xs font-mono font-semibold">Azure
+                            AI Foundry</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Azure
+                            Function App</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Blob
+                            Storage</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Container
+                            Apps</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">APIM</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Cosmos
+                            DB</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">App
+                            Insights</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#EBF3FB] border border-[#003781]/15 text-[#003781] text-xs font-mono font-semibold">AWS
+                            Bedrock</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">SageMaker</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">EC2
+                            / S3</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Lambda</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">ECS
+                            / Fargate</span>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tools -->
+                <div
+                    class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-5 rounded-xl shadow-xs hover:shadow-md transition-all reveal-on-scroll stagger-5 sm:col-span-2 lg:col-span-2">
+                    <div class="flex items-center gap-2 mb-3">
+                        <div class="p-1.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-[#003781]">
+                            <i data-lucide="git-branch" class="w-4 h-4" aria-hidden="true"></i>
+                        </div>
+                        <span class="text-xs font-bold text-slate-900 uppercase tracking-wider">DevOps &amp;
+                            Tools</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Git</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">GitHub
+                            Actions</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Jenkins</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Docker</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Jira</span>
+                        <span
+                            class="px-2.5 py-1 rounded-md bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-slate-700 text-xs font-mono font-medium">Pytest</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -509,19 +705,19 @@
                         <span class="text-xs text-slate-600 mt-0.5 block">Declarative JSON; 0 backend redeploys</span>
                     </div>
                     <div class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-4 rounded-xl shadow-xs">
-                        <span class="text-xs text-slate-700 font-medium">AST Schema Parse Cache</span>
-                        <div class="text-lg sm:text-xl font-bold font-mono text-[#003781] mt-1">&lt; 0.4ms</div>
-                        <span class="text-xs text-slate-600 mt-0.5 block">Pre-compiled AST cache hit in hot RAM</span>
+                        <span class="text-xs text-slate-700 font-medium">Kafka Ingestion SLA</span>
+                        <div class="text-lg sm:text-xl font-bold font-mono text-[#003781] mt-1">~2s</div>
+                        <span class="text-xs text-slate-600 mt-0.5 block">Buffered streams & partition persistence</span>
                     </div>
                     <div class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-4 rounded-xl shadow-xs">
-                        <span class="text-xs text-slate-700 font-medium">Safety Filter Hop SLA</span>
-                        <div class="text-lg sm:text-xl font-bold font-mono text-indigo-700 mt-1">Instant Halt</div>
-                        <span class="text-xs text-slate-600 mt-0.5 block">Azure Content Safety + APP redaction</span>
+                        <span class="text-xs text-slate-700 font-medium">External Data Pull Phase</span>
+                        <div class="text-lg sm:text-xl font-bold font-mono text-indigo-700 mt-1">~50s</div>
+                        <span class="text-xs text-slate-600 mt-0.5 block">BOM weather, ICEYE radar, PDS blob</span>
                     </div>
                     <div class="bento-card bg-white border border-[rgba(40,30,20,0.08)] p-4 rounded-xl shadow-xs">
-                        <span class="text-xs text-slate-700 font-medium">Composite Graph SLA</span>
-                        <div class="text-lg sm:text-xl font-bold font-mono text-sky-700 mt-1">Sub-2.5s</div>
-                        <span class="text-xs text-slate-600 mt-0.5 block">19 cyclical LangGraph topologies</span>
+                        <span class="text-xs text-slate-700 font-medium">Claim Completion Latency</span>
+                        <div class="text-lg sm:text-xl font-bold font-mono text-sky-700 mt-1">&lt; 120s Median</div>
+                        <span class="text-xs text-slate-600 mt-0.5 block">p95 at 155s &bull; ~10 agents compiled at runtime</span>
                     </div>
                 </div>
 
@@ -533,17 +729,12 @@
                             <div
                                 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-800">
                                 <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600" aria-hidden="true"></i>
-                                The
-                                Challenge (Situation &amp;
-                                Friction)
+                                The Challenge (Situation &amp; Friction)
                             </div>
-                            <h4 class="text-base font-bold text-slate-900 mt-2">3-Week Release Cycle &amp; LLM
-                                Compliance
-                                Risk</h4>
+                            <h4 class="text-base font-bold text-slate-900 mt-2">3-Week Release Cycle &amp; LLM Compliance Risk</h4>
                             <p class="text-xs text-slate-700 leading-relaxed mt-2">
                                 When I joined Allianz Services, insurance claim lodgement was bottlenecked by legacy
-                                release
-                                cycles and strict regulatory oversight:
+                                release cycles and strict regulatory oversight:
                             </p>
                             <ul class="mt-3 space-y-2 text-xs text-slate-700">
                                 <li class="flex items-start gap-2">
@@ -556,20 +747,13 @@
                                 <li class="flex items-start gap-2">
                                     <span class="w-1.5 h-1.5 rounded-full bg-amber-500 mt-1.5 shrink-0"
                                         aria-hidden="true"></span>
-                                    <span><strong>Regulatory Compliance Liability:</strong> LLM non-determinism under
-                                        Australia Corporate Privacy Standards meant any hallucinated policy term or
-                                        leaked
-                                        citizen PII could jeopardize operating licensing.</span>
+                                    <span><strong>Regulatory Compliance Liability:</strong> LLM non-determinism and unstructured free-field claim descriptions exposed systems to prompt injections and citizen PII leaks under Australia corporate privacy standards (APP 11).</span>
                                 </li>
                             </ul>
                         </div>
                         <div
                             class="p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-lg text-xs text-slate-800">
-                            <strong class="text-slate-900">My Mandate:</strong> Architect a multi-agent framework that
-                            empowers prompt engineers and business analysts to ship new claim journeys in &lt; 24h (21x
-                            acceleration) with
-                            zero
-                            backend redeployment and verified regulatory compliance.
+                            <strong class="text-slate-900">My Mandate:</strong> Architect a multi-agent framework that empowers prompt engineers and business analysts to ship new claim journeys in &lt; 24h across 18 journeys with zero backend redeployment and verified regulatory compliance.
                         </div>
                     </div>
 
@@ -578,41 +762,28 @@
                         <div>
                             <div
                                 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#003781]">
-                                <i data-lucide="cpu" class="w-4 h-4" aria-hidden="true"></i> The Breakthrough
-                                (Architecture
-                                &amp; Action)
+                                <i data-lucide="cpu" class="w-4 h-4" aria-hidden="true"></i> The Breakthrough (Architecture &amp; Action)
                             </div>
-                            <h4 class="text-base font-bold text-slate-900 mt-2">Declarative JSON Engine &amp; LangGraph
-                                State Machine</h4>
+                            <h4 class="text-base font-bold text-slate-900 mt-2">Declarative JSON Engine &amp; Runtime LangGraph Compilation</h4>
                             <p class="text-xs text-slate-700 leading-relaxed mt-2">
-                                I architected a Declarative JSON Workflow Engine that decoupled prompt configurations,
-                                state
-                                transition routes, and tool schemas from the execution binary:
+                                I architected a Declarative JSON Workflow Engine that decouples prompt configurations, state transition routes, and tool schemas from the execution binary:
                             </p>
                             <ul class="mt-3 space-y-2 text-xs text-slate-700">
                                 <li class="flex items-start gap-2">
                                     <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0"
                                         aria-hidden="true"></span>
-                                    <span><strong>Declarative GitOps Delivery:</strong> Claim specialists author and
-                                        version
-                                        entire journeys as single JSON documents in Git &mdash; slashing rollout cycles
-                                        from
-                                        3 weeks to under 24 hours.</span>
+                                    <span><strong>Runtime LangGraph Compilation:</strong> Engine inspects incoming claim categories across 18 distinct journeys, dynamically creating, assembling, and compiling the LangGraph state machine on the fly.</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0"
                                         aria-hidden="true"></span>
-                                    <span><strong>Pre-Screened State Graph:</strong> Ingests Kafka and Azure Event Hub
-                                        streams through Azure Content Safety and LangChain PII redaction, feeding
-                                        cyclical
-                                        LangGraph state machines with strict Pydantic runtime typing.</span>
+                                    <span><strong>Perimeter Guardrails Gate:</strong> Free-field claim descriptions pass through Azure Content Safety and LangChain PII redaction. The Guardrails Agent outputs strict Pydantic categorical routing (APPROVED or REJECTED) before any downstream LLM tokens or data pulls are invoked.</span>
                                 </li>
                             </ul>
                         </div>
                         <div
                             class="p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-lg text-xs text-slate-800">
-                            <strong class="text-slate-900">Key Innovation:</strong> Pre-compiled AST schema caching in
-                            worker RAM + warm Kafka consumer pools to eliminate cold-start latency.
+                            <strong class="text-slate-900">Key Innovation:</strong> Runtime graph assembly per claim type + perimeter Pydantic gate + decoupled ~50s parallel data pulls to achieve &lt; 120s median end-to-end completion (p95: 155s).
                         </div>
                     </div>
                 </div>
@@ -653,13 +824,10 @@
                         <div>
                             <div class="flex items-center gap-2">
                                 <span
-                                    class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)] uppercase">Delivery
-                                    Lifecycle</span>
-                                <span class="text-xs text-slate-600 font-mono">GitOps &amp; Continuous Production
-                                    Governance</span>
+                                    class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-[#FAF8F5] text-[#003781] border border-[rgba(40,30,20,0.08)] uppercase">Delivery Lifecycle</span>
+                                <span class="text-xs text-slate-600 font-mono">GitOps &amp; Continuous Production Governance</span>
                             </div>
-                            <h4 class="text-lg font-bold text-slate-900 mt-1">How Multi-Agent Journeys Move from Spec to
-                                Live Production</h4>
+                            <h4 class="text-lg font-bold text-slate-900 mt-1">How Multi-Agent Journeys Move from Spec to Live Production</h4>
                         </div>
                         <div class="flex items-center gap-2">
                             <span
@@ -674,72 +842,52 @@
                         <div
                             class="p-4 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] flex flex-col justify-between gap-2">
                             <div>
-                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase
-                                    01
-                                </div>
+                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase 01</div>
                                 <h5 class="text-xs font-bold text-slate-900 mt-1">Declarative Spec in Git</h5>
                                 <p class="text-xs text-slate-700 leading-relaxed mt-1.5">
-                                    Prompt engineers and domain specialists define journeys in isolated JSON schema
-                                    files
-                                    versioned in Git, completely decoupled from backend service code.
+                                    Prompt engineers and domain specialists define 18 distinct journeys in isolated JSON schema files versioned in Git.
                                 </p>
                             </div>
-                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; 0 binary
-                                re-deployments</span>
+                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; 0 binary re-deployments</span>
                         </div>
 
                         <div
                             class="p-4 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] flex flex-col justify-between gap-2">
                             <div>
-                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase
-                                    02
-                                </div>
-                                <h5 class="text-xs font-bold text-slate-900 mt-1">CI AST Verification</h5>
+                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase 02</div>
+                                <h5 class="text-xs font-bold text-slate-900 mt-1">Perimeter Guardrails Gate</h5>
                                 <p class="text-xs text-slate-700 leading-relaxed mt-1.5">
-                                    Automated CI linting runs Pydantic boundary checks and validates state transition
-                                    graphs
-                                    against synthetic adversarial claim suites before merge.
+                                    Azure Content Safety screens free-field text descriptions and returns strict Pydantic status: APPROVED or REJECTED before state mutations.
                                 </p>
                             </div>
-                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; 100% schema branch
-                                pass</span>
+                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; 0 injection breaches</span>
                         </div>
 
                         <div
                             class="p-4 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] flex flex-col justify-between gap-2">
                             <div>
-                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase
-                                    03
-                                </div>
-                                <h5 class="text-xs font-bold text-slate-900 mt-1">Hot Memory Reload</h5>
+                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase 03</div>
+                                <h5 class="text-xs font-bold text-slate-900 mt-1">Runtime Graph & Data Pulls</h5>
                                 <p class="text-xs text-slate-700 leading-relaxed mt-1.5">
-                                    Azure Durable Function worker pools pull updated AST trees directly into hot worker
-                                    RAM.
-                                    Zero container restarts or traffic interruptions.
+                                    JSON engine compiles the tailored LangGraph graph on the fly while parallel activities execute ~50s data pulls (BOM, ICEYE, PDS).
                                 </p>
                             </div>
-                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; 0ms cold-start
-                                penalty</span>
+                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; Dynamic runtime assembly</span>
                         </div>
 
                         <div
                             class="p-4 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] flex flex-col justify-between gap-2">
                             <div>
-                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase
-                                    04
-                                </div>
-                                <h5 class="text-xs font-bold text-slate-900 mt-1">Dual-Emit Telemetry</h5>
+                                <div class="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">Phase 04</div>
+                                <h5 class="text-xs font-bold text-slate-900 mt-1">Multi-Agent Resolution</h5>
                                 <p class="text-xs text-slate-700 leading-relaxed mt-1.5">
-                                    Every discrete agent reasoning step, LLM token invocation, and tool execution emits
-                                    distributed tracing spans to LangFuse and Azure App Insights.
+                                    ~10 specialized agents evaluate policy, coverage, fraud, and reserves with under 120s median latency (p95: 155s).
                                 </p>
                             </div>
-                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; Millisecond audit
-                                replay</span>
+                            <span class="text-xs font-mono text-[#003781] font-semibold">&bull; Dual-emit audit tracing</span>
                         </div>
                     </div>
                 </div>
-
 
                 <!-- ARCHITECTURE TRADE-OFFS & PRODUCTION BOTTLENECK MITIGATIONS -->
                 <div class="mb-4">
@@ -757,22 +905,17 @@
                             <div
                                 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-700 mb-1">
                                 <i data-lucide="clock" class="w-4 h-4" aria-hidden="true"></i>
-                                <span>Trade-Off: AST Schema Parsing</span>
+                                <span>Trade-Off: Remote Data Pull Latency</span>
                             </div>
                             <p class="text-xs text-slate-600 leading-relaxed">
-                                Decoupled JSON schemas added ~15ms cold session overhead during runtime graph
-                                compilation.
+                                External third-party data retrieval (BOM weather feeds, ICEYE radar, and Blob PDS documents) takes ~50s, dominating total turnaround.
                             </p>
                             <div
                                 class="mt-3 p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-xs text-slate-700 font-mono">
-                                <span class="text-emerald-700 font-bold">Mitigation:</span> Pre-compiled AST schemas
-                                stored
-                                in worker-local LRU cache and warm Kafka pools.
+                                <span class="text-emerald-700 font-bold">Mitigation:</span> Parallel asynchronous activity orchestrators in Azure Durable Functions; zero blocked threads.
                             </div>
                         </div>
-                        <span class="text-xs font-mono text-slate-500 font-semibold">&bull; Amortized parse latency:
-                            &lt;
-                            0.4ms</span>
+                        <span class="text-xs font-mono text-slate-500 font-semibold">&bull; Completion latency: &lt; 120s median</span>
                     </div>
 
                     <div
@@ -781,22 +924,17 @@
                             <div
                                 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#003781] mb-1">
                                 <i data-lucide="layers" class="w-4 h-4" aria-hidden="true"></i>
-                                <span>Trade-Off: Kafka Pod Rebalances</span>
+                                <span>Trade-Off: Free-Field Injection Risk</span>
                             </div>
                             <p class="text-xs text-slate-600 leading-relaxed">
-                                In-flight LangGraph state risked mutation loss during horizontal pod autoscaling or
-                                broker
-                                rebalance events.
+                                Claimant free-text descriptions exposed downstream agents to adversarial prompt injection and state corruption.
                             </p>
                             <div
                                 class="mt-3 p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-xs text-slate-700 font-mono">
-                                <span class="text-[#003781] font-bold">Mitigation:</span> Azure Durable Orchestrators
-                                commit
-                                checkpoint state after every discrete agent reasoning hop.
+                                <span class="text-[#003781] font-bold">Mitigation:</span> Perimeter Guardrails gate returning strict Pydantic status: APPROVED or REJECTED.
                             </div>
                         </div>
-                        <span class="text-xs font-mono text-slate-500 font-semibold">&bull; Exactly-once delivery
-                            guarantee</span>
+                        <span class="text-xs font-mono text-slate-500 font-semibold">&bull; 0 tokens wasted on rejected threats</span>
                     </div>
 
                     <div
@@ -805,21 +943,17 @@
                             <div
                                 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-700 mb-1">
                                 <i data-lucide="shield-alert" class="w-4 h-4" aria-hidden="true"></i>
-                                <span>Trade-Off: PII Redaction vs Latency</span>
+                                <span>Trade-Off: PII Compliance vs Latency</span>
                             </div>
                             <p class="text-xs text-slate-600 leading-relaxed">
-                                LLM-based PII scrubbing added 350ms+ token latency and suffered non-deterministic
-                                omissions.
+                                Regulatory compliance (APP 11) required complete anonymization of citizen identifiers prior to data persistence.
                             </p>
                             <div
                                 class="mt-3 p-2.5 rounded-lg bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] text-xs text-slate-700 font-mono">
-                                <span class="text-indigo-700 font-bold">Mitigation:</span> Deterministic regex
-                                pre-filter +
-                                Azure Content Safety before token generation; strict Pydantic model validation on exit.
+                                <span class="text-indigo-700 font-bold">Mitigation:</span> Pre-persistence LangChain PII redaction integrated with Azure Content Safety.
                             </div>
                         </div>
-                        <span class="text-xs font-mono text-slate-500 font-semibold">&bull; Zero unredacted PII in
-                            logs</span>
+                        <span class="text-xs font-mono text-slate-500 font-semibold">&bull; 100% Australian privacy adherence</span>
                     </div>
                 </div>
 
@@ -862,20 +996,18 @@
                                 <span>State Machines &amp; Graphs</span>
                             </span>
                             <span
-                                class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-[#EBF3FB] text-[#003781] border border-[#003781]/25">Sub-2.5s
-                                SLA</span>
+                                class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-[#EBF3FB] text-[#003781] border border-[#003781]/25">&lt; 120s Median (p95 155s)</span>
                         </div>
                         <h3 class="text-lg font-bold text-slate-900 font-display">Multi-Agent Orchestration &amp; State
                             Graphs</h3>
                         <p class="text-sm text-slate-600 leading-relaxed mt-2">
-                            Architecting cyclical DAGs, human-in-the-loop escalation routes, and persistent agent state
+                            Architecting cyclical state machines, human-in-the-loop escalation routes, and persistent agent state
                             machines that survive container rebalancing and long-horizon sessions.
                         </p>
                         <div class="mt-4 p-3 bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)] rounded-xl space-y-1.5">
                             <div class="text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Production
-                                Mandate &bull; 19 Journeys:</div>
-                            <p class="text-sm text-slate-600">Decoupled GitOps JSON workflow configurations from
-                                execution binaries, slashing rollout velocity from 3 weeks to under 24 hours.</p>
+                                Mandate &bull; 18 Journeys:</div>
+                            <p class="text-sm text-slate-600">Declarative JSON engine creates, assembles, and compiles tailored LangGraph graphs dynamically at runtime, slashing rollout from 3 weeks to under 24 hours.</p>
                         </div>
                     </div>
                     <div class="pt-3 border-t border-[rgba(40,30,20,0.08)]">
@@ -885,15 +1017,14 @@
                             <span
                                 class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">LangGraph</span>
                             <span
+                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Azure OpenAI (GPT-4o)</span>
+                            <span
                                 class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">CrewAI</span>
                             <span
-                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Autogen</span>
+                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">MCP
+                                / A2A</span>
                             <span
-                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">State
-                                Checkpointing</span>
-                            <span
-                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Declarative
-                                JSON AST</span>
+                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Runtime Compiled Graphs</span>
                         </div>
                     </div>
                 </div>
@@ -939,8 +1070,8 @@
                                 class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">FastAPI
                                 Async</span>
                             <span
-                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Redis
-                                Buffer</span>
+                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Azure
+                                Durable Functions</span>
                             <span
                                 class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">DLQ
                                 Pipelines</span>
@@ -1011,7 +1142,7 @@
                             </span>
                             <span
                                 class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-indigo-50 text-indigo-800 border border-indigo-200">&lt;
-                                0.4ms Cache Hit</span>
+                                5ms Cache Hit</span>
                         </div>
                         <h3 class="text-lg font-bold text-slate-900 font-display">Serving Infrastructure &amp;
                             Optimization</h3>
@@ -1023,7 +1154,7 @@
                             <div class="text-xs font-bold text-slate-800 uppercase tracking-wider font-mono">Performance
                                 Metric:</div>
                             <p class="text-sm text-slate-600">Slashed inference serving latency by 50% on vLLM endpoints
-                                and achieved sub-0.4ms schema retrieval via worker LRU cache layers.</p>
+                                and achieved sub-5ms schema retrieval via worker LRU cache layers.</p>
                         </div>
                     </div>
                     <div class="pt-3 border-t border-[rgba(40,30,20,0.08)]">
@@ -1039,8 +1170,7 @@
                                 class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Azure
                                 AI Foundry</span>
                             <span
-                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Docker
-                                / K8s</span>
+                                class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">Docker</span>
                             <span
                                 class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-xs font-mono font-medium">LRU
                                 Cache</span>
@@ -1306,7 +1436,7 @@
                                 <text x="310" y="28" text-anchor="middle" font-size="9.5" font-weight="700"
                                     fill="#065F46" font-family="monospace">vLLM CLUST</text>
                                 <text x="310" y="44" text-anchor="middle" font-size="8" fill="#059669"
-                                    font-family="sans-serif">&lt; 50ms P99</text>
+                                    font-family="sans-serif">&lt; 45ms TTFT</text>
                             </svg>
                         </div>
 
@@ -1479,7 +1609,7 @@
                                 </div>
                             </div>
                             <div class="p-2.5 rounded-lg bg-white border border-[rgba(40,30,20,0.08)] text-center">
-                                <div class="text-base font-extrabold text-slate-900 font-mono">Instant Halt</div>
+                                <div class="text-base font-extrabold text-slate-900 font-mono">&lt; 120ms</div>
                                 <div class="text-xs text-slate-500 uppercase tracking-tight font-semibold">Safety
                                     Latency
                                 </div>
@@ -1621,7 +1751,7 @@
                             <h3 class="text-2xl font-extrabold text-slate-900 mt-1.5 flex items-center gap-3">
                                 <span>Allianz Services</span>
                                 <span class="text-sm font-semibold text-[#003781] font-sans hidden sm:inline">&mdash;
-                                    Senior Agentic AI Engineer &amp; Architect</span>
+                                    Agentic AI Consultant</span>
                             </h3>
                             <p class="text-xs sm:text-sm font-medium text-slate-700 mt-1">Enterprise Autonomy &amp;
                                 Production Resiliency</p>
@@ -1640,24 +1770,24 @@
                     <!-- Granular Architectural Benchmarks -->
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-3.5 rounded-xl">
-                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">AST Parse
-                                Cache</div>
-                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">&lt; 0.4ms</div>
+                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">Median
+                                Latency</div>
+                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">&lt; 120s</div>
                         </div>
                         <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-3.5 rounded-xl">
-                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">Cold
-                                Start Latency</div>
-                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">0ms (Warm)</div>
+                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">p95
+                                Latency</div>
+                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">155s</div>
                         </div>
                         <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-3.5 rounded-xl">
-                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">Privacy
-                                Compliance</div>
-                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">APP 11 Pass</div>
+                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">Data Pull
+                                Phase</div>
+                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">~50s</div>
                         </div>
                         <div class="bg-[#FAF8F5] border border-[rgba(40,30,20,0.07)] p-3.5 rounded-xl">
-                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">Prompt
-                                Redundancy</div>
-                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">100% Eliminated</div>
+                            <div class="text-xs uppercase font-mono tracking-wider text-slate-500 font-medium">Kafka
+                                Ingest SLA</div>
+                            <div class="text-xl font-bold font-mono text-slate-900 mt-1">~2s</div>
                         </div>
                     </div>
 
@@ -1667,13 +1797,11 @@
                             <div
                                 class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-800">
                                 <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-slate-500" aria-hidden="true"></i>
-                                The
-                                Friction / Problem
+                                The Friction / Problem
                             </div>
                             <p class="text-xs text-slate-600 leading-relaxed">
                                 Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema
-                                re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM
-                                stochastic nature risked compliance breaches under strict Australian insurance mandates.
+                                re-compilation, and CI/CD validation to alter a single business lodgement rule. Free-field text descriptions risked adversarial prompt injection, citizen PII leaks, and downstream state corruption under Australian regulatory frameworks.
                             </p>
                         </div>
                         <div
@@ -1684,11 +1812,7 @@
                                 Architectural Solution
                             </div>
                             <p class="text-xs text-slate-600 leading-relaxed">
-                                Architected a Declarative JSON Workflow Engine separating prompt configurations and
-                                route
-                                logic from execution binaries. Incoming stream payloads from Kafka and Event Hubs are
-                                orchestrated through Azure Durable Functions and passed through Azure Content Safety and
-                                LangChain PII redaction before entering the LangGraph state machine.
+                                Architected a Declarative JSON Workflow Engine covering 18 claim journeys that dynamically creates, assembles, and compiles LangGraph state graphs at runtime. Incoming Kafka payloads pass through an initial Guardrails gate (Azure Content Safety + LangChain PII redaction) with strict Pydantic categorical validation (APPROVED/REJECTED) before orchestrating ~50s of external data pulls (BOM, ICEYE, PDS Blob) and ~10 agents for LLM inference.
                             </p>
                         </div>
                         <div
@@ -1699,9 +1823,7 @@
                                 Proven Impact
                             </div>
                             <p class="text-sm text-slate-600 leading-relaxed">
-                                Slashed new claim journey launch time from 3 weeks to &lt; 24 hours. Scaled pipeline to
-                                process 100k+ annual claims across 19 distinct automated journeys with zero backend
-                                redeployment while adhering to Australian Privacy Principles (APP 11).
+                                Slashed new claim journey launch time from 3 weeks to 1 day. Scaled pipeline to process 100k+ annual claims across 18 distinct automated journeys with &lt; 120s median latency (p95 at 155s) and 100% compliance with Australia corporate privacy standards.
                             </p>
                         </div>
                     </div>
@@ -1715,29 +1837,38 @@
                         <ul class="space-y-2.5">
                             <li class="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
                                 <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0"></span>
-                                <span><strong>[Architecture]</strong> Architected the declarative JSON workflow engine
-                                    driving 19 claim types, allowing business &amp; prompt engineers to launch new claim
-                                    journeys in 24 hours without backend redeployment.</span>
+                                <span><strong>[Guardrails]</strong> Engineered a multi-layer Guardrails agent using
+                                    Azure Content Safety to screen 100k+ annual claims, instantly halting malicious
+                                    payloads and eliminating prompt injection vulnerabilities across claim processing
+                                    pipelines.</span>
                             </li>
                             <li class="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
                                 <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0"></span>
-                                <span><strong>[Guardrails]</strong> Implemented multi-tier Azure Content Safety &amp;
-                                    LangChain PII redaction middleware ensuring compliance with Australian Privacy
-                                    Principles (APP 11) standards.</span>
+                                <span><strong>[PII Compliance]</strong> Engineered a LangChain-based PII redaction
+                                    middleware integrated with Azure Content Safety, automated data anonymization prior
+                                    to persistence, and ensured 100% compliance with Australia corporate privacy
+                                    standards across 100k+ annual insurance claim logs.</span>
                             </li>
                             <li class="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
                                 <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0"></span>
-                                <span><strong>[Orchestration]</strong> Synchronized LangGraph node transitions with
-                                    Azure
-                                    Durable Functions and warm Kafka consumer pools to prevent cold-start
-                                    bottlenecks.</span>
+                                <span><strong>[Architecture]</strong> Architected a declarative JSON workflow engine
+                                    covering 18 claim journeys to process 100k+ annual claims, slashing new claim
+                                    journey onboarding deployment time from 3 weeks to 1 day without underlying
+                                    codebase modifications.</span>
                             </li>
                             <li class="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
                                 <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0"></span>
-                                <span><strong>[Prompt Decoupling]</strong> Designed a two-tier decoupled prompt
-                                    architecture
-                                    combining generalized agent directives with journey-specific rules, eliminating
-                                    redundant prompt duplication across journeys.</span>
+                                <span><strong>[Prompt Decoupling]</strong> Designed a two-tier prompt architecture
+                                    decoupling domain-general guidelines from claim-specific rules, eliminating 100% of
+                                    prompt duplication while cutting agent configuration latency for 18 distinct claim
+                                    journeys.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-xs text-slate-600 leading-relaxed">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#003781] mt-1.5 shrink-0"></span>
+                                <span><strong>[Runtime Validation]</strong> Implemented comprehensive Pydantic classes
+                                    to handle output validations and LangGraph state, with validations included in each
+                                    agent node at runtime, eliminating downstream type issues caused by LLM
+                                    non-deterministic behavior.</span>
                             </li>
                         </ul>
                     </div>
@@ -1874,8 +2005,8 @@
                             <div class="p-3 rounded-xl bg-[#FAF8F5] border border-[rgba(40,30,20,0.08)]">
                                 <span class="text-xs text-slate-500 uppercase font-mono font-semibold">Squad
                                     Leadership</span>
-                                <div class="font-bold text-slate-900 mt-0.5">8+ Mentored</div>
-                                <span class="text-xs text-slate-600">-40% PR Review Cycles</span>
+                                <div class="font-bold text-slate-900 mt-0.5">Mentored Peers</div>
+                                <span class="text-xs text-slate-600">Bravo Team Award (Persistent)</span>
                             </div>
                         </div>
 
@@ -1887,7 +2018,7 @@
                     </div>
 
                     <div class="pt-3 border-t border-[rgba(40,30,20,0.08)] text-xs font-mono text-slate-500">
-                        &bull; CEO Club Winner (Persistent, Top 1%) &bull; Star of the Month (Yash)
+                        &bull; Best Team & Performer Awards (Allianz) &bull; Valuable Individual Asset (Yash) &bull; High Five & Bravo (Persistent)
                     </div>
                 </div>
             </div>

@@ -92,7 +92,7 @@
                 Enterprise Multi-Agent Claims Lodgement Engine
             </h1>
             <p class="text-base sm:text-xl text-slate-600 font-normal mt-4 max-w-3xl leading-relaxed">
-                Architecting a declarative JSON multi-agent workflow engine covering 19 distinct insurance claim
+                Architecting a declarative JSON multi-agent workflow engine covering 18 distinct insurance claim
                 journeys—processing 100k+ annual claims, slashing journey onboarding cycles from 3 weeks to 1 day, and
                 enforcing 100% compliance with Australia corporate privacy standards.
             </p>
@@ -111,7 +111,7 @@
                     <div class="text-xs font-mono text-slate-500 font-semibold uppercase tracking-wider">Annual Volume
                     </div>
                     <div class="text-2xl sm:text-3xl font-extrabold text-[#003781] font-mono mt-1">100k+</div>
-                    <div class="text-xs text-slate-600 mt-1">Claims screened across 19 journeys</div>
+                    <div class="text-xs text-slate-600 mt-1">Claims screened across 18 journeys</div>
                 </div>
                 <div
                     class="bento-card p-5 bg-white border border-[rgba(40,30,20,0.08)] rounded-xl text-center sm:text-left">
@@ -216,15 +216,17 @@
                 </summary>
                 <div class="mt-3 space-y-2 font-mono text-xs leading-relaxed">
                     <p><strong>Stage 1 (Ingestion):</strong> Insurance claim payload received via Azure API Management
-                        gateway &rarr; queued into Kafka event buffer.</p>
-                    <p><strong>Stage 2 (Multi-Layer Guardrails):</strong> Azure Content Safety screens injection attacks
-                        &rarr; LangChain PII redaction middleware sanitizes citizen data prior to persistence.</p>
-                    <p><strong>Stage 3 (Declarative Graph Engine):</strong> JSON execution engine resolves 1 of 19 claim
-                        journey state graphs &rarr; LangGraph orchestrates cyclic agent nodes.</p>
+                        gateway &rarr; queued into Kafka event buffer (~2s ingestion latency).</p>
+                    <p><strong>Stage 2 (Multi-Layer Guardrails Gate):</strong> Azure Content Safety and Guardrails Agent
+                        screen free-field text descriptions &rarr; Pydantic enforces deterministic <code>APPROVED</code> /
+                        <code>REJECTED</code> routing, halting prompt injection before agent execution.</p>
+                    <p><strong>Stage 3 (Declarative Graph Engine):</strong> JSON execution engine dynamically compiles 1 of 18
+                        claim journey state graphs at runtime &rarr; orchestrates ~10 agents with ~50s cumulative data pulls
+                        (BOM Weather, Outages, Blob PDS) and ~60–100s LLM inference (median &lt; 120s, p95 155s).</p>
                     <p><strong>Stage 4 (Runtime Verification):</strong> Every discrete node validates output through
-                        strict Pydantic models &rarr; eliminates downstream type drift.</p>
+                        strict Pydantic v2 models &rarr; eliminates downstream type drift into core relational databases.</p>
                     <p><strong>Stage 5 (Dual-Emit Observability):</strong> Distributed tracing spans emitted
-                        concurrently to Azure Application Insights and LangFuse.</p>
+                        concurrently to Azure Application Insights and LangFuse for end-to-end telemetry.</p>
                 </div>
             </details>
         </section>
@@ -280,20 +282,21 @@
                             <span class="text-xs font-mono text-emerald-700 font-semibold">ACCEPTED</span>
                         </div>
                         <h3 class="text-base font-bold text-slate-900 font-display">
-                            Pydantic Runtime Validation at Node Boundaries
+                            Pydantic Runtime Validation &amp; Guardrail Categorical Routing
                         </h3>
                         <p class="text-xs text-slate-600 leading-relaxed mt-2">
                             <strong>Decision:</strong> Implemented comprehensive Pydantic v2 schemas validating every
-                            input and output at each agent transition.
+                            input and output at agent boundaries, enforcing strict categorical routing (e.g. Guardrails
+                            outputting deterministic <code>APPROVED</code> or <code>REJECTED</code> statuses).
                         </p>
                         <p class="text-xs text-slate-600 leading-relaxed mt-2">
-                            <strong>Rationale:</strong> LLM non-determinism frequently produces subtly mutated JSON
-                            keys. Without runtime schema enforcement, type errors propagate downstream to enterprise
-                            relational databases, corrupting state records.
+                            <strong>Rationale:</strong> LLM non-determinism frequently produces hallucinated routing keys or
+                            payload drift. Guardrails acts as a perimeter gate halting prompt injection or malicious free-field
+                            text immediately. Pydantic guarantees only valid, type-safe states pass to downstream agents.
                         </p>
                     </div>
                     <div class="mt-4 pt-3 border-t border-[rgba(40,30,20,0.08)] text-xs font-mono text-slate-500">
-                        Outcome: Zero downstream schema drift or database ingestion crashes.
+                        Outcome: Zero downstream schema drift, deterministic routing, and 0 database crashes.
                     </div>
                 </div>
 

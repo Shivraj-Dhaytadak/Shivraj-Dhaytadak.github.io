@@ -17,10 +17,10 @@ Pune, India &bull; `+91 7972476081` &bull; `shivraj.25d@gmail.com`
 
 ### 💼 Executive Profile
 
-Agentic AI Consultant with **4+ years of experience** designing and scaling production multi-agent architectures for regulated global enterprises (Allianz Services, Yash Technologies, Persistent Systems). Proven track record orchestrating 19 production claim journeys handling 100k+ annual claims with 21x rollout acceleration (< 24h) and sub-2.5s composite graph latency.
+Agentic AI Consultant with **4+ years of experience** designing and scaling production multi-agent architectures for regulated global enterprises (Allianz Services, Yash Technologies, Persistent Systems). Proven track record orchestrating 18 production claim journeys handling 100k+ annual claims with 21x rollout acceleration (< 24h) and < 120s median claim completion latency (p95 at 155s).
 
 - 🧠 **Multi-Agent Orchestration**: Designing deterministic state machines, supervisor loops, and runtime validation layers using **LangGraph**, **CrewAI**, **MCP**, and **A2A**.
-- ⚙️ **Declarative Pipelines**: Replacing brittle prompt chains with schema-governed, declarative JSON workflows processing 100k+ transactions/year.
+- ⚙️ **Declarative Pipelines**: Replacing brittle prompt chains with schema-governed, declarative JSON workflows dynamically compiling 18 claim state graphs at runtime.
 - 🛡️ **Defensive Engineering & Privacy**: Halting prompt injection attacks via **Azure Content Safety** and automating **LangChain PII redaction** to meet Australian Privacy Principle (APP 11 - Security of Personal Information) compliance mandates.
 - 🚀 **High-Throughput Model Serving**: Fine-tuning via **TRL (LoRA/QLoRA)** and serving via **FastAPI** & **vLLM** with significant latency reductions.
 
@@ -40,7 +40,7 @@ Agentic AI Consultant with **4+ years of experience** designing and scaling prod
   <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white" alt="LangChain" />
   <img src="https://img.shields.io/badge/Model_Context_Protocol_(MCP)-4F46E5?style=flat-square&logo=databricks&logoColor=white" alt="MCP" />
   <img src="https://img.shields.io/badge/Pydantic-E92063?style=flat-square&logo=pydantic&logoColor=white" alt="Pydantic" />
-  <img src="https://img.shields.io/badge/Azure_AI_Foundry-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" />
+  <img src="https://img.shields.io/badge/Azure_OpenAI-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure OpenAI" />
   <img src="https://img.shields.io/badge/AWS_Bedrock-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white" alt="AWS Bedrock" />
   <img src="https://img.shields.io/badge/vLLM-6366F1?style=flat-square&logo=speedtest&logoColor=white" alt="vLLM" />
   <img src="https://img.shields.io/badge/LangFuse-000000?style=flat-square&logo=visualstudiocode&logoColor=white" alt="LangFuse" />
@@ -69,19 +69,19 @@ Agentic AI Consultant with **4+ years of experience** designing and scaling prod
         <a href="https://shivraj-dhaytadak.github.io/"><b>View Portfolio &rarr;</b></a>
       </td>
       <td>
-        • Engineered multi-layer <b>Guardrails agent using Azure Content Safety</b> to screen 100k+ annual claims with zero reported security breaches.<br>
+        • Engineered multi-layer <b>Guardrails perimeter gate using Azure Content Safety & Pydantic</b> to screen 100k+ annual claims with deterministic APPROVED/REJECTED categorical routing and zero security breaches.<br>
         • Integrated <b>LangChain PII redaction middleware</b> with Azure Content Safety, adhering strictly to Australian Privacy Principle (APP 11) standards.<br>
-        • Architected a <b>declarative JSON workflow engine covering 19 claim journeys</b>, slashing journey rollout time from <b>3 weeks to 1 day</b>.<br>
+        • Architected a <b>declarative JSON workflow engine dynamically compiling 18 claim journeys at runtime</b>, slashing journey rollout time from <b>3 weeks to 1 day</b>.<br>
         • Designed a <b>two-tier prompt architecture</b> eliminating redundant prompt duplication and cutting configuration latency.<br>
-        • Enforced runtime type-safety via Pydantic v2 schemas at each graph node boundary, guaranteeing deterministic state validation.
+        • Enforced runtime type-safety via Pydantic v2 schemas at each agent node boundary, achieving median claim completion latency under 120s (p95 at 155s).
       </td>
       <td>
         <code>LangGraph</code><br>
         <code>Azure Content Safety</code><br>
         <code>Azure Durable Fn</code><br>
         <code>Managed Kafka</code><br>
-        <code>Event Hubs</code><br>
-        <code>GPT-5.4 mini</code>
+        <code>Azure OpenAI GPT-4o</code><br>
+        <code>Pydantic v2</code>
       </td>
     </tr>
     <tr>

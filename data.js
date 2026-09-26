@@ -10,7 +10,7 @@ const portfolioData = {
         name: "Shivraj Dhaytadak",
         title: "Agentic AI Consultant",
         headline: "I architect production-grade multi-agent systems for regulated enterprises.",
-        bio: "I'm Shivraj Dhaytadak — Agentic AI Consultant at Allianz Services. I bridge stochastic large language models with deterministic, mission-critical distributed pipelines. 4+ years engineering production LangGraph engines, Azure event-driven architectures, and high-throughput agent swarms.",
+        bio: "I'm Shivraj Dhaytadak — Agentic AI Consultant at Allianz Services. Dynamic AI Strategy Consultant with 4+ years of experience designing and deploying Gen AI solutions. Proven track record in optimizing workflows and reducing costs. Skilled in Context Engineering, RAG, and Agentic AI to automate complex enterprise workflows and generate high-quality outcomes.",
         location: "Pune, IN",
         status: "Open to High-Impact Agentic AI Roles & Strategic Consulting",
         experienceYears: "4+ Years",
@@ -44,15 +44,18 @@ const portfolioData = {
 
     canonicalMetrics: {
         claimsVolume: "100k+",
-        activeJourneys: "19",
+        activeJourneys: "18",
         rolloutSpeed: "< 24 Hours",
         velocityGain: "21x",
         releaseBaseline: "3 Weeks",
         complianceBreaches: "0 Breaches",
         privacyStandard: "APP 11",
-        astCacheHit: "< 0.4ms",
-        kafkaThroughput: "3,400 msg/sec",
-        graphLatencyP95: "Sub-2.5s"
+        kafkaIngestion: "~2s",
+        dataPullPhase: "~50s",
+        inferencePhase: "60–100s",
+        graphLatencyMedian: "< 120s",
+        graphLatencyP95: "155s",
+        microAgentsCount: "~10 Agents"
     },
 
     recruiterSnapshot: {
@@ -69,15 +72,15 @@ const portfolioData = {
                 highlight: "Screened via autonomous agent pipelines"
             },
             {
-                id: "kpi-agents",
-                value: "19",
-                number: 19,
-                suffix: "+",
-                label: "Micro-Agents",
-                sublabel: "Production Orchestration",
-                icon: "bot",
-                accent: "indigo",
-                highlight: "Federated LangGraph & CrewAI swarms"
+                id: "kpi-latency",
+                value: "< 120s",
+                number: 120,
+                suffix: "s",
+                label: "Median Completion",
+                sublabel: "p95 Latency: 155s",
+                icon: "clock",
+                accent: "emerald",
+                highlight: "2s Kafka + 50s Data Pulls + LLM inference"
             },
             {
                 id: "kpi-deploy",
@@ -87,19 +90,19 @@ const portfolioData = {
                 label: "Journey Rollout",
                 sublabel: "Slashed from 3-week cycle",
                 icon: "sparkles",
-                accent: "emerald",
+                accent: "indigo",
                 highlight: "Zero-code redeploy declarative JSON"
             },
             {
                 id: "kpi-journeys",
-                value: "19",
-                number: 19,
+                value: "18",
+                number: 18,
                 suffix: "",
-                label: "Active Journeys",
-                sublabel: "Declarative JSON Workflows",
+                label: "Claim Journeys",
+                sublabel: "Runtime LangGraph Compilation",
                 icon: "workflow",
                 accent: "blue",
-                highlight: "Multi-tier prompt configurations"
+                highlight: "Assembled & compiled dynamically per claim"
             }
         ],
         honors: [
@@ -124,39 +127,52 @@ const portfolioData = {
         ],
         invariants: [
             {
-                title: "Multi-Layer Guardrails & Azure Content Safety",
-                description: "Halts prompt injection, jailbreak attempts, and toxic payloads before state mutation.",
+                title: "Perimeter Guardrails Gate (Azure Content Safety)",
+                description: "Screens unstructured free-field claim descriptions; outputs strict Pydantic APPROVED or REJECTED routing status.",
                 icon: "shield-check"
             },
             {
                 title: "LangChain Automated PII Redaction",
-                description: "Strict compliance with Australian Privacy Principles (APP 11 - Security of Personal Information) prior to data persistence.",
+                description: "Strict compliance with Australia corporate privacy standards (APP 11) prior to data persistence.",
                 icon: "lock"
             },
             {
                 title: "Runtime Pydantic Schema-First Invariants",
-                description: "Every LangGraph node output is validated against strict Pydantic schemas; zero corrupted state.",
+                description: "Every agent node boundary enforces Pydantic schemas; zero corrupted state across LangGraph transitions.",
                 icon: "check-circle"
             },
             {
-                title: "Declarative JSON Workflow Engine",
-                description: "Decouples prompt schemas and graph routes from binaries; 13 days of developer toil eliminated.",
+                title: "Declarative JSON Engine (Runtime Compiled)",
+                description: "Creates, assembles, and compiles LangGraph state graphs at runtime across 18 distinct claim journeys.",
                 icon: "cpu"
             }
         ],
         proofPills: [
+            "Python",
+            "SQL (PostgreSQL, MySQL)",
+            "MongoDB",
             "LangGraph",
-            "Apache Kafka",
-            "Azure AI Foundry",
-            "Azure OpenAI GPT-4o / GPT-5.4",
-            "Azure Durable Functions",
-            "Pydantic",
+            "LangChain",
             "CrewAI",
+            "MCP",
+            "A2A",
+            "Context Engineering",
+            "RAG",
+            "Guardrails",
+            "LangFuse",
+            "Pydantic",
             "FastAPI",
             "vLLM",
-            "LangChain",
+            "PyTorch",
+            "Hugging Face Transformers",
+            "TRL (LoRA/QLoRA)",
+            "Scikit-learn",
+            "Azure AI Foundry",
+            "Azure OpenAI (GPT-4o)",
+            "Azure Durable Functions",
+            "Apache Kafka",
             "Docker",
-            "Python"
+            "Pytest"
         ]
     },
 
@@ -171,23 +187,24 @@ const portfolioData = {
             theme: "Enterprise Autonomy & Production Resiliency",
             context: "Insurance Captive / GCC handling massive claim workflows across Asia-Pacific.",
             honors: "Best Team (H1 '26) • Best Performer (Q1 & Q2 '26)",
-            stack: ["LangGraph", "Azure Durable Functions", "Azure AI Foundry (GPT-5.4 mini)", "Managed Kafka", "Azure Event Hubs", "Azure Content Safety", "Pydantic", "Blob Storage"],
+            stack: ["LangGraph", "Azure Durable Functions", "Azure OpenAI (GPT-4o)", "Apache Kafka", "Azure Event Hubs", "Azure Content Safety", "Pydantic", "Blob Storage"],
             metrics: [
-                { label: "AST Parse Cache", value: "< 0.4ms" },
-                { label: "Cold Start Latency", value: "0ms (Warm)" },
-                { label: "Privacy Compliance", value: "APP 11 Pass" },
-                { label: "Prompt Redundancy", value: "100% Eliminated" }
+                { label: "Median Latency", value: "< 120s" },
+                { label: "p95 Latency", value: "155s" },
+                { label: "Data Pull Phase", value: "~50s" },
+                { label: "Kafka Ingest SLA", value: "~2s" }
             ],
             narrative: {
-                challenge: "Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. LLM stochastic nature risked compliance breaches under strict Australian insurance mandates.",
-                solution: "Architected a Declarative JSON Workflow Engine separating prompt configurations and route logic from execution binaries. Incoming stream payloads from Kafka and Event Hubs are orchestrated through Azure Durable Functions and passed through Azure Content Safety and LangChain PII redaction before entering the LangGraph state machine.",
-                impact: "Slashed new claim journey launch time from 3 weeks to < 24 hours. Scaled pipeline to process 100k+ annual claims across 19 distinct automated journeys with zero backend redeployment and validated APP 11 compliance."
+                challenge: "Legacy claim intake pipelines required 3 weeks of backend developer engineering, schema re-compilation, and CI/CD validation to alter a single business lodgement rule. Free-field text descriptions risked adversarial prompt injection, citizen PII leaks, and downstream state corruption under Australian regulatory frameworks.",
+                solution: "Architected a Declarative JSON Workflow Engine covering 18 claim journeys that dynamically creates, assembles, and compiles LangGraph state graphs at runtime. Incoming Kafka payloads pass through an initial Guardrails gate (Azure Content Safety + LangChain PII redaction) with strict Pydantic categorical validation (APPROVED/REJECTED) before orchestrating ~50s of external data pulls (BOM, ICEYE, PDS Blob) and ~10 agents for LLM inference.",
+                impact: "Slashed new claim journey launch time from 3 weeks to 1 day. Scaled pipeline to process 100k+ annual claims across 18 distinct automated journeys with < 120s median latency (p95 at 155s) and 100% compliance with Australia corporate privacy standards."
             },
             deliverables: [
-                "<strong>[Architecture]</strong> Declarative JSON workflow engine driving 19 claim types, allowing business & prompt engineers to launch new claim journeys in 24 hours without backend redeployment.",
-                "<strong>[Guardrails]</strong> Multi-tier Azure Content Safety & LangChain PII redaction middleware ensuring compliance with Australian Privacy Principles (APP 11).",
-                "<strong>[Orchestration]</strong> Synchronized LangGraph node transitions with Azure Durable Functions and warm Kafka consumer pools to prevent cold-start bottlenecks.",
-                "<strong>[Prompt Decoupling]</strong> Two-tier prompt architecture combining generalized agent directives with journey-specific rules, eliminating redundant prompt duplication."
+                "<strong>[Guardrails Gate]</strong> Engineered a multi-layer Guardrails agent using Azure Content Safety to screen 100k+ annual claims, acting as an input gate on free-field claim descriptions and halting prompt injection attacks before downstream processing.",
+                "<strong>[PII Compliance]</strong> Engineered a LangChain-based PII redaction middleware integrated with Azure Content Safety, automated data anonymization prior to persistence, and ensured 100% compliance with Australia corporate privacy standards across 100k+ annual insurance claim logs.",
+                "<strong>[Declarative Engine]</strong> Architected a declarative JSON workflow engine covering 18 claim journeys to process 100k+ annual claims, creating and compiling LangGraph graphs dynamically at runtime, slashing journey onboarding from 3 weeks to 1 day without underlying codebase modifications.",
+                "<strong>[Two-Tier Prompts]</strong> Designed a two-tier prompt architecture decoupling domain-general guidelines from claim-specific rules, eliminating 100% of prompt duplication while cutting agent configuration latency for 18 distinct claim journeys.",
+                "<strong>[Runtime Pydantic Validation]</strong> Implemented comprehensive Pydantic classes to handle output validations and LangGraph state, enforcing strict categorical outputs (e.g. guardrails routing: approved/rejected) to eliminate downstream type issues caused by LLM non-determinism."
             ]
         },
         {
@@ -213,10 +230,10 @@ const portfolioData = {
                 impact: "Reduced manual analytics development effort by 80%, accelerated query retrieval by 40%, and achieved 35% higher response precision with zero database schema leaks."
             },
             deliverables: [
-                "<strong>FastAPI Endpoints:</strong> Engineered high-performance FastAPI Text-to-SQL endpoints with sub-second translation of complex natural language questions into structured SQL queries.",
-                "<strong>Hybrid Memory:</strong> Architected custom hybrid session memory buffers, boosting query accuracy by 35% and improving operational SQL execution rates by 25%.",
-                "<strong>AST Verification:</strong> Deployed CrewAI multi-agent code generation and review team with deterministic AST dialect verification via sqlglot across PostgreSQL and Azure SQL.",
-                "<strong>Metadata Sharding:</strong> Sharded database metadata catalogs into hot memory spaces to eliminate schema lookup lockups during high-concurrency analytical bursts."
+                "<strong>FastAPI Endpoints:</strong> Engineered a high-performance FastAPI endpoint integrating a Text-to-SQL graph, enabling seamless natural language query translation to structured SQL, accelerating data retrieval by 40%.",
+                "<strong>Hybrid Memory:</strong> Architected a custom hybrid memory framework (short-term & long-term) for chat sessions, enhancing contextual retention and summarization, boosting query accuracy by 35% and improving SQL success rate scores by 25%.",
+                "<strong>Impact:</strong> Achieved 80% reduction in manual SQL effort and 35% higher response precision, streamlining analytics workflows and decision-making.",
+                "<strong>Multi-Agent:</strong> Built a multi-agent workflow using CrewAI & Google Gemini 2.5 models to support code generation and review across multiple programming languages."
             ]
         },
         {
@@ -224,7 +241,7 @@ const portfolioData = {
             id: "persistentsystems",
             period: "Aug 2022 – May 2025",
             company: "Persistent Systems",
-            role: "Software Engineer (Gen AI & Search)",
+            role: "Senior Software Engineer (Gen AI)",
             location: "Pune, IN",
             theme: "Foundations of Distributed Search & High-Concurrency Systems",
             context: "Product engineering for enterprise search, neural retrieval, and distributed backend infrastructure.",
@@ -242,10 +259,12 @@ const portfolioData = {
                 impact: "Cut developer onboarding lookup time by 40%, slashed model serving response latency by 50%, and boosted overall developer output by 25% across enterprise initiatives."
             },
             deliverables: [
-                "<strong>Distributed Search:</strong> Built high-throughput search indexing pipelines and microservices handling millions of records with hybrid dense-sparse neural retrieval.",
-                "<strong>Codebase RAG:</strong> Architected an internal RAG codebase knowledge graph with AST chunking and vector search, reducing developer lookup time by 40%.",
-                "<strong>Model Serving:</strong> Implemented distributed model-serving endpoints with FastAPI and vLLM continuous batching, cutting inference latency by 50%.",
-                "<strong>Dataset Curation:</strong> Designed multi-source dataset curation pipelines for LoRA/QLoRA fine-tuning, improving data preparation velocity by 40%."
+                "<strong>Model Serving:</strong> Implemented high-performance model-serving endpoints using FastAPI, reducing response latency by 50% & reliable delivery for AI/ML applications.",
+                "<strong>Automation:</strong> Created and executed automation scripts to replace repetitive tasks, enhancing precision in data retrieval by 35% and boosting productivity by 25% for product development initiatives.",
+                "<strong>Codebase RAG:</strong> Developed an internal RAG codebase assistant leveraging LangChain and vector embeddings, reducing developer onboarding documentation lookup time by 40% across engineering teams.",
+                "<strong>RAG Enhancement:</strong> Enhanced LLM inference with RAG by leveraging document chunking, embedding optimization, and similarity search, improving response relevancy by 40%.",
+                "<strong>RAG Optimization:</strong> Optimized RAG workflow by fine-tuning embeddings and retrieval strategies, reducing latency by 30% and enhancing answer relevance.",
+                "<strong>Dataset Curation:</strong> Architected a data curation framework to aggregate and process datasets from multiple sources, enabling 40% faster data integration to fine-tune LLMs, and improving processing accuracy by 30%."
             ]
         }
     ],
@@ -258,24 +277,24 @@ const portfolioData = {
         client: "Tier-1 Global Insurance GCC (Allianz Services)",
         status: "In Production (100k+ Annual Claims)",
         kpis: [
-            { label: "Rollout Velocity", from: "14 Days", to: "< 24 Hours", change: "93% Reduction" },
+            { label: "Rollout Velocity", from: "3 Weeks", to: "< 24 Hours", change: "95% Reduction" },
             { label: "Annual Volume", value: "100,000+", sub: "Screened Claims" },
-            { label: "Swarm Scale", value: "19", sub: "Production Agents" },
-            { label: "Active Journeys", value: "19", sub: "Automated Claim Paths" }
+            { label: "Claim Journeys", value: "18", sub: "Runtime Compiled Graphs" },
+            { label: "Median Latency", value: "< 120s", sub: "p95 at 155s End-to-End" }
         ],
         starNarrative: {
-            situation: "Insurance claim lodgement is a high-stakes, legally audited domain. Historically, modifying or adding a claim journey required 3 weeks of backend developer engineering, hardcoded business rule changes, schema re-validation, and full CI/CD deployment cycles. Meanwhile, the inherent non-determinism of LLMs created legal, compliance, and hallucination risks under Australian regulatory frameworks.",
-            task: "Engineer a production-grade multi-agent architecture that empowers non-developer prompt engineers to ship new claim journeys in under 24 hours without backend binary redeployments, while guaranteeing strict compliance with Australian privacy mandates and zero corrupted agent state transitions.",
+            situation: "Insurance claim lodgement is a high-stakes, legally audited domain governed by Australian corporate privacy standards (APP 11). Historically, adding or modifying a claim journey required 3 weeks of backend developer engineering, schema re-compilations, and full CI/CD deployment cycles. Meanwhile, free-field text descriptions and claim intake forms exposed systems to adversarial prompt injection, citizen PII leakage, and stochastic LLM state drift.",
+            task: "Engineer a production-grade multi-agent architecture that enables non-developer prompt engineers to ship new claim journeys in under 24 hours without backend binary redeployments, while guaranteeing strict perimeter safety on free-field text, deterministic Pydantic schema validation at every node boundary, and < 120s median end-to-end processing across 18 distinct claim journeys.",
             action: [
-                "Declarative JSON Workflow Engine: Completely decoupled prompt definitions, state transition routes, and tool schemas from the execution binary. Each claim journey is configured via a single declarative JSON document.",
-                "Dual-Tier Guardrail Pipeline: Inbound payloads from Managed Kafka and Azure Event Hubs are immediately processed by Azure Content Safety (blocking prompt injection) and LangChain PII redaction middleware (anonymizing citizen data).",
-                "Distributed Stream Orchestration: State progression is coordinated via Azure Durable Functions, ensuring durable checkpointing, warm consumer pools, and zero dropped claims under peak surges.",
-                "Runtime Pydantic Invariants: Every LangGraph node transition executes runtime Pydantic schema validation. If an LLM returns unexpected structures, deterministic recovery gates intervene immediately."
+                "Runtime-Compiled Declarative JSON Engine: Architected an engine that inspects incoming claim categories across 18 claim journeys, dynamically creates and assembles the required LangGraph state graph, and compiles it at runtime without codebase modifications.",
+                "Perimeter Guardrails Gate: Incoming Kafka streams pass directly to Azure Content Safety and LangChain PII redaction middleware. The Guardrails Agent acts as a strict gate on free-field claim descriptions, returning Pydantic-validated categorical routing: APPROVED or REJECTED. Unsafe payloads are halted immediately with 0 tokens wasted.",
+                "Decoupled Data Pulls & Distributed Orchestration: Coordinates external data retrieval (~50s across BOM weather, ICEYE flood radar, power outage feeds, and Azure Blob PDS documents) and long-running state machines via Azure Durable Functions.",
+                "Runtime Pydantic Node Invariants: Every transition across ~10 micro-agents enforces strict Pydantic schemas, eliminating state drift and ensuring deterministic routing."
             ],
-            result: "Slashed journey deployment cycle from 3 weeks to less than 24 hours. The platform processes 100,000+ claims annually across 19 production journeys with zero security breaches and zero state drift.",
+            result: "Slashed claim journey deployment cycles from 3 weeks to 1 day. The engine processes 100,000+ annual claims across 18 production journeys with a median completion latency under 120s (p95 at 155s: ~2s Kafka ingest, ~50s data pulls, and ~60–100s LLM inference across ~10 agents on Azure OpenAI GPT-4o), with 0 privacy breaches and 100% APP 11 compliance.",
             postMortem: {
-                tradeoff: "Decoupling JSON schemas introduced slight initial parsing and validation overhead (~15ms per cold session). We mitigated this by compiling and caching validated AST schemas in hot memory and maintaining policy disclosure documents in hot Azure Blob Storage.",
-                takeaway: "Strict runtime Pydantic schema validation at every micro-agent boundary is 10x cheaper than attempting to debug corrupted multi-agent conversational states downstream in production."
+                tradeoff: "External data pulls (~50s for BOM weather, ICEYE radar, and PDS documents) dominated wall-clock time over local computation. We optimized this by parallelizing asynchronous activity pulls in Azure Durable Functions and maintaining policy disclosure documents in hot Azure Blob Storage.",
+                takeaway: "Enforcing strict runtime Pydantic validation (such as Guardrails routing restricted to APPROVED or REJECTED) is 10x more reliable than attempting post-hoc error recovery on unconstrained LLM outputs."
             }
         },
         topologyNodes: [
@@ -285,7 +304,7 @@ const portfolioData = {
                 category: "Event Streaming",
                 tech: "Apache Kafka / Azure Event Hubs",
                 badge: "High Throughput",
-                description: "Ingests raw insurance claim submissions from external APIs and policyholder portals at peak concurrency.",
+                description: "Ingests raw insurance claim submissions from external APIs and policyholder portals with partition buffering and exactly-once delivery.",
                 payloadSample: `{
   "eventId": "evt_99841_aus_motor",
   "topic": "allianz.claims.lodgement.inbound",
@@ -293,11 +312,11 @@ const portfolioData = {
   "rawPayload": {
     "policyNumber": "POL-AU-883921",
     "incidentDate": "2026-09-07",
-    "driverNarrative": "Rear-ended at traffic lights on Collins St...",
+    "driverNarrative": "Hail damage to windscreen and roof during storm...",
     "estimatedDamage": 4200.00
   }
 }`,
-                sla: "< 12ms ingestion latency",
+                sla: "~2s ingestion & partitioning SLA",
                 invariant: "Immutable event persistence"
             },
             {
@@ -311,88 +330,95 @@ const portfolioData = {
   "orchestratorInstanceId": "orch_allianz_b40e9f1",
   "runtimeStatus": "Running",
   "activitySteps": [
-    "Activity1_StreamNormalization",
-    "Activity2_SafetyAndPIIInspection",
-    "Activity3_LangGraphExecutionLoop"
+    "Activity1_KafkaPayloadValidation",
+    "Activity2_PerimeterGuardrailInspection",
+    "Activity3_DataPullsAndEnrichment",
+    "Activity4_LangGraphStateExecution"
   ],
-  "durableCheckpoints": 3
+  "durableCheckpoints": 4
 }`,
                 sla: "Zero state loss across retries",
                 invariant: "Idempotent step execution"
             },
             {
                 id: "guardrails",
-                label: "Dual-Tier Safety & PII Guardrail",
+                label: "Perimeter Guardrails Gate",
                 category: "AI Safety & Compliance",
                 tech: "Azure Content Safety + LangChain PII",
                 badge: "APP 11 Compliant",
-                description: "Screens prompt injection attacks, detects toxic inputs, and anonymizes personal data before LLM reasoning.",
+                description: "Screens unstructured free-field claim descriptions for prompt injection and toxic payloads; executes PII redaction. Strictly returns Pydantic status: APPROVED or REJECTED.",
                 payloadSample: `{
-  "injectionCheck": { "flagged": false, "confidence": 0.998 },
+  "injectionCheck": { "flagged": false, "confidence": 0.999 },
   "piiRedaction": {
     "driverName": "[REDACTED_NAME]",
     "licenseNumber": "[REDACTED_DL_AU]",
     "phone": "[REDACTED_TEL]"
   },
-  "complianceStatus": "CERTIFIED_APP_11_COMPLIANT"
+  "guardrailRouting": "APPROVED",
+  "complianceStatus": "APP_11_COMPLIANT"
 }`,
-                sla: "< 35ms safety filter hop",
-                invariant: "Zero raw PII to inference"
+                sla: "Perimeter gate: halts malicious inputs before LLM transit",
+                invariant: "Zero raw PII or unvalidated payloads"
             },
             {
                 id: "langgraph_engine",
-                label: "LangGraph Declarative State Machine",
+                label: "Runtime-Compiled LangGraph Engine",
                 category: "Agentic Reasoning",
-                tech: "LangGraph + Azure AI Foundry (GPT-5.4)",
-                badge: "19 Journeys",
-                description: "Executes dynamic graph nodes based on the declarative JSON schema: Policy Verification, Fraud Detection, Damage Appraisal, and Settlement Triage.",
+                tech: "LangGraph + Azure OpenAI (GPT-4o)",
+                badge: "18 Claim Journeys",
+                description: "JSON declarative engine dynamically creates, assembles, and compiles tailored LangGraph topologies at runtime across ~10 agents per claim category.",
                 payloadSample: `{
-  "journeyId": "motor_comprehensive_claim_v4",
+  "journeyId": "motor_storm_damage_claim_v4",
+  "compiledGraphNodes": 10,
   "currentNode": "damage_assessment_agent",
   "pydanticValidation": "PASS",
   "stateSchema": {
+    "guardrailStatus": "APPROVED",
     "coverageValid": true,
+    "weatherConfirmed": true,
     "excessAmount": 650.00,
-    "fraudScore": 0.04,
+    "fraudScore": 0.02,
     "autoApprovalEligible": true
   }
 }`,
-                sla: "Sub-2.5s composite graph reasoning",
-                invariant: "Runtime Pydantic schema validation"
+                sla: "Median < 120s | p95 155s total completion",
+                invariant: "Runtime Pydantic schema validation at each node"
             },
             {
-                id: "hot_cache",
-                label: "Hot Policy & Disclosure Blob Cache",
-                category: "Storage Optimization",
-                tech: "Azure Blob Storage + In-Memory AST",
-                badge: "Cache Hit: Persistent State",
-                description: "Maintains pre-compiled declarative journey ASTs and hot policy disclosure clauses to avoid redundant remote fetches.",
+                id: "data_enrichment",
+                label: "Data Pulls & External Feeds (BOM / ICEYE / PDS)",
+                category: "Data Enrichment",
+                tech: "Azure Blob (PDS) + BOM Weather + ICEYE Satellite",
+                badge: "Data Enrichment Phase",
+                description: "Fetches real-time weather alerts from BOM Australia, satellite radar from ICEYE, power outage telemetry, and policy PDS disclosure clauses from Azure Blob.",
                 payloadSample: `{
-  "cacheHit": true,
-  "journeyAstKey": "ast:journey:motor_comprehensive:v4",
-  "disclosureBundleVersion": "2026.1_AUS_REG",
-  "fetchTimeMs": 3.2
+  "bomWeatherVerified": true,
+  "hailWarningSeverity": "SEVERE",
+  "iceyeFloodRadarMatch": false,
+  "pdsDocumentVersion": "2026.1_AUS_REG",
+  "dataPullLatencySec": 48.6
 }`,
-                sla: "< 5ms retrieval",
-                invariant: "Hot memory AST cache"
+                sla: "~50s cumulative data retrieval phase",
+                invariant: "Immutable third-party evidentiary verification"
             },
             {
                 id: "observability",
                 label: "Dual-Emit Observability Engine",
                 category: "Telemetry & APM",
-                tech: "LangFuse + Azure Application Insights",
+                tech: "LangFuse + Azure Application Insights / Dynatrace",
                 badge: "Distributed Tracing",
-                description: "Streams high-fidelity distributed traces measuring ingestion throughput, agent latency, LLM token duration, and schema hit-rates.",
+                description: "Streams high-fidelity distributed traces measuring Kafka ingest latency (~2s), data pull duration (~50s), and LLM token inference (~60-100s) across ~10 agents.",
                 payloadSample: `{
   "traceId": "00-4bf92f3577b34da6a3ce929d0e0e4736",
   "metrics": {
-    "endToEndDurationMs": 1420,
-    "modelInferenceMs": 890,
-    "guardrailsMs": 32,
-    "cacheHitRatio": 0.94
+    "totalDurationSec": 114.2,
+    "kafkaIngestSec": 2.1,
+    "dataPullsSec": 49.3,
+    "llmInferenceSec": 62.8,
+    "guardrailsDecision": "APPROVED"
   }
 }`,
-                sla: "Real-time alert dispatch",
+                sla: "Real-time alert dispatch & audit trace replay",
                 invariant: "Complete auditability of every decision"
             }
         ],
@@ -400,130 +426,136 @@ const portfolioData = {
             {
                 id: "schema_tab",
                 label: "Declarative JSON Engine",
-                fileName: "motor_claim_journey_v4.json",
+                fileName: "storm_damage_claim_journey.json",
                 language: "json",
-                description: "Production JSON schema defining an entire claim journey. Business teams deploy this directly without recompiling or redeploying backend code.",
+                description: "Production declarative JSON schema defining a claim journey. Assembled and compiled by the runtime engine without backend redeployment.",
                 code: `{
   "$schema": "https://allianz.internal/schemas/agentic_journey_v4.json",
-  "journeyId": "motor_comprehensive_claim_v4",
-  "description": "Autonomous comprehensive motor vehicle lodgement & triage",
-  "entryNode": "guardrail_safety_filter",
-  "stateSchema": "MotorClaimStateSchemaV4",
-  "timeoutSeconds": 45,
+  "journeyId": "motor_storm_damage_claim_v4",
+  "description": "Runtime-compiled storm damage lodgement across ~10 agents",
+  "entryNode": "guardrails_gate",
+  "stateSchema": "ClaimStateSchema",
+  "catalogJourney": "18_Production_Journeys",
   "nodes": [
     {
-      "id": "guardrail_safety_filter",
-      "agent": "ContentSafetyAgent",
-      "failRoute": "reject_submission_escalation",
-      "invariants": { "piiRedaction": true, "injectionHalt": true }
-    },
-    {
-      "id": "policy_coverage_resolver",
-      "agent": "PolicyValidationAgent",
-      "requires": ["policyNumber", "incidentDate"],
+      "id": "guardrails_gate",
+      "agent": "GuardrailsSafetyAgent",
+      "pydanticModel": "GuardrailValidationResult",
       "routes": {
-        "covered": "fraud_and_anomaly_evaluator",
-        "lapsed": "policy_lapsed_notification",
-        "ambiguous": "manual_underwriter_queue"
+        "APPROVED": "weather_and_coverage_pull",
+        "REJECTED": "halt_security_escalation"
       }
     },
     {
-      "id": "fraud_and_anomaly_evaluator",
-      "agent": "FraudDetectionAgent",
-      "parameters": { "threshold": 0.20, "weatherValidation": true },
-      "routes": {
-        "lowRisk": "automated_damage_settler",
-        "elevatedRisk": "investigation_triage_queue"
-      }
+      "id": "weather_and_coverage_pull",
+      "agent": "DataPullCoordinator",
+      "feeds": ["BOM_Weather", "ICEYE_Satellite", "Blob_PDS_Docs"],
+      "routes": { "ready": "triage_and_reserve_evaluator" }
     },
     {
-      "id": "automated_damage_settler",
-      "agent": "SettlementTriageAgent",
+      "id": "triage_and_reserve_evaluator",
+      "agent": "TriageReserveAgent",
       "autoApproveThreshold": 5000.00,
-      "successRoute": "dispatch_settlement_payout"
+      "routes": {
+        "autoSettle": "dispatch_settlement_payout",
+        "investigate": "investigation_triage_queue"
+      }
     }
   ]
 }`
             },
             {
                 id: "langgraph_tab",
-                label: "LangGraph State Machine (Python)",
-                fileName: "state_graph_orchestrator.py",
+                label: "Runtime LangGraph Engine (Python)",
+                fileName: "runtime_graph_engine.py",
                 language: "python",
-                description: "Runtime Python execution engine binding declarative node transitions with strict Pydantic schema validation.",
-                code: `from typing import Annotated, Dict, Any, List
-from typing_extensions import TypedDict
+                description: "Runtime Python execution engine creating, assembling, and compiling LangGraph graphs on the fly with strict Pydantic validation.",
+                code: `from typing import Literal, Dict, Any, List
 from pydantic import BaseModel, Field, ValidationError
 from langgraph.graph import StateGraph, START, END
 
-class ClaimStateSchemaV4(BaseModel):
-    """Strict runtime Pydantic schema protecting agent state integrity"""
+class ClaimStateSchema(BaseModel):
+    """Strict runtime Pydantic schema enforcing categorical state across ~10 agents"""
     claim_id: str
-    policy_number: str
-    safety_passed: bool = Field(default=False)
-    pii_sanitized: bool = Field(default=False)
-    coverage_verified: bool = Field(default=False)
+    claim_type: str
+    guardrail_status: Literal["APPROVED", "REJECTED"]
+    coverage_verified: bool = False
+    weather_validated: bool = False
     fraud_risk_score: float = Field(ge=0.0, le=1.0, default=0.0)
-    settlement_amount: float = Field(default=0.0)
+    settlement_reserve: float = Field(default=0.0)
+    triage_route: Literal["AUTO_SETTLE", "FAST_TRACK", "MANUAL_ASSESSOR"] = "FAST_TRACK"
     decision_history: List[str] = Field(default_factory=list)
 
-class DeclarativeEngineExecutor:
-    """Executes declarative JSON configurations dynamically within LangGraph"""
-    def __init__(self, journey_config: dict):
-        self.config = journey_config
-        self.graph = StateGraph(ClaimStateSchemaV4)
-        self._compile_graph()
+class DeclarativeRuntimeEngine:
+    """Creates, assembles, and compiles LangGraph graphs at runtime for 18 claim journeys"""
+    def __init__(self, journey_spec: dict):
+        self.spec = journey_spec
+        self.graph = StateGraph(ClaimStateSchema)
+        self.compiled_workflow = self._assemble_and_compile()
 
-    def _compile_graph(self):
-        # Bind dynamic nodes defined in declarative JSON
-        for node in self.config["nodes"]:
-            self.graph.add_node(node["id"], self._create_node_handler(node))
+    def _assemble_and_compile(self):
+        # 1. Dynamically instantiate ~10 agent nodes defined in declarative JSON
+        for node in self.spec["nodes"]:
+            self.graph.add_node(node["id"], self._make_node_handler(node))
 
-        self.graph.add_edge(START, self.config["entryNode"])
-        # Connect graph edges with runtime conditional routes
-        self.workflow = self.graph.compile()
+        # 2. Wire conditional routing and entry boundaries
+        self.graph.add_edge(START, self.spec["entryNode"])
+        for source, routes in self.spec.get("conditionalEdges", {}).items():
+            self.graph.add_conditional_edges(source, self._route_selector(routes))
 
-    def _create_node_handler(self, node_spec: dict):
-        async def node_handler(state: ClaimStateSchemaV4):
-            # Every transition verifies and returns strictly validated state mutations
+        # 3. Compile LangGraph state graph at runtime
+        return self.graph.compile()
+
+    def _make_node_handler(self, node_spec: dict):
+        async def node_handler(state: ClaimStateSchema):
             state.decision_history.append(f"executed:{node_spec['id']}")
             return state
         return node_handler`
             },
             {
                 id: "guardrails_tab",
-                label: "Azure Safety & PII Redaction",
-                fileName: "azure_safety_middleware.py",
+                label: "Perimeter Safety Gate & Pydantic Validation",
+                fileName: "perimeter_guardrail_gate.py",
                 language: "python",
-                description: "Enterprise safety pipeline blocking prompt injection attacks and redacting citizen PII for Australian regulatory compliance.",
-                code: `from azure.ai.contentsafety import ContentSafetyClient
+                description: "Perimeter guardrail screening free-field descriptions and returning strict Pydantic categorical routing (APPROVED / REJECTED).",
+                code: `from typing import Literal
+from pydantic import BaseModel, Field
+from azure.ai.contentsafety import ContentSafetyClient
 from azure.core.credentials import AzureKeyCredential
 from langchain_community.document_transformers import RedactionTransformer
-import re
 
-class EnterpriseClaimSafetyGate:
-    """Dual-tier guardrail screening 100k+ annual claims prior to LLM reasoning"""
+class GuardrailValidationResult(BaseModel):
+    """Strict Pydantic schema enforcing categorical gate status"""
+    status: Literal["APPROVED", "REJECTED"]
+    reason: str
+    sanitized_description: str | None = None
+    injection_detected: bool = False
+    pii_redacted: bool = False
+
+class PerimeterClaimSafetyGate:
+    """Perimeter guardrail screening free-field claim descriptions"""
     def __init__(self, endpoint: str, api_key: str):
         self.client = ContentSafetyClient(endpoint, AzureKeyCredential(api_key))
         self.pii_redactor = RedactionTransformer()
 
-    async def screen_payload(self, raw_text: str) -> dict:
-        # Step 1: Real-time Azure Content Safety injection analysis
-        analysis = await self.client.analyze_text_async(text=raw_text)
+    async def screen_free_text(self, raw_description: str) -> GuardrailValidationResult:
+        # Step 1: Detect prompt injection / malicious payloads in free text
+        analysis = await self.client.analyze_text_async(text=raw_description)
         if analysis.is_flagged:
-            return {
-                "decision": "BLOCKED",
-                "reason": "Prompt injection or malicious policyholder input detected",
-                "sanitized_payload": None
-            }
+            return GuardrailValidationResult(
+                status="REJECTED",
+                reason="Malicious prompt injection or unsafe content halted at gate",
+                injection_detected=True
+            )
 
-        # Step 2: LangChain PII Redaction (Australian Privacy Principles APP 11 compliance)
-        sanitized = self.pii_redactor.transform_text(raw_text)
-        return {
-            "decision": "PERMITTED",
-            "reason": "Passed security boundary",
-            "sanitized_payload": sanitized
-        }`
+        # Step 2: Redact citizen PII before downstream transit (APP 11 compliance)
+        sanitized = self.pii_redactor.transform_text(raw_description)
+        return GuardrailValidationResult(
+            status="APPROVED",
+            reason="Payload verified and sanitized",
+            sanitized_description=sanitized,
+            pii_redacted=True
+        )`
             }
         ]
     },

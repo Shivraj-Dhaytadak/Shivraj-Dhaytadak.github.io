@@ -143,7 +143,7 @@
                             <source srcset="ProjectBluey.webp" type="image/webp">
                             <img id="blueprint-img" 
                                  src="ProjectBluey.png" 
-                                 alt="Enterprise Multi-Agent Claims Lodgement Engine Architecture Blueprint showing Kafka stream buffer ingestion, Azure Content Safety and LangChain PII redaction filter, declarative JSON state graph orchestrating 19 journeys, Pydantic runtime schema verification, and dual-emit observability to LangFuse and Azure Application Insights." 
+                                 alt="Enterprise Multi-Agent Claims Lodgement Engine Architecture Blueprint showing Kafka stream buffer ingestion (~2s), Azure Content Safety and Guardrails perimeter gate, declarative JSON state graph dynamically compiling 18 claim journeys at runtime, Pydantic categorical validation (APPROVED/REJECTED), ~50s data pulls, and dual-emit observability to LangFuse and Azure Application Insights." 
                                  width="1890" 
                                  height="1119" 
                                  class="max-w-full h-auto max-h-[720px] object-contain rounded-lg shadow-2xl transition-transform duration-300 group-hover:scale-[1.01]" 
@@ -412,17 +412,17 @@
                     </g>
 
 
-                    <!-- ==================== 6. AZURE FOUNDRY CLUSTER ==================== -->
+                    <!-- ==================== 6. AZURE OPENAI INFERENCE CLUSTER ==================== -->
                     <g id="cluster-foundry" class="cluster-group">
                         <rect x="740" y="645" width="220" height="120" rx="10" fill="#451A03" fill-opacity="0.3" stroke="#D97706" stroke-width="1.5" />
                         <rect x="740" y="645" width="220" height="28" rx="10" fill="#D97706" fill-opacity="0.15" />
-                        <text x="755" y="664" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Azure Foundry</text>
+                        <text x="755" y="664" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Azure OpenAI Inference</text>
 
                         <g id="node-foundry" class="diagram-node" onclick="inspectNode('foundry')">
                             <!-- AI Star Symbol -->
                             <circle cx="850" cy="698" r="16" fill="#0284C7" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1.5" />
                             <path d="M 850 686 L 853 695 L 862 698 L 853 701 L 850 710 L 847 701 L 838 698 L 847 695 Z" fill="#38BDF8" />
-                            <text x="850" y="736" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Foundry GPT-5.4 mini</text>
+                            <text x="850" y="736" text-anchor="middle" fill="#F3F4F6" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">Azure OpenAI GPT-4o</text>
                         </g>
                     </g>
 
@@ -547,7 +547,7 @@
                         <animateMotion dur="1.2s" repeatCount="indefinite" path="M 830 372 L 855 372" />
                     </circle>
 
-                    <!-- 13. Azure Foundry -> LangGraph Inference Model -->
+                    <!-- 13. Azure OpenAI -> LangGraph Inference Model -->
                     <path d="M 850 645 L 850 590" fill="none" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-amber)" />
                     <text x="895" y="625" fill="#FBBF24" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600">shared inference model for all agents</text>
                     <circle r="4" fill="#FDE68A" filter="url(#glow-amber)">
@@ -586,24 +586,24 @@
                 </div>
 
                 <div>
-                    <span id="inspect-category" class="text-[9px] font-bold text-indigo-400 code-font uppercase tracking-widest">LANGGRAPH CLUSTER</span>
-                    <h3 id="inspect-title" class="text-base font-bold text-white mt-0.5">🛡️ Guardrails Node</h3>
-                    <p id="inspect-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">Pydantic validation layer enforcing input invariants, content safety boundaries, and schema integrity before downstream agents fire.</p>
+                    <span id="inspect-category" class="text-[9px] font-bold text-indigo-400 code-font uppercase tracking-widest">LANGGRAPH PERIMETER GATE</span>
+                    <h3 id="inspect-title" class="text-base font-bold text-white mt-0.5">🛡️ Guardrails Agent</h3>
+                    <p id="inspect-desc" class="text-xs text-slate-300 mt-1 leading-relaxed">Perimeter gate screening free-field descriptions against prompt injection and malicious payloads; uses Pydantic for deterministic categorical routing (APPROVED / REJECTED).</p>
                 </div>
 
                 <div class="space-y-2 text-xs">
                     <div class="bg-slate-950/80 p-2.5 rounded-lg border border-slate-850">
                         <span class="text-xs text-slate-400 uppercase font-bold code-font block mb-1">Execution Contract</span>
-                        <div id="inspect-contract" class="text-xs text-indigo-300 font-mono">AgenticGraphState -> PydanticScheme</div>
+                        <div id="inspect-contract" class="text-xs text-indigo-300 font-mono">ClaimDescription -> PydanticRoute(status: 'APPROVED' | 'REJECTED')</div>
                     </div>
                     <div class="grid grid-cols-2 gap-2 text-xs">
                         <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
                             <span class="text-xs text-slate-400 uppercase font-bold code-font block">Avg Latency</span>
-                            <span id="inspect-latency" class="font-bold text-slate-200 code-font">Instant</span>
+                            <span id="inspect-latency" class="font-bold text-slate-200 code-font">350ms (Gate)</span>
                         </div>
                         <div class="bg-slate-950/80 p-2 rounded-lg border border-slate-850">
                             <span class="text-xs text-slate-400 uppercase font-bold code-font block">Throughput</span>
-                            <span id="inspect-throughput" class="font-bold text-emerald-400 code-font">1.2k req/min</span>
+                            <span id="inspect-throughput" class="font-bold text-emerald-400 code-font">100% Deterministic Gate</span>
                         </div>
                     </div>
                 </div>
@@ -612,7 +612,7 @@
                     <span class="text-xs font-bold text-slate-300 uppercase tracking-wide block mb-1.5">Downstream Dependencies</span>
                     <div id="inspect-deps" class="flex flex-wrap gap-1.5">
                         <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-xs code-font">Weather</span>
-                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-xs code-font">Foundry GPT-5.4 mini</span>
+                        <span class="px-2 py-0.5 bg-slate-950 text-slate-300 border border-slate-800 rounded text-xs code-font">Azure OpenAI GPT-4o</span>
                     </div>
                 </div>
 
@@ -654,8 +654,8 @@
                 title: "Managed Kafka Stream",
                 desc: "High-throughput asynchronous claims event stream ingesting raw insurance lodgements and broker webhook notifications.",
                 contract: "KafkaEvent<RawBytes> -> StandardizedPayload",
-                latency: "8ms",
-                throughput: "2.4k events/sec",
+                latency: "~2.0s",
+                throughput: "100k+ Claims/yr",
                 status: "STREAMING",
                 deps: ["Activity 1: Kafka Ingestion", "Event Hubs"]
             },
@@ -664,8 +664,8 @@
                 title: "Azure Event Hubs",
                 desc: "Enterprise cloud telemetry ingestion buffer synchronizing device telemetry and external carrier claims.",
                 contract: "EventHubStream<ClaimPacket>",
-                latency: "12ms",
-                throughput: "1.8k events/sec",
+                latency: "38ms",
+                throughput: "85 events/sec",
                 status: "ONLINE",
                 deps: ["Activity 1: Kafka Ingestion"]
             },
@@ -674,58 +674,58 @@
                 title: "Durable Function Orchestrator",
                 desc: "Deterministic serverless state coordinator maintaining transaction boundaries across activities and handling retry queues.",
                 contract: "DurableOrchestratorContext -> ActivityChain",
-                latency: "25ms",
-                throughput: "98.8% success",
+                latency: "65ms",
+                throughput: "99.4% Deterministic",
                 status: "HEALTHY",
                 deps: ["Activity 1", "Activity 2", "Activity 3", "Application Insights"]
             },
             activity1: {
                 category: "DURABLE ACTIVITIES",
-                title: "Activity 1: Kafka Ingestion",
-                desc: "Validates incoming Kafka byte stream, parses schema invariants, and standardizes claim identifiers.",
+                title: "Activity 1: Kafka Ingestion & Gate",
+                desc: "Validates incoming Kafka byte stream (~2s buffer), passes free-field descriptions through Guardrails validation, and standardizes claim identifiers.",
                 contract: "StandardizedPayload(claim_id, meta, ts)",
-                latency: "14ms",
-                throughput: "100k+ claims/yr",
+                latency: "~2.0s",
+                throughput: "100k+ Claims/yr",
                 status: "ACTIVE",
                 deps: ["Activity 2: LangGraph Workflow", "Observability"]
             },
             activity2: {
                 category: "DURABLE ACTIVITIES",
                 title: "Activity 2: LangGraph Workflow",
-                desc: "Dispatches standardized payload into LangGraph Multi-Agent execution loop and coordinates tool responses.",
+                desc: "Dynamically compiles declarative JSON state machine for 1 of 18 claim journeys; executes ~10 agents with ~50s cumulative data pulls and ~60–100s LLM inference.",
                 contract: "AgenticGraphState -> LangGraphLoop",
-                latency: "420ms",
-                throughput: "19 Claim Journeys",
+                latency: "< 120s Median (p95 155s)",
+                throughput: "18 Claim Journeys",
                 status: "INFERRING",
-                deps: ["Guardrails", "Foundry GPT-5.4 mini", "Observability"]
+                deps: ["Guardrails Gate", "Azure OpenAI GPT-4o", "Observability"]
             },
             activity3: {
                 category: "DURABLE ACTIVITIES",
                 title: "Activity 3: Output & Persistence",
                 desc: "Commits finalized multi-agent arbitration decision to storage, generates audit certificates, and emits traces.",
                 contract: "ClaimDecisionPacket -> Storage & Traces",
-                latency: "35ms",
-                throughput: "100%",
+                latency: "125ms",
+                throughput: "Idempotent Commit",
                 status: "COMMITTING",
                 deps: ["Observability", "LangFuse"]
             },
             guardrails: {
                 category: "LANGGRAPH AGENTS",
                 title: "🛡️ Guardrails Agent",
-                desc: "Pydantic validation layer enforcing input invariants, content safety boundaries, and schema integrity before downstream agents fire.",
-                contract: "AgenticGraphState -> PydanticScheme",
-                latency: "Instant",
-                throughput: "1.2k req/min",
+                desc: "Perimeter gate validating free-field text and claim descriptions against prompt injection and malicious payloads; uses Pydantic for strict categorical routing (APPROVED / REJECTED).",
+                contract: "ClaimDescription -> PydanticRoute(status: 'APPROVED' | 'REJECTED')",
+                latency: "350ms (Gate)",
+                throughput: "100% Deterministic Gate",
                 status: "ONLINE",
-                deps: ["Weather", "Foundry GPT-5.4 mini"]
+                deps: ["Weather", "Azure OpenAI GPT-4o"]
             },
             weather: {
                 category: "LANGGRAPH AGENTS",
                 title: "🌧️ Weather Analysis Agent",
-                desc: "Extracts claim incident coordinates and queries specialized meteorological tools (BOM, ICEYE) to verify weather damage severity.",
+                desc: "Extracts claim incident coordinates and queries specialized meteorological tools (BOM, ICEYE) as part of ~50s cumulative external data pulls.",
                 contract: "GeoCoordinates -> WeatherRiskScore(0..1)",
-                latency: "185ms",
-                throughput: "19 Journeys",
+                latency: "~15-25s (BOM/ICEYE)",
+                throughput: "BOM/ICEYE Multi-Tool",
                 status: "ONLINE",
                 deps: ["Coverage", "Weather Data Tools (BOM, ICEYE)"]
             },
@@ -734,8 +734,8 @@
                 title: "📄 Coverage Agent",
                 desc: "Matches policy schedule against incident metadata, querying hot PDS caching in Azure Blob Storage.",
                 contract: "PolicyNumber -> PDSLookupTable",
-                latency: "32ms",
-                throughput: "Cosmos DB State",
+                latency: "48ms",
+                throughput: "Hot LRU Cache",
                 status: "ONLINE",
                 deps: ["Triage", "Blob Storage (PDS Cache)"]
             },
@@ -744,8 +744,8 @@
                 title: "🔍 Fraud Detection Agent",
                 desc: "Runs multi-variable anomaly detection against previous lodgements and flagged claim risk matrices.",
                 contract: "ClaimContext -> FraudRiskScore",
-                latency: "65ms",
-                throughput: "Deterministic",
+                latency: "115ms",
+                throughput: "Deterministic Risk",
                 status: "ACTIVE",
                 deps: ["Payment Reserve", "Triage"]
             },
@@ -754,8 +754,8 @@
                 title: "🧮 Payment Reserve Agent",
                 desc: "Calculates statutory loss exposure and initializes claim reserve balance thresholds with zero negative exposure.",
                 contract: "LossEstimate -> ReserveAmount(Validated)",
-                latency: "28ms",
-                throughput: "Real-time",
+                latency: "45ms",
+                throughput: "Statutory Limits",
                 status: "ACTIVE",
                 deps: ["Triage", "Auditor"]
             },
@@ -764,7 +764,7 @@
                 title: "🚦 Triage & Routing Agent",
                 desc: "Two-tier prompt supervisor routing claim into Straight-Through Processing (STP) or human adjustor queues.",
                 contract: "TriageMatrix -> FastTrack / Adjustor",
-                latency: "45ms",
+                latency: "85ms",
                 throughput: "92% STP Rate",
                 status: "ACTIVE",
                 deps: ["Strategy", "Auditor"]
@@ -774,8 +774,8 @@
                 title: "🧭 Strategy Agent",
                 desc: "Formulates next-best customer actions, contractor repair dispatch assignments, and settlement options.",
                 contract: "TriageOutcome -> ActionPlan",
-                latency: "50ms",
-                throughput: "High",
+                latency: "90ms",
+                throughput: "Action Matrix",
                 status: "ONLINE",
                 deps: ["Recovery", "Auditor"]
             },
@@ -784,28 +784,28 @@
                 title: "🔄 Recovery Agent (Optional)",
                 desc: "Subrogation assessment determining third-party liability and recovery options for property damages.",
                 contract: "LiabilityMatrix -> RecoveryClaim",
-                latency: "40ms",
-                throughput: "Optional Branch",
+                latency: "65ms",
+                throughput: "Subrogation Gate",
                 status: "STANDBY",
                 deps: ["Auditor"]
             },
             auditor: {
                 category: "LANGGRAPH AGENTS",
                 title: "📋 Auditor Agent",
-                desc: "Generates immutable compliance event certificates and verifies all 19 claim journey regulatory constraints.",
+                desc: "Generates immutable compliance event certificates and verifies all 18 claim journey regulatory constraints.",
                 contract: "AuditChain -> VerifiedLogEntry",
-                latency: "22ms",
-                throughput: "100% Audited",
+                latency: "55ms",
+                throughput: "APP-11 Audit Log",
                 status: "VERIFYING",
                 deps: ["Activity 3", "Observability"]
             },
             bom: {
                 category: "WEATHER DATA TOOLS",
                 title: "BOM (Bureau of Meteorology)",
-                desc: "Official Australian Government weather telemetry integration fetching storm radar and rainfall histories.",
+                desc: "Official Australian Government weather telemetry integration fetching storm radar and rainfall histories (part of ~50s external data pulls).",
                 contract: "StationId -> WeatherObservations",
-                latency: "110ms",
-                throughput: "Live API",
+                latency: "~8-12s (API Pull)",
+                throughput: "BoM Radar API",
                 status: "CONNECTED",
                 deps: ["Weather Agent"]
             },
@@ -814,18 +814,18 @@
                 title: "Outage OWL Feed",
                 desc: "Utility electrical grid and transmission line disruption monitoring validating local power surges.",
                 contract: "GridZone -> OutageEvents",
-                latency: "95ms",
-                throughput: "Real-time",
+                latency: "240ms",
+                throughput: "Grid Telemetry",
                 status: "CONNECTED",
                 deps: ["Weather Agent"]
             },
             iceye: {
                 category: "WEATHER DATA TOOLS",
                 title: "ICEYE Satellite Radar",
-                desc: "Synthetic Aperture Radar (SAR) satellite imagery measuring flood inundation depths at building level.",
+                desc: "Synthetic Aperture Radar (SAR) satellite imagery measuring flood inundation depths at building level (part of ~50s external data pulls).",
                 contract: "BoundingBox -> FloodDepthMatrix",
-                latency: "240ms",
-                throughput: "High-Res SAR",
+                latency: "~15-20s (SAR Raster)",
+                throughput: "SAR Raster Stream",
                 status: "CONNECTED",
                 deps: ["Weather Agent"]
             },
@@ -834,8 +834,8 @@
                 title: "WeatherWatch Feed",
                 desc: "High-density hail and severe thunderstorm tracking providing localized storm trajectory vector points.",
                 contract: "HailIndex -> ImpactSeverity",
-                latency: "75ms",
-                throughput: "Live Stream",
+                latency: "210ms",
+                throughput: "Hail Vector Feed",
                 status: "CONNECTED",
                 deps: ["Weather Agent"]
             },
@@ -844,28 +844,28 @@
                 title: "Auxiliary Environmental Feeds",
                 desc: "Emergency services incident registers, bushfire warning alerts, and geographic catastrophe event tags.",
                 contract: "CatCode -> EmergencyDeclarations",
-                latency: "80ms",
-                throughput: "Live Feed",
+                latency: "260ms",
+                throughput: "SES / Bushfire Warn",
                 status: "CONNECTED",
                 deps: ["Weather Agent"]
             },
             blob: {
                 category: "STORAGE INFRASTRUCTURE",
                 title: "Azure Blob Storage (PDS Cache)",
-                desc: "Hot memory caching tier holding Policy Product Disclosure Statements (PDS) to shield model from redundant retrievals.",
+                desc: "Hot caching tier holding Policy Product Disclosure Statements (PDS) to shield model from redundant retrievals (part of ~50s external data pulls).",
                 contract: "PDS_Key -> DocumentCacheChunks",
-                latency: "15ms",
-                throughput: "50k ops/sec",
+                latency: "~3-5s (Blob Read)",
+                throughput: "Warm Read Tier",
                 status: "HOT_CACHED",
                 deps: ["Coverage Agent"]
             },
             foundry: {
                 category: "INFERENCE INFRASTRUCTURE",
-                title: "Foundry GPT-5.4 mini",
-                desc: "Unified cloud LLM inference gateway serving all 19 specialized micro-agents with deterministic tool-calling constraints.",
+                title: "Azure OpenAI GPT-4o Gateway",
+                desc: "Unified cloud LLM inference gateway serving ~10 specialized agents across 18 journeys with strict Pydantic JSON outputs (~60-100s cumulative LLM inference).",
                 contract: "ChatCompletion(Tools, Pydantic) -> StructuredOutput",
-                latency: "280ms",
-                throughput: "19 Claim Journeys",
+                latency: "~60–100s (Across ~10 Agents)",
+                throughput: "Azure OpenAI Service",
                 status: "OPTIMAL",
                 deps: ["LangGraph Multi-Agent Workflow"]
             },
@@ -874,8 +874,8 @@
                 title: "Azure Application Insights",
                 desc: "Distributed transaction tracing measuring pipeline ingestion throughput, agent latency, and model duration.",
                 contract: "DistributedTraceContext -> OpenTelemetry",
-                latency: "1ms",
-                throughput: "Dual Emit",
+                latency: "Async Batch",
+                throughput: "OTel Spans",
                 status: "EMITTING",
                 deps: ["Durable Functions", "LangGraph"]
             },
@@ -884,8 +884,8 @@
                 title: "LangFuse Business Observability",
                 desc: "Enterprise executive solution monitoring insurance claim journey SLA completion and transaction conversion metrics.",
                 contract: "OneAgent -> BusinessDashboards",
-                latency: "Real-time",
-                throughput: "Full GCC Suite",
+                latency: "Buffered Trace Flush",
+                throughput: "Distributed APM",
                 status: "EMITTING",
                 deps: ["Durable Functions", "LangGraph"]
             }
@@ -923,19 +923,19 @@
 
         // Telemetry Event Stream Simulator
         const sampleLogs = [
-            "[KAFKA_STREAM] Ingested partition #4 claim_id: CLM-84920 (Motor Vehicle)",
+            "[KAFKA_STREAM] Ingested partition #4 claim_id: CLM-84920 (~2s buffer)",
             "[DURABLE_ORCHESTRATOR] Initializing Activity 1 payload standardization",
             "[ACTIVITY_1] Payload standardized. Output schema certified by Pydantic",
-            "[LANGGRAPH_INVOKE] Dispatching claim CLM-84920 to Guardrails node",
-            "[GUARDRAILS] Content safety check PASSED. Policy match verified",
-            "[WEATHER_AGENT] GeoPoint: -33.8688, 151.2093 -> Querying BOM radar API",
+            "[LANGGRAPH_INVOKE] Dispatching claim CLM-84920 to Guardrails perimeter gate",
+            "[GUARDRAILS] Perimeter gate validated claim description: APPROVED via Pydantic model",
+            "[WEATHER_AGENT] GeoPoint: -33.8688, 151.2093 -> Querying BOM radar & ICEYE SAR",
             "[BOM_DATA_FEED] Rainfall intensity: 48mm/hr (Severe Storm Cluster)",
             "[COVERAGE_AGENT] Querying PDS Cache in Azure Blob Storage",
-            "[BLOB_STORAGE] Cache HIT (pds_hash: 0x9f8b2a). Lookup latency: 14ms",
+            "[BLOB_STORAGE] Cache HIT (pds_hash: 0x9f8b2a). Lookup completed",
             "[FRAUD_AGENT] Anomaly detection score: 0.04 (Low Risk Profile)",
             "[PAYMENT_RESERVE] Validating exposure threshold. Reserve initialized: $3,250",
             "[TRIAGE_SUPERVISOR] Routed to Straight-Through Processing (STP) channel",
-            "[FOUNDRY_INFERENCE] GPT-5.4 mini completed multi-tool reasoning in 240ms",
+            "[AZURE_OPENAI] GPT-4o completed multi-agent reasoning with Pydantic schema validation (APPROVED)",
             "[AUDITOR] Generated compliance certificate #AUD-99103. Invariants valid",
             "[DURABLE_ORCHESTRATOR] Activity 3 committed state to persistent store",
             "[APP_INSIGHTS] Dual-emit distributed trace dispatched to LangFuse"
